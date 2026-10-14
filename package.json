@@ -1,0 +1,65 @@
+{
+  "name": "base-pulse",
+  "private": true,
+  "version": "0.1.0",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "dev": "tsx server/index.ts",
+    "dev:site": "PULSE_API=http://localhost:3000 vite --host",
+    "build": "vite build && esbuild server/index.ts --bundle --platform=node --format=cjs --packages=external --sourcemap --outfile=dist/server.cjs",
+    "prebuild": "npm run check",
+    "start": "node dist/server.cjs",
+    "check": "tsc --noEmit && tsx scripts/check-tools.ts",
+    "test": "tsx --test tests/*.test.ts",
+    "preview": "vite preview",
+    "deploy": "bash scripts/deploy.sh",
+    "ship": "bash scripts/ship.sh"
+  },
+  "dependencies": {
+    "@fontsource-variable/archivo": "^5.3.0",
+    "@fontsource-variable/inter": "^5.3.0",
+    "@fontsource-variable/jetbrains-mono": "^5.3.0",
+    "@google-cloud/secret-manager": "^7.1.0",
+    "@modelcontextprotocol/sdk": "^1.30.0",
+    "@tailwindcss/vite": "^4.3.3",
+    "@x402/core": "^2.28.0",
+    "@x402/evm": "^2.28.0",
+    "@x402/express": "^2.28.0",
+    "@x402/extensions": "^2.28.0",
+    "@x402/mcp": "^2.28.0",
+    "cors": "^2.8.6",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "express-rate-limit": "^8.7.0",
+    "lucide-react": "^1.35.0",
+    "pg": "^8.23.0",
+    "react": "^19.0.1",
+    "react-dom": "^19.0.1",
+    "tailwindcss": "^4.3.3",
+    "viem": "^2.57.5",
+    "zod": "^4.5.4"
+  },
+  "devDependencies": {
+    "@electric-sql/pglite": "^0.5.8",
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.6",
+    "@types/pg": "^8.23.1",
+    "@vitejs/plugin-react": "^5.0.4",
+    "esbuild": "^0.28.2",
+    "tsx": "^4.23.13",
+    "typescript": "~5.8.2",
+    "vite": "^6.2.3"
+  },
+  "allowScripts": {
+    "esbuild": true,
+    "bufferutil": true,
+    "utf-8-validate@6.0.6": true
+  },
+  "optionalDependencies": {
+    "@rollup/rollup-linux-x64-gnu": "^4.63.1"
+  },
+  "engines": {
+    "node": ">=20.18"
+  }
+}

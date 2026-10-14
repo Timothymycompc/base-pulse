@@ -1,0 +1,10 @@
+node_modules/
+dist/
+*.log
+*.bak
+*.bak.*
+*.backup
+.env
+secrets.json
+secrets.json.enc
+updated/

@@ -1,0 +1,372 @@
+@import "tailwindcss";
+@import "@fontsource-variable/archivo/wdth.css";
+@import "@fontsource-variable/jetbrains-mono/wght.css";
+
+/* The look of a precision instrument: navy enamel, a brass bezel and a walnut case, because the site's job is
+   inspecting a transaction before money moves. One type family, Archivo, used at different widths: wide for
+   headlines, narrow for readouts (prices, counts, verdicts) like the markings on a dial. Mono is for code only. */
+@theme {
+  /* ============================================================
+     COLORS: change the site's look here, nowhere else.
+     ink      navy enamel: backgrounds, borders and text
+     accent   brass: links, the primary button, focus, the selected thing
+     gold     the same brass, named for the warm accents (selection, the edge of a pop-up)
+     tan      quiet labels on wood and brass
+     wood     walnut: the case around the instrument, table heads, menu headers
+     success / warning / danger   verdicts only (pass, caution, block)
+     Use them in markup as e.g. bg-ink-950, text-accent-300, border-danger-400.
+     ============================================================ */
+  --color-ink-50: #f5f6f9;
+  --color-ink-100: #e9ecf2;
+  --color-ink-200: #d3d8e2;
+  --color-ink-300: #b4bccb;
+  --color-ink-400: #8a94a8;
+  --color-ink-500: #657086;
+  --color-ink-600: #4a5468;
+  --color-ink-700: #333c4f;
+  --color-ink-800: #212a3b;
+  --color-ink-900: #131a28;
+  --color-ink-950: #0a0f19;
+
+  /* Panels sit a step above the enamel; code and inputs a step below. */
+  --color-panel: #121927;
+  --color-panel-raised: #182132;
+  --color-code: #0b1019;
+  --color-line: #232c3e;
+  --color-line-strong: #344057;
+
+  --color-accent-50: #fbf6ea;
+  --color-accent-100: #f5ead0;
+  --color-accent-200: #ecdcb0;
+  --color-accent-300: #dfc58a;
+  --color-accent-400: #cfab66;
+  --color-accent-500: #b8914b;
+  --color-accent-600: #9a773a;
+  --color-accent-700: #7a5e2f;
+  --color-accent-800: #5b4625;
+  --color-accent-900: #3d2f1a;
+  --color-accent-950: #241c10;
+
+  --color-gold-200: #ecdcb0;
+  --color-gold-300: #dfc58a;
+  --color-gold-400: #cfab66;
+  --color-gold-500: #b8914b;
+  --color-gold-600: #9a773a;
+
+  --color-tan-200: #e6d8c0;
+  --color-tan-300: #d0bc9b;
+  --color-tan-400: #b39c79;
+  --color-tan-500: #8d7a5c;
+
+  --color-wood-700: #4b3628;
+  --color-wood-800: #34261d;
+  --color-wood-900: #241b15;
+  --color-wood-950: #17120e;
+
+  --color-success-50: #ecfdf5;
+  --color-success-100: #d1fae5;
+  --color-success-200: #a7f3d0;
+  --color-success-300: #6ee7b7;
+  --color-success-400: #34d399;
+  --color-success-500: #10b981;
+
+  --color-warning-100: #fef3c7;
+  --color-warning-200: #fde68a;
+  --color-warning-300: #fcd34d;
+  --color-warning-400: #fbbf24;
+  --color-warning-500: #f59e0b;
+
+  --color-danger-100: #ffe4e6;
+  --color-danger-300: #fda4af;
+  --color-danger-400: #fb7185;
+  --color-danger-500: #f43f5e;
+
+  --color-info-50: #f0f6fb;
+  --color-info-100: #e4edf6;
+  --color-info-300: #9fbbd8;
+  --color-info-400: #7fa3c9;
+  --color-info-500: #5f88b5;
+
+  /* Page backdrop: navy light falling from the top of the page, as in the videos. */
+  --color-glow-top: #1d2a45;
+  --color-glow-bottom: #131c2e;
+
+  /* Owner dashboard: who made a tool call. Checked with the dataviz palette validator on the dark surface. */
+  --color-kind-you: #71717a;
+  --color-kind-bot: #3987e5;
+  --color-kind-ai-app: #d95926;
+  --color-kind-script: #199e70;
+  --color-kind-browser: #c98500;
+  --color-kind-other: #d55181;
+
+  --font-sans: "Archivo Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono Variable", ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  /* Motion: one easing family and three durations. */
+  --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out-soft: cubic-bezier(0.65, 0, 0.35, 1);
+  --duration-fast: 160ms;
+  --duration-base: 280ms;
+  --duration-slow: 520ms;
+
+  --animate-fade-in: fade-in var(--duration-base) var(--ease-out-soft) both;
+  --animate-fade-up: fade-up var(--duration-slow) var(--ease-out-soft) both;
+  --animate-scale-in: scale-in var(--duration-base) var(--ease-out-soft) both;
+  --animate-drop-in: drop-in var(--duration-base) var(--ease-out-soft) both;
+  --animate-sheet-up: sheet-up 340ms var(--ease-out-soft) both;
+  --animate-shimmer: shimmer 1.6s linear infinite;
+
+  @keyframes fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  @keyframes fade-up {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: none; }
+  }
+  @keyframes scale-in {
+    from { opacity: 0; transform: scale(0.97); }
+    to { opacity: 1; transform: none; }
+  }
+  /* A menu opening from the bar above it. */
+  @keyframes drop-in {
+    from { opacity: 0; transform: translateY(-6px) scale(0.985); }
+    to { opacity: 1; transform: none; }
+  }
+  /* The phone menu rising from the dock. */
+  @keyframes sheet-up {
+    from { transform: translateY(100%); }
+    to { transform: none; }
+  }
+  @keyframes shimmer {
+    from { background-position: -200% 0; }
+    to { background-position: 200% 0; }
+  }
+  /* The verdict stamp landing at the end of the home page's check. */
+  @keyframes stamp {
+    0% { opacity: 0; transform: scale(1.35) rotate(-4deg); }
+    60% { opacity: 1; transform: scale(0.96) rotate(0deg); }
+    100% { opacity: 1; transform: none; }
+  }
+  /* The brass rail on the home page filling in, step by step. */
+  @keyframes sweep {
+    from { transform: scaleX(0); }
+    to { transform: scaleX(1); }
+  }
+}
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+    /* Dark scrollbars, form controls and selection, so nothing renders in the browser's light defaults. */
+    color-scheme: dark;
+    scrollbar-color: var(--color-ink-700) transparent;
+  }
+  body {
+    @apply bg-ink-950 font-sans text-ink-200 antialiased selection:bg-accent-400 selection:text-ink-950;
+    font-stretch: 100%;
+  }
+  :focus-visible {
+    outline: 2px solid var(--color-accent-400);
+    outline-offset: 2px;
+  }
+}
+
+@layer components {
+  /* Fixed behind every page: navy light from the top left, a fainter pool bottom right, and a fine grid like
+     the face of a gauge, fading out below the fold. */
+  .video-backdrop {
+    background:
+      radial-gradient(ellipse 60% 55% at 18% -12%, color-mix(in srgb, var(--color-glow-top) 95%, transparent), transparent 72%),
+      radial-gradient(ellipse 42% 50% at 100% 100%, color-mix(in srgb, var(--color-glow-bottom) 90%, transparent), transparent 75%),
+      var(--color-ink-950);
+  }
+  .video-backdrop::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(to right, rgb(255 255 255 / 0.028) 1px, transparent 1px),
+      linear-gradient(to bottom, rgb(255 255 255 / 0.028) 1px, transparent 1px);
+    background-size: 56px 56px;
+    mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, black, transparent 78%);
+  }
+
+  /* Headlines: Archivo at its widest, so a title reads like the engraving on an instrument plate. */
+  .display {
+    font-stretch: 125%;
+    font-weight: 680;
+    letter-spacing: -0.025em;
+    line-height: 1.02;
+    color: var(--color-ink-50);
+    text-wrap: balance;
+  }
+  /* Readouts: Archivo narrow with even figures, for prices, counts, timings and verdicts. */
+  .readout {
+    font-stretch: 72%;
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: 0.01em;
+  }
+
+  /* Panels: enamel over the backdrop. Code and inputs sit in the darker code fill. */
+  .surface {
+    background: color-mix(in srgb, var(--color-panel) 90%, transparent);
+    border-color: var(--color-line);
+  }
+  .surface-inset {
+    background: var(--color-code);
+    border-color: var(--color-line);
+  }
+  .glass-strong {
+    background: color-mix(in srgb, var(--color-ink-950) 80%, transparent);
+    border-color: var(--color-line);
+    backdrop-filter: blur(18px) saturate(150%);
+    -webkit-backdrop-filter: blur(18px) saturate(150%);
+  }
+
+  /* The floating navigation bar: enamel glass with a hairline of brass light along its top edge. */
+  .instrument-bar {
+    background: color-mix(in srgb, var(--color-ink-900) 90%, transparent);
+    border: 1px solid var(--color-line);
+    box-shadow:
+      inset 0 1px 0 color-mix(in srgb, var(--color-accent-300) 12%, transparent),
+      0 18px 40px -24px rgb(0 0 0 / 0.8);
+    backdrop-filter: blur(18px) saturate(150%);
+    -webkit-backdrop-filter: blur(18px) saturate(150%);
+  }
+
+  /* The walnut case around the home page's instrument, with a brass bezel inside it. */
+  .instrument-case {
+    position: relative;
+    border-radius: 1.75rem;
+    padding: 10px;
+    background:
+      linear-gradient(160deg, color-mix(in srgb, var(--color-wood-700) 85%, black) 0%, var(--color-wood-900) 45%, var(--color-wood-950) 100%);
+    box-shadow:
+      inset 0 1px 0 rgb(255 240 210 / 0.12),
+      inset 0 -1px 0 rgb(0 0 0 / 0.5),
+      0 40px 90px -40px rgb(0 0 0 / 0.95);
+  }
+  .instrument-face {
+    position: relative;
+    overflow: hidden;
+    border-radius: 1.25rem;
+    background:
+      radial-gradient(ellipse 90% 60% at 50% 0%, color-mix(in srgb, var(--color-glow-top) 55%, transparent), transparent 70%),
+      var(--color-panel);
+    box-shadow:
+      0 0 0 1px color-mix(in srgb, var(--color-accent-500) 55%, transparent),
+      0 0 0 3px color-mix(in srgb, var(--color-wood-950) 90%, transparent),
+      0 0 0 4px color-mix(in srgb, var(--color-accent-400) 25%, transparent);
+  }
+
+  /* Walnut strip with a brass rule under it: the head of every table, menu and the toolbox. */
+  .wood-head {
+    background: color-mix(in srgb, var(--color-wood-900) 78%, var(--color-panel));
+    box-shadow: inset 0 -1px 0 color-mix(in srgb, var(--color-gold-500) 55%, transparent);
+    color: var(--color-tan-300);
+  }
+
+  /* Tables. Wrap in .table-scroll so wide tables scroll sideways on phones, with a shadow on the side that has more. */
+  .table-scroll {
+    overflow-x: auto;
+    background:
+      linear-gradient(to right, var(--color-panel) 40%, transparent) left / 28px 100% no-repeat local,
+      linear-gradient(to left, var(--color-panel) 40%, transparent) right / 28px 100% no-repeat local,
+      radial-gradient(farthest-side at 0 50%, rgb(0 0 0 / 0.55), transparent) left / 14px 100% no-repeat scroll,
+      radial-gradient(farthest-side at 100% 50%, rgb(0 0 0 / 0.55), transparent) right / 14px 100% no-repeat scroll,
+      var(--color-panel);
+  }
+  .data-table { width: 100%; text-align: left; border-collapse: collapse; }
+  .data-table thead th {
+    background: color-mix(in srgb, var(--color-wood-900) 78%, var(--color-panel));
+    box-shadow: inset 0 -1px 0 color-mix(in srgb, var(--color-gold-500) 55%, transparent);
+    color: var(--color-tan-300);
+    font-weight: 600;
+    white-space: nowrap;
+  }
+  .data-table tbody tr + tr { border-top: 1px solid var(--color-line); }
+  .data-table.striped tbody tr:nth-child(even) { background: color-mix(in srgb, var(--color-ink-800) 30%, transparent); }
+  .data-table tbody tr:hover { background: color-mix(in srgb, var(--color-ink-700) 26%, transparent); }
+  /* A row you can open, and the details under it once open: a brass edge ties the two together. */
+  .data-table tr.row-button { cursor: pointer; }
+  .data-table tr.row-button:hover > td:first-child,
+  .data-table tr.row-open > td:first-child,
+  .data-table tr.row-detail > td:first-child { box-shadow: inset 2px 0 0 var(--color-gold-400); }
+  .data-table tr.row-open, .data-table tr.row-detail { background: color-mix(in srgb, var(--color-wood-950) 70%, transparent); }
+  .data-table tr.row-detail { border-top-color: color-mix(in srgb, var(--color-wood-700) 60%, transparent); }
+
+  /* Pop-ups (menus, search, the phone sheet): a dimmed page behind a solid panel with a brass hairline. */
+  .popup-scrim {
+    background: color-mix(in srgb, var(--color-ink-950) 70%, transparent);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+  }
+  .popup {
+    background-color: var(--color-ink-900);
+    border: 1px solid var(--color-line-strong);
+    box-shadow:
+      inset 0 1px 0 color-mix(in srgb, var(--color-accent-300) 10%, transparent),
+      0 0 0 1px color-mix(in srgb, var(--color-gold-500) 10%, transparent),
+      0 32px 80px -20px rgb(0 0 0 / 0.8);
+  }
+
+  /* Verdict stamp: outlined pill in the verdict's own color, as in the videos (BLOCK, SAFE, MISMATCH). */
+  .stamp {
+    display: inline-flex;
+    align-items: center;
+    border: 1.5px solid currentColor;
+    border-radius: 9999px;
+    background: color-mix(in srgb, currentColor 14%, var(--color-panel));
+    font-stretch: 80%;
+    font-weight: 760;
+    letter-spacing: 0.04em;
+    line-height: 1;
+    white-space: nowrap;
+  }
+  .stamp-quiet {
+    border-width: 1px;
+    border-color: color-mix(in srgb, currentColor 45%, transparent);
+    background: transparent;
+    font-weight: 650;
+  }
+
+  /* Loading placeholder sweep. */
+  .skeleton {
+    background: linear-gradient(90deg, rgb(33 42 59 / 0.5) 25%, rgb(51 60 79 / 0.55) 50%, rgb(33 42 59 / 0.5) 75%);
+    background-size: 200% 100%;
+    animation: var(--animate-shimmer);
+  }
+
+  /* JSON syntax colors for the response viewer. */
+  .json-key { color: var(--color-accent-300); }
+  .json-string { color: var(--color-success-300); }
+  .json-number { color: var(--color-warning-300); }
+  .json-boolean { color: var(--color-info-300); }
+  .json-null { color: var(--color-ink-500); }
+}
+
+/* Page changes use the View Transitions API where the browser supports it. */
+::view-transition-old(page) {
+  animation: var(--duration-fast) var(--ease-in-out-soft) both page-out;
+}
+::view-transition-new(page) {
+  animation: var(--duration-base) var(--ease-out-soft) both page-in;
+}
+@keyframes page-out {
+  to { opacity: 0; }
+}
+@keyframes page-in {
+  from { opacity: 0; transform: translateY(6px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after, ::view-transition-group(*), ::view-transition-old(*), ::view-transition-new(*) {
+    animation-duration: 1ms !important;
+    animation-iteration-count: 1 !important;
+    animation-delay: 0ms !important;
+    transition-duration: 1ms !important;
+    scroll-behavior: auto !important;
+  }
+}
