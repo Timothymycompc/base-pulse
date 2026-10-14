@@ -181,6 +181,9 @@ const tokenSafety: ToolDef = {
         if (renounced) add(power.key, "info", `It has ${fns.join(", ")}, but ownership is renounced, so no one can use it.`, "verified ABI, owner() on chain");
         else add(power.key, established ? "info" : "warn", `${controller} can ${power.what} (${fns.join(", ")}): ${power.why}.`, "verified ABI, owner() on chain");
       }
+      // ERC-7802 cross-chain tokens (Clanker's among them) mint only when Optimism's Superchain token bridge moves tokens
+      // in from another chain, matched by a burn there. Checked in Clanker's verified source, 2026-10-14.
+      if (writes.includes("crosschainMint")) add("crosschain_mint", "info", "It has crosschainMint (ERC-7802): only Optimism's Superchain token bridge (0x4200000000000000000000000000000000000028) may call it, to bring tokens over from another chain where the same amount is burned. It isn't owner minting.", "verified ABI");
       if (renounced) add("owner", "pass", "Ownership is renounced: the owner address is empty.", "owner() on chain");
     }
 

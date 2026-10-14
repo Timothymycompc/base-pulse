@@ -47,7 +47,7 @@ export function summarize(fixtures: Fixture[]): string {
   const mintBoth = ran.filter((f) => check(f, "source")?.result === "pass" && f.labels.goplus?.is_mintable != null);
   const mintAgree = mintBoth.filter((f) => Boolean(check(f, "mint")) === (f.labels.goplus!.is_mintable === 1));
   lines.push("", "## Owner powers", "", `Mint power: both could read it for ${mintBoth.length} tokens; agreed on ${mintAgree.length}.`);
-  for (const f of mintBoth.filter((f) => !mintAgree.includes(f))) lines.push(`- ${f.result!.symbol}: ours ${check(f, "mint") ? check(f, "mint").result : "no mint function"}, GoPlus is_mintable=${f.labels.goplus!.is_mintable}`);
+  for (const f of mintBoth.filter((f) => !mintAgree.includes(f))) lines.push(`- ${f.result!.symbol}: ours ${check(f, "mint") ? check(f, "mint").result : check(f, "crosschain_mint") ? "only a bridge mint (crosschainMint, ERC-7802), which GoPlus counts as mintable" : "no mint function in the verified code"}, GoPlus is_mintable=${f.labels.goplus!.is_mintable}`);
 
   const srcBoth = ran.filter((f) => f.labels.goplus?.is_open_source != null);
   const weFound = srcBoth.filter((f) => check(f, "source")?.result === "pass").length;
