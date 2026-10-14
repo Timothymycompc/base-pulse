@@ -17,7 +17,7 @@ import { admitCall, getFreeCallStatus, hashIp, isOwnerKey, paidRouteMiddleware, 
 import { FREE_CALLS_PER_TOOL, FREE_CALLS_RESET, FREE_CALLS_TEXT, priceOf, TOOL_PRICES } from "./pricing";
 import { createX402, X402_NETWORK } from "./x402";
 import { ownerOverview } from "./owner";
-import { clientFor } from "./tools/chain";
+import { clientFor, simulationClients } from "./tools/chain";
 import { mcpDescription, priceText, toolDoc, ToolError, TOOLS, TOOLS_BY_NAME, type ToolContext, type ToolDef } from "./tools";
 
 // Where USDC payments go, on Base. Set before the first deploy; the server refuses to start without it.
@@ -81,6 +81,7 @@ async function startServer() {
 
   const ctx: ToolContext = {
     client: clientFor,
+    simulators: simulationClients,
     fetchJson: async (url, timeoutMs = 8000) => {
       const res = await fetch(url, { signal: AbortSignal.timeout(timeoutMs), headers: { accept: "application/json" } });
       if (!res.ok) throw new Error(`HTTP ${res.status} from ${new URL(url).host}`);

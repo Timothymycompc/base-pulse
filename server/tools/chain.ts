@@ -38,6 +38,13 @@ export function clientFor(network: string): PublicClient<Transport, Chain> {
   return clients.get(network)!;
 }
 
+// Nodes for eth_simulateV1, tried in order. Coinbase's node (BASE_RPC_URL) refuses simulation, so the trade test runs on
+// these free public nodes instead; BASE_SIMULATE_RPC_URL puts a paid one first.
+export function simulationClients(): PublicClient<Transport, Chain>[] {
+  const urls = [process.env.BASE_SIMULATE_RPC_URL, "https://base-rpc.publicnode.com", "https://mainnet.base.org"].filter(Boolean) as string[];
+  return urls.map((url) => createPublicClient({ chain: base, transport: http(url, { timeout: 15_000 }) }) as PublicClient<Transport, Chain>);
+}
+
 // An address input: 0x plus 40 hex characters. Returned in checksummed form so outputs are consistent.
 export const addressInput = z.string().refine((v) => isAddress(v, { strict: false }), "Not an address: expected 0x followed by 40 hex characters.");
 export const checksum = (address: string) => getAddress(address);

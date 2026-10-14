@@ -23,6 +23,8 @@ export type ToolContext = {
   // A read-only client for the chain the call asked for (Base mainnet unless the tool says otherwise).
   client: (network: string) => PublicClient<Transport, Chain>;
   fetchJson: (url: string, timeoutMs?: number) => Promise<any>;
+  // Nodes that answer eth_simulateV1, tried in order (see simulationClients). Defaults to client("base").
+  simulators?: () => PublicClient<Transport, Chain>[];
   // The current time in ms. Tests replaying recorded data pass the recording time, so age checks give the same answer.
   now?: () => number;
   // POST a JSON body and read JSON back. Optional so contexts that never need it can omit it.

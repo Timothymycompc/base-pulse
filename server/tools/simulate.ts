@@ -1,7 +1,7 @@
 // The trade test: buy a little of a token and sell it straight back, inside a simulation of the current block
 // (eth_simulateV1), so a token that can be bought but not sold (a honeypot) is caught before anyone pays. Nothing is
 // sent to the chain. Covers Uniswap v2 and v3 pools against WETH; other pools get "not tested" with the reason.
-import { decodeFunctionResult, encodeFunctionData, erc20Abi, maxUint256, numberToHex, parseAbi, type Hex } from "viem";
+import { decodeFunctionResult, encodeFunctionData, erc20Abi, maxUint256, numberToHex, parseAbi, type Chain, type Hex, type PublicClient, type Transport } from "viem";
 import { UNISWAP, WETH } from "./chain";
 import type { Pool } from "./market";
 import type { ToolContext } from "./types";
@@ -51,8 +51,8 @@ export async function pickTradePool(ctx: ToolContext, pools: Pool[]): Promise<Tr
 type Call = { to: string; data: Hex; value?: bigint };
 type CallResult = { ok: boolean; data: Hex; error: string | null };
 
-async function simulate(ctx: ToolContext, block: bigint, calls: Call[]): Promise<CallResult[]> {
-  const result: any = await ctx.client("base").request({
+async function simulate(client: PublicClient<Transport, Chain>, block: bigint, calls: Call[]): Promise<CallResult[]> {
+  const result: any = await client.request({
     method: "eth_simulateV1" as any,
     params: [{
       blockStateCalls: [{
@@ -120,10 +120,20 @@ export type TradeTest = {
   sellTax: number | null;
 };
 
+// Runs on the first simulation node that answers. The block comes from that same node, so both steps see one state.
 export async function tradeTest(ctx: ToolContext, token: string, pool: TradePool): Promise<TradeTest> {
-  const block = await ctx.client("base").getBlockNumber();
+  const nodes = ctx.simulators?.() ?? [ctx.client("base")];
+  let lastError: unknown;
+  for (const node of nodes) {
+    try { return await tradeTestOn(node, token, pool); } catch (error) { lastError = error; }
+  }
+  throw lastError;
+}
+
+async function tradeTestOn(client: PublicClient<Transport, Chain>, token: string, pool: TradePool): Promise<TradeTest> {
+  const block = await client.getBlockNumber();
   const { quote, buy } = buyCalls(token, pool);
-  const [buyQuote, buyResult, balance] = await simulate(ctx, block, [quote, buy, balanceOf(token)]);
+  const [buyQuote, buyResult, balance] = await simulate(client, block, [quote, buy, balanceOf(token)]);
   const received = readUint(balance);
   const base = { block: Number(block), pool };
   if (!buyResult.ok || !received) {
@@ -134,7 +144,7 @@ export async function tradeTest(ctx: ToolContext, token: string, pool: TradePool
   // The same buy again (same block, so the same result), then approve the router and sell every token received.
   const s = sellCalls(token, pool, received);
   const approve: Call = { to: token, data: encodeFunctionData({ abi: erc20Abi, functionName: "approve", args: [s.router as Hex, maxUint256] }) };
-  const results = await simulate(ctx, block, [buy, approve, s.quote, s.sell, balanceOf(WETH)]);
+  const results = await simulate(client, block, [buy, approve, s.quote, s.sell, balanceOf(WETH)]);
   const [, approveResult, sellQuote, sellResult, wethBalance] = results;
   if (!approveResult.ok) return { ...base, bought: true, buyError: null, buyTax, sold: false, sellError: `approve failed: ${approveResult.error ?? "reverted"}`, sellTax: null };
   if (!sellResult.ok) return { ...base, bought: true, buyError: null, buyTax, sold: false, sellError: sellResult.error ?? "the sell reverted", sellTax: null };
