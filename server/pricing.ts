@@ -11,6 +11,8 @@ export type ToolPrice = null | "$0.01" | "$0.02";
 export const TOOL_PRICES: Record<string, ToolPrice> = {
   // $0.01: basic reads and lookups.
   balance: "$0.01",
+  // $0.02: decisions that protect funds.
+  token_safety: "$0.02",
 };
 
 // Every tool is served at /api/tools/<name> over HTTP and by name over MCP; both share pricing and free calls.

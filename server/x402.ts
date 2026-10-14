@@ -31,6 +31,7 @@ const fitDescription = (text: string) => {
 // A fixed, real input for each paid tool's listing.
 export const LISTING_EXAMPLES: Record<string, Record<string, unknown>> = {
   balance: { wallet: EXAMPLE_WALLET },
+  token_safety: { token: "0x4ed4E862860beD51a9570b96d89aF5E1B0Efefed" },
 };
 
 export function discoveryFor(name: string) {

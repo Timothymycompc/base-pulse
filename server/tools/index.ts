@@ -1,10 +1,11 @@
 // The tool registry: one definition per tool drives MCP, HTTP, docs, llms.txt, mcp.json and the playground.
 import { z } from "zod";
+import { TOKEN_TOOLS } from "./tokens";
 import { WALLET_TOOLS } from "./wallet";
 import type { ToolDef } from "./types";
 import { FREE_CALLS_TEXT, priceOf } from "../pricing";
 
-export const TOOLS: ToolDef[] = [...WALLET_TOOLS];
+export const TOOLS: ToolDef[] = [...TOKEN_TOOLS, ...WALLET_TOOLS];
 export const TOOLS_BY_NAME = new Map(TOOLS.map((t) => [t.name, t] as [string, ToolDef]));
 
 export const priceText = (name: string) => {
