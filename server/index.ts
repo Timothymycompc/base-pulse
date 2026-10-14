@@ -21,7 +21,7 @@ import { clientFor } from "./tools/chain";
 import { mcpDescription, priceText, toolDoc, ToolError, TOOLS, TOOLS_BY_NAME, type ToolContext, type ToolDef } from "./tools";
 
 // Where USDC payments go, on Base. Set before the first deploy; the server refuses to start without it.
-const GATEWAY_WALLET = "";
+const GATEWAY_WALLET = "0x717bFe8505FA89C038b9832dCc187871003d4B93";
 const PUBLIC_URL = "https://base-pulse-1021990235790.us-central1.run.app";
 
 async function startServer() {
