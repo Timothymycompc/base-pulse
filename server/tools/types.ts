@@ -25,6 +25,8 @@ export type ToolContext = {
   fetchJson: (url: string, timeoutMs?: number) => Promise<any>;
   // Nodes that answer eth_simulateV1, tried in order (see simulationClients). Defaults to client("base").
   simulators?: () => PublicClient<Transport, Chain>[];
+  // Etherscan API key for Basescan's verified source. Defaults to the ETHERSCAN_API_KEY secret; "" means none.
+  etherscanKey?: string;
   // The current time in ms. Tests replaying recorded data pass the recording time, so age checks give the same answer.
   now?: () => number;
   // POST a JSON body and read JSON back. Optional so contexts that never need it can omit it.

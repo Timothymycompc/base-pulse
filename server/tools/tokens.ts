@@ -161,7 +161,10 @@ const tokenSafety: ToolDef = {
       else abi = null;
     }
     if (!source) add("source", "warn", "The verified-source service couldn't be reached, so what the owner can do wasn't checked. Retry for a full verdict.", "Sourcify");
-    else if (!abi) add("source", established ? "info" : "warn", `No verified source code was found (${process.env.ETHERSCAN_API_KEY ? "Sourcify and Basescan" : "Sourcify"}), so what the owner can do couldn't be read.`, process.env.ETHERSCAN_API_KEY ? "Sourcify, Basescan" : "Sourcify");
+    else if (!abi) {
+      const basescan = Boolean(ctx.etherscanKey ?? process.env.ETHERSCAN_API_KEY);
+      add("source", established ? "info" : "warn", `No verified source code was found (${basescan ? "Sourcify and Basescan" : "Sourcify"}), so what the owner can do couldn't be read.`, basescan ? "Sourcify, Basescan" : "Sourcify");
+    }
     else {
       add("source", "pass", `Source code is verified${source.name ? ` (${source.name})` : ""}.`, sourceFrom === "basescan" ? "Basescan" : "Sourcify");
       let owner: string | null = null;

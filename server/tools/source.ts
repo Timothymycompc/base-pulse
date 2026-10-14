@@ -32,7 +32,7 @@ export async function sourcifyFor(ctx: ToolContext, address: string): Promise<Ve
 // Basescan's verified source through the Etherscan v2 API, when an ETHERSCAN_API_KEY secret is set (free key at
 // https://etherscan.io/apis). Covers contracts verified only on Basescan, which Sourcify doesn't have.
 export async function etherscanFor(ctx: ToolContext, address: string): Promise<Verified | null> {
-  const key = process.env.ETHERSCAN_API_KEY;
+  const key = ctx.etherscanKey ?? process.env.ETHERSCAN_API_KEY;
   if (!key) return null;
   try {
     const d = await ctx.fetchJson(`https://api.etherscan.io/v2/api?chainid=8453&module=contract&action=getsourcecode&address=${address}&apikey=${key}`);

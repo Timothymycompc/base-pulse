@@ -5,7 +5,9 @@ import { base } from "viem/chains";
 import { simulationClients } from "../../server/tools/chain";
 import type { ToolContext } from "../../server/tools";
 
-export type Recording = { now: number; rpc: Record<string, unknown>; sim: Record<string, unknown>; http: Record<string, unknown> };
+// etherscan: whether an Etherscan key was set when recording. The key itself is never stored: fixtures are public.
+export type Recording = { now: number; etherscan?: boolean; rpc: Record<string, unknown>; sim: Record<string, unknown>; http: Record<string, unknown> };
+const redact = (url: string) => url.replace(/apikey=[^&]*/i, "apikey=REDACTED");
 type Stored = { result: unknown } | { error: { message: string; code?: number; data?: unknown } };
 
 const key = (method: string, params: unknown) => `${method} ${JSON.stringify(params ?? [])}`;
@@ -36,15 +38,17 @@ const fetchJson = async (url: string, timeoutMs = 8000) => {
 
 // A context that answers from the real chain and services and writes every answer into recording.
 export function recordingContext(): { ctx: ToolContext; recording: Recording } {
-  const recording: Recording = { now: Date.now(), rpc: {}, sim: {}, http: {} };
+  const etherscanKey = process.env.ETHERSCAN_API_KEY ?? "";
+  const recording: Recording = { now: Date.now(), etherscan: Boolean(etherscanKey), rpc: {}, sim: {}, http: {} };
   const main = http(process.env.BASE_RPC_URL || undefined, { timeout: 15_000 })({ chain: base });
   // Only the first simulation node is used, so the recording holds one node's view.
   const simNode = simulationClients()[0];
   const ctx: ToolContext = {
     now: () => recording.now,
+    etherscanKey,
     client: () => clientOver(({ method, params }) => remember(recording.rpc, key(method, params), () => main.request({ method, params } as any))),
     simulators: () => [clientOver(({ method, params }) => remember(recording.sim, key(method, params), () => simNode.request({ method, params } as any)))],
-    fetchJson: (url, timeoutMs) => remember(recording.http, url, () => fetchJson(url, timeoutMs)) as Promise<any>,
+    fetchJson: (url, timeoutMs) => remember(recording.http, redact(url), () => fetchJson(url, timeoutMs)) as Promise<any>,
   };
   return { ctx, recording };
 }
@@ -58,8 +62,9 @@ export function replayContext(recording: Recording): ToolContext {
   };
   return {
     now: () => recording.now,
+    etherscanKey: recording.etherscan ? "REDACTED" : "",
     client: () => clientOver(async ({ method, params }) => answer(recording.rpc, key(method, params))),
     simulators: () => [clientOver(async ({ method, params }) => answer(recording.sim, key(method, params)))],
-    fetchJson: async (url) => answer(recording.http, url),
+    fetchJson: async (url) => answer(recording.http, redact(url)),
   };
 }
