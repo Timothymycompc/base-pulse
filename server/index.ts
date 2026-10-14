@@ -27,7 +27,7 @@ const PUBLIC_URL = "https://base-pulse-1021990235790.us-central1.run.app";
 async function startServer() {
   if (!/^0x[0-9a-fA-F]{40}$/.test(GATEWAY_WALLET)) throw new Error("Set GATEWAY_WALLET in server/index.ts to the Base address that receives payments.");
   // This project's own database; the owner key, caller hash key and Coinbase key are shared with Solana Pulse.
-  await loadSecrets(["DATABASE_URL=BASE_PULSE_DATABASE_URL", "OWNER_API_KEY", "BASE_RPC_URL", "CALLER_HASH_SECRET", "CDP_API_KEY_ID", "CDP_API_KEY_SECRET"]);
+  await loadSecrets(["DATABASE_URL=BASE_PULSE_DATABASE_URL", "OWNER_API_KEY", "BASE_RPC_URL", "CALLER_HASH_SECRET", "CDP_API_KEY_ID", "CDP_API_KEY_SECRET", "ETHERSCAN_API_KEY"]);
   await ensureSchema();
   void clearOldToolIo();
   setInterval(() => void clearOldToolIo(), 6 * 60 * 60 * 1000).unref();

@@ -17,7 +17,16 @@ export const UNISWAP = {
   v3Factory: "0x33128a8fC17869897dcE68Ed026d694621f6FDfD",
   v3Router: "0x2626664c2603336E57B271c5C0b26F421741e481", // SwapRouter02
   v3Quoter: "0x3d4e44Eb1374240CE5F1B871ab261CD16335B76a", // QuoterV2
+  // v4, from https://docs.uniswap.org/contracts/v4/deployments (the quoter and position manager report this pool manager).
+  v4PoolManager: "0x498581fF718922c3f8e6A244956aF099B2652b2b",
+  v4Quoter: "0x0d5e0F971ED27FBfF6c2837bf31316121532048D",
+  universalRouter: "0x6fF5693b99212Da76ad316178A184AB56D299b43",
+  permit2: "0x000000000022D473030F116dDEE9F6B43aC78BA3",
 } as const;
+
+// Multicall3, used here only for getEthBalance inside simulations. Same address on every EVM chain.
+export const MULTICALL3 = "0xcA11bde05977b3631167028862bE2a173976CA11";
+export const NATIVE = "0x0000000000000000000000000000000000000000";
 
 // A public, well-known wallet with real Base holdings, used for live examples.
 export const EXAMPLE_WALLET = "0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045";

@@ -14,6 +14,7 @@ Built from the same plumbing as [Solana Pulse](https://github.com/Timothymycompc
 
 | Tool | What it answers | Status |
 | --- | --- | --- |
+| `token_safety` | Is this token a known trap? A simulated buy and sell on Uniswap v2, v3 or v4 (honeypots, hidden taxes), owner powers (mint, block wallets, fees, pause, sell caps), upgradeable code, verified source, liquidity and pool age. [Measured accuracy](tests/fixtures/token-safety/ACCURACY.md). | Built |
 | `balance` | How much ETH and USDC does this wallet hold? | Built |
 
 ## Planned tools (not built yet)
@@ -22,7 +23,6 @@ The current piece of work. Each one is built, tested on recorded mainnet data an
 
 | Tool | What it will answer |
 | --- | --- |
-| `token_safety` | Is this token a known trap? Honeypot (a simulated buy and sell), owner powers (mint, pause, blacklist, fee changes), upgradeable proxy, unverified source, thin liquidity. |
 | `check_tx` | What will this unsigned transaction do to each wallet, including approvals it grants? |
 | `check_signature` | What does this signature request (Permit, Permit2, Seaport order) let someone take? |
 | `approvals` | Which spenders can move this wallet's tokens right now? |
@@ -42,7 +42,9 @@ See [DEVELOPING.md](DEVELOPING.md). `npm test` runs the tests, `ship` (from `~/b
 | Secret | What it is |
 | --- | --- |
 | `BASE_PULSE_DATABASE_URL` | This project's database on the shared Cloud SQL instance `solana-pulse-db` (database `base_pulse`). Loaded into `DATABASE_URL`. |
-| `BASE_RPC_URL` | A Base mainnet RPC endpoint with an API key. Without it, the slow public endpoint is used. |
+| `BASE_RPC_URL` | Coinbase's Base node (CDP). Used for every read except simulations, which it refuses. |
+| `BASE_SIMULATE_RPC_URL` (optional) | A node that allows `eth_simulateV1`, tried before the free public ones. |
+| `ETHERSCAN_API_KEY` (optional) | Lets `token_safety` read source verified only on Basescan. Without it, only Sourcify is checked. |
 | `OWNER_API_KEY`, `CALLER_HASH_SECRET`, `CDP_API_KEY_ID`, `CDP_API_KEY_SECRET` | Shared with Solana Pulse. |
 
 ## License

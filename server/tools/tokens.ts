@@ -23,6 +23,9 @@ export const ESTABLISHED: Record<string, string> = {
 // Thresholds, each with its reason.
 // Liquidity under $10,000: one sale moves the price a lot and the pool can be emptied cheaply.
 export const MIN_LIQUIDITY_USD = 10_000;
+// Liquidity under $1,000: there is almost nothing to sell into. This is what a pool looks like after its liquidity has
+// been pulled (measured 2026-10-14: AMZN and POOLS on Base, both $0, where 20+ buyers were left holding).
+export const EMPTY_LIQUIDITY_USD = 1_000;
 // Pools under a day old: most rug pulls happen within hours of launch.
 export const MIN_AGE_HOURS = 24;
 // Tax: above 10% is a warning (most honest tokens charge 0-5%); above 50% is a trap (you lose most of every sale).
@@ -30,8 +33,9 @@ export const TAX_WARN = 0.1;
 export const TAX_FAIL = 0.5;
 
 // Owner powers read from the verified ABI. A power only matters while someone holds it (see ownerActive).
+// mint also covers launchpad variants such as mintInflation and updateMintRate (Doppler's DERC20), found when measuring.
 export const POWERS = [
-  { key: "mint", re: /^(mint|mintTo|issue)$/i, what: "create new tokens", why: "new supply can be created and sold into the pool, crashing the price for holders" },
+  { key: "mint", re: /^(mint\w*|issue|\w*MintRate)$/i, what: "create new tokens", why: "new supply can be created and sold into the pool, crashing the price for holders" },
   { key: "blacklist", re: /(blacklist|blocklist|denylist|addBots?$|setBots?$|blockAddress|setBlocked|setSniper)/i, what: "block wallets", why: "a blocked wallet can buy but never sell" },
   { key: "fees", re: /^(set|update|change)\w*(fee|tax)/i, what: "change the trading fee", why: "the sell fee can be raised to 100% after people buy" },
   { key: "pause", re: /^(pause|setPaused|setPause|disableTrading|stopTrading)$/i, what: "stop transfers", why: "trading can be frozen while the owner exits" },
@@ -63,13 +67,13 @@ const tokenSafety: ToolDef = {
     { field: "verdict", type: '"SAFE" | "CAUTION" | "AVOID"', is: "The answer. AVOID: at least one check failed. CAUTION: at least one warning, or something that couldn't be checked. SAFE: no warnings.", howWorkedOut: "The worst check wins." },
     { field: "summary", type: "string", is: "One sentence explaining the verdict.", howWorkedOut: "Built from the failed and warning checks." },
     { field: "checks[]", type: "array", is: "Every check: name, result (pass, warn, fail, info), detail in plain words, and source.", howWorkedOut: "One entry per rule; see the tool notes for the rules." },
-    { field: "trade_test", type: "object | null", is: "The simulated buy and sell: pool, block, whether each worked, buy_tax and sell_tax as fractions.", howWorkedOut: "eth_simulateV1 at the latest block: a made-up wallet buys 0.01 ETH of the token on its deepest Uniswap v2 or v3 WETH pool, then sells everything back. Taxes compare what arrived with the pool's own quote. null when no such pool exists." },
+    { field: "trade_test", type: "object | null", is: "The simulated buy and sell: pool, block, whether each worked, buy_tax and sell_tax as fractions.", howWorkedOut: "eth_simulateV1 at the latest block: a made-up wallet buys 0.01 ETH of the token on its deepest Uniswap v2, v3 or v4 pool against ETH or WETH, then sells everything back (v4 through the Universal Router and Permit2, as a real wallet would). Taxes compare what arrived with the pool's own quote. null when no such pool exists." },
     { field: "liquidity_usd", type: "number | null", is: "Total liquidity across the pools DexScreener lists, in US dollars.", howWorkedOut: "Sum of DexScreener's liquidity for each pool it lists (at most 30, so a widely traded token may have more). null when DexScreener couldn't be reached." },
     { field: "sources", type: "string[]", is: "Where the facts came from.", howWorkedOut: "Each data source used." },
   ],
   notes: [
     "Not checked yet: how concentrated the holders are, and whether liquidity is locked. Both need data we don't have a free, reliable source for on Base.",
-    "The trade test covers Uniswap v2 and v3 pools against WETH. A token that trades only elsewhere (Aerodrome, Uniswap v4) gets a warning that selling wasn't tested.",
+    "The trade test covers Uniswap v2, v3 and v4 pools against ETH or WETH. A token that trades only elsewhere (for example Aerodrome, or against another token) gets a warning that selling wasn't tested.",
     "Verified source comes from Sourcify, and from Basescan when an Etherscan key is configured. A contract with no source found gets a warning: its owner powers can't be read.",
   ],
   example: async () => ({ token: "0x4ed4E862860beD51a9570b96d89aF5E1B0Efefed" }),
@@ -120,16 +124,22 @@ const tokenSafety: ToolDef = {
         }
       } else {
         add("sell", established ? "info" : "warn", market.pools.length
-          ? `Selling wasn't tested: none of the ${market.pools.length} pool(s) DexScreener lists is a Uniswap v2 or v3 pool against WETH, which is what the test covers so far.`
+          ? `Selling wasn't tested: none of the ${market.pools.length} pool(s) DexScreener lists is a Uniswap v2, v3 or v4 pool against ETH or WETH, which is what the test covers so far.`
           : "Selling wasn't tested: no pool for this token was found on Base.", "DexScreener");
       }
     } else add("market", "warn", `Market data is unavailable right now (${"error" in market ? market.error : "no answer"}), so the trade test, liquidity and age weren't checked. Retry for a full verdict.`, "DexScreener");
 
     // Liquidity and age.
+    // Pools DexScreener gives no liquidity figure for count as unknown, never as $0.
+    const priced = market.ok ? market.pools.filter((p) => p.liquidityUsd !== null) : [];
+    if (market.ok && market.pools.length && !priced.length) add("liquidity", established ? "info" : "warn", "Liquidity is unknown: DexScreener gives no figure for this token's pools.", "DexScreener");
+    if (market.ok && priced.length) {
+      const liquidity = priced.reduce((sum, p) => sum + p.liquidityUsd!, 0);
+      if (liquidity < EMPTY_LIQUIDITY_USD && !established) add("liquidity", "fail", `Only ${usd(liquidity)} of liquidity across the ${priced.length} pool(s) DexScreener lists: there is almost nothing to sell into, which is how a pool looks after its liquidity is pulled.`, "DexScreener");
+      else if (liquidity < MIN_LIQUIDITY_USD) add("liquidity", established ? "info" : "warn", `Only ${usd(liquidity)} of liquidity across the ${priced.length} pool(s) DexScreener lists. One sale can move the price a lot, and the pool is cheap to drain.`, "DexScreener");
+      else add("liquidity", "pass", `${usd(liquidity)} of liquidity across the ${priced.length} pool(s) DexScreener lists${priced.length >= 30 ? " (its maximum, so there may be more)" : ""}.`, "DexScreener");
+    }
     if (market.ok && market.pools.length) {
-      const liquidity = market.pools.reduce((sum, p) => sum + (p.liquidityUsd ?? 0), 0);
-      if (liquidity < MIN_LIQUIDITY_USD) add("liquidity", established ? "info" : "warn", `Only ${usd(liquidity)} of liquidity across the ${market.pools.length} pool(s) DexScreener lists. One sale can move the price a lot, and the pool is cheap to drain.`, "DexScreener");
-      else add("liquidity", "pass", `${usd(liquidity)} of liquidity across the ${market.pools.length} pool(s) DexScreener lists${market.pools.length >= 30 ? " (its maximum, so there may be more)" : ""}.`, "DexScreener");
       const oldest = Math.min(...market.pools.map((p) => p.createdAt ?? Infinity));
       if (Number.isFinite(oldest)) {
         const hours = ((ctx.now ?? Date.now)() - oldest) / 3_600_000;
@@ -181,7 +191,7 @@ const tokenSafety: ToolDef = {
     return {
       token: address, symbol, name, decimals, verdict, summary, checks,
       trade_test: trade && { pool: trade.pool.address, pool_kind: `uniswap ${trade.pool.kind}`, block: trade.block, bought: trade.bought, sold: trade.sold, buy_tax: trade.buyTax, sell_tax: trade.sellTax, buy_error: trade.buyError, sell_error: trade.sellError },
-      liquidity_usd: market.ok ? Math.round(market.pools.reduce((s, p) => s + (p.liquidityUsd ?? 0), 0)) : null,
+      liquidity_usd: priced.length ? Math.round(priced.reduce((s, p) => s + p.liquidityUsd!, 0)) : null,
       sources,
     };
   },
