@@ -12,26 +12,33 @@ Built from the same plumbing as [Solana Pulse](https://github.com/Timothymycompc
 
 ## Tools
 
-| Tool | What it answers | Status |
+Safety checks give a verdict. "SAFE" means none of the traps we know about were found, not that something is safe (see [PRINCIPLES.md](PRINCIPLES.md)). Every tool is tested against recorded real Base mainnet cases in [tests/fixtures](tests/fixtures); the count is in the last column.
+
+### Before money moves
+
+| Tool | What it answers | Verdicts | Real cases |
+| --- | --- | --- | --- |
+| `token_safety` | Is this token a known trap? A simulated buy and sell on Uniswap v2, v3 or v4 (honeypots, hidden taxes), owner powers (mint, block wallets, fees, pause, sell caps), upgradeable code, verified source, liquidity and pool age. | SAFE / CAUTION / AVOID | 51, [measured accuracy](tests/fixtures/token-safety/ACCURACY.md) |
+| `recipient_check` | Is this the right address to send to? Checks it against the sender's own history: paid before, a look-alike of someone they paid (address poisoning), or only seen through transfers the sender never signed. | SAFE / CAUTION / AVOID | 4 |
+| `sanctions_check` | Is this address on OFAC's sanctions list, or has it traded directly with one that is? Uses Treasury's official list, refreshed every 12 hours. | CLEAR / NOT_LISTED / DIRECT_EXPOSURE / SANCTIONED | 4 |
+| `x402_check` | Is this x402 payment request safe to pay? What it really costs in dollars, whether the asset is real USDC on Base, and who gets paid. | SAFE / CAUTION / AVOID | 7 |
+| `check_signature` | What does this signature request let someone take? Permit, DAI permit, Permit2 (allowance and one-time transfer) and Seaport orders. | SAFE / CAUTION / AVOID | 7 |
+| `tx_matches` | Does this transaction send exactly the token, amount and recipient that was asked for, and nothing else? | MATCH / MISMATCH | 4 |
+| `check_tx` | What will this unsigned transaction do to each wallet? Simulated on the latest block: every token, NFT and ETH movement, every approval granted, and whether it would fail. | SAFE / CAUTION / AVOID | 6 |
+| `approvals` | Who can move this wallet's tokens right now? Live ERC-20, Permit2 and NFT approve-all approvals, and who each spender is. | CLEAR / REVIEW / DANGER | 4 |
+
+### Reads
+
+| Tool | What it answers | Real cases |
 | --- | --- | --- |
-| `token_safety` | Is this token a known trap? A simulated buy and sell on Uniswap v2, v3 or v4 (honeypots, hidden taxes), owner powers (mint, block wallets, fees, pause, sell caps), upgradeable code, verified source, liquidity and pool age. [Measured accuracy](tests/fixtures/token-safety/ACCURACY.md). | Built |
-| `balance` | How much ETH and USDC does this wallet hold? | Built |
+| `explain_tx` | What did this landed transaction do, and why did it fail? Function called, everything that moved, approvals granted, and the full fee including Base's L1 data fee. | 6 |
+| `whats_this` | Is this address a wallet, a contract, a token, an NFT collection, a Safe or a proxy, and is its source verified? | 6 |
+| `find_token` | Which contract is the real token for this ticker, and which are copycats? Names the real one only when the issuer or a curated list confirms it. | 5 |
+| `convert` | What is this human amount in the token's raw units (or back), using its real decimals? Refuses instead of rounding. | 5 |
+| `gas` | What will this cost on Base, including the L1 data fee, in ETH and dollars? | 3 |
+| `balance` | How much ETH and USDC does this wallet hold? | 2 |
 
-## Planned tools (not built yet)
-
-The current piece of work. Each one is built, tested on recorded mainnet data and documented before the next starts.
-
-| Tool | What it will answer |
-| --- | --- |
-| `check_tx` | What will this unsigned transaction do to each wallet, including approvals it grants? |
-| `check_signature` | What does this signature request (Permit, Permit2, Seaport order) let someone take? |
-| `approvals` | Which spenders can move this wallet's tokens right now? |
-| `tx_matches` | Does this transaction send exactly the token, amount and recipient that was asked for? |
-| `explain_tx` | What did this landed transaction do, and why did it fail? |
-| `whats_this` | Is this address a wallet, a contract, a token or a proxy, and is its source verified? |
-| `find_token` | Which contract is the real token for this ticker, and which are copycats? |
-| `convert` | What is this human amount in the token's raw units, using its real decimals? |
-| `gas` | What will this cost on Base, including the L1 data fee? |
+Only `token_safety` has been measured on a broad sample so far. The other verdict tools pass every recorded case, but a handful of hand-picked cases is not a measured accuracy; measuring each one on a larger real sample is the next piece of work.
 
 ## Running it
 
