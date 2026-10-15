@@ -1,0 +1,54 @@
+{
+ "tool": "whats_this",
+ "case": "plain-wallet",
+ "note": "The burn address has no code: reported as a wallet.",
+ "args": {
+  "address": "0x000000000000000000000000000000000000dEaD",
+  "network": "base"
+ },
+ "recordedAt": "2026-10-15T01:17:08.619Z",
+ "expect": {
+  "kind": "wallet",
+  "warnings": []
+ },
+ "result": {
+  "address": "0x000000000000000000000000000000000000dEaD",
+  "eth": "4.468982427072889173",
+  "tx_count": 0,
+  "delegated_to": null,
+  "proxy": null,
+  "token": null,
+  "nft": null,
+  "multisig": null,
+  "kind": "wallet",
+  "source": {
+   "verified": null,
+   "name": null,
+   "from": "not a contract"
+  },
+  "what_it_is": "A wallet (no code): a person or app holds its key.",
+  "warnings": [],
+  "sources": [
+   "Base RPC: eth_getCode, eth_getBalance, eth_getTransactionCount, EIP-1967 storage slots, and the contract's own answers",
+   "verified source: not a contract"
+  ]
+ },
+ "error": null,
+ "recording": {
+  "now": 1792027028619,
+  "etherscan": true,
+  "rpc": {
+   "eth_getBalance [\"0x000000000000000000000000000000000000dEaD\",\"latest\"]": {
+    "result": "0x3e0503d6f9248155"
+   },
+   "eth_getCode [\"0x000000000000000000000000000000000000dEaD\",\"latest\"]": {
+    "result": "0x"
+   },
+   "eth_getTransactionCount [\"0x000000000000000000000000000000000000dEaD\",\"latest\"]": {
+    "result": "0x0"
+   }
+  },
+  "sim": {},
+  "http": {}
+ }
+}

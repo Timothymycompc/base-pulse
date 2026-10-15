@@ -32,6 +32,18 @@ const fitDescription = (text: string) => {
 export const LISTING_EXAMPLES: Record<string, Record<string, unknown>> = {
   balance: { wallet: EXAMPLE_WALLET },
   token_safety: { token: "0x4ed4E862860beD51a9570b96d89aF5E1B0Efefed" },
+  convert: { token: "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913", amount: "25.5" },
+  gas: {},
+  x402_check: { payment_required: { x402Version: 2, accepts: [{ scheme: "exact", network: "eip155:8453", amount: "10000", asset: "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913", payTo: "0x7284D41b5b852F2bd4c99bDf95043D84452d299C", maxTimeoutSeconds: 300, extra: { name: "USD Coin", version: "2" } }] }, expected_price_usd: 0.01 },
+  check_signature: { typed_data: { domain: { name: "USD Coin", version: "2", chainId: 8453, verifyingContract: "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913" }, primaryType: "Permit", message: { owner: EXAMPLE_WALLET, spender: "0x1111111111111111111111111111111111111111", value: "1000000", nonce: "0", deadline: "1893456000" } } },
+  explain_tx: { hash: "0xe434fc498632799935456fb454d22abc56938fb93792bbb7beb2bd3d19fcf4b5" },
+  check_tx: { tx: { from: EXAMPLE_WALLET, to: "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913", data: "0x095ea7b30000000000000000000000001111111111111111111111111111111111111111ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff" } },
+  tx_matches: { tx: { from: EXAMPLE_WALLET, to: "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913", data: "0xa9059cbb000000000000000000000000000000000000000000000000000000000000dead0000000000000000000000000000000000000000000000000000000000002710" }, intent: { token: "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913", amount: "0.01", to: "0x000000000000000000000000000000000000dEaD" } },
+  recipient_check: { from: EXAMPLE_WALLET, to: "0x000000000000000000000000000000000000dEaD" },
+  sanctions_check: { address: EXAMPLE_WALLET },
+  find_token: { query: "USDC" },
+  approvals: { wallet: EXAMPLE_WALLET },
+  whats_this: { address: "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913" },
 };
 
 export function discoveryFor(name: string) {

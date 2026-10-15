@@ -1,5 +1,6 @@
 import type { Chain, PublicClient, Transport } from "viem";
 import type { z } from "zod";
+import type { SanctionsList } from "../ofac";
 
 // Documentation for one input, in plain words: what it is looking for and where to get it.
 export type InputDoc = {
@@ -31,6 +32,10 @@ export type ToolContext = {
   now?: () => number;
   // POST a JSON body and read JSON back. Optional so contexts that never need it can omit it.
   postJson?: (url: string, body: unknown, timeoutMs?: number) => Promise<any>;
+  // Coinbase's SQL API over indexed Base history (see cdpSql in server/cdp.ts). Absent when no CDP key is configured.
+  sql?: (query: string) => Promise<Record<string, any>[]>;
+  // OFAC's sanctioned EVM addresses. Defaults to the server's copy (bundled, refreshed every 12 hours).
+  sanctions?: () => Promise<SanctionsList>;
 };
 
 export type ToolCategory = "transactions" | "tokens" | "wallets" | "network" | "reference";

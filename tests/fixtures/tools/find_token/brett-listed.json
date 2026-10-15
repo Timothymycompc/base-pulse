@@ -1,0 +1,4639 @@
+{
+ "tool": "find_token",
+ "case": "brett-listed",
+ "note": "BRETT is on CoinGecko's Base list at 0x532f...42E4 (the token_safety fixtures use the same address).",
+ "args": {
+  "query": "$BRETT"
+ },
+ "recordedAt": "2026-10-15T01:41:29.834Z",
+ "expect": {
+  "answer.address": "0x532f27101965dd16442E59d40670FaF5eBB142E4"
+ },
+ "result": {
+  "query": "BRETT",
+  "answer": {
+   "address": "0x532f27101965dd16442E59d40670FaF5eBB142E4",
+   "symbol": "BRETT",
+   "name": "Brett",
+   "why": "On CoinGecko's Base list."
+  },
+  "confidence": "listed",
+  "candidates": [
+   {
+    "address": "0x532f27101965dd16442E59d40670FaF5eBB142E4",
+    "symbol": "BRETT",
+    "name": "Brett",
+    "lists": [
+     "coingecko"
+    ],
+    "liquidity_usd": 2302362,
+    "pools": 30,
+    "oldest_pool_days": 963,
+    "copycat": false
+   },
+   {
+    "address": "0x7b7353aEE1F7881B0C2E84835ef665119591abA3",
+    "symbol": "BRETT",
+    "name": "BRETT",
+    "lists": [],
+    "liquidity_usd": 22561,
+    "pools": 1,
+    "oldest_pool_days": 203,
+    "copycat": true
+   }
+  ],
+  "warning": "1 other contract(s) also call themselves BRETT. Use only 0x532f27101965dd16442E59d40670FaF5eBB142E4.",
+  "sources": [
+   "Base Pulse issuer list (checked on chain)",
+   "Uniswap default token list",
+   "CoinGecko Base token list",
+   "DexScreener search and token pairs",
+   "symbol() and name() on chain"
+  ]
+ },
+ "error": null,
+ "recording": {
+  "now": 1792028489834,
+  "etherscan": false,
+  "rpc": {
+   "eth_call [{\"data\":\"0x82ad56cb000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000040000000000000000000000000000000000000000000000000000000000000080000000000000000000000000000000000000000000000000000000000000012000000000000000000000000000000000000000000000000000000000000001c00000000000000000000000000000000000000000000000000000000000000260000000000000000000000000532f27101965dd16442e59d40670faf5ebb142e400000000000000000000000000000000000000000000000000000000000000010000000000000000000000000000000000000000000000000000000000000060000000000000000000000000000000000000000000000000000000000000000495d89b4100000000000000000000000000000000000000000000000000000000000000000000000000000000532f27101965dd16442e59d40670faf5ebb142e400000000000000000000000000000000000000000000000000000000000000010000000000000000000000000000000000000000000000000000000000000060000000000000000000000000000000000000000000000000000000000000000406fdde03000000000000000000000000000000000000000000000000000000000000000000000000000000007b7353aee1f7881b0c2e84835ef665119591aba300000000000000000000000000000000000000000000000000000000000000010000000000000000000000000000000000000000000000000000000000000060000000000000000000000000000000000000000000000000000000000000000495d89b41000000000000000000000000000000000000000000000000000000000000000000000000000000007b7353aee1f7881b0c2e84835ef665119591aba300000000000000000000000000000000000000000000000000000000000000010000000000000000000000000000000000000000000000000000000000000060000000000000000000000000000000000000000000000000000000000000000406fdde0300000000000000000000000000000000000000000000000000000000\",\"to\":\"0xca11bde05977b3631167028862be2a173976ca11\"},\"latest\"]": {
+    "result": "0x0000000000000000000000000000000000000000000000000000000000000020000000000000000000000000000000000000000000000000000000000000000400000000000000000000000000000000000000000000000000000000000000800000000000000000000000000000000000000000000000000000000000000140000000000000000000000000000000000000000000000000000000000000020000000000000000000000000000000000000000000000000000000000000002c0000000000000000000000000000000000000000000000000000000000000000100000000000000000000000000000000000000000000000000000000000000400000000000000000000000000000000000000000000000000000000000000060000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000054252455454000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000100000000000000000000000000000000000000000000000000000000000000400000000000000000000000000000000000000000000000000000000000000060000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000054272657474000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000100000000000000000000000000000000000000000000000000000000000000400000000000000000000000000000000000000000000000000000000000000060000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000054252455454000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000100000000000000000000000000000000000000000000000000000000000000400000000000000000000000000000000000000000000000000000000000000060000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000054252455454000000000000000000000000000000000000000000000000000000"
+   }
+  },
+  "sim": {},
+  "http": {
+   "https://api.dexscreener.com/latest/dex/search?q=BRETT": {
+    "result": {
+     "schemaVersion": "1.0.0",
+     "pairs": [
+      {
+       "chainId": "robinhood",
+       "dexId": "uniswap",
+       "url": "https://dexscreener.com/robinhood/0x6d6548c035fd8c86880e10624d451d24e3059349",
+       "pairAddress": "0x6D6548c035Fd8C86880E10624d451D24E3059349",
+       "labels": [
+        "v3"
+       ],
+       "baseToken": {
+        "address": "0x105CcA066775368454bf243D3dD4c623C7E6150c",
+        "name": "Brett on Hood",
+        "symbol": "BRETT"
+       },
+       "quoteToken": {
+        "address": "0x0Bd7D308f8E1639FAb988df18A8011f41EAcAD73",
+        "name": "WETH",
+        "symbol": "WETH"
+       },
+       "priceNative": "0.000000002675",
+       "priceUsd": "0.000006466",
+       "txns": {
+        "m5": {
+         "buys": 0,
+         "sells": 1
+        },
+        "h1": {
+         "buys": 2,
+         "sells": 9
+        },
+        "h6": {
+         "buys": 16,
+         "sells": 90
+        },
+        "h24": {
+         "buys": 46,
+         "sells": 259
+        }
+       },
+       "volume": {
+        "h24": 72.54,
+        "h6": 22.92,
+        "h1": 3.92,
+        "m5": 0
+       },
+       "priceChange": {
+        "m5": 0.04,
+        "h1": -0.26,
+        "h6": -0.36,
+        "h24": -3.09
+       },
+       "liquidity": {
+        "usd": 5983.25,
+        "base": 719119459,
+        "quote": 0.5515
+       },
+       "fdv": 6309,
+       "marketCap": 6309,
+       "pairCreatedAt": 1786373099000,
+       "info": {
+        "imageUrl": "https://cdn.dexscreener.com/cms/images/V6ucYGFj9Q7GME9O?width=800&height=800&quality=95&format=auto",
+        "header": "https://cdn.dexscreener.com/cms/images/NhllcSRhVSrd6nl4?width=1500&height=500&quality=95&format=auto",
+        "openGraph": "https://cdn.dexscreener.com/token-images/og/robinhood/0x105cca066775368454bf243d3dd4c623c7e6150c?timestamp=1792028400000",
+        "websites": [
+         {
+          "url": "https://brettonhood.meme/",
+          "label": "Website"
+         }
+        ],
+        "socials": [
+         {
+          "url": "https://x.com/BrettonHood_",
+          "type": "twitter"
+         },
+         {
+          "url": "https://t.me/brettonhoodcommunity",
+          "type": "telegram"
+         }
+        ]
+       }
+      },
+      {
+       "chainId": "base",
+       "dexId": "aerodrome",
+       "url": "https://dexscreener.com/base/0x4e829f8a5213c42535ab84aa40bd4adcce9cba02",
+       "pairAddress": "0x4e829F8A5213c42535AB84AA40BD4aDCCE9cBa02",
+       "baseToken": {
+        "address": "0x532f27101965dd16442E59d40670FaF5eBB142E4",
+        "name": "Brett",
+        "symbol": "BRETT"
+       },
+       "quoteToken": {
+        "address": "0x4200000000000000000000000000000000000006",
+        "name": "Wrapped Ether",
+        "symbol": "WETH"
+       },
+       "priceNative": "0.000002047",
+       "priceUsd": "0.004947",
+       "txns": {
+        "m5": {
+         "buys": 0,
+         "sells": 1
+        },
+        "h1": {
+         "buys": 9,
+         "sells": 13
+        },
+        "h6": {
+         "buys": 80,
+         "sells": 124
+        },
+        "h24": {
+         "buys": 404,
+         "sells": 479
+        }
+       },
+       "volume": {
+        "h24": 179374.34,
+        "h6": 29616.56,
+        "h1": 2143.18,
+        "m5": 1.61
+       },
+       "priceChange": {
+        "m5": 0.24,
+        "h1": -0.65,
+        "h6": -0.17,
+        "h24": -4.23
+       },
+       "liquidity": {
+        "usd": 774329.37,
+        "base": 85941023,
+        "quote": 144.4456
+       },
+       "fdv": 49032348,
+       "marketCap": 49032348,
+       "info": {
+        "imageUrl": "https://cdn.dexscreener.com/cms/images/86b556a0cb4ed7f3b6b6fecd16161f487dccebb89ed7d302b834fb1c0ce197b8?width=800&height=800&quality=95&format=auto",
+        "header": "https://cdn.dexscreener.com/cms/images/a413610dcfbe9159385ba8047bf744c87917d5f4f7c00e48aa41dd4f49817f3e?width=1500&height=500&quality=95&format=auto",
+        "openGraph": "https://cdn.dexscreener.com/token-images/og/base/0x532f27101965dd16442e59d40670faf5ebb142e4?timestamp=1792028400000",
+        "websites": [
+         {
+          "url": "https://www.basedbrett.com/",
+          "label": "Website"
+         }
+        ],
+        "socials": [
+         {
+          "url": "https://twitter.com/BasedBrett",
+          "type": "twitter"
+         },
+         {
+          "url": "https://t.me/basedbrett",
+          "type": "telegram"
+         }
+        ]
+       }
+      },
+      {
+       "chainId": "base",
+       "dexId": "uniswap",
+       "url": "https://dexscreener.com/base/0xba3f945812a83471d709bce9c3ca699a19fb46f7",
+       "pairAddress": "0xBA3F945812a83471d709BCe9C3CA699A19FB46f7",
+       "labels": [
+        "v3"
+       ],
+       "baseToken": {
+        "address": "0x532f27101965dd16442E59d40670FaF5eBB142E4",
+        "name": "Brett",
+        "symbol": "BRETT"
+       },
+       "quoteToken": {
+        "address": "0x4200000000000000000000000000000000000006",
+        "name": "Wrapped Ether",
+        "symbol": "WETH"
+       },
+       "priceNative": "0.000002058",
+       "priceUsd": "0.004967",
+       "txns": {
+        "m5": {
+         "buys": 0,
+         "sells": 0
+        },
+        "h1": {
+         "buys": 0,
+         "sells": 0
+        },
+        "h6": {
+         "buys": 7,
+         "sells": 0
+        },
+        "h24": {
+         "buys": 25,
+         "sells": 34
+        }
+       },
+       "volume": {
+        "h24": 5360.25,
+        "h6": 1634.27,
+        "h1": 0,
+        "m5": 0
+       },
+       "priceChange": {
+        "h6": 0.08,
+        "h24": -3.85
+       },
+       "liquidity": {
+        "usd": 1161079.32,
+        "base": 87158858,
+        "quote": 301.6691
+       },
+       "fdv": 49226970,
+       "marketCap": 49226970,
+       "pairCreatedAt": 1709041137000,
+       "info": {
+        "imageUrl": "https://cdn.dexscreener.com/cms/images/86b556a0cb4ed7f3b6b6fecd16161f487dccebb89ed7d302b834fb1c0ce197b8?width=800&height=800&quality=95&format=auto",
+        "header": "https://cdn.dexscreener.com/cms/images/a413610dcfbe9159385ba8047bf744c87917d5f4f7c00e48aa41dd4f49817f3e?width=1500&height=500&quality=95&format=auto",
+        "openGraph": "https://cdn.dexscreener.com/token-images/og/base/0x532f27101965dd16442e59d40670faf5ebb142e4?timestamp=1792028400000",
+        "websites": [
+         {
+          "url": "https://www.basedbrett.com/",
+          "label": "Website"
+         }
+        ],
+        "socials": [
+         {
+          "url": "https://twitter.com/BasedBrett",
+          "type": "twitter"
+         },
+         {
+          "url": "https://t.me/basedbrett",
+          "type": "telegram"
+         }
+        ]
+       }
+      },
+      {
+       "chainId": "base",
+       "dexId": "pancakeswap",
+       "url": "https://dexscreener.com/base/0x75cc10fdcea4b7d13c115abb08240ac9c9be6f2f",
+       "pairAddress": "0x75CC10fdcEa4b7D13c115ABB08240ac9c9Be6f2f",
+       "baseToken": {
+        "address": "0x532f27101965dd16442E59d40670FaF5eBB142E4",
+        "name": "Brett",
+        "symbol": "BRETT"
+       },
+       "quoteToken": {
+        "address": "0x4200000000000000000000000000000000000006",
+        "name": "Wrapped Ether",
+        "symbol": "WETH"
+       },
+       "priceNative": "0.000002043",
+       "priceUsd": "0.005074",
+       "txns": {
+        "m5": {
+         "buys": 0,
+         "sells": 0
+        },
+        "h1": {
+         "buys": 0,
+         "sells": 0
+        },
+        "h6": {
+         "buys": 0,
+         "sells": 0
+        },
+        "h24": {
+         "buys": 1,
+         "sells": 1
+        }
+       },
+       "volume": {
+        "h24": 0.29,
+        "h6": 0,
+        "h1": 0,
+        "m5": 0
+       },
+       "priceChange": {
+        "h24": -2.81
+       },
+       "liquidity": {
+        "usd": 184488.89,
+        "base": 29368339,
+        "quote": 14.2774
+       },
+       "fdv": 50288450,
+       "marketCap": 50288450,
+       "pairCreatedAt": 1723526243000,
+       "info": {
+        "imageUrl": "https://cdn.dexscreener.com/cms/images/86b556a0cb4ed7f3b6b6fecd16161f487dccebb89ed7d302b834fb1c0ce197b8?width=800&height=800&quality=95&format=auto",
+        "header": "https://cdn.dexscreener.com/cms/images/a413610dcfbe9159385ba8047bf744c87917d5f4f7c00e48aa41dd4f49817f3e?width=1500&height=500&quality=95&format=auto",
+        "openGraph": "https://cdn.dexscreener.com/token-images/og/base/0x532f27101965dd16442e59d40670faf5ebb142e4?timestamp=1792028400000",
+        "websites": [
+         {
+          "url": "https://www.basedbrett.com/",
+          "label": "Website"
+         }
+        ],
+        "socials": [
+         {
+          "url": "https://twitter.com/BasedBrett",
+          "type": "twitter"
+         },
+         {
+          "url": "https://t.me/basedbrett",
+          "type": "telegram"
+         }
+        ]
+       }
+      },
+      {
+       "chainId": "solana",
+       "dexId": "raydium",
+       "url": "https://dexscreener.com/solana/ayjpwpzvkeqn6r4r9myzkqcdzw1lwsbppuv8ns55mqvb",
+       "pairAddress": "AyjpwPZVkEqN6r4R9MyzkqcdzW1LwsBppuV8Ns55Mqvb",
+       "baseToken": {
+        "address": "DxtssVdyYe4wWE5f5zEgx2NqtDFbVL3ABGY62WCycHWg",
+        "name": "Brett",
+        "symbol": "BRETT"
+       },
+       "quoteToken": {
+        "address": "So11111111111111111111111111111111111111112",
+        "name": "Wrapped SOL",
+        "symbol": "SOL"
+       },
+       "priceNative": "0.000001000",
+       "priceUsd": "0.0001040",
+       "txns": {
+        "m5": {
+         "buys": 0,
+         "sells": 0
+        },
+        "h1": {
+         "buys": 1,
+         "sells": 0
+        },
+        "h6": {
+         "buys": 3,
+         "sells": 3
+        },
+        "h24": {
+         "buys": 6,
+         "sells": 3
+        }
+       },
+       "volume": {
+        "h24": 1440.29,
+        "h6": 1435.61,
+        "h1": 15.55,
+        "m5": 0
+       },
+       "priceChange": {
+        "h1": 0.22,
+        "h6": 3.75,
+        "h24": 1.1
+       },
+       "liquidity": {
+        "usd": 59559.17,
+        "base": 286622254,
+        "quote": 286.2238
+       },
+       "fdv": 103997,
+       "marketCap": 103997,
+       "pairCreatedAt": 1702782731000,
+       "info": {
+        "imageUrl": "https://cdn.dexscreener.com/cms/images/0f11519492820982e822b2a69bc5c9900da3a1eb713e1e9e9db52d0900917f32?width=800&height=800&quality=95&format=auto",
+        "header": "https://cdn.dexscreener.com/cms/images/24ad92dc4dd77ee7088ce4d8ad3d142769b938e927d46170a4571c8c596e4c41?width=1500&height=500&quality=95&format=auto",
+        "openGraph": "https://cdn.dexscreener.com/token-images/og/solana/DxtssVdyYe4wWE5f5zEgx2NqtDFbVL3ABGY62WCycHWg?timestamp=1792028400000",
+        "websites": [
+         {
+          "url": "https://brett.fyi/en",
+          "label": "Website"
+         }
+        ],
+        "socials": [
+         {
+          "url": "https://twitter.com/Brett_Solana",
+          "type": "twitter"
+         },
+         {
+          "url": "https://t.me/BrettSolana",
+          "type": "telegram"
+         }
+        ]
+       }
+      },
+      {
+       "chainId": "base",
+       "dexId": "aerodrome",
+       "url": "https://dexscreener.com/base/0x43bbb129b56a998732767725a183b7a566843dba",
+       "pairAddress": "0x43BBb129b56A998732767725A183b7a566843dBA",
+       "baseToken": {
+        "address": "0x532f27101965dd16442E59d40670FaF5eBB142E4",
+        "name": "Brett",
+        "symbol": "BRETT"
+       },
+       "quoteToken": {
+        "address": "0x940181a94A35A4569E4529A3CDfB74e38FD98631",
+        "name": "Aerodrome",
+        "symbol": "AERO"
+       },
+       "priceNative": "0.005555",
+       "priceUsd": "0.004950",
+       "txns": {
+        "m5": {
+         "buys": 0,
+         "sells": 0
+        },
+        "h1": {
+         "buys": 2,
+         "sells": 0
+        },
+        "h6": {
+         "buys": 6,
+         "sells": 18
+        },
+        "h24": {
+         "buys": 64,
+         "sells": 90
+        }
+       },
+       "volume": {
+        "h24": 1756.75,
+        "h6": 259.4,
+        "h1": 19.94,
+        "m5": 0
+       },
+       "priceChange": {
+        "h1": -0.81,
+        "h6": -0.36,
+        "h24": -4.57
+       },
+       "liquidity": {
+        "usd": 33830.2,
+        "base": 3417021,
+        "quote": 18982
+       },
+       "fdv": 49054975,
+       "marketCap": 49054975,
+       "pairCreatedAt": 1711949205000,
+       "info": {
+        "imageUrl": "https://cdn.dexscreener.com/cms/images/86b556a0cb4ed7f3b6b6fecd16161f487dccebb89ed7d302b834fb1c0ce197b8?width=800&height=800&quality=95&format=auto",
+        "header": "https://cdn.dexscreener.com/cms/images/a413610dcfbe9159385ba8047bf744c87917d5f4f7c00e48aa41dd4f49817f3e?width=1500&height=500&quality=95&format=auto",
+        "openGraph": "https://cdn.dexscreener.com/token-images/og/base/0x532f27101965dd16442e59d40670faf5ebb142e4?timestamp=1792028400000",
+        "websites": [
+         {
+          "url": "https://www.basedbrett.com/",
+          "label": "Website"
+         }
+        ],
+        "socials": [
+         {
+          "url": "https://twitter.com/BasedBrett",
+          "type": "twitter"
+         },
+         {
+          "url": "https://t.me/basedbrett",
+          "type": "telegram"
+         }
+        ]
+       }
+      },
+      {
+       "chainId": "bsc",
+       "dexId": "pancakeswap",
+       "url": "https://dexscreener.com/bsc/0x3a08ae820cf1483ed3ac9c33cc100913299d0e12",
+       "pairAddress": "0x3A08AE820cf1483ED3Ac9c33CC100913299D0e12",
+       "labels": [
+        "v3"
+       ],
+       "baseToken": {
+        "address": "0xA7440029ecA41dEaBd8775Ef1D6086b37d4dF8D6",
+        "name": "Brett",
+        "symbol": "BRETT"
+       },
+       "quoteToken": {
+        "address": "0x55d398326f99059fF775485246999027B3197955",
+        "name": "Tether USD",
+        "symbol": "USDT"
+       },
+       "priceNative": "0.004961",
+       "priceUsd": "0.004961",
+       "txns": {
+        "m5": {
+         "buys": 5,
+         "sells": 3
+        },
+        "h1": {
+         "buys": 53,
+         "sells": 62
+        },
+        "h6": {
+         "buys": 199,
+         "sells": 210
+        },
+        "h24": {
+         "buys": 976,
+         "sells": 1024
+        }
+       },
+       "volume": {
+        "h24": 85389.76,
+        "h6": 16061.65,
+        "h1": 4458.37,
+        "m5": 338.19
+       },
+       "priceChange": {
+        "m5": 0.15,
+        "h1": -0.13,
+        "h6": -0.08,
+        "h24": -4.07
+       },
+       "liquidity": {
+        "usd": 344566.65,
+        "base": 34337702,
+        "quote": 174211
+       },
+       "fdv": 202968,
+       "marketCap": 202968,
+       "pairCreatedAt": 1759958390000
+      },
+      {
+       "chainId": "ethereum",
+       "dexId": "uniswap",
+       "url": "https://dexscreener.com/ethereum/0x16ac64ddfacca437be7fe0da0c45bcd97227588a",
+       "pairAddress": "0x16aC64ddFaCca437bE7FE0dA0c45Bcd97227588a",
+       "labels": [
+        "v2"
+       ],
+       "baseToken": {
+        "address": "0x240D6FAF8c3B1A7394e371792A3bf9D28DD65515",
+        "name": "Brett",
+        "symbol": "BRETT"
+       },
+       "quoteToken": {
+        "address": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+        "name": "Wrapped Ether",
+        "symbol": "WETH"
+       },
+       "priceNative": "0.000003128",
+       "priceUsd": "0.007594",
+       "txns": {
+        "m5": {
+         "buys": 0,
+         "sells": 0
+        },
+        "h1": {
+         "buys": 0,
+         "sells": 0
+        },
+        "h6": {
+         "buys": 1,
+         "sells": 0
+        },
+        "h24": {
+         "buys": 6,
+         "sells": 1
+        }
+       },
+       "volume": {
+        "h24": 976.52,
+        "h6": 38.59,
+        "h1": 0,
+        "m5": 0
+       },
+       "priceChange": {
+        "h6": 0.21,
+        "h24": -1.47
+       },
+       "liquidity": {
+        "usd": 105447.39,
+        "base": 6942255,
+        "quote": 21.7215
+       },
+       "fdv": 521162,
+       "marketCap": 527218,
+       "pairCreatedAt": 1689229583000,
+       "info": {
+        "imageUrl": "https://cdn.dexscreener.com/cms/images/e7b6b8f9f7277beeb7f9e08ea9407967cff38906ed532cb5ff70995b3bcfe4c7?width=800&height=800&quality=95&format=auto",
+        "header": "https://cdn.dexscreener.com/cms/images/9a42656feebf25c40da5c4a76f146f0888ef96839c1ca0486b195b7e5af16dea?width=1500&height=500&quality=95&format=auto",
+        "openGraph": "https://cdn.dexscreener.com/token-images/og/ethereum/0x240d6faf8c3b1a7394e371792a3bf9d28dd65515?timestamp=1792028400000",
+        "websites": [
+         {
+          "url": "https://brettcoineth.vip/",
+          "label": "Website"
+         },
+         {
+          "url": "https://linktr.ee/brettcoineth.vip",
+          "label": "Socials"
+         }
+        ],
+        "socials": [
+         {
+          "url": "https://x.com/brettether",
+          "type": "twitter"
+         },
+         {
+          "url": "https://t.me/brettcoinchat",
+          "type": "telegram"
+         }
+        ]
+       }
+      },
+      {
+       "chainId": "ethereum",
+       "dexId": "uniswap",
+       "url": "https://dexscreener.com/ethereum/0x95f2610d0475d72e75bfcbd8bb7ecafe1f351b8d",
+       "pairAddress": "0x95F2610D0475d72E75BFCBD8bb7ecafe1f351B8D",
+       "labels": [
+        "v2"
+       ],
+       "baseToken": {
+        "address": "0x80eE5c641A8fFC607545219a3856562F56427FE9",
+        "name": "Brett",
+        "symbol": "BRETT"
+       },
+       "quoteToken": {
+        "address": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+        "name": "Wrapped Ether",
+        "symbol": "WETH"
+       },
+       "priceNative": "0.0000007748",
+       "priceUsd": "0.001956",
+       "txns": {
+        "m5": {
+         "buys": 0,
+         "sells": 0
+        },
+        "h1": {
+         "buys": 0,
+         "sells": 0
+        },
+        "h6": {
+         "buys": 0,
+         "sells": 0
+        },
+        "h24": {
+         "buys": 0,
+         "sells": 1
+        }
+       },
+       "volume": {
+        "h24": 47.1,
+        "h6": 0,
+        "h1": 0,
+        "m5": 0
+       },
+       "priceChange": {},
+       "liquidity": {
+        "usd": 111214.68,
+        "base": 28421807,
+        "quote": 22.02382
+       },
+       "fdv": 195650,
+       "marketCap": 195650,
+       "pairCreatedAt": 1693001651000,
+       "info": {
+        "imageUrl": "https://cdn.dexscreener.com/cms/images/875d2ef667c0855e72ebf0906c03b636b5fb8470eef5ad8fba4806043e7828cd?width=800&height=800&quality=95&format=auto",
+        "header": "https://cdn.dexscreener.com/cms/images/e3dbe96811758beb915654570fb4f02f17607d48f672294c000fac43d2dde091?width=1500&height=500&quality=95&format=auto",
+        "openGraph": "https://cdn.dexscreener.com/token-images/og/ethereum/0x80ee5c641a8ffc607545219a3856562f56427fe9?timestamp=1792028400000",
+        "websites": [
+         {
+          "url": "https://brettoneth.online/",
+          "label": "Website"
+         },
+         {
+          "url": "https://linktr.ee/brett_on_eth",
+          "label": "Linktree"
+         }
+        ],
+        "socials": [
+         {
+          "url": "https://twitter.com/Brett_Eth_0x80E",
+          "type": "twitter"
+         },
+         {
+          "url": "https://t.me/BrettOn_ETH",
+          "type": "telegram"
+         }
+        ]
+       }
+      },
+      {
+       "chainId": "ethereum",
+       "dexId": "uniswap",
+       "url": "https://dexscreener.com/ethereum/0x6df064f04ddfb2bb53da21af9d56701726700145",
+       "pairAddress": "0x6DF064f04ddfb2Bb53Da21aF9d56701726700145",
+       "labels": [
+        "v2"
+       ],
+       "baseToken": {
+        "address": "0x66bFf695f3B16a824869a8018a3A6e3685241269",
+        "name": "Brett",
+        "symbol": "BRETT"
+       },
+       "quoteToken": {
+        "address": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+        "name": "Wrapped Ether",
+        "symbol": "WETH"
+       },
+       "priceNative": "0.00000000006975",
+       "priceUsd": "0.0000001739",
+       "txns": {
+        "m5": {
+         "buys": 0,
+         "sells": 0
+        },
+        "h1": {
+         "buys": 0,
+         "sells": 0
+        },
+        "h6": {
+         "buys": 0,
+         "sells": 0
+        },
+        "h24": {
+         "buys": 0,
+         "sells": 1
+        }
+       },
+       "volume": {
+        "h24": 17.34,
+        "h6": 0,
+        "h1": 0,
+        "m5": 0
+       },
+       "priceChange": {},
+       "liquidity": {
+        "usd": 79169.35,
+        "base": 227580668011,
+        "quote": 15.8738
+       },
+       "fdv": 173925,
+       "marketCap": 173925,
+       "pairCreatedAt": 1714544063000,
+       "info": {
+        "imageUrl": "https://cdn.dexscreener.com/cms/images/3c57b02dbbbfff6472e8f872ac6dd225f7c9fdbb927aa024d992552203b674cb?width=800&height=800&quality=95&format=auto",
+        "header": "https://cdn.dexscreener.com/cms/images/01e381b196e8cf12104e74f9066c6dec29790c7946f7d054e00af9ae854f5f04?width=1500&height=500&quality=95&format=auto",
+        "openGraph": "https://cdn.dexscreener.com/token-images/og/ethereum/0x66bff695f3b16a824869a8018a3a6e3685241269?timestamp=1792028400000",
+        "websites": [
+         {
+          "url": "https://bretter.io/",
+          "label": "Website"
+         }
+        ],
+        "socials": [
+         {
+          "url": "https://twitter.com/Brettcoinonerc",
+          "type": "twitter"
+         },
+         {
+          "url": "https://t.me/bretterbrett",
+          "type": "telegram"
+         }
+        ]
+       }
+      },
+      {
+       "chainId": "robinhood",
+       "dexId": "uniswap",
+       "url": "https://dexscreener.com/robinhood/0xc83ef59d4a2affd75c3c0941c6ed75fea93bdb35",
+       "pairAddress": "0xc83Ef59D4A2AFfD75c3C0941C6ed75feA93BDb35",
+       "labels": [
+        "v3"
+       ],
+       "baseToken": {
+        "address": "0xe19931a7906f4aCBf9bA46C4D329E47BAb5A4E53",
+        "name": "Brett",
+        "symbol": "BRETT"
+       },
+       "quoteToken": {
+        "address": "0x0Bd7D308f8E1639FAb988df18A8011f41EAcAD73",
+        "name": "WETH",
+        "symbol": "WETH"
+       },
+       "priceNative": "0.000002939",
+       "priceUsd": "0.007329",
+       "txns": {
+        "m5": {
+         "buys": 0,
+         "sells": 0
+        },
+        "h1": {
+         "buys": 0,
+         "sells": 0
+        },
+        "h6": {
+         "buys": 0,
+         "sells": 0
+        },
+        "h24": {
+         "buys": 2,
+         "sells": 0
+        }
+       },
+       "volume": {
+        "h24": 0.03,
+        "h6": 0,
+        "h1": 0,
+        "m5": 0
+       },
+       "priceChange": {
+        "h24": 0.11
+       },
+       "liquidity": {
+        "usd": 36647186.78,
+        "base": 4999998588,
+        "quote": 0.0005395
+       },
+       "fdv": 73294374,
+       "marketCap": 73294374,
+       "pairCreatedAt": 1783742969000
+      },
+      {
+       "chainId": "ethereum",
+       "dexId": "uniswap",
+       "url": "https://dexscreener.com/ethereum/0xc93a9590cff7141f209065d913034f4769b61d21",
+       "pairAddress": "0xC93A9590CFf7141f209065D913034F4769b61D21",
+       "labels": [
+        "v3"
+       ],
+       "baseToken": {
+        "address": "0x2E3DD64f849EEd680BE1f54959065bBb9Fb158b6",
+        "name": "Brett",
+        "symbol": "BRETT"
+       },
+       "quoteToken": {
+        "address": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+        "name": "Wrapped Ether",
+        "symbol": "WETH"
+       },
+       "priceNative": "0.00002315",
+       "priceUsd": "0.05739",
+       "txns": {
+        "m5": {
+         "buys": 0,
+         "sells": 0
+        },
+        "h1": {
+         "buys": 0,
+         "sells": 0
+        },
+        "h6": {
+         "buys": 0,
+         "sells": 0
+        },
+        "h24": {
+         "buys": 1,
+         "sells": 0
+        }
+       },
+       "volume": {
+        "h24": 0.08,
+        "h6": 0,
+        "h1": 0,
+        "m5": 0
+       },
+       "priceChange": {},
+       "liquidity": {
+        "usd": 401776837.9,
+        "base": 6999998978,
+        "quote": 0.0002227
+       },
+       "fdv": 573966936,
+       "marketCap": 573966936,
+       "pairCreatedAt": 1748247779000
+      },
+      {
+       "chainId": "ethereum",
+       "dexId": "uniswap",
+       "url": "https://dexscreener.com/ethereum/0xeec135c84e7e8444003afbf52a9a7f1257963fce",
+       "pairAddress": "0xeEc135C84e7E8444003aFBf52a9a7f1257963fcE",
+       "labels": [
+        "v3"
+       ],
+       "baseToken": {
+        "address": "0xCb5358abC13a35Db43eBf96C29395C2B46c30914",
+        "name": "Brett",
+        "symbol": "BRETT"
+       },
+       "quoteToken": {
+        "address": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+        "name": "Wrapped Ether",
+        "symbol": "WETH"
+       },
+       "priceNative": "0.000002840",
+       "priceUsd": "0.007135",
+       "txns": {
+        "m5": {
+         "buys": 0,
+         "sells": 0
+        },
+        "h1": {
+         "buys": 0,
+         "sells": 0
+        },
+        "h6": {
+         "buys": 0,
+         "sells": 0
+        },
+        "h24": {
+         "buys": 1,
+         "sells": 0
+        }
+       },
+       "volume": {
+        "h24": 0.01,
+        "h6": 0,
+        "h1": 0,
+        "m5": 0
+       },
+       "priceChange": {},
+       "liquidity": {
+        "usd": 35679750.36,
+        "base": 4999998704,
+        "quote": 0.0001917
+       },
+       "fdv": 71359501,
+       "marketCap": 71359501,
+       "pairCreatedAt": 1784318843000
+      },
+      {
+       "chainId": "ethereum",
+       "dexId": "uniswap",
+       "url": "https://dexscreener.com/ethereum/0x9061199f45b4932e25cd8e8978eb3f900d74d9f2",
+       "pairAddress": "0x9061199F45B4932E25Cd8E8978eb3F900d74d9f2",
+       "labels": [
+        "v3"
+       ],
+       "baseToken": {
+        "address": "0xe9Df7876aD3D3F3b158825F83AA7d1c23d74f06b",
+        "name": "Brett",
+        "symbol": "BRETT"
+       },
+       "quoteToken": {
+        "address": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+        "name": "Wrapped Ether",
+        "symbol": "WETH"
+       },
+       "priceNative": "0.000003604",
+       "priceUsd": "0.008969",
+       "txns": {
+        "m5": {
+         "buys": 0,
+         "sells": 0
+        },
+        "h1": {
+         "buys": 0,
+         "sells": 0
+        },
+        "h6": {
+         "buys": 0,
+         "sells": 0
+        },
+        "h24": {
+         "buys": 1,
+         "sells": 0
+        }
+       },
+       "volume": {
+        "h24": 0.01,
+        "h6": 0,
+        "h1": 0,
+        "m5": 0
+       },
+       "priceChange": {},
+       "liquidity": {
+        "usd": 44846737.02,
+        "base": 4999998732,
+        "quote": 0.000141
+       },
+       "fdv": 89693474,
+       "marketCap": 89693474,
+       "pairCreatedAt": 1781556371000
+      },
+      {
+       "chainId": "base",
+       "dexId": "uniswap",
+       "url": "https://dexscreener.com/base/0x76bf0abd20f1e0155ce40a62615a90a709a6c3d8",
+       "pairAddress": "0x76Bf0abD20f1e0155Ce40A62615a90A709a6C3D8",
+       "labels": [
+        "v3"
+       ],
+       "baseToken": {
+        "address": "0x532f27101965dd16442E59d40670FaF5eBB142E4",
+        "name": "Brett",
+        "symbol": "BRETT"
+       },
+       "quoteToken": {
+        "address": "0x4200000000000000000000000000000000000006",
+        "name": "Wrapped Ether",
+        "symbol": "WETH"
+       },
+       "priceNative": "0.000002047",
+       "priceUsd": "0.004948",
+       "txns": {
+        "m5": {
+         "buys": 0,
+         "sells": 1
+        },
+        "h1": {
+         "buys": 0,
+         "sells": 12
+        },
+        "h6": {
+         "buys": 37,
+         "sells": 85
+        },
+        "h24": {
+         "buys": 206,
+         "sells": 280
+        }
+       },
+       "volume": {
+        "h24": 42928,
+        "h6": 8315.98,
+        "h1": 1279.63,
+        "m5": 47.7
+       },
+       "priceChange": {
+        "m5": -0.13,
+        "h1": -0.76,
+        "h6": -0.3,
+        "h24": -4.31
+       },
+       "liquidity": {
+        "usd": 108552.78,
+        "base": 15736461,
+        "quote": 12.6959
+       },
+       "fdv": 49036043,
+       "marketCap": 49036043,
+       "pairCreatedAt": 1709899129000,
+       "info": {
+        "imageUrl": "https://cdn.dexscreener.com/cms/images/86b556a0cb4ed7f3b6b6fecd16161f487dccebb89ed7d302b834fb1c0ce197b8?width=800&height=800&quality=95&format=auto",
+        "header": "https://cdn.dexscreener.com/cms/images/a413610dcfbe9159385ba8047bf744c87917d5f4f7c00e48aa41dd4f49817f3e?width=1500&height=500&quality=95&format=auto",
+        "openGraph": "https://cdn.dexscreener.com/token-images/og/base/0x532f27101965dd16442e59d40670faf5ebb142e4?timestamp=1792028400000",
+        "websites": [
+         {
+          "url": "https://www.basedbrett.com/",
+          "label": "Website"
+         }
+        ],
+        "socials": [
+         {
+          "url": "https://twitter.com/BasedBrett",
+          "type": "twitter"
+         },
+         {
+          "url": "https://t.me/basedbrett",
+          "type": "telegram"
+         }
+        ]
+       }
+      },
+      {
+       "chainId": "ethereum",
+       "dexId": "uniswap",
+       "url": "https://dexscreener.com/ethereum/0xebfeb540282bbea9721c4d486f53c609b87f95da",
+       "pairAddress": "0xebfEB540282BbEA9721c4d486F53c609B87f95Da",
+       "labels": [
+        "v2"
+       ],
+       "baseToken": {
+        "address": "0x66E564819340CC2F54aBcEb4e49941fa07E426b4",
+        "name": "BRETT",
+        "symbol": "BRETT"
+       },
+       "quoteToken": {
+        "address": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+        "name": "Wrapped Ether",
+        "symbol": "WETH"
+       },
+       "priceNative": "0.0000000002758",
+       "priceUsd": "0.0000006667",
+       "txns": {
+        "m5": {
+         "buys": 0,
+         "sells": 0
+        },
+        "h1": {
+         "buys": 1,
+         "sells": 1
+        },
+        "h6": {
+         "buys": 4,
+         "sells": 2
+        },
+        "h24": {
+         "buys": 4,
+         "sells": 2
+        }
+       },
+       "volume": {
+        "h24": 667.24,
+        "h6": 667.24,
+        "h1": 234.42,
+        "m5": 0
+       },
+       "priceChange": {
+        "h1": -3.32,
+        "h6": -3.12,
+        "h24": -3.12
+       },
+       "liquidity": {
+        "usd": 25949.77,
+        "base": 19461281300,
+        "quote": 5.3676
+       },
+       "fdv": 28048,
+       "marketCap": 28048,
+       "pairCreatedAt": 1713754679000,
+       "info": {
+        "imageUrl": "https://cdn.dexscreener.com/cms/images/9eaa8c4cdf4bfb5666c0f799c93f0044bfad12786d200e5e3e8283101e2f8212?width=800&height=800&quality=95&format=auto",
+        "header": "https://cdn.dexscreener.com/cms/images/10d6dac0fe1b457c81b88e4e91ae793ed0db152266708b220270578771f9ec66?width=1500&height=500&quality=95&format=auto",
+        "openGraph": "https://cdn.dexscreener.com/token-images/og/ethereum/0x66e564819340cc2f54abceb4e49941fa07e426b4?timestamp=1792028400000",
+        "websites": [
+         {
+          "url": "https://brett0x66.com/",
+          "label": "Website"
+         },
+         {
+          "url": "https://etherscan.io/tx/0xb66098d8d8472c1b4adfa6d34066932039ae3232229d4746653631df0fcca524",
+          "label": "Renounced ✅"
+         },
+         {
+          "url": "https://etherscan.io/tx/0x4ca38fe114acf60ce2be5671b80c6282416aa78bbed3181996113d2f997986a7",
+          "label": "LP Burnt 🔥"
+         },
+         {
+          "url": "https://etherscan.io/address/0xe4cdbb04c453645264e52407965f54f795648f0e",
+          "label": "Marketing Wallet (brettbank.eth) 💰"
+         }
+        ],
+        "socials": [
+         {
+          "url": "https://x.com/Brett0x66",
+          "type": "twitter"
+         },
+         {
+          "url": "https://t.me/BoysClubBrett",
+          "type": "telegram"
+         }
+        ]
+       }
+      },
+      {
+       "chainId": "base",
+       "dexId": "uniswap",
+       "url": "https://dexscreener.com/base/0x4a18eac23f27434fcbffcb0ca41cc144371364a59046ca41b844a0df55d82c64",
+       "pairAddress": "0x4a18eac23f27434fcbffcb0ca41cc144371364a59046ca41b844a0df55d82c64",
+       "labels": [
+        "v4"
+       ],
+       "baseToken": {
+        "address": "0x7b7353aEE1F7881B0C2E84835ef665119591abA3",
+        "name": "BRETT",
+        "symbol": "BRETT"
+       },
+       "quoteToken": {
+        "address": "0x4200000000000000000000000000000000000006",
+        "name": "Wrapped Ether",
+        "symbol": "WETH"
+       },
+       "priceNative": "0.00000000009296",
+       "priceUsd": "0.0000002256",
+       "txns": {
+        "m5": {
+         "buys": 0,
+         "sells": 0
+        },
+        "h1": {
+         "buys": 0,
+         "sells": 0
+        },
+        "h6": {
+         "buys": 0,
+         "sells": 0
+        },
+        "h24": {
+         "buys": 1,
+         "sells": 0
+        }
+       },
+       "volume": {
+        "h24": 0.99,
+        "h6": 0,
+        "h1": 0,
+        "m5": 0
+       },
+       "priceChange": {},
+       "liquidity": {
+        "usd": 22561.46,
+        "base": 99995660390,
+        "quote": 0.0004034
+       },
+       "fdv": 22561,
+       "marketCap": 22561,
+       "pairCreatedAt": 1774478481000
+      },
+      {
+       "chainId": "base",
+       "dexId": "uniswap",
+       "url": "https://dexscreener.com/base/0xa745ec5e44ee4839cd6d1b76b76e800fed7cb6ceda014a6310c558213212c54e",
+       "pairAddress": "0xa745ec5e44ee4839cd6d1b76b76e800fed7cb6ceda014a6310c558213212c54e",
+       "labels": [
+        "v4"
+       ],
+       "baseToken": {
+        "address": "0x532f27101965dd16442E59d40670FaF5eBB142E4",
+        "name": "Brett",
+        "symbol": "BRETT"
+       },
+       "quoteToken": {
+        "address": "0xcEe2569b528F2B17dF616B679b115E6389407fD6",
+        "name": "AIOCTO",
+        "symbol": "AIOCTO"
+       },
+       "priceNative": "7.06321",
+       "priceUsd": "0.004997",
+       "txns": {
+        "m5": {
+         "buys": 0,
+         "sells": 0
+        },
+        "h1": {
+         "buys": 0,
+         "sells": 0
+        },
+        "h6": {
+         "buys": 1,
+         "sells": 0
+        },
+        "h24": {
+         "buys": 1,
+         "sells": 9
+        }
+       },
+       "volume": {
+        "h24": 35.2,
+        "h6": 4.27,
+        "h1": 0,
+        "m5": 0
+       },
+       "priceChange": {
+        "h6": -2,
+        "h24": -3.52
+       },
+       "liquidity": {
+        "usd": 6411.02,
+        "base": 641237,
+        "quote": 4532343
+       },
+       "fdv": 49520380,
+       "marketCap": 49520380,
+       "pairCreatedAt": 1776861635000,
+       "info": {
+        "imageUrl": "https://cdn.dexscreener.com/cms/images/86b556a0cb4ed7f3b6b6fecd16161f487dccebb89ed7d302b834fb1c0ce197b8?width=800&height=800&quality=95&format=auto",
+        "header": "https://cdn.dexscreener.com/cms/images/a413610dcfbe9159385ba8047bf744c87917d5f4f7c00e48aa41dd4f49817f3e?width=1500&height=500&quality=95&format=auto",
+        "openGraph": "https://cdn.dexscreener.com/token-images/og/base/0x532f27101965dd16442e59d40670faf5ebb142e4?timestamp=1792028400000",
+        "websites": [
+         {
+          "url": "https://www.basedbrett.com/",
+          "label": "Website"
+         }
+        ],
+        "socials": [
+         {
+          "url": "https://twitter.com/BasedBrett",
+          "type": "twitter"
+         },
+         {
+          "url": "https://t.me/basedbrett",
+          "type": "telegram"
+         }
+        ]
+       }
+      },
+      {
+       "chainId": "base",
+       "dexId": "uniswap",
+       "url": "https://dexscreener.com/base/0x27402edf3c6a6d6b5a279dfc7a2c8cbacebbfdfc3559f7c03d6971b09126a9f3",
+       "pairAddress": "0x27402edf3c6a6d6b5a279dfc7a2c8cbacebbfdfc3559f7c03d6971b09126a9f3",
+       "labels": [
+        "v4"
+       ],
+       "baseToken": {
+        "address": "0x532f27101965dd16442E59d40670FaF5eBB142E4",
+        "name": "Brett",
+        "symbol": "BRETT"
+       },
+       "quoteToken": {
+        "address": "0x0000000000000000000000000000000000000000",
+        "name": "Ether",
+        "symbol": "ETH"
+       },
+       "priceNative": "0.000002051",
+       "priceUsd": "0.004962",
+       "txns": {
+        "m5": {
+         "buys": 0,
+         "sells": 0
+        },
+        "h1": {
+         "buys": 0,
+         "sells": 2
+        },
+        "h6": {
+         "buys": 6,
+         "sells": 5
+        },
+        "h24": {
+         "buys": 16,
+         "sells": 25
+        }
+       },
+       "volume": {
+        "h24": 92.33,
+        "h6": 17.94,
+        "h1": 4.07,
+        "m5": 0
+       },
+       "priceChange": {
+        "h1": -0.8,
+        "h6": -0.54,
+        "h24": -4.39
+       },
+       "liquidity": {
+        "usd": 5205.25,
+        "base": 724507,
+        "quote": 0.6653
+       },
+       "fdv": 49177928,
+       "marketCap": 49177928,
+       "pairCreatedAt": 1739288749000,
+       "info": {
+        "imageUrl": "https://cdn.dexscreener.com/cms/images/86b556a0cb4ed7f3b6b6fecd16161f487dccebb89ed7d302b834fb1c0ce197b8?width=800&height=800&quality=95&format=auto",
+        "header": "https://cdn.dexscreener.com/cms/images/a413610dcfbe9159385ba8047bf744c87917d5f4f7c00e48aa41dd4f49817f3e?width=1500&height=500&quality=95&format=auto",
+        "openGraph": "https://cdn.dexscreener.com/token-images/og/base/0x532f27101965dd16442e59d40670faf5ebb142e4?timestamp=1792028400000",
+        "websites": [
+         {
+          "url": "https://www.basedbrett.com/",
+          "label": "Website"
+         }
+        ],
+        "socials": [
+         {
+          "url": "https://twitter.com/BasedBrett",
+          "type": "twitter"
+         },
+         {
+          "url": "https://t.me/basedbrett",
+          "type": "telegram"
+         }
+        ]
+       }
+      },
+      {
+       "chainId": "base",
+       "dexId": "aerodrome",
+       "url": "https://dexscreener.com/base/0xffa80952b3800240f11ad25e45e8d3e5c1593e70",
+       "pairAddress": "0xFfa80952B3800240F11AD25E45e8d3E5C1593E70",
+       "baseToken": {
+        "address": "0x532f27101965dd16442E59d40670FaF5eBB142E4",
+        "name": "Brett",
+        "symbol": "BRETT"
+       },
+       "quoteToken": {
+        "address": "0x940181a94A35A4569E4529A3CDfB74e38FD98631",
+        "name": "Aerodrome",
+        "symbol": "AERO"
+       },
+       "priceNative": "0.005562",
+       "priceUsd": "0.004944",
+       "txns": {
+        "m5": {
+         "buys": 1,
+         "sells": 0
+        },
+        "h1": {
+         "buys": 1,
+         "sells": 0
+        },
+        "h6": {
+         "buys": 4,
+         "sells": 10
+        },
+        "h24": {
+         "buys": 46,
+         "sells": 41
+        }
+       },
+       "volume": {
+        "h24": 214.73,
+        "h6": 28.25,
+        "h1": 0.72,
+        "m5": 0.72
+       },
+       "priceChange": {
+        "m5": -0.96,
+        "h1": -0.96,
+        "h6": -0.7,
+        "h24": -4.7
+       },
+       "liquidity": {
+        "usd": 4097.43,
+        "base": 621559,
+        "quote": 1152.3537
+       },
+       "fdv": 48994651,
+       "marketCap": 48994651,
+       "pairCreatedAt": 1711165729000,
+       "info": {
+        "imageUrl": "https://cdn.dexscreener.com/cms/images/86b556a0cb4ed7f3b6b6fecd16161f487dccebb89ed7d302b834fb1c0ce197b8?width=800&height=800&quality=95&format=auto",
+        "header": "https://cdn.dexscreener.com/cms/images/a413610dcfbe9159385ba8047bf744c87917d5f4f7c00e48aa41dd4f49817f3e?width=1500&height=500&quality=95&format=auto",
+        "openGraph": "https://cdn.dexscreener.com/token-images/og/base/0x532f27101965dd16442e59d40670faf5ebb142e4?timestamp=1792028400000",
+        "websites": [
+         {
+          "url": "https://www.basedbrett.com/",
+          "label": "Website"
+         }
+        ],
+        "socials": [
+         {
+          "url": "https://twitter.com/BasedBrett",
+          "type": "twitter"
+         },
+         {
+          "url": "https://t.me/basedbrett",
+          "type": "telegram"
+         }
+        ]
+       }
+      },
+      {
+       "chainId": "base",
+       "dexId": "uniswap",
+       "url": "https://dexscreener.com/base/0x1ef85201ffa71dacfc4691564ccb04e8a33137859da32661e4acc1fde20b41a5",
+       "pairAddress": "0x1ef85201ffa71dacfc4691564ccb04e8a33137859da32661e4acc1fde20b41a5",
+       "labels": [
+        "v4"
+       ],
+       "baseToken": {
+        "address": "0x532f27101965dd16442E59d40670FaF5eBB142E4",
+        "name": "Brett",
+        "symbol": "BRETT"
+       },
+       "quoteToken": {
+        "address": "0x0000000000000000000000000000000000000000",
+        "name": "Ether",
+        "symbol": "ETH"
+       },
+       "priceNative": "0.000002044",
+       "priceUsd": "0.004947",
+       "txns": {
+        "m5": {
+         "buys": 0,
+         "sells": 0
+        },
+        "h1": {
+         "buys": 1,
+         "sells": 2
+        },
+        "h6": {
+         "buys": 15,
+         "sells": 18
+        },
+        "h24": {
+         "buys": 66,
+         "sells": 66
+        }
+       },
+       "volume": {
+        "h24": 130.69,
+        "h6": 29.79,
+        "h1": 3.67,
+        "m5": 0
+       },
+       "priceChange": {
+        "h1": -0.71,
+        "h6": -0.85,
+        "h24": -4.52
+       },
+       "liquidity": {
+        "usd": 2921.81,
+        "base": 442574,
+        "quote": 0.3026
+       },
+       "fdv": 49024435,
+       "marketCap": 49024435,
+       "pairCreatedAt": 1738343223000,
+       "info": {
+        "imageUrl": "https://cdn.dexscreener.com/cms/images/86b556a0cb4ed7f3b6b6fecd16161f487dccebb89ed7d302b834fb1c0ce197b8?width=800&height=800&quality=95&format=auto",
+        "header": "https://cdn.dexscreener.com/cms/images/a413610dcfbe9159385ba8047bf744c87917d5f4f7c00e48aa41dd4f49817f3e?width=1500&height=500&quality=95&format=auto",
+        "openGraph": "https://cdn.dexscreener.com/token-images/og/base/0x532f27101965dd16442e59d40670faf5ebb142e4?timestamp=1792028400000",
+        "websites": [
+         {
+          "url": "https://www.basedbrett.com/",
+          "label": "Website"
+         }
+        ],
+        "socials": [
+         {
+          "url": "https://twitter.com/BasedBrett",
+          "type": "twitter"
+         },
+         {
+          "url": "https://t.me/basedbrett",
+          "type": "telegram"
+         }
+        ]
+       }
+      },
+      {
+       "chainId": "base",
+       "dexId": "uniswap",
+       "url": "https://dexscreener.com/base/0x36a46dff597c5a444bbc521d26787f57867d2214",
+       "pairAddress": "0x36a46dFF597C5A444bbC521D26787F57867D2214",
+       "labels": [
+        "v3"
+       ],
+       "baseToken": {
+        "address": "0x532f27101965dd16442E59d40670FaF5eBB142E4",
+        "name": "Brett",
+        "symbol": "BRETT"
+       },
+       "quoteToken": {
+        "address": "0x4200000000000000000000000000000000000006",
+        "name": "Wrapped Ether",
+        "symbol": "WETH"
+       },
+       "priceNative": "0.000002050",
+       "priceUsd": "0.004953",
+       "txns": {
+        "m5": {
+         "buys": 0,
+         "sells": 0
+        },
+        "h1": {
+         "buys": 0,
+         "sells": 1
+        },
+        "h6": {
+         "buys": 2,
+         "sells": 3
+        },
+        "h24": {
+         "buys": 11,
+         "sells": 12
+        }
+       },
+       "volume": {
+        "h24": 16.69,
+        "h6": 3.22,
+        "h1": 0.32,
+        "m5": 0
+       },
+       "priceChange": {
+        "h1": -0.55,
+        "h6": -0.42,
+        "h24": -5.06
+       },
+       "liquidity": {
+        "usd": 2007.68,
+        "base": 319022,
+        "quote": 0.1768
+       },
+       "fdv": 49090845,
+       "marketCap": 49090845,
+       "pairCreatedAt": 1712461265000,
+       "info": {
+        "imageUrl": "https://cdn.dexscreener.com/cms/images/86b556a0cb4ed7f3b6b6fecd16161f487dccebb89ed7d302b834fb1c0ce197b8?width=800&height=800&quality=95&format=auto",
+        "header": "https://cdn.dexscreener.com/cms/images/a413610dcfbe9159385ba8047bf744c87917d5f4f7c00e48aa41dd4f49817f3e?width=1500&height=500&quality=95&format=auto",
+        "openGraph": "https://cdn.dexscreener.com/token-images/og/base/0x532f27101965dd16442e59d40670faf5ebb142e4?timestamp=1792028400000",
+        "websites": [
+         {
+          "url": "https://www.basedbrett.com/",
+          "label": "Website"
+         }
+        ],
+        "socials": [
+         {
+          "url": "https://twitter.com/BasedBrett",
+          "type": "twitter"
+         },
+         {
+          "url": "https://t.me/basedbrett",
+          "type": "telegram"
+         }
+        ]
+       }
+      },
+      {
+       "chainId": "base",
+       "dexId": "hydrex",
+       "url": "https://dexscreener.com/base/0xa4b2401dbbf97e3fbda6fb4ef3f4b7a37069232b",
+       "pairAddress": "0xa4B2401DBBF97E3fbda6fB4eF3F4B7A37069232B",
+       "labels": [
+        "CLAMM"
+       ],
+       "baseToken": {
+        "address": "0x532f27101965dd16442E59d40670FaF5eBB142E4",
+        "name": "Brett",
+        "symbol": "BRETT"
+       },
+       "quoteToken": {
+        "address": "0x4200000000000000000000000000000000000006",
+        "name": "Wrapped Ether",
+        "symbol": "WETH"
+       },
+       "priceNative": "0.000002031",
+       "priceUsd": "0.004919",
+       "txns": {
+        "m5": {
+         "buys": 0,
+         "sells": 0
+        },
+        "h1": {
+         "buys": 0,
+         "sells": 0
+        },
+        "h6": {
+         "buys": 0,
+         "sells": 1
+        },
+        "h24": {
+         "buys": 1,
+         "sells": 3
+        }
+       },
+       "volume": {
+        "h24": 4.25,
+        "h6": 0.27,
+        "h1": 0,
+        "m5": 0
+       },
+       "priceChange": {
+        "h6": -2.33,
+        "h24": -1.54
+       },
+       "liquidity": {
+        "usd": 1740.68,
+        "base": 284060,
+        "quote": 0.1417
+       },
+       "fdv": 49192160,
+       "marketCap": 49192160,
+       "pairCreatedAt": 1752263757000,
+       "info": {
+        "imageUrl": "https://cdn.dexscreener.com/cms/images/86b556a0cb4ed7f3b6b6fecd16161f487dccebb89ed7d302b834fb1c0ce197b8?width=800&height=800&quality=95&format=auto",
+        "header": "https://cdn.dexscreener.com/cms/images/a413610dcfbe9159385ba8047bf744c87917d5f4f7c00e48aa41dd4f49817f3e?width=1500&height=500&quality=95&format=auto",
+        "openGraph": "https://cdn.dexscreener.com/token-images/og/base/0x532f27101965dd16442e59d40670faf5ebb142e4?timestamp=1792028400000",
+        "websites": [
+         {
+          "url": "https://www.basedbrett.com/",
+          "label": "Website"
+         }
+        ],
+        "socials": [
+         {
+          "url": "https://twitter.com/BasedBrett",
+          "type": "twitter"
+         },
+         {
+          "url": "https://t.me/basedbrett",
+          "type": "telegram"
+         }
+        ]
+       }
+      },
+      {
+       "chainId": "base",
+       "dexId": "0xba34aA640b8Be02A439221BCbea1f48c1035EEF9",
+       "url": "https://dexscreener.com/base/0x3694be94b63c8f4e165f198c0a45ddc1641143e4",
+       "pairAddress": "0x3694bE94b63C8F4e165f198C0a45dDc1641143E4",
+       "baseToken": {
+        "address": "0x532f27101965dd16442E59d40670FaF5eBB142E4",
+        "name": "Brett",
+        "symbol": "BRETT"
+       },
+       "quoteToken": {
+        "address": "0x4200000000000000000000000000000000000006",
+        "name": "Wrapped Ether",
+        "symbol": "WETH"
+       },
+       "priceNative": "0.000002052",
+       "priceUsd": "0.004960",
+       "txns": {
+        "m5": {
+         "buys": 0,
+         "sells": 1
+        },
+        "h1": {
+         "buys": 0,
+         "sells": 2
+        },
+        "h6": {
+         "buys": 2,
+         "sells": 3
+        },
+        "h24": {
+         "buys": 6,
+         "sells": 10
+        }
+       },
+       "volume": {
+        "h24": 22.15,
+        "h6": 6.25,
+        "h1": 1.72,
+        "m5": 0.72
+       },
+       "priceChange": {
+        "m5": -0.35,
+        "h1": -0.52,
+        "h6": -0.93,
+        "h24": -4.28
+       },
+       "liquidity": {
+        "usd": 1193.16,
+        "base": 120275,
+        "quote": 0.2468
+       },
+       "fdv": 49152864,
+       "marketCap": 49152864,
+       "pairCreatedAt": 1726603511000,
+       "info": {
+        "imageUrl": "https://cdn.dexscreener.com/cms/images/86b556a0cb4ed7f3b6b6fecd16161f487dccebb89ed7d302b834fb1c0ce197b8?width=800&height=800&quality=95&format=auto",
+        "header": "https://cdn.dexscreener.com/cms/images/a413610dcfbe9159385ba8047bf744c87917d5f4f7c00e48aa41dd4f49817f3e?width=1500&height=500&quality=95&format=auto",
+        "openGraph": "https://cdn.dexscreener.com/token-images/og/base/0x532f27101965dd16442e59d40670faf5ebb142e4?timestamp=1792028400000",
+        "websites": [
+         {
+          "url": "https://www.basedbrett.com/",
+          "label": "Website"
+         }
+        ],
+        "socials": [
+         {
+          "url": "https://twitter.com/BasedBrett",
+          "type": "twitter"
+         },
+         {
+          "url": "https://t.me/basedbrett",
+          "type": "telegram"
+         }
+        ]
+       }
+      },
+      {
+       "chainId": "base",
+       "dexId": "baseswap",
+       "url": "https://dexscreener.com/base/0x78b9a3e9b16391df3a379ea0c5b9c1aef4b55ab7",
+       "pairAddress": "0x78b9A3E9B16391dF3A379eA0c5B9c1AEf4B55AB7",
+       "baseToken": {
+        "address": "0x532f27101965dd16442E59d40670FaF5eBB142E4",
+        "name": "Brett",
+        "symbol": "BRETT"
+       },
+       "quoteToken": {
+        "address": "0x4200000000000000000000000000000000000006",
+        "name": "Wrapped Ether",
+        "symbol": "WETH"
+       },
+       "priceNative": "0.000002048",
+       "priceUsd": "0.004940",
+       "txns": {
+        "m5": {
+         "buys": 0,
+         "sells": 0
+        },
+        "h1": {
+         "buys": 0,
+         "sells": 1
+        },
+        "h6": {
+         "buys": 1,
+         "sells": 7
+        },
+        "h24": {
+         "buys": 5,
+         "sells": 17
+        }
+       },
+       "volume": {
+        "h24": 15.55,
+        "h6": 3,
+        "h1": 0.43,
+        "m5": 0
+       },
+       "priceChange": {
+        "h1": -0.75,
+        "h6": -0.83,
+        "h24": -5.03
+       },
+       "liquidity": {
+        "usd": 909.59,
+        "base": 92062,
+        "quote": 0.1886
+       },
+       "fdv": 48954042,
+       "marketCap": 48954042,
+       "pairCreatedAt": 1709667515000,
+       "info": {
+        "imageUrl": "https://cdn.dexscreener.com/cms/images/86b556a0cb4ed7f3b6b6fecd16161f487dccebb89ed7d302b834fb1c0ce197b8?width=800&height=800&quality=95&format=auto",
+        "header": "https://cdn.dexscreener.com/cms/images/a413610dcfbe9159385ba8047bf744c87917d5f4f7c00e48aa41dd4f49817f3e?width=1500&height=500&quality=95&format=auto",
+        "openGraph": "https://cdn.dexscreener.com/token-images/og/base/0x532f27101965dd16442e59d40670faf5ebb142e4?timestamp=1792028400000",
+        "websites": [
+         {
+          "url": "https://www.basedbrett.com/",
+          "label": "Website"
+         }
+        ],
+        "socials": [
+         {
+          "url": "https://twitter.com/BasedBrett",
+          "type": "twitter"
+         },
+         {
+          "url": "https://t.me/basedbrett",
+          "type": "telegram"
+         }
+        ]
+       }
+      },
+      {
+       "chainId": "base",
+       "dexId": "uniswap",
+       "url": "https://dexscreener.com/base/0xb34380ba6a17b022782c7fc91e319c10c168fb98",
+       "pairAddress": "0xb34380BA6a17B022782c7FC91e319C10c168FB98",
+       "labels": [
+        "v2"
+       ],
+       "baseToken": {
+        "address": "0x532f27101965dd16442E59d40670FaF5eBB142E4",
+        "name": "Brett",
+        "symbol": "BRETT"
+       },
+       "quoteToken": {
+        "address": "0x4200000000000000000000000000000000000006",
+        "name": "Wrapped Ether",
+        "symbol": "WETH"
+       },
+       "priceNative": "0.000002053",
+       "priceUsd": "0.004979",
+       "txns": {
+        "m5": {
+         "buys": 0,
+         "sells": 0
+        },
+        "h1": {
+         "buys": 0,
+         "sells": 0
+        },
+        "h6": {
+         "buys": 2,
+         "sells": 3
+        },
+        "h24": {
+         "buys": 7,
+         "sells": 11
+        }
+       },
+       "volume": {
+        "h24": 11.69,
+        "h6": 1.88,
+        "h1": 0,
+        "m5": 0
+       },
+       "priceChange": {
+        "h6": -0.55,
+        "h24": -3.86
+       },
+       "liquidity": {
+        "usd": 712.11,
+        "base": 71500,
+        "quote": 0.1468
+       },
+       "fdv": 49348354,
+       "marketCap": 49348354,
+       "pairCreatedAt": 1711612757000,
+       "info": {
+        "imageUrl": "https://cdn.dexscreener.com/cms/images/86b556a0cb4ed7f3b6b6fecd16161f487dccebb89ed7d302b834fb1c0ce197b8?width=800&height=800&quality=95&format=auto",
+        "header": "https://cdn.dexscreener.com/cms/images/a413610dcfbe9159385ba8047bf744c87917d5f4f7c00e48aa41dd4f49817f3e?width=1500&height=500&quality=95&format=auto",
+        "openGraph": "https://cdn.dexscreener.com/token-images/og/base/0x532f27101965dd16442e59d40670faf5ebb142e4?timestamp=1792028400000",
+        "websites": [
+         {
+          "url": "https://www.basedbrett.com/",
+          "label": "Website"
+         }
+        ],
+        "socials": [
+         {
+          "url": "https://twitter.com/BasedBrett",
+          "type": "twitter"
+         },
+         {
+          "url": "https://t.me/basedbrett",
+          "type": "telegram"
+         }
+        ]
+       }
+      },
+      {
+       "chainId": "base",
+       "dexId": "sushiswap",
+       "url": "https://dexscreener.com/base/0x404e927b203375779a6abd52a2049ce0adf6609b",
+       "pairAddress": "0x404E927b203375779a6aBD52A2049cE0ADf6609B",
+       "baseToken": {
+        "address": "0x532f27101965dd16442E59d40670FaF5eBB142E4",
+        "name": "Brett",
+        "symbol": "BRETT"
+       },
+       "quoteToken": {
+        "address": "0x4200000000000000000000000000000000000006",
+        "name": "Wrapped Ether",
+        "symbol": "WETH"
+       },
+       "priceNative": "0.000002052",
+       "priceUsd": "0.004975",
+       "txns": {
+        "m5": {
+         "buys": 0,
+         "sells": 0
+        },
+        "h1": {
+         "buys": 0,
+         "sells": 0
+        },
+        "h6": {
+         "buys": 2,
+         "sells": 5
+        },
+        "h24": {
+         "buys": 3,
+         "sells": 8
+        }
+       },
+       "volume": {
+        "h24": 4.01,
+        "h6": 1.92,
+        "h1": 0,
+        "m5": 0
+       },
+       "priceChange": {
+        "h6": -0.51,
+        "h24": -2.53
+       },
+       "liquidity": {
+        "usd": 286.19,
+        "base": 28757,
+        "quote": 0.05902
+       },
+       "fdv": 49310126,
+       "marketCap": 49310126,
+       "pairCreatedAt": 1708757983000,
+       "info": {
+        "imageUrl": "https://cdn.dexscreener.com/cms/images/86b556a0cb4ed7f3b6b6fecd16161f487dccebb89ed7d302b834fb1c0ce197b8?width=800&height=800&quality=95&format=auto",
+        "header": "https://cdn.dexscreener.com/cms/images/a413610dcfbe9159385ba8047bf744c87917d5f4f7c00e48aa41dd4f49817f3e?width=1500&height=500&quality=95&format=auto",
+        "openGraph": "https://cdn.dexscreener.com/token-images/og/base/0x532f27101965dd16442e59d40670faf5ebb142e4?timestamp=1792028400000",
+        "websites": [
+         {
+          "url": "https://www.basedbrett.com/",
+          "label": "Website"
+         }
+        ],
+        "socials": [
+         {
+          "url": "https://twitter.com/BasedBrett",
+          "type": "twitter"
+         },
+         {
+          "url": "https://t.me/basedbrett",
+          "type": "telegram"
+         }
+        ]
+       }
+      },
+      {
+       "chainId": "base",
+       "dexId": "uniswap",
+       "url": "https://dexscreener.com/base/0xbf0a0c12e7c0610002f6aa6e609755ede42d6a4d",
+       "pairAddress": "0xBF0A0C12E7C0610002F6Aa6E609755EDe42D6A4d",
+       "labels": [
+        "v3"
+       ],
+       "baseToken": {
+        "address": "0x532f27101965dd16442E59d40670FaF5eBB142E4",
+        "name": "Brett",
+        "symbol": "BRETT"
+       },
+       "quoteToken": {
+        "address": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+        "name": "USD Coin",
+        "symbol": "USDC"
+       },
+       "priceNative": "0.004883",
+       "priceUsd": "0.004883",
+       "txns": {
+        "m5": {
+         "buys": 0,
+         "sells": 0
+        },
+        "h1": {
+         "buys": 0,
+         "sells": 0
+        },
+        "h6": {
+         "buys": 1,
+         "sells": 0
+        },
+        "h24": {
+         "buys": 6,
+         "sells": 1
+        }
+       },
+       "volume": {
+        "h24": 0.15,
+        "h6": 0,
+        "h1": 0,
+        "m5": 0
+       },
+       "priceChange": {
+        "h6": 0.52,
+        "h24": 1.18
+       },
+       "liquidity": {
+        "usd": 880.29,
+        "base": 161351,
+        "quote": 92.4152
+       },
+       "fdv": 48388601,
+       "marketCap": 48388601,
+       "pairCreatedAt": 1709620697000,
+       "info": {
+        "imageUrl": "https://cdn.dexscreener.com/cms/images/86b556a0cb4ed7f3b6b6fecd16161f487dccebb89ed7d302b834fb1c0ce197b8?width=800&height=800&quality=95&format=auto",
+        "header": "https://cdn.dexscreener.com/cms/images/a413610dcfbe9159385ba8047bf744c87917d5f4f7c00e48aa41dd4f49817f3e?width=1500&height=500&quality=95&format=auto",
+        "openGraph": "https://cdn.dexscreener.com/token-images/og/base/0x532f27101965dd16442e59d40670faf5ebb142e4?timestamp=1792028400000",
+        "websites": [
+         {
+          "url": "https://www.basedbrett.com/",
+          "label": "Website"
+         }
+        ],
+        "socials": [
+         {
+          "url": "https://twitter.com/BasedBrett",
+          "type": "twitter"
+         },
+         {
+          "url": "https://t.me/basedbrett",
+          "type": "telegram"
+         }
+        ]
+       }
+      },
+      {
+       "chainId": "base",
+       "dexId": "aerodrome",
+       "url": "https://dexscreener.com/base/0xec4e900b7cd533b55d37b2dd54eeb2df3e7ca16f",
+       "pairAddress": "0xeC4E900B7CD533B55D37B2dd54eeB2Df3E7Ca16f",
+       "baseToken": {
+        "address": "0x532f27101965dd16442E59d40670FaF5eBB142E4",
+        "name": "Brett",
+        "symbol": "BRETT"
+       },
+       "quoteToken": {
+        "address": "0x4200000000000000000000000000000000000006",
+        "name": "Wrapped Ether",
+        "symbol": "WETH"
+       },
+       "priceNative": "0.000002059",
+       "priceUsd": "0.005036",
+       "txns": {
+        "m5": {
+         "buys": 0,
+         "sells": 0
+        },
+        "h1": {
+         "buys": 0,
+         "sells": 0
+        },
+        "h6": {
+         "buys": 0,
+         "sells": 0
+        },
+        "h24": {
+         "buys": 0,
+         "sells": 1
+        }
+       },
+       "volume": {
+        "h24": 0.24,
+        "h6": 0,
+        "h1": 0,
+        "m5": 0
+       },
+       "priceChange": {},
+       "liquidity": {
+        "usd": 516.68,
+        "base": 27195,
+        "quote": 0.1552
+       },
+       "fdv": 49913543,
+       "marketCap": 49913543,
+       "info": {
+        "imageUrl": "https://cdn.dexscreener.com/cms/images/86b556a0cb4ed7f3b6b6fecd16161f487dccebb89ed7d302b834fb1c0ce197b8?width=800&height=800&quality=95&format=auto",
+        "header": "https://cdn.dexscreener.com/cms/images/a413610dcfbe9159385ba8047bf744c87917d5f4f7c00e48aa41dd4f49817f3e?width=1500&height=500&quality=95&format=auto",
+        "openGraph": "https://cdn.dexscreener.com/token-images/og/base/0x532f27101965dd16442e59d40670faf5ebb142e4?timestamp=1792028400000",
+        "websites": [
+         {
+          "url": "https://www.basedbrett.com/",
+          "label": "Website"
+         }
+        ],
+        "socials": [
+         {
+          "url": "https://twitter.com/BasedBrett",
+          "type": "twitter"
+         },
+         {
+          "url": "https://t.me/basedbrett",
+          "type": "telegram"
+         }
+        ]
+       }
+      },
+      {
+       "chainId": "base",
+       "dexId": "0x407fA8029852A8386a907287018CEAFd7242C621",
+       "url": "https://dexscreener.com/base/0xc371f90612ef972c5df5773735ec4932a05ab4bf",
+       "pairAddress": "0xC371F90612ef972c5df5773735EC4932A05AB4Bf",
+       "baseToken": {
+        "address": "0x532f27101965dd16442E59d40670FaF5eBB142E4",
+        "name": "Brett",
+        "symbol": "BRETT"
+       },
+       "quoteToken": {
+        "address": "0x4200000000000000000000000000000000000006",
+        "name": "Wrapped Ether",
+        "symbol": "WETH"
+       },
+       "priceNative": "0.000002052",
+       "priceUsd": "0.005017",
+       "txns": {
+        "m5": {
+         "buys": 0,
+         "sells": 0
+        },
+        "h1": {
+         "buys": 0,
+         "sells": 0
+        },
+        "h6": {
+         "buys": 0,
+         "sells": 0
+        },
+        "h24": {
+         "buys": 2,
+         "sells": 3
+        }
+       },
+       "volume": {
+        "h24": 4.42,
+        "h6": 0,
+        "h1": 0,
+        "m5": 0
+       },
+       "priceChange": {
+        "h24": -2.53
+       },
+       "liquidity": {
+        "usd": 385.2,
+        "base": 34285,
+        "quote": 0.0872
+       },
+       "fdv": 49722723,
+       "marketCap": 49722723,
+       "info": {
+        "imageUrl": "https://cdn.dexscreener.com/cms/images/86b556a0cb4ed7f3b6b6fecd16161f487dccebb89ed7d302b834fb1c0ce197b8?width=800&height=800&quality=95&format=auto",
+        "header": "https://cdn.dexscreener.com/cms/images/a413610dcfbe9159385ba8047bf744c87917d5f4f7c00e48aa41dd4f49817f3e?width=1500&height=500&quality=95&format=auto",
+        "openGraph": "https://cdn.dexscreener.com/token-images/og/base/0x532f27101965dd16442e59d40670faf5ebb142e4?timestamp=1792028400000",
+        "websites": [
+         {
+          "url": "https://www.basedbrett.com/",
+          "label": "Website"
+         }
+        ],
+        "socials": [
+         {
+          "url": "https://twitter.com/BasedBrett",
+          "type": "twitter"
+         },
+         {
+          "url": "https://t.me/basedbrett",
+          "type": "telegram"
+         }
+        ]
+       }
+      }
+     ]
+    }
+   },
+   "https://tokens.uniswap.org": {
+    "result": {
+     "tokens": []
+    }
+   },
+   "https://tokens.coingecko.com/base/all.json": {
+    "result": {
+     "tokens": [
+      {
+       "chainId": 8453,
+       "address": "0x532f27101965dd16442e59d40670faf5ebb142e4",
+       "name": "Brett",
+       "symbol": "BRETT",
+       "decimals": 18,
+       "logoURI": "https://assets.coingecko.com/coins/images/35529/thumb/1000050750.png?1709031995"
+      }
+     ]
+    }
+   },
+   "https://api.dexscreener.com/token-pairs/v1/base/0x532f27101965dd16442E59d40670FaF5eBB142E4": {
+    "result": [
+     {
+      "chainId": "base",
+      "dexId": "aerodrome",
+      "url": "https://dexscreener.com/base/0x4e829f8a5213c42535ab84aa40bd4adcce9cba02",
+      "pairAddress": "0x4e829F8A5213c42535AB84AA40BD4aDCCE9cBa02",
+      "baseToken": {
+       "address": "0x532f27101965dd16442E59d40670FaF5eBB142E4",
+       "name": "Brett",
+       "symbol": "BRETT"
+      },
+      "quoteToken": {
+       "address": "0x4200000000000000000000000000000000000006",
+       "name": "Wrapped Ether",
+       "symbol": "WETH"
+      },
+      "priceNative": "0.000002047",
+      "priceUsd": "0.004947",
+      "txns": {
+       "m5": {
+        "buys": 0,
+        "sells": 1
+       },
+       "h1": {
+        "buys": 9,
+        "sells": 13
+       },
+       "h6": {
+        "buys": 80,
+        "sells": 124
+       },
+       "h24": {
+        "buys": 404,
+        "sells": 479
+       }
+      },
+      "volume": {
+       "h24": 179374.34,
+       "h6": 29616.56,
+       "h1": 2143.18,
+       "m5": 1.61
+      },
+      "priceChange": {
+       "m5": 0.24,
+       "h1": -0.65,
+       "h6": -0.17,
+       "h24": -4.23
+      },
+      "liquidity": {
+       "usd": 774329.37,
+       "base": 85941023,
+       "quote": 144.4456
+      },
+      "fdv": 49032348,
+      "marketCap": 49032348,
+      "info": {
+       "imageUrl": "https://cdn.dexscreener.com/cms/images/86b556a0cb4ed7f3b6b6fecd16161f487dccebb89ed7d302b834fb1c0ce197b8?width=800&height=800&quality=95&format=auto",
+       "header": "https://cdn.dexscreener.com/cms/images/a413610dcfbe9159385ba8047bf744c87917d5f4f7c00e48aa41dd4f49817f3e?width=1500&height=500&quality=95&format=auto",
+       "openGraph": "https://cdn.dexscreener.com/token-images/og/base/0x532f27101965dd16442e59d40670faf5ebb142e4?timestamp=1792028400000",
+       "websites": [
+        {
+         "url": "https://www.basedbrett.com/",
+         "label": "Website"
+        }
+       ],
+       "socials": [
+        {
+         "url": "https://twitter.com/BasedBrett",
+         "type": "twitter"
+        },
+        {
+         "url": "https://t.me/basedbrett",
+         "type": "telegram"
+        }
+       ]
+      }
+     },
+     {
+      "chainId": "base",
+      "dexId": "uniswap",
+      "url": "https://dexscreener.com/base/0xba3f945812a83471d709bce9c3ca699a19fb46f7",
+      "pairAddress": "0xBA3F945812a83471d709BCe9C3CA699A19FB46f7",
+      "labels": [
+       "v3"
+      ],
+      "baseToken": {
+       "address": "0x532f27101965dd16442E59d40670FaF5eBB142E4",
+       "name": "Brett",
+       "symbol": "BRETT"
+      },
+      "quoteToken": {
+       "address": "0x4200000000000000000000000000000000000006",
+       "name": "Wrapped Ether",
+       "symbol": "WETH"
+      },
+      "priceNative": "0.000002058",
+      "priceUsd": "0.004967",
+      "txns": {
+       "m5": {
+        "buys": 0,
+        "sells": 0
+       },
+       "h1": {
+        "buys": 0,
+        "sells": 0
+       },
+       "h6": {
+        "buys": 7,
+        "sells": 0
+       },
+       "h24": {
+        "buys": 25,
+        "sells": 34
+       }
+      },
+      "volume": {
+       "h24": 5360.25,
+       "h6": 1634.27,
+       "h1": 0,
+       "m5": 0
+      },
+      "priceChange": {
+       "h6": 0.08,
+       "h24": -3.85
+      },
+      "liquidity": {
+       "usd": 1161079.32,
+       "base": 87158858,
+       "quote": 301.6691
+      },
+      "fdv": 49226970,
+      "marketCap": 49226970,
+      "pairCreatedAt": 1709041137000,
+      "info": {
+       "imageUrl": "https://cdn.dexscreener.com/cms/images/86b556a0cb4ed7f3b6b6fecd16161f487dccebb89ed7d302b834fb1c0ce197b8?width=800&height=800&quality=95&format=auto",
+       "header": "https://cdn.dexscreener.com/cms/images/a413610dcfbe9159385ba8047bf744c87917d5f4f7c00e48aa41dd4f49817f3e?width=1500&height=500&quality=95&format=auto",
+       "openGraph": "https://cdn.dexscreener.com/token-images/og/base/0x532f27101965dd16442e59d40670faf5ebb142e4?timestamp=1792028400000",
+       "websites": [
+        {
+         "url": "https://www.basedbrett.com/",
+         "label": "Website"
+        }
+       ],
+       "socials": [
+        {
+         "url": "https://twitter.com/BasedBrett",
+         "type": "twitter"
+        },
+        {
+         "url": "https://t.me/basedbrett",
+         "type": "telegram"
+        }
+       ]
+      }
+     },
+     {
+      "chainId": "base",
+      "dexId": "pancakeswap",
+      "url": "https://dexscreener.com/base/0x75cc10fdcea4b7d13c115abb08240ac9c9be6f2f",
+      "pairAddress": "0x75CC10fdcEa4b7D13c115ABB08240ac9c9Be6f2f",
+      "baseToken": {
+       "address": "0x532f27101965dd16442E59d40670FaF5eBB142E4",
+       "name": "Brett",
+       "symbol": "BRETT"
+      },
+      "quoteToken": {
+       "address": "0x4200000000000000000000000000000000000006",
+       "name": "Wrapped Ether",
+       "symbol": "WETH"
+      },
+      "priceNative": "0.000002043",
+      "priceUsd": "0.005074",
+      "txns": {
+       "m5": {
+        "buys": 0,
+        "sells": 0
+       },
+       "h1": {
+        "buys": 0,
+        "sells": 0
+       },
+       "h6": {
+        "buys": 0,
+        "sells": 0
+       },
+       "h24": {
+        "buys": 1,
+        "sells": 1
+       }
+      },
+      "volume": {
+       "h24": 0.29,
+       "h6": 0,
+       "h1": 0,
+       "m5": 0
+      },
+      "priceChange": {
+       "h24": -2.81
+      },
+      "liquidity": {
+       "usd": 184488.89,
+       "base": 29368339,
+       "quote": 14.2774
+      },
+      "fdv": 50288450,
+      "marketCap": 50288450,
+      "pairCreatedAt": 1723526243000,
+      "info": {
+       "imageUrl": "https://cdn.dexscreener.com/cms/images/86b556a0cb4ed7f3b6b6fecd16161f487dccebb89ed7d302b834fb1c0ce197b8?width=800&height=800&quality=95&format=auto",
+       "header": "https://cdn.dexscreener.com/cms/images/a413610dcfbe9159385ba8047bf744c87917d5f4f7c00e48aa41dd4f49817f3e?width=1500&height=500&quality=95&format=auto",
+       "openGraph": "https://cdn.dexscreener.com/token-images/og/base/0x532f27101965dd16442e59d40670faf5ebb142e4?timestamp=1792028400000",
+       "websites": [
+        {
+         "url": "https://www.basedbrett.com/",
+         "label": "Website"
+        }
+       ],
+       "socials": [
+        {
+         "url": "https://twitter.com/BasedBrett",
+         "type": "twitter"
+        },
+        {
+         "url": "https://t.me/basedbrett",
+         "type": "telegram"
+        }
+       ]
+      }
+     },
+     {
+      "chainId": "base",
+      "dexId": "aerodrome",
+      "url": "https://dexscreener.com/base/0x43bbb129b56a998732767725a183b7a566843dba",
+      "pairAddress": "0x43BBb129b56A998732767725A183b7a566843dBA",
+      "baseToken": {
+       "address": "0x532f27101965dd16442E59d40670FaF5eBB142E4",
+       "name": "Brett",
+       "symbol": "BRETT"
+      },
+      "quoteToken": {
+       "address": "0x940181a94A35A4569E4529A3CDfB74e38FD98631",
+       "name": "Aerodrome",
+       "symbol": "AERO"
+      },
+      "priceNative": "0.005555",
+      "priceUsd": "0.004950",
+      "txns": {
+       "m5": {
+        "buys": 0,
+        "sells": 0
+       },
+       "h1": {
+        "buys": 2,
+        "sells": 0
+       },
+       "h6": {
+        "buys": 6,
+        "sells": 18
+       },
+       "h24": {
+        "buys": 64,
+        "sells": 90
+       }
+      },
+      "volume": {
+       "h24": 1756.75,
+       "h6": 259.4,
+       "h1": 19.94,
+       "m5": 0
+      },
+      "priceChange": {
+       "h1": -0.81,
+       "h6": -0.36,
+       "h24": -4.57
+      },
+      "liquidity": {
+       "usd": 33830.2,
+       "base": 3417021,
+       "quote": 18982
+      },
+      "fdv": 49054975,
+      "marketCap": 49054975,
+      "pairCreatedAt": 1711949205000,
+      "info": {
+       "imageUrl": "https://cdn.dexscreener.com/cms/images/86b556a0cb4ed7f3b6b6fecd16161f487dccebb89ed7d302b834fb1c0ce197b8?width=800&height=800&quality=95&format=auto",
+       "header": "https://cdn.dexscreener.com/cms/images/a413610dcfbe9159385ba8047bf744c87917d5f4f7c00e48aa41dd4f49817f3e?width=1500&height=500&quality=95&format=auto",
+       "openGraph": "https://cdn.dexscreener.com/token-images/og/base/0x532f27101965dd16442e59d40670faf5ebb142e4?timestamp=1792028400000",
+       "websites": [
+        {
+         "url": "https://www.basedbrett.com/",
+         "label": "Website"
+        }
+       ],
+       "socials": [
+        {
+         "url": "https://twitter.com/BasedBrett",
+         "type": "twitter"
+        },
+        {
+         "url": "https://t.me/basedbrett",
+         "type": "telegram"
+        }
+       ]
+      }
+     },
+     {
+      "chainId": "base",
+      "dexId": "uniswap",
+      "url": "https://dexscreener.com/base/0x76bf0abd20f1e0155ce40a62615a90a709a6c3d8",
+      "pairAddress": "0x76Bf0abD20f1e0155Ce40A62615a90A709a6C3D8",
+      "labels": [
+       "v3"
+      ],
+      "baseToken": {
+       "address": "0x532f27101965dd16442E59d40670FaF5eBB142E4",
+       "name": "Brett",
+       "symbol": "BRETT"
+      },
+      "quoteToken": {
+       "address": "0x4200000000000000000000000000000000000006",
+       "name": "Wrapped Ether",
+       "symbol": "WETH"
+      },
+      "priceNative": "0.000002047",
+      "priceUsd": "0.004948",
+      "txns": {
+       "m5": {
+        "buys": 0,
+        "sells": 1
+       },
+       "h1": {
+        "buys": 0,
+        "sells": 12
+       },
+       "h6": {
+        "buys": 37,
+        "sells": 85
+       },
+       "h24": {
+        "buys": 206,
+        "sells": 280
+       }
+      },
+      "volume": {
+       "h24": 42928,
+       "h6": 8315.98,
+       "h1": 1279.63,
+       "m5": 47.7
+      },
+      "priceChange": {
+       "m5": -0.13,
+       "h1": -0.76,
+       "h6": -0.3,
+       "h24": -4.31
+      },
+      "liquidity": {
+       "usd": 108552.78,
+       "base": 15736461,
+       "quote": 12.6959
+      },
+      "fdv": 49036043,
+      "marketCap": 49036043,
+      "pairCreatedAt": 1709899129000,
+      "info": {
+       "imageUrl": "https://cdn.dexscreener.com/cms/images/86b556a0cb4ed7f3b6b6fecd16161f487dccebb89ed7d302b834fb1c0ce197b8?width=800&height=800&quality=95&format=auto",
+       "header": "https://cdn.dexscreener.com/cms/images/a413610dcfbe9159385ba8047bf744c87917d5f4f7c00e48aa41dd4f49817f3e?width=1500&height=500&quality=95&format=auto",
+       "openGraph": "https://cdn.dexscreener.com/token-images/og/base/0x532f27101965dd16442e59d40670faf5ebb142e4?timestamp=1792028400000",
+       "websites": [
+        {
+         "url": "https://www.basedbrett.com/",
+         "label": "Website"
+        }
+       ],
+       "socials": [
+        {
+         "url": "https://twitter.com/BasedBrett",
+         "type": "twitter"
+        },
+        {
+         "url": "https://t.me/basedbrett",
+         "type": "telegram"
+        }
+       ]
+      }
+     },
+     {
+      "chainId": "base",
+      "dexId": "uniswap",
+      "url": "https://dexscreener.com/base/0xa745ec5e44ee4839cd6d1b76b76e800fed7cb6ceda014a6310c558213212c54e",
+      "pairAddress": "0xa745ec5e44ee4839cd6d1b76b76e800fed7cb6ceda014a6310c558213212c54e",
+      "labels": [
+       "v4"
+      ],
+      "baseToken": {
+       "address": "0x532f27101965dd16442E59d40670FaF5eBB142E4",
+       "name": "Brett",
+       "symbol": "BRETT"
+      },
+      "quoteToken": {
+       "address": "0xcEe2569b528F2B17dF616B679b115E6389407fD6",
+       "name": "AIOCTO",
+       "symbol": "AIOCTO"
+      },
+      "priceNative": "7.06321",
+      "priceUsd": "0.004997",
+      "txns": {
+       "m5": {
+        "buys": 0,
+        "sells": 0
+       },
+       "h1": {
+        "buys": 0,
+        "sells": 0
+       },
+       "h6": {
+        "buys": 1,
+        "sells": 0
+       },
+       "h24": {
+        "buys": 1,
+        "sells": 9
+       }
+      },
+      "volume": {
+       "h24": 35.2,
+       "h6": 4.27,
+       "h1": 0,
+       "m5": 0
+      },
+      "priceChange": {
+       "h6": -2,
+       "h24": -3.52
+      },
+      "liquidity": {
+       "usd": 6411.02,
+       "base": 641237,
+       "quote": 4532343
+      },
+      "fdv": 49520380,
+      "marketCap": 49520380,
+      "pairCreatedAt": 1776861635000,
+      "info": {
+       "imageUrl": "https://cdn.dexscreener.com/cms/images/86b556a0cb4ed7f3b6b6fecd16161f487dccebb89ed7d302b834fb1c0ce197b8?width=800&height=800&quality=95&format=auto",
+       "header": "https://cdn.dexscreener.com/cms/images/a413610dcfbe9159385ba8047bf744c87917d5f4f7c00e48aa41dd4f49817f3e?width=1500&height=500&quality=95&format=auto",
+       "openGraph": "https://cdn.dexscreener.com/token-images/og/base/0x532f27101965dd16442e59d40670faf5ebb142e4?timestamp=1792028400000",
+       "websites": [
+        {
+         "url": "https://www.basedbrett.com/",
+         "label": "Website"
+        }
+       ],
+       "socials": [
+        {
+         "url": "https://twitter.com/BasedBrett",
+         "type": "twitter"
+        },
+        {
+         "url": "https://t.me/basedbrett",
+         "type": "telegram"
+        }
+       ]
+      }
+     },
+     {
+      "chainId": "base",
+      "dexId": "uniswap",
+      "url": "https://dexscreener.com/base/0x27402edf3c6a6d6b5a279dfc7a2c8cbacebbfdfc3559f7c03d6971b09126a9f3",
+      "pairAddress": "0x27402edf3c6a6d6b5a279dfc7a2c8cbacebbfdfc3559f7c03d6971b09126a9f3",
+      "labels": [
+       "v4"
+      ],
+      "baseToken": {
+       "address": "0x532f27101965dd16442E59d40670FaF5eBB142E4",
+       "name": "Brett",
+       "symbol": "BRETT"
+      },
+      "quoteToken": {
+       "address": "0x0000000000000000000000000000000000000000",
+       "name": "Ether",
+       "symbol": "ETH"
+      },
+      "priceNative": "0.000002051",
+      "priceUsd": "0.004962",
+      "txns": {
+       "m5": {
+        "buys": 0,
+        "sells": 0
+       },
+       "h1": {
+        "buys": 0,
+        "sells": 2
+       },
+       "h6": {
+        "buys": 6,
+        "sells": 5
+       },
+       "h24": {
+        "buys": 16,
+        "sells": 25
+       }
+      },
+      "volume": {
+       "h24": 92.33,
+       "h6": 17.94,
+       "h1": 4.07,
+       "m5": 0
+      },
+      "priceChange": {
+       "h1": -0.8,
+       "h6": -0.54,
+       "h24": -4.39
+      },
+      "liquidity": {
+       "usd": 5205.25,
+       "base": 724507,
+       "quote": 0.6653
+      },
+      "fdv": 49177928,
+      "marketCap": 49177928,
+      "pairCreatedAt": 1739288749000,
+      "info": {
+       "imageUrl": "https://cdn.dexscreener.com/cms/images/86b556a0cb4ed7f3b6b6fecd16161f487dccebb89ed7d302b834fb1c0ce197b8?width=800&height=800&quality=95&format=auto",
+       "header": "https://cdn.dexscreener.com/cms/images/a413610dcfbe9159385ba8047bf744c87917d5f4f7c00e48aa41dd4f49817f3e?width=1500&height=500&quality=95&format=auto",
+       "openGraph": "https://cdn.dexscreener.com/token-images/og/base/0x532f27101965dd16442e59d40670faf5ebb142e4?timestamp=1792028400000",
+       "websites": [
+        {
+         "url": "https://www.basedbrett.com/",
+         "label": "Website"
+        }
+       ],
+       "socials": [
+        {
+         "url": "https://twitter.com/BasedBrett",
+         "type": "twitter"
+        },
+        {
+         "url": "https://t.me/basedbrett",
+         "type": "telegram"
+        }
+       ]
+      }
+     },
+     {
+      "chainId": "base",
+      "dexId": "aerodrome",
+      "url": "https://dexscreener.com/base/0xffa80952b3800240f11ad25e45e8d3e5c1593e70",
+      "pairAddress": "0xFfa80952B3800240F11AD25E45e8d3E5C1593E70",
+      "baseToken": {
+       "address": "0x532f27101965dd16442E59d40670FaF5eBB142E4",
+       "name": "Brett",
+       "symbol": "BRETT"
+      },
+      "quoteToken": {
+       "address": "0x940181a94A35A4569E4529A3CDfB74e38FD98631",
+       "name": "Aerodrome",
+       "symbol": "AERO"
+      },
+      "priceNative": "0.005562",
+      "priceUsd": "0.004944",
+      "txns": {
+       "m5": {
+        "buys": 1,
+        "sells": 0
+       },
+       "h1": {
+        "buys": 1,
+        "sells": 0
+       },
+       "h6": {
+        "buys": 4,
+        "sells": 10
+       },
+       "h24": {
+        "buys": 46,
+        "sells": 41
+       }
+      },
+      "volume": {
+       "h24": 214.73,
+       "h6": 28.25,
+       "h1": 0.72,
+       "m5": 0.72
+      },
+      "priceChange": {
+       "m5": -0.96,
+       "h1": -0.96,
+       "h6": -0.7,
+       "h24": -4.7
+      },
+      "liquidity": {
+       "usd": 4097.43,
+       "base": 621559,
+       "quote": 1152.3537
+      },
+      "fdv": 48994651,
+      "marketCap": 48994651,
+      "pairCreatedAt": 1711165729000,
+      "info": {
+       "imageUrl": "https://cdn.dexscreener.com/cms/images/86b556a0cb4ed7f3b6b6fecd16161f487dccebb89ed7d302b834fb1c0ce197b8?width=800&height=800&quality=95&format=auto",
+       "header": "https://cdn.dexscreener.com/cms/images/a413610dcfbe9159385ba8047bf744c87917d5f4f7c00e48aa41dd4f49817f3e?width=1500&height=500&quality=95&format=auto",
+       "openGraph": "https://cdn.dexscreener.com/token-images/og/base/0x532f27101965dd16442e59d40670faf5ebb142e4?timestamp=1792028400000",
+       "websites": [
+        {
+         "url": "https://www.basedbrett.com/",
+         "label": "Website"
+        }
+       ],
+       "socials": [
+        {
+         "url": "https://twitter.com/BasedBrett",
+         "type": "twitter"
+        },
+        {
+         "url": "https://t.me/basedbrett",
+         "type": "telegram"
+        }
+       ]
+      }
+     },
+     {
+      "chainId": "base",
+      "dexId": "uniswap",
+      "url": "https://dexscreener.com/base/0x1ef85201ffa71dacfc4691564ccb04e8a33137859da32661e4acc1fde20b41a5",
+      "pairAddress": "0x1ef85201ffa71dacfc4691564ccb04e8a33137859da32661e4acc1fde20b41a5",
+      "labels": [
+       "v4"
+      ],
+      "baseToken": {
+       "address": "0x532f27101965dd16442E59d40670FaF5eBB142E4",
+       "name": "Brett",
+       "symbol": "BRETT"
+      },
+      "quoteToken": {
+       "address": "0x0000000000000000000000000000000000000000",
+       "name": "Ether",
+       "symbol": "ETH"
+      },
+      "priceNative": "0.000002044",
+      "priceUsd": "0.004947",
+      "txns": {
+       "m5": {
+        "buys": 0,
+        "sells": 0
+       },
+       "h1": {
+        "buys": 1,
+        "sells": 2
+       },
+       "h6": {
+        "buys": 15,
+        "sells": 18
+       },
+       "h24": {
+        "buys": 66,
+        "sells": 66
+       }
+      },
+      "volume": {
+       "h24": 130.69,
+       "h6": 29.79,
+       "h1": 3.67,
+       "m5": 0
+      },
+      "priceChange": {
+       "h1": -0.71,
+       "h6": -0.85,
+       "h24": -4.52
+      },
+      "liquidity": {
+       "usd": 2921.81,
+       "base": 442574,
+       "quote": 0.3026
+      },
+      "fdv": 49024435,
+      "marketCap": 49024435,
+      "pairCreatedAt": 1738343223000,
+      "info": {
+       "imageUrl": "https://cdn.dexscreener.com/cms/images/86b556a0cb4ed7f3b6b6fecd16161f487dccebb89ed7d302b834fb1c0ce197b8?width=800&height=800&quality=95&format=auto",
+       "header": "https://cdn.dexscreener.com/cms/images/a413610dcfbe9159385ba8047bf744c87917d5f4f7c00e48aa41dd4f49817f3e?width=1500&height=500&quality=95&format=auto",
+       "openGraph": "https://cdn.dexscreener.com/token-images/og/base/0x532f27101965dd16442e59d40670faf5ebb142e4?timestamp=1792028400000",
+       "websites": [
+        {
+         "url": "https://www.basedbrett.com/",
+         "label": "Website"
+        }
+       ],
+       "socials": [
+        {
+         "url": "https://twitter.com/BasedBrett",
+         "type": "twitter"
+        },
+        {
+         "url": "https://t.me/basedbrett",
+         "type": "telegram"
+        }
+       ]
+      }
+     },
+     {
+      "chainId": "base",
+      "dexId": "uniswap",
+      "url": "https://dexscreener.com/base/0x36a46dff597c5a444bbc521d26787f57867d2214",
+      "pairAddress": "0x36a46dFF597C5A444bbC521D26787F57867D2214",
+      "labels": [
+       "v3"
+      ],
+      "baseToken": {
+       "address": "0x532f27101965dd16442E59d40670FaF5eBB142E4",
+       "name": "Brett",
+       "symbol": "BRETT"
+      },
+      "quoteToken": {
+       "address": "0x4200000000000000000000000000000000000006",
+       "name": "Wrapped Ether",
+       "symbol": "WETH"
+      },
+      "priceNative": "0.000002050",
+      "priceUsd": "0.004953",
+      "txns": {
+       "m5": {
+        "buys": 0,
+        "sells": 0
+       },
+       "h1": {
+        "buys": 0,
+        "sells": 1
+       },
+       "h6": {
+        "buys": 2,
+        "sells": 3
+       },
+       "h24": {
+        "buys": 11,
+        "sells": 12
+       }
+      },
+      "volume": {
+       "h24": 16.69,
+       "h6": 3.22,
+       "h1": 0.32,
+       "m5": 0
+      },
+      "priceChange": {
+       "h1": -0.55,
+       "h6": -0.42,
+       "h24": -5.06
+      },
+      "liquidity": {
+       "usd": 2007.68,
+       "base": 319022,
+       "quote": 0.1768
+      },
+      "fdv": 49090845,
+      "marketCap": 49090845,
+      "pairCreatedAt": 1712461265000,
+      "info": {
+       "imageUrl": "https://cdn.dexscreener.com/cms/images/86b556a0cb4ed7f3b6b6fecd16161f487dccebb89ed7d302b834fb1c0ce197b8?width=800&height=800&quality=95&format=auto",
+       "header": "https://cdn.dexscreener.com/cms/images/a413610dcfbe9159385ba8047bf744c87917d5f4f7c00e48aa41dd4f49817f3e?width=1500&height=500&quality=95&format=auto",
+       "openGraph": "https://cdn.dexscreener.com/token-images/og/base/0x532f27101965dd16442e59d40670faf5ebb142e4?timestamp=1792028400000",
+       "websites": [
+        {
+         "url": "https://www.basedbrett.com/",
+         "label": "Website"
+        }
+       ],
+       "socials": [
+        {
+         "url": "https://twitter.com/BasedBrett",
+         "type": "twitter"
+        },
+        {
+         "url": "https://t.me/basedbrett",
+         "type": "telegram"
+        }
+       ]
+      }
+     },
+     {
+      "chainId": "base",
+      "dexId": "hydrex",
+      "url": "https://dexscreener.com/base/0xa4b2401dbbf97e3fbda6fb4ef3f4b7a37069232b",
+      "pairAddress": "0xa4B2401DBBF97E3fbda6fB4eF3F4B7A37069232B",
+      "labels": [
+       "CLAMM"
+      ],
+      "baseToken": {
+       "address": "0x532f27101965dd16442E59d40670FaF5eBB142E4",
+       "name": "Brett",
+       "symbol": "BRETT"
+      },
+      "quoteToken": {
+       "address": "0x4200000000000000000000000000000000000006",
+       "name": "Wrapped Ether",
+       "symbol": "WETH"
+      },
+      "priceNative": "0.000002031",
+      "priceUsd": "0.004919",
+      "txns": {
+       "m5": {
+        "buys": 0,
+        "sells": 0
+       },
+       "h1": {
+        "buys": 0,
+        "sells": 0
+       },
+       "h6": {
+        "buys": 0,
+        "sells": 1
+       },
+       "h24": {
+        "buys": 1,
+        "sells": 3
+       }
+      },
+      "volume": {
+       "h24": 4.25,
+       "h6": 0.27,
+       "h1": 0,
+       "m5": 0
+      },
+      "priceChange": {
+       "h6": -2.33,
+       "h24": -1.54
+      },
+      "liquidity": {
+       "usd": 1740.68,
+       "base": 284060,
+       "quote": 0.1417
+      },
+      "fdv": 49192160,
+      "marketCap": 49192160,
+      "pairCreatedAt": 1752263757000,
+      "info": {
+       "imageUrl": "https://cdn.dexscreener.com/cms/images/86b556a0cb4ed7f3b6b6fecd16161f487dccebb89ed7d302b834fb1c0ce197b8?width=800&height=800&quality=95&format=auto",
+       "header": "https://cdn.dexscreener.com/cms/images/a413610dcfbe9159385ba8047bf744c87917d5f4f7c00e48aa41dd4f49817f3e?width=1500&height=500&quality=95&format=auto",
+       "openGraph": "https://cdn.dexscreener.com/token-images/og/base/0x532f27101965dd16442e59d40670faf5ebb142e4?timestamp=1792028400000",
+       "websites": [
+        {
+         "url": "https://www.basedbrett.com/",
+         "label": "Website"
+        }
+       ],
+       "socials": [
+        {
+         "url": "https://twitter.com/BasedBrett",
+         "type": "twitter"
+        },
+        {
+         "url": "https://t.me/basedbrett",
+         "type": "telegram"
+        }
+       ]
+      }
+     },
+     {
+      "chainId": "base",
+      "dexId": "0xba34aA640b8Be02A439221BCbea1f48c1035EEF9",
+      "url": "https://dexscreener.com/base/0x3694be94b63c8f4e165f198c0a45ddc1641143e4",
+      "pairAddress": "0x3694bE94b63C8F4e165f198C0a45dDc1641143E4",
+      "baseToken": {
+       "address": "0x532f27101965dd16442E59d40670FaF5eBB142E4",
+       "name": "Brett",
+       "symbol": "BRETT"
+      },
+      "quoteToken": {
+       "address": "0x4200000000000000000000000000000000000006",
+       "name": "Wrapped Ether",
+       "symbol": "WETH"
+      },
+      "priceNative": "0.000002052",
+      "priceUsd": "0.004960",
+      "txns": {
+       "m5": {
+        "buys": 0,
+        "sells": 1
+       },
+       "h1": {
+        "buys": 0,
+        "sells": 2
+       },
+       "h6": {
+        "buys": 2,
+        "sells": 3
+       },
+       "h24": {
+        "buys": 6,
+        "sells": 10
+       }
+      },
+      "volume": {
+       "h24": 22.15,
+       "h6": 6.25,
+       "h1": 1.72,
+       "m5": 0.72
+      },
+      "priceChange": {
+       "m5": -0.35,
+       "h1": -0.52,
+       "h6": -0.93,
+       "h24": -4.28
+      },
+      "liquidity": {
+       "usd": 1193.16,
+       "base": 120275,
+       "quote": 0.2468
+      },
+      "fdv": 49152864,
+      "marketCap": 49152864,
+      "pairCreatedAt": 1726603511000,
+      "info": {
+       "imageUrl": "https://cdn.dexscreener.com/cms/images/86b556a0cb4ed7f3b6b6fecd16161f487dccebb89ed7d302b834fb1c0ce197b8?width=800&height=800&quality=95&format=auto",
+       "header": "https://cdn.dexscreener.com/cms/images/a413610dcfbe9159385ba8047bf744c87917d5f4f7c00e48aa41dd4f49817f3e?width=1500&height=500&quality=95&format=auto",
+       "openGraph": "https://cdn.dexscreener.com/token-images/og/base/0x532f27101965dd16442e59d40670faf5ebb142e4?timestamp=1792028400000",
+       "websites": [
+        {
+         "url": "https://www.basedbrett.com/",
+         "label": "Website"
+        }
+       ],
+       "socials": [
+        {
+         "url": "https://twitter.com/BasedBrett",
+         "type": "twitter"
+        },
+        {
+         "url": "https://t.me/basedbrett",
+         "type": "telegram"
+        }
+       ]
+      }
+     },
+     {
+      "chainId": "base",
+      "dexId": "baseswap",
+      "url": "https://dexscreener.com/base/0x78b9a3e9b16391df3a379ea0c5b9c1aef4b55ab7",
+      "pairAddress": "0x78b9A3E9B16391dF3A379eA0c5B9c1AEf4B55AB7",
+      "baseToken": {
+       "address": "0x532f27101965dd16442E59d40670FaF5eBB142E4",
+       "name": "Brett",
+       "symbol": "BRETT"
+      },
+      "quoteToken": {
+       "address": "0x4200000000000000000000000000000000000006",
+       "name": "Wrapped Ether",
+       "symbol": "WETH"
+      },
+      "priceNative": "0.000002048",
+      "priceUsd": "0.004940",
+      "txns": {
+       "m5": {
+        "buys": 0,
+        "sells": 0
+       },
+       "h1": {
+        "buys": 0,
+        "sells": 1
+       },
+       "h6": {
+        "buys": 1,
+        "sells": 7
+       },
+       "h24": {
+        "buys": 5,
+        "sells": 17
+       }
+      },
+      "volume": {
+       "h24": 15.55,
+       "h6": 3,
+       "h1": 0.43,
+       "m5": 0
+      },
+      "priceChange": {
+       "h1": -0.75,
+       "h6": -0.83,
+       "h24": -5.03
+      },
+      "liquidity": {
+       "usd": 909.59,
+       "base": 92062,
+       "quote": 0.1886
+      },
+      "fdv": 48954042,
+      "marketCap": 48954042,
+      "pairCreatedAt": 1709667515000,
+      "info": {
+       "imageUrl": "https://cdn.dexscreener.com/cms/images/86b556a0cb4ed7f3b6b6fecd16161f487dccebb89ed7d302b834fb1c0ce197b8?width=800&height=800&quality=95&format=auto",
+       "header": "https://cdn.dexscreener.com/cms/images/a413610dcfbe9159385ba8047bf744c87917d5f4f7c00e48aa41dd4f49817f3e?width=1500&height=500&quality=95&format=auto",
+       "openGraph": "https://cdn.dexscreener.com/token-images/og/base/0x532f27101965dd16442e59d40670faf5ebb142e4?timestamp=1792028400000",
+       "websites": [
+        {
+         "url": "https://www.basedbrett.com/",
+         "label": "Website"
+        }
+       ],
+       "socials": [
+        {
+         "url": "https://twitter.com/BasedBrett",
+         "type": "twitter"
+        },
+        {
+         "url": "https://t.me/basedbrett",
+         "type": "telegram"
+        }
+       ]
+      }
+     },
+     {
+      "chainId": "base",
+      "dexId": "uniswap",
+      "url": "https://dexscreener.com/base/0xb34380ba6a17b022782c7fc91e319c10c168fb98",
+      "pairAddress": "0xb34380BA6a17B022782c7FC91e319C10c168FB98",
+      "labels": [
+       "v2"
+      ],
+      "baseToken": {
+       "address": "0x532f27101965dd16442E59d40670FaF5eBB142E4",
+       "name": "Brett",
+       "symbol": "BRETT"
+      },
+      "quoteToken": {
+       "address": "0x4200000000000000000000000000000000000006",
+       "name": "Wrapped Ether",
+       "symbol": "WETH"
+      },
+      "priceNative": "0.000002053",
+      "priceUsd": "0.004979",
+      "txns": {
+       "m5": {
+        "buys": 0,
+        "sells": 0
+       },
+       "h1": {
+        "buys": 0,
+        "sells": 0
+       },
+       "h6": {
+        "buys": 2,
+        "sells": 3
+       },
+       "h24": {
+        "buys": 7,
+        "sells": 11
+       }
+      },
+      "volume": {
+       "h24": 11.69,
+       "h6": 1.88,
+       "h1": 0,
+       "m5": 0
+      },
+      "priceChange": {
+       "h6": -0.55,
+       "h24": -3.86
+      },
+      "liquidity": {
+       "usd": 712.11,
+       "base": 71500,
+       "quote": 0.1468
+      },
+      "fdv": 49348354,
+      "marketCap": 49348354,
+      "pairCreatedAt": 1711612757000,
+      "info": {
+       "imageUrl": "https://cdn.dexscreener.com/cms/images/86b556a0cb4ed7f3b6b6fecd16161f487dccebb89ed7d302b834fb1c0ce197b8?width=800&height=800&quality=95&format=auto",
+       "header": "https://cdn.dexscreener.com/cms/images/a413610dcfbe9159385ba8047bf744c87917d5f4f7c00e48aa41dd4f49817f3e?width=1500&height=500&quality=95&format=auto",
+       "openGraph": "https://cdn.dexscreener.com/token-images/og/base/0x532f27101965dd16442e59d40670faf5ebb142e4?timestamp=1792028400000",
+       "websites": [
+        {
+         "url": "https://www.basedbrett.com/",
+         "label": "Website"
+        }
+       ],
+       "socials": [
+        {
+         "url": "https://twitter.com/BasedBrett",
+         "type": "twitter"
+        },
+        {
+         "url": "https://t.me/basedbrett",
+         "type": "telegram"
+        }
+       ]
+      }
+     },
+     {
+      "chainId": "base",
+      "dexId": "sushiswap",
+      "url": "https://dexscreener.com/base/0x404e927b203375779a6abd52a2049ce0adf6609b",
+      "pairAddress": "0x404E927b203375779a6aBD52A2049cE0ADf6609B",
+      "baseToken": {
+       "address": "0x532f27101965dd16442E59d40670FaF5eBB142E4",
+       "name": "Brett",
+       "symbol": "BRETT"
+      },
+      "quoteToken": {
+       "address": "0x4200000000000000000000000000000000000006",
+       "name": "Wrapped Ether",
+       "symbol": "WETH"
+      },
+      "priceNative": "0.000002052",
+      "priceUsd": "0.004975",
+      "txns": {
+       "m5": {
+        "buys": 0,
+        "sells": 0
+       },
+       "h1": {
+        "buys": 0,
+        "sells": 0
+       },
+       "h6": {
+        "buys": 2,
+        "sells": 5
+       },
+       "h24": {
+        "buys": 3,
+        "sells": 8
+       }
+      },
+      "volume": {
+       "h24": 4.01,
+       "h6": 1.92,
+       "h1": 0,
+       "m5": 0
+      },
+      "priceChange": {
+       "h6": -0.51,
+       "h24": -2.53
+      },
+      "liquidity": {
+       "usd": 286.19,
+       "base": 28757,
+       "quote": 0.05902
+      },
+      "fdv": 49310126,
+      "marketCap": 49310126,
+      "pairCreatedAt": 1708757983000,
+      "info": {
+       "imageUrl": "https://cdn.dexscreener.com/cms/images/86b556a0cb4ed7f3b6b6fecd16161f487dccebb89ed7d302b834fb1c0ce197b8?width=800&height=800&quality=95&format=auto",
+       "header": "https://cdn.dexscreener.com/cms/images/a413610dcfbe9159385ba8047bf744c87917d5f4f7c00e48aa41dd4f49817f3e?width=1500&height=500&quality=95&format=auto",
+       "openGraph": "https://cdn.dexscreener.com/token-images/og/base/0x532f27101965dd16442e59d40670faf5ebb142e4?timestamp=1792028400000",
+       "websites": [
+        {
+         "url": "https://www.basedbrett.com/",
+         "label": "Website"
+        }
+       ],
+       "socials": [
+        {
+         "url": "https://twitter.com/BasedBrett",
+         "type": "twitter"
+        },
+        {
+         "url": "https://t.me/basedbrett",
+         "type": "telegram"
+        }
+       ]
+      }
+     },
+     {
+      "chainId": "base",
+      "dexId": "uniswap",
+      "url": "https://dexscreener.com/base/0xbf0a0c12e7c0610002f6aa6e609755ede42d6a4d",
+      "pairAddress": "0xBF0A0C12E7C0610002F6Aa6E609755EDe42D6A4d",
+      "labels": [
+       "v3"
+      ],
+      "baseToken": {
+       "address": "0x532f27101965dd16442E59d40670FaF5eBB142E4",
+       "name": "Brett",
+       "symbol": "BRETT"
+      },
+      "quoteToken": {
+       "address": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+       "name": "USD Coin",
+       "symbol": "USDC"
+      },
+      "priceNative": "0.004883",
+      "priceUsd": "0.004883",
+      "txns": {
+       "m5": {
+        "buys": 0,
+        "sells": 0
+       },
+       "h1": {
+        "buys": 0,
+        "sells": 0
+       },
+       "h6": {
+        "buys": 1,
+        "sells": 0
+       },
+       "h24": {
+        "buys": 6,
+        "sells": 1
+       }
+      },
+      "volume": {
+       "h24": 0.15,
+       "h6": 0,
+       "h1": 0,
+       "m5": 0
+      },
+      "priceChange": {
+       "h6": 0.52,
+       "h24": 1.18
+      },
+      "liquidity": {
+       "usd": 880.29,
+       "base": 161351,
+       "quote": 92.4152
+      },
+      "fdv": 48388601,
+      "marketCap": 48388601,
+      "pairCreatedAt": 1709620697000,
+      "info": {
+       "imageUrl": "https://cdn.dexscreener.com/cms/images/86b556a0cb4ed7f3b6b6fecd16161f487dccebb89ed7d302b834fb1c0ce197b8?width=800&height=800&quality=95&format=auto",
+       "header": "https://cdn.dexscreener.com/cms/images/a413610dcfbe9159385ba8047bf744c87917d5f4f7c00e48aa41dd4f49817f3e?width=1500&height=500&quality=95&format=auto",
+       "openGraph": "https://cdn.dexscreener.com/token-images/og/base/0x532f27101965dd16442e59d40670faf5ebb142e4?timestamp=1792028400000",
+       "websites": [
+        {
+         "url": "https://www.basedbrett.com/",
+         "label": "Website"
+        }
+       ],
+       "socials": [
+        {
+         "url": "https://twitter.com/BasedBrett",
+         "type": "twitter"
+        },
+        {
+         "url": "https://t.me/basedbrett",
+         "type": "telegram"
+        }
+       ]
+      }
+     },
+     {
+      "chainId": "base",
+      "dexId": "aerodrome",
+      "url": "https://dexscreener.com/base/0xec4e900b7cd533b55d37b2dd54eeb2df3e7ca16f",
+      "pairAddress": "0xeC4E900B7CD533B55D37B2dd54eeB2Df3E7Ca16f",
+      "baseToken": {
+       "address": "0x532f27101965dd16442E59d40670FaF5eBB142E4",
+       "name": "Brett",
+       "symbol": "BRETT"
+      },
+      "quoteToken": {
+       "address": "0x4200000000000000000000000000000000000006",
+       "name": "Wrapped Ether",
+       "symbol": "WETH"
+      },
+      "priceNative": "0.000002059",
+      "priceUsd": "0.005036",
+      "txns": {
+       "m5": {
+        "buys": 0,
+        "sells": 0
+       },
+       "h1": {
+        "buys": 0,
+        "sells": 0
+       },
+       "h6": {
+        "buys": 0,
+        "sells": 0
+       },
+       "h24": {
+        "buys": 0,
+        "sells": 1
+       }
+      },
+      "volume": {
+       "h24": 0.24,
+       "h6": 0,
+       "h1": 0,
+       "m5": 0
+      },
+      "priceChange": {},
+      "liquidity": {
+       "usd": 516.68,
+       "base": 27195,
+       "quote": 0.1552
+      },
+      "fdv": 49913543,
+      "marketCap": 49913543,
+      "info": {
+       "imageUrl": "https://cdn.dexscreener.com/cms/images/86b556a0cb4ed7f3b6b6fecd16161f487dccebb89ed7d302b834fb1c0ce197b8?width=800&height=800&quality=95&format=auto",
+       "header": "https://cdn.dexscreener.com/cms/images/a413610dcfbe9159385ba8047bf744c87917d5f4f7c00e48aa41dd4f49817f3e?width=1500&height=500&quality=95&format=auto",
+       "openGraph": "https://cdn.dexscreener.com/token-images/og/base/0x532f27101965dd16442e59d40670faf5ebb142e4?timestamp=1792028400000",
+       "websites": [
+        {
+         "url": "https://www.basedbrett.com/",
+         "label": "Website"
+        }
+       ],
+       "socials": [
+        {
+         "url": "https://twitter.com/BasedBrett",
+         "type": "twitter"
+        },
+        {
+         "url": "https://t.me/basedbrett",
+         "type": "telegram"
+        }
+       ]
+      }
+     },
+     {
+      "chainId": "base",
+      "dexId": "0x407fA8029852A8386a907287018CEAFd7242C621",
+      "url": "https://dexscreener.com/base/0xc371f90612ef972c5df5773735ec4932a05ab4bf",
+      "pairAddress": "0xC371F90612ef972c5df5773735EC4932A05AB4Bf",
+      "baseToken": {
+       "address": "0x532f27101965dd16442E59d40670FaF5eBB142E4",
+       "name": "Brett",
+       "symbol": "BRETT"
+      },
+      "quoteToken": {
+       "address": "0x4200000000000000000000000000000000000006",
+       "name": "Wrapped Ether",
+       "symbol": "WETH"
+      },
+      "priceNative": "0.000002052",
+      "priceUsd": "0.005017",
+      "txns": {
+       "m5": {
+        "buys": 0,
+        "sells": 0
+       },
+       "h1": {
+        "buys": 0,
+        "sells": 0
+       },
+       "h6": {
+        "buys": 0,
+        "sells": 0
+       },
+       "h24": {
+        "buys": 2,
+        "sells": 3
+       }
+      },
+      "volume": {
+       "h24": 4.42,
+       "h6": 0,
+       "h1": 0,
+       "m5": 0
+      },
+      "priceChange": {
+       "h24": -2.53
+      },
+      "liquidity": {
+       "usd": 385.2,
+       "base": 34285,
+       "quote": 0.0872
+      },
+      "fdv": 49722723,
+      "marketCap": 49722723,
+      "info": {
+       "imageUrl": "https://cdn.dexscreener.com/cms/images/86b556a0cb4ed7f3b6b6fecd16161f487dccebb89ed7d302b834fb1c0ce197b8?width=800&height=800&quality=95&format=auto",
+       "header": "https://cdn.dexscreener.com/cms/images/a413610dcfbe9159385ba8047bf744c87917d5f4f7c00e48aa41dd4f49817f3e?width=1500&height=500&quality=95&format=auto",
+       "openGraph": "https://cdn.dexscreener.com/token-images/og/base/0x532f27101965dd16442e59d40670faf5ebb142e4?timestamp=1792028400000",
+       "websites": [
+        {
+         "url": "https://www.basedbrett.com/",
+         "label": "Website"
+        }
+       ],
+       "socials": [
+        {
+         "url": "https://twitter.com/BasedBrett",
+         "type": "twitter"
+        },
+        {
+         "url": "https://t.me/basedbrett",
+         "type": "telegram"
+        }
+       ]
+      }
+     },
+     {
+      "chainId": "base",
+      "dexId": "uniswap",
+      "url": "https://dexscreener.com/base/0xa495a0f55e2196d9e45fd6f67fd145ea6ac5f01cd144b8f1afc8b2cfac275f12",
+      "pairAddress": "0xa495a0f55e2196d9e45fd6f67fd145ea6ac5f01cd144b8f1afc8b2cfac275f12",
+      "labels": [
+       "v4"
+      ],
+      "baseToken": {
+       "address": "0x532f27101965dd16442E59d40670FaF5eBB142E4",
+       "name": "Brett",
+       "symbol": "BRETT"
+      },
+      "quoteToken": {
+       "address": "0xA9B631ABcc4fd0bc766d7C0C8fCbf866e2bB0445",
+       "name": "HASH Coin",
+       "symbol": "HASH"
+      },
+      "priceNative": "73.3289",
+      "priceUsd": "0.005039",
+      "txns": {
+       "m5": {
+        "buys": 0,
+        "sells": 0
+       },
+       "h1": {
+        "buys": 0,
+        "sells": 0
+       },
+       "h6": {
+        "buys": 0,
+        "sells": 0
+       },
+       "h24": {
+        "buys": 2,
+        "sells": 5
+       }
+      },
+      "volume": {
+       "h24": 2.02,
+       "h6": 0,
+       "h1": 0,
+       "m5": 0
+      },
+      "priceChange": {
+       "h24": -2.93
+      },
+      "liquidity": {
+       "usd": 237.6,
+       "base": 23572,
+       "quote": 1728540
+      },
+      "fdv": 49942451,
+      "marketCap": 49942451,
+      "pairCreatedAt": 1783415581000,
+      "info": {
+       "imageUrl": "https://cdn.dexscreener.com/cms/images/86b556a0cb4ed7f3b6b6fecd16161f487dccebb89ed7d302b834fb1c0ce197b8?width=800&height=800&quality=95&format=auto",
+       "header": "https://cdn.dexscreener.com/cms/images/a413610dcfbe9159385ba8047bf744c87917d5f4f7c00e48aa41dd4f49817f3e?width=1500&height=500&quality=95&format=auto",
+       "openGraph": "https://cdn.dexscreener.com/token-images/og/base/0x532f27101965dd16442e59d40670faf5ebb142e4?timestamp=1792028400000",
+       "websites": [
+        {
+         "url": "https://www.basedbrett.com/",
+         "label": "Website"
+        }
+       ],
+       "socials": [
+        {
+         "url": "https://twitter.com/BasedBrett",
+         "type": "twitter"
+        },
+        {
+         "url": "https://t.me/basedbrett",
+         "type": "telegram"
+        }
+       ]
+      }
+     },
+     {
+      "chainId": "base",
+      "dexId": "aerodrome",
+      "url": "https://dexscreener.com/base/0xfbb7df8b446f6d216702c0c3898fb681a21186d3",
+      "pairAddress": "0xFbB7df8B446F6d216702C0C3898Fb681a21186D3",
+      "baseToken": {
+       "address": "0x532f27101965dd16442E59d40670FaF5eBB142E4",
+       "name": "Brett",
+       "symbol": "BRETT"
+      },
+      "quoteToken": {
+       "address": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+       "name": "USD Coin",
+       "symbol": "USDC"
+      },
+      "priceNative": "0.004979",
+      "priceUsd": "0.004979",
+      "txns": {
+       "m5": {
+        "buys": 0,
+        "sells": 0
+       },
+       "h1": {
+        "buys": 0,
+        "sells": 0
+       },
+       "h6": {
+        "buys": 0,
+        "sells": 0
+       },
+       "h24": {
+        "buys": 0,
+        "sells": 4
+       }
+      },
+      "volume": {
+       "h24": 1.29,
+       "h6": 0,
+       "h1": 0,
+       "m5": 0
+      },
+      "priceChange": {
+       "h24": -3.74
+      },
+      "liquidity": {
+       "usd": 131.16,
+       "base": 13170,
+       "quote": 65.5819
+      },
+      "fdv": 49345649,
+      "marketCap": 49345649,
+      "pairCreatedAt": 1711724651000,
+      "info": {
+       "imageUrl": "https://cdn.dexscreener.com/cms/images/86b556a0cb4ed7f3b6b6fecd16161f487dccebb89ed7d302b834fb1c0ce197b8?width=800&height=800&quality=95&format=auto",
+       "header": "https://cdn.dexscreener.com/cms/images/a413610dcfbe9159385ba8047bf744c87917d5f4f7c00e48aa41dd4f49817f3e?width=1500&height=500&quality=95&format=auto",
+       "openGraph": "https://cdn.dexscreener.com/token-images/og/base/0x532f27101965dd16442e59d40670faf5ebb142e4?timestamp=1792028400000",
+       "websites": [
+        {
+         "url": "https://www.basedbrett.com/",
+         "label": "Website"
+        }
+       ],
+       "socials": [
+        {
+         "url": "https://twitter.com/BasedBrett",
+         "type": "twitter"
+        },
+        {
+         "url": "https://t.me/basedbrett",
+         "type": "telegram"
+        }
+       ]
+      }
+     },
+     {
+      "chainId": "base",
+      "dexId": "pancakeswap",
+      "url": "https://dexscreener.com/base/0x69979d7a2c9697ea27a565a8835ade3b566edf6e",
+      "pairAddress": "0x69979D7a2C9697eA27a565A8835AdE3B566edF6E",
+      "baseToken": {
+       "address": "0x532f27101965dd16442E59d40670FaF5eBB142E4",
+       "name": "Brett",
+       "symbol": "BRETT"
+      },
+      "quoteToken": {
+       "address": "0x4200000000000000000000000000000000000006",
+       "name": "Wrapped Ether",
+       "symbol": "WETH"
+      },
+      "priceNative": "0.000002116",
+      "priceUsd": "0.005337",
+      "txns": {
+       "m5": {
+        "buys": 0,
+        "sells": 0
+       },
+       "h1": {
+        "buys": 0,
+        "sells": 0
+       },
+       "h6": {
+        "buys": 0,
+        "sells": 0
+       },
+       "h24": {
+        "buys": 0,
+        "sells": 1
+       }
+      },
+      "volume": {
+       "h24": 0.02,
+       "h6": 0,
+       "h1": 0,
+       "m5": 0
+      },
+      "priceChange": {},
+      "liquidity": {
+       "usd": 90.41,
+       "base": 9800.5041,
+       "quote": 0.0151
+      },
+      "fdv": 52894286,
+      "marketCap": 52894286,
+      "pairCreatedAt": 1711971457000,
+      "info": {
+       "imageUrl": "https://cdn.dexscreener.com/cms/images/86b556a0cb4ed7f3b6b6fecd16161f487dccebb89ed7d302b834fb1c0ce197b8?width=800&height=800&quality=95&format=auto",
+       "header": "https://cdn.dexscreener.com/cms/images/a413610dcfbe9159385ba8047bf744c87917d5f4f7c00e48aa41dd4f49817f3e?width=1500&height=500&quality=95&format=auto",
+       "openGraph": "https://cdn.dexscreener.com/token-images/og/base/0x532f27101965dd16442e59d40670faf5ebb142e4?timestamp=1792028400000",
+       "websites": [
+        {
+         "url": "https://www.basedbrett.com/",
+         "label": "Website"
+        }
+       ],
+       "socials": [
+        {
+         "url": "https://twitter.com/BasedBrett",
+         "type": "twitter"
+        },
+        {
+         "url": "https://t.me/basedbrett",
+         "type": "telegram"
+        }
+       ]
+      }
+     },
+     {
+      "chainId": "base",
+      "dexId": "pancakeswap",
+      "url": "https://dexscreener.com/base/0x038f89935f43f65dd5fec2ec69fc6083a25d6d94",
+      "pairAddress": "0x038F89935f43F65dd5Fec2ec69fC6083a25d6d94",
+      "baseToken": {
+       "address": "0x532f27101965dd16442E59d40670FaF5eBB142E4",
+       "name": "Brett",
+       "symbol": "BRETT"
+      },
+      "quoteToken": {
+       "address": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+       "name": "USD Coin",
+       "symbol": "USDC"
+      },
+      "priceNative": "0.004977",
+      "priceUsd": "0.004977",
+      "txns": {
+       "m5": {
+        "buys": 0,
+        "sells": 0
+       },
+       "h1": {
+        "buys": 0,
+        "sells": 0
+       },
+       "h6": {
+        "buys": 0,
+        "sells": 0
+       },
+       "h24": {
+        "buys": 1,
+        "sells": 3
+       }
+      },
+      "volume": {
+       "h24": 0.27,
+       "h6": 0,
+       "h1": 0,
+       "m5": 0
+      },
+      "priceChange": {
+       "h24": -4.55
+      },
+      "liquidity": {
+       "usd": 26.99,
+       "base": 2361.2665,
+       "quote": 15.2456
+      },
+      "fdv": 49321607,
+      "marketCap": 49321607,
+      "pairCreatedAt": 1717765591000,
+      "info": {
+       "imageUrl": "https://cdn.dexscreener.com/cms/images/86b556a0cb4ed7f3b6b6fecd16161f487dccebb89ed7d302b834fb1c0ce197b8?width=800&height=800&quality=95&format=auto",
+       "header": "https://cdn.dexscreener.com/cms/images/a413610dcfbe9159385ba8047bf744c87917d5f4f7c00e48aa41dd4f49817f3e?width=1500&height=500&quality=95&format=auto",
+       "openGraph": "https://cdn.dexscreener.com/token-images/og/base/0x532f27101965dd16442e59d40670faf5ebb142e4?timestamp=1792028400000",
+       "websites": [
+        {
+         "url": "https://www.basedbrett.com/",
+         "label": "Website"
+        }
+       ],
+       "socials": [
+        {
+         "url": "https://twitter.com/BasedBrett",
+         "type": "twitter"
+        },
+        {
+         "url": "https://t.me/basedbrett",
+         "type": "telegram"
+        }
+       ]
+      }
+     },
+     {
+      "chainId": "base",
+      "dexId": "swapbased",
+      "url": "https://dexscreener.com/base/0xa5826174c3e543aaa162fe2dd468a5824724db7b",
+      "pairAddress": "0xA5826174c3E543aaA162FE2Dd468A5824724DB7b",
+      "labels": [
+       "V2"
+      ],
+      "baseToken": {
+       "address": "0x532f27101965dd16442E59d40670FaF5eBB142E4",
+       "name": "Brett",
+       "symbol": "BRETT"
+      },
+      "quoteToken": {
+       "address": "0x4200000000000000000000000000000000000006",
+       "name": "Wrapped Ether",
+       "symbol": "WETH"
+      },
+      "priceNative": "0.000002105",
+      "priceUsd": "0.005118",
+      "txns": {
+       "m5": {
+        "buys": 0,
+        "sells": 0
+       },
+       "h1": {
+        "buys": 0,
+        "sells": 0
+       },
+       "h6": {
+        "buys": 0,
+        "sells": 0
+       },
+       "h24": {
+        "buys": 0,
+        "sells": 3
+       }
+      },
+      "volume": {
+       "h24": 0,
+       "h6": 0,
+       "h1": 0,
+       "m5": 0
+      },
+      "priceChange": {
+       "h24": -2.91
+      },
+      "liquidity": {
+       "usd": 2.02,
+       "base": 198.2156,
+       "quote": 0.0004173
+      },
+      "fdv": 50717744,
+      "marketCap": 50717744,
+      "pairCreatedAt": 1719889513000,
+      "info": {
+       "imageUrl": "https://cdn.dexscreener.com/cms/images/86b556a0cb4ed7f3b6b6fecd16161f487dccebb89ed7d302b834fb1c0ce197b8?width=800&height=800&quality=95&format=auto",
+       "header": "https://cdn.dexscreener.com/cms/images/a413610dcfbe9159385ba8047bf744c87917d5f4f7c00e48aa41dd4f49817f3e?width=1500&height=500&quality=95&format=auto",
+       "openGraph": "https://cdn.dexscreener.com/token-images/og/base/0x532f27101965dd16442e59d40670faf5ebb142e4?timestamp=1792028400000",
+       "websites": [
+        {
+         "url": "https://www.basedbrett.com/",
+         "label": "Website"
+        }
+       ],
+       "socials": [
+        {
+         "url": "https://twitter.com/BasedBrett",
+         "type": "twitter"
+        },
+        {
+         "url": "https://t.me/basedbrett",
+         "type": "telegram"
+        }
+       ]
+      }
+     },
+     {
+      "chainId": "base",
+      "dexId": "uniswap",
+      "url": "https://dexscreener.com/base/0xafea197aa9b2f65f9efdb498f02ff2bf7fcccf22c189170137c4faccf7b8c948",
+      "pairAddress": "0xafea197aa9b2f65f9efdb498f02ff2bf7fcccf22c189170137c4faccf7b8c948",
+      "labels": [
+       "v4"
+      ],
+      "baseToken": {
+       "address": "0x532f27101965dd16442E59d40670FaF5eBB142E4",
+       "name": "Brett",
+       "symbol": "BRETT"
+      },
+      "quoteToken": {
+       "address": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+       "name": "USD Coin",
+       "symbol": "USDC"
+      },
+      "priceNative": "0.004982",
+      "priceUsd": "0.004982",
+      "txns": {
+       "m5": {
+        "buys": 0,
+        "sells": 0
+       },
+       "h1": {
+        "buys": 0,
+        "sells": 0
+       },
+       "h6": {
+        "buys": 0,
+        "sells": 0
+       },
+       "h24": {
+        "buys": 0,
+        "sells": 2
+       }
+      },
+      "volume": {
+       "h24": 0.34,
+       "h6": 0,
+       "h1": 0,
+       "m5": 0
+      },
+      "priceChange": {
+       "h24": -1.05
+      },
+      "liquidity": {
+       "usd": 32.36,
+       "base": 3134.2374,
+       "quote": 16.7519
+      },
+      "fdv": 49374023,
+      "marketCap": 49374023,
+      "pairCreatedAt": 1738525731000,
+      "info": {
+       "imageUrl": "https://cdn.dexscreener.com/cms/images/86b556a0cb4ed7f3b6b6fecd16161f487dccebb89ed7d302b834fb1c0ce197b8?width=800&height=800&quality=95&format=auto",
+       "header": "https://cdn.dexscreener.com/cms/images/a413610dcfbe9159385ba8047bf744c87917d5f4f7c00e48aa41dd4f49817f3e?width=1500&height=500&quality=95&format=auto",
+       "openGraph": "https://cdn.dexscreener.com/token-images/og/base/0x532f27101965dd16442e59d40670faf5ebb142e4?timestamp=1792028400000",
+       "websites": [
+        {
+         "url": "https://www.basedbrett.com/",
+         "label": "Website"
+        }
+       ],
+       "socials": [
+        {
+         "url": "https://twitter.com/BasedBrett",
+         "type": "twitter"
+        },
+        {
+         "url": "https://t.me/basedbrett",
+         "type": "telegram"
+        }
+       ]
+      }
+     },
+     {
+      "chainId": "base",
+      "dexId": "aerodrome",
+      "url": "https://dexscreener.com/base/0xec394d416d2fd269a051627dbbf1934a37a5d04e",
+      "pairAddress": "0xeC394d416D2FD269a051627DBBF1934A37a5D04E",
+      "baseToken": {
+       "address": "0x532f27101965dd16442E59d40670FaF5eBB142E4",
+       "name": "Brett",
+       "symbol": "BRETT"
+      },
+      "quoteToken": {
+       "address": "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf",
+       "name": "Coinbase Wrapped BTC",
+       "symbol": "cbBTC"
+      },
+      "priceNative": "0.00000006147",
+      "priceUsd": "0.005165",
+      "txns": {
+       "m5": {
+        "buys": 0,
+        "sells": 0
+       },
+       "h1": {
+        "buys": 0,
+        "sells": 0
+       },
+       "h6": {
+        "buys": 0,
+        "sells": 0
+       },
+       "h24": {
+        "buys": 0,
+        "sells": 1
+       }
+      },
+      "volume": {
+       "h24": 0.04,
+       "h6": 0,
+       "h1": 0,
+       "m5": 0
+      },
+      "priceChange": {},
+      "liquidity": {
+       "usd": 2.39,
+       "base": 231.654,
+       "quote": 0.00001424
+      },
+      "fdv": 51191845,
+      "marketCap": 51191845,
+      "pairCreatedAt": 1726282805000,
+      "info": {
+       "imageUrl": "https://cdn.dexscreener.com/cms/images/86b556a0cb4ed7f3b6b6fecd16161f487dccebb89ed7d302b834fb1c0ce197b8?width=800&height=800&quality=95&format=auto",
+       "header": "https://cdn.dexscreener.com/cms/images/a413610dcfbe9159385ba8047bf744c87917d5f4f7c00e48aa41dd4f49817f3e?width=1500&height=500&quality=95&format=auto",
+       "openGraph": "https://cdn.dexscreener.com/token-images/og/base/0x532f27101965dd16442e59d40670faf5ebb142e4?timestamp=1792028400000",
+       "websites": [
+        {
+         "url": "https://www.basedbrett.com/",
+         "label": "Website"
+        }
+       ],
+       "socials": [
+        {
+         "url": "https://twitter.com/BasedBrett",
+         "type": "twitter"
+        },
+        {
+         "url": "https://t.me/basedbrett",
+         "type": "telegram"
+        }
+       ]
+      }
+     },
+     {
+      "chainId": "base",
+      "dexId": "uniswap",
+      "url": "https://dexscreener.com/base/0x12d597a824d7a03146201e2e7fa45a6fb3296eae7767fee31effde7a30d79def",
+      "pairAddress": "0x12d597a824d7a03146201e2e7fa45a6fb3296eae7767fee31effde7a30d79def",
+      "labels": [
+       "v4"
+      ],
+      "baseToken": {
+       "address": "0x532f27101965dd16442E59d40670FaF5eBB142E4",
+       "name": "Brett",
+       "symbol": "BRETT"
+      },
+      "quoteToken": {
+       "address": "0x0b3e328455c4059EEb9e3f84b5543F74E24e7E1b",
+       "name": "Virtual Protocol",
+       "symbol": "VIRTUAL"
+      },
+      "priceNative": "0.007554",
+      "priceUsd": "0.005083",
+      "txns": {
+       "m5": {
+        "buys": 0,
+        "sells": 0
+       },
+       "h1": {
+        "buys": 0,
+        "sells": 0
+       },
+       "h6": {
+        "buys": 0,
+        "sells": 0
+       },
+       "h24": {
+        "buys": 1,
+        "sells": 0
+       }
+      },
+      "volume": {
+       "h24": 0.01,
+       "h6": 0,
+       "h1": 0,
+       "m5": 0
+      },
+      "priceChange": {},
+      "liquidity": {
+       "usd": 0.58,
+       "base": 57.5041,
+       "quote": 0.4344
+      },
+      "fdv": 50374428,
+      "marketCap": 50374428,
+      "pairCreatedAt": 1738249831000,
+      "info": {
+       "imageUrl": "https://cdn.dexscreener.com/cms/images/86b556a0cb4ed7f3b6b6fecd16161f487dccebb89ed7d302b834fb1c0ce197b8?width=800&height=800&quality=95&format=auto",
+       "header": "https://cdn.dexscreener.com/cms/images/a413610dcfbe9159385ba8047bf744c87917d5f4f7c00e48aa41dd4f49817f3e?width=1500&height=500&quality=95&format=auto",
+       "openGraph": "https://cdn.dexscreener.com/token-images/og/base/0x532f27101965dd16442e59d40670faf5ebb142e4?timestamp=1792028400000",
+       "websites": [
+        {
+         "url": "https://www.basedbrett.com/",
+         "label": "Website"
+        }
+       ],
+       "socials": [
+        {
+         "url": "https://twitter.com/BasedBrett",
+         "type": "twitter"
+        },
+        {
+         "url": "https://t.me/basedbrett",
+         "type": "telegram"
+        }
+       ]
+      }
+     },
+     {
+      "chainId": "base",
+      "dexId": "aerodrome",
+      "url": "https://dexscreener.com/base/0xf85b1613ff3a70b154d91a2d625cd047dd6f2bb9",
+      "pairAddress": "0xF85B1613Ff3A70b154D91a2d625CD047dd6F2bb9",
+      "baseToken": {
+       "address": "0x532f27101965dd16442E59d40670FaF5eBB142E4",
+       "name": "Brett",
+       "symbol": "BRETT"
+      },
+      "quoteToken": {
+       "address": "0xfde4C96c8593536E31F229EA8f37b2ADa2699bb2",
+       "name": "Tether USD",
+       "symbol": "USDT"
+      },
+      "priceNative": "0.005448",
+      "priceUsd": "0.005448",
+      "txns": {
+       "m5": {
+        "buys": 0,
+        "sells": 0
+       },
+       "h1": {
+        "buys": 0,
+        "sells": 0
+       },
+       "h6": {
+        "buys": 0,
+        "sells": 0
+       },
+       "h24": {
+        "buys": 0,
+        "sells": 1
+       }
+      },
+      "volume": {
+       "h24": 0,
+       "h6": 0,
+       "h1": 0,
+       "m5": 0
+      },
+      "priceChange": {},
+      "liquidity": {
+       "usd": 1.98,
+       "base": 182.4961,
+       "quote": 0.9942
+      },
+      "fdv": 53989572,
+      "marketCap": 53989572,
+      "pairCreatedAt": 1733688665000,
+      "info": {
+       "imageUrl": "https://cdn.dexscreener.com/cms/images/86b556a0cb4ed7f3b6b6fecd16161f487dccebb89ed7d302b834fb1c0ce197b8?width=800&height=800&quality=95&format=auto",
+       "header": "https://cdn.dexscreener.com/cms/images/a413610dcfbe9159385ba8047bf744c87917d5f4f7c00e48aa41dd4f49817f3e?width=1500&height=500&quality=95&format=auto",
+       "openGraph": "https://cdn.dexscreener.com/token-images/og/base/0x532f27101965dd16442e59d40670faf5ebb142e4?timestamp=1792028400000",
+       "websites": [
+        {
+         "url": "https://www.basedbrett.com/",
+         "label": "Website"
+        }
+       ],
+       "socials": [
+        {
+         "url": "https://twitter.com/BasedBrett",
+         "type": "twitter"
+        },
+        {
+         "url": "https://t.me/basedbrett",
+         "type": "telegram"
+        }
+       ]
+      }
+     },
+     {
+      "chainId": "base",
+      "dexId": "uniswap",
+      "url": "https://dexscreener.com/base/0x5a83468425850d5c16163c5a4fdff092774b311aecc59fd99aeed087fdbcea0c",
+      "pairAddress": "0x5a83468425850d5c16163c5a4fdff092774b311aecc59fd99aeed087fdbcea0c",
+      "labels": [
+       "v4"
+      ],
+      "baseToken": {
+       "address": "0x387a5A64D2a756ee2E865eA2036481D138aAe222",
+       "name": "Tadpole",
+       "symbol": "TAD"
+      },
+      "quoteToken": {
+       "address": "0x532f27101965dd16442E59d40670FaF5eBB142E4",
+       "name": "Brett",
+       "symbol": "BRETT"
+      },
+      "priceNative": "0.006222",
+      "priceUsd": "0.00003173",
+      "txns": {
+       "m5": {
+        "buys": 0,
+        "sells": 0
+       },
+       "h1": {
+        "buys": 0,
+        "sells": 0
+       },
+       "h6": {
+        "buys": 18,
+        "sells": 11
+       },
+       "h24": {
+        "buys": 58,
+        "sells": 27
+       }
+      },
+      "volume": {
+       "h24": 2121.79,
+       "h6": 530.62,
+       "h1": 0,
+       "m5": 0
+      },
+      "priceChange": {
+       "h6": 14.7,
+       "h24": 17.32
+      },
+      "liquidity": {
+       "usd": 10737.48,
+       "base": 185666037,
+       "quote": 950358
+      },
+      "fdv": 30699,
+      "marketCap": 30723,
+      "pairCreatedAt": 1789752143000,
+      "info": {
+       "imageUrl": "https://cdn.dexscreener.com/cms/images/l9JTUdTjXf3u6dTn?width=800&height=800&quality=95&format=auto",
+       "header": "https://cdn.dexscreener.com/cms/images/LhTxVNj6nnr4QIFm?width=1500&height=500&quality=95&format=auto",
+       "openGraph": "https://cdn.dexscreener.com/token-images/og/base/0x387a5a64d2a756ee2e865ea2036481d138aae222?timestamp=1792028400000",
+       "websites": [
+        {
+         "url": "https://tadpolebase.xyz/",
+         "label": "Website"
+        }
+       ],
+       "socials": [
+        {
+         "url": "https://x.com/tadpolebase",
+         "type": "twitter"
+        },
+        {
+         "url": "https://t.me/tadpolonbase",
+         "type": "telegram"
+        }
+       ]
+      }
+     },
+     {
+      "chainId": "base",
+      "dexId": "uniswap",
+      "url": "https://dexscreener.com/base/0x011ab22701b79589d2db3ceb973fda18f3ac0746",
+      "pairAddress": "0x011aB22701B79589D2dB3cEb973FDA18f3aC0746",
+      "labels": [
+       "v3"
+      ],
+      "baseToken": {
+       "address": "0xaAeD232952c7575A2096BaFD4DbD77085b800800",
+       "name": "The Apeeling Protocol",
+       "symbol": "PEEL"
+      },
+      "quoteToken": {
+       "address": "0x532f27101965dd16442E59d40670FaF5eBB142E4",
+       "name": "Brett",
+       "symbol": "BRETT"
+      },
+      "priceNative": "1.04647",
+      "priceUsd": "0.005192",
+      "txns": {
+       "m5": {
+        "buys": 0,
+        "sells": 0
+       },
+       "h1": {
+        "buys": 0,
+        "sells": 0
+       },
+       "h6": {
+        "buys": 1,
+        "sells": 1
+       },
+       "h24": {
+        "buys": 6,
+        "sells": 3
+       }
+      },
+      "volume": {
+       "h24": 20.12,
+       "h6": 4.34,
+       "h1": 0,
+       "m5": 0
+      },
+      "priceChange": {
+       "h6": -0.61,
+       "h24": -3.28
+      },
+      "liquidity": {
+       "usd": 1476.87,
+       "base": 145534,
+       "quote": 145344
+      },
+      "fdv": 519250,
+      "marketCap": 404444,
+      "pairCreatedAt": 1733630787000,
+      "info": {
+       "imageUrl": "https://cdn.dexscreener.com/cms/images/20d8e066ed3cc93129ff2ad3319df82cbb356805d482d31335d9da974b615a6d?width=800&height=800&quality=95&format=auto",
+       "header": "https://cdn.dexscreener.com/cms/images/32554be4765b6897460f5f396ee94eaae3e5294f6f206f68f116daf3d40103da?width=1500&height=500&quality=95&format=auto",
+       "openGraph": "https://cdn.dexscreener.com/token-images/og/base/0xaaed232952c7575a2096bafd4dbd77085b800800?timestamp=1792028400000",
+       "websites": [
+        {
+         "url": "https://ApeelingToken.com",
+         "label": "Website"
+        },
+        {
+         "url": "https://peel.gitbook.io/whitepaper",
+         "label": "Docs"
+        },
+        {
+         "url": "https://linktr.ee/apeelingtoken",
+         "label": "Linktree"
+        }
+       ],
+       "socials": [
+        {
+         "url": "https://x.com/ApeelingToken",
+         "type": "twitter"
+        },
+        {
+         "url": "https://t.me/ApeelingToken",
+         "type": "telegram"
+        }
+       ]
+      }
+     },
+     {
+      "chainId": "base",
+      "dexId": "aerodrome",
+      "url": "https://dexscreener.com/base/0xef87f9d1f501f732000b0ede5e22ec99c0d76b78",
+      "pairAddress": "0xeF87F9d1f501f732000B0EdE5e22eC99C0D76b78",
+      "baseToken": {
+       "address": "0xebbf4c3A447dbcC1e1f59076Aed36B0B0c10EFAF",
+       "name": "Velocity",
+       "symbol": "VDT"
+      },
+      "quoteToken": {
+       "address": "0x532f27101965dd16442E59d40670FaF5eBB142E4",
+       "name": "Brett",
+       "symbol": "BRETT"
+      },
+      "priceNative": "0.4669",
+      "priceUsd": "0.002307",
+      "txns": {
+       "m5": {
+        "buys": 0,
+        "sells": 0
+       },
+       "h1": {
+        "buys": 0,
+        "sells": 0
+       },
+       "h6": {
+        "buys": 0,
+        "sells": 0
+       },
+       "h24": {
+        "buys": 1,
+        "sells": 0
+       }
+      },
+      "volume": {
+       "h24": 1.06,
+       "h6": 0,
+       "h1": 0,
+       "m5": 0
+      },
+      "priceChange": {},
+      "liquidity": {
+       "usd": 74.12,
+       "base": 16061,
+       "quote": 7500.2797
+      },
+      "fdv": 230740,
+      "marketCap": 95541,
+      "pairCreatedAt": 1752388289000,
+      "info": {
+       "imageUrl": "https://cdn.dexscreener.com/cms/images/92f46c10f1270443ae0cc15ad006a7cb2bb6056cd57ffec3a01a7f97972e1780?width=800&height=800&quality=95&format=auto",
+       "header": "https://cdn.dexscreener.com/cms/images/9e14ee53b0a36511ddb47f973f11bf0ba376847ff3e47ec5439cde17fde79380?width=1500&height=500&quality=95&format=auto",
+       "openGraph": "https://cdn.dexscreener.com/token-images/og/base/0xebbf4c3a447dbcc1e1f59076aed36b0b0c10efaf?timestamp=1792028400000",
+       "websites": [
+        {
+         "url": "https://defi-ira.com/",
+         "label": "Website"
+        }
+       ],
+       "socials": [
+        {
+         "url": "https://x.com/DeFi_IRA_X",
+         "type": "twitter"
+        },
+        {
+         "url": "https://t.me/c/2235442326/1",
+         "type": "telegram"
+        }
+       ]
+      }
+     }
+    ]
+   },
+   "https://api.dexscreener.com/token-pairs/v1/base/0x7b7353aEE1F7881B0C2E84835ef665119591abA3": {
+    "result": [
+     {
+      "chainId": "base",
+      "dexId": "uniswap",
+      "url": "https://dexscreener.com/base/0x4a18eac23f27434fcbffcb0ca41cc144371364a59046ca41b844a0df55d82c64",
+      "pairAddress": "0x4a18eac23f27434fcbffcb0ca41cc144371364a59046ca41b844a0df55d82c64",
+      "labels": [
+       "v4"
+      ],
+      "baseToken": {
+       "address": "0x7b7353aEE1F7881B0C2E84835ef665119591abA3",
+       "name": "BRETT",
+       "symbol": "BRETT"
+      },
+      "quoteToken": {
+       "address": "0x4200000000000000000000000000000000000006",
+       "name": "Wrapped Ether",
+       "symbol": "WETH"
+      },
+      "priceNative": "0.00000000009296",
+      "priceUsd": "0.0000002256",
+      "txns": {
+       "m5": {
+        "buys": 0,
+        "sells": 0
+       },
+       "h1": {
+        "buys": 0,
+        "sells": 0
+       },
+       "h6": {
+        "buys": 0,
+        "sells": 0
+       },
+       "h24": {
+        "buys": 1,
+        "sells": 0
+       }
+      },
+      "volume": {
+       "h24": 0.99,
+       "h6": 0,
+       "h1": 0,
+       "m5": 0
+      },
+      "priceChange": {},
+      "liquidity": {
+       "usd": 22561.46,
+       "base": 99995660390,
+       "quote": 0.0004034
+      },
+      "fdv": 22561,
+      "marketCap": 22561,
+      "pairCreatedAt": 1774478481000
+     }
+    ]
+   }
+  }
+ }
+}

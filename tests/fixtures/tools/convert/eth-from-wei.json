@@ -1,0 +1,30 @@
+{
+ "tool": "convert",
+ "case": "eth-from-wei",
+ "note": "1.5 ETH in wei converts back exactly.",
+ "args": {
+  "token": "ETH",
+  "raw": "1500000000000000000",
+  "network": "base"
+ },
+ "recordedAt": "2026-10-15T00:57:39.661Z",
+ "expect": {
+  "amount": "1.5"
+ },
+ "result": {
+  "token": "ETH",
+  "symbol": "ETH",
+  "decimals": 18,
+  "amount": "1.5",
+  "raw": "1500000000000000000",
+  "source": "ETH has 18 decimals by definition (1 ETH = 10^18 wei)."
+ },
+ "error": null,
+ "recording": {
+  "now": 1792025859661,
+  "etherscan": false,
+  "rpc": {},
+  "sim": {},
+  "http": {}
+ }
+}

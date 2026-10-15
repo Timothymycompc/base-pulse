@@ -1,0 +1,1761 @@
+{
+ "tool": "x402_check",
+ "case": "pay-to-token-contract",
+ "note": "A payee that is the WETH contract: the payment would be lost. AVOID.",
+ "args": {
+  "payment_required": {
+   "accepts": [
+    {
+     "scheme": "exact",
+     "network": "eip155:8453",
+     "amount": "10000",
+     "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+     "payTo": "0x4200000000000000000000000000000000000006",
+     "maxTimeoutSeconds": 300
+    }
+   ],
+   "x402Version": 2
+  }
+ },
+ "recordedAt": "2026-10-15T02:34:35.100Z",
+ "expect": {
+  "verdict": "AVOID",
+  "options.0.checks[name=pay_to].result": "fail"
+ },
+ "result": {
+  "verdict": "AVOID",
+  "summary": "No Base option is safe to pay. Don't pay: The payee 0x4200000000000000000000000000000000000006 is a token contract: a payment sent there is lost.",
+  "recommended": null,
+  "options": [
+   {
+    "scheme": "exact",
+    "network": "eip155:8453",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "symbol": "USDC",
+    "amount": "0.01",
+    "price_usd": 0.01,
+    "pay_to": "0x4200000000000000000000000000000000000006",
+    "pay_to_is": "token",
+    "checks": [
+     {
+      "name": "price",
+      "result": "pass",
+      "detail": "$0.01 per call."
+     },
+     {
+      "name": "pay_to",
+      "result": "fail",
+      "detail": "The payee 0x4200000000000000000000000000000000000006 is a token contract: a payment sent there is lost."
+     }
+    ]
+   }
+  ],
+  "sources": [
+   "The 402 payment request",
+   "decimals() and symbol() on Base",
+   "Base RPC for the payee's code",
+   "OFAC SDN list, published 10/14/2026",
+   "Coinbase x402 Bazaar prices, measured 2026-10-15"
+  ]
+ },
+ "error": null,
+ "recording": {
+  "now": 1792031675100,
+  "etherscan": true,
+  "rpc": {
+   "eth_call [{\"data\":\"0x82ad56cb00000000000000000000000000000000000000000000000000000000000000200000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000004000000000000000000000000000000000000000000000000000000000000000e0000000000000000000000000833589fcd6edb6e08f4c7c32d4f71b54bda0291300000000000000000000000000000000000000000000000000000000000000010000000000000000000000000000000000000000000000000000000000000060000000000000000000000000000000000000000000000000000000000000000495d89b4100000000000000000000000000000000000000000000000000000000000000000000000000000000833589fcd6edb6e08f4c7c32d4f71b54bda02913000000000000000000000000000000000000000000000000000000000000000100000000000000000000000000000000000000000000000000000000000000600000000000000000000000000000000000000000000000000000000000000004313ce56700000000000000000000000000000000000000000000000000000000\",\"to\":\"0xca11bde05977b3631167028862be2a173976ca11\"},\"latest\"]": {
+    "result": "0x00000000000000000000000000000000000000000000000000000000000000200000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000004000000000000000000000000000000000000000000000000000000000000001000000000000000000000000000000000000000000000000000000000000000001000000000000000000000000000000000000000000000000000000000000004000000000000000000000000000000000000000000000000000000000000000600000000000000000000000000000000000000000000000000000000000000020000000000000000000000000000000000000000000000000000000000000000455534443000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001000000000000000000000000000000000000000000000000000000000000004000000000000000000000000000000000000000000000000000000000000000200000000000000000000000000000000000000000000000000000000000000006"
+   },
+   "eth_getCode [\"0x4200000000000000000000000000000000000006\",\"latest\"]": {
+    "result": "0x6080604052600436106100bc5760003560e01c8063313ce56711610074578063a9059cbb1161004e578063a9059cbb146102cb578063d0e30db0146100bc578063dd62ed3e14610311576100bc565b8063313ce5671461024b57806370a082311461027657806395d89b41146102b6576100bc565b806318160ddd116100a557806318160ddd146101aa57806323b872dd146101d15780632e1a7d4d14610221576100bc565b806306fdde03146100c6578063095ea7b314610150575b6100c4610359565b005b3480156100d257600080fd5b506100db6103a8565b6040805160208082528351818301528351919283929083019185019080838360005b838110156101155781810151838201526020016100fd565b50505050905090810190601f1680156101425780820380516001836020036101000a031916815260200191505b509250505060405180910390f35b34801561015c57600080fd5b506101966004803603604081101561017357600080fd5b5073ffffffffffffffffffffffffffffffffffffffff8135169060200135610454565b604080519115158252519081900360200190f35b3480156101b657600080fd5b506101bf6104c7565b60408051918252519081900360200190f35b3480156101dd57600080fd5b50610196600480360360608110156101f457600080fd5b5073ffffffffffffffffffffffffffffffffffffffff8135811691602081013590911690604001356104cb565b34801561022d57600080fd5b506100c46004803603602081101561024457600080fd5b503561066b565b34801561025757600080fd5b50610260610700565b6040805160ff9092168252519081900360200190f35b34801561028257600080fd5b506101bf6004803603602081101561029957600080fd5b503573ffffffffffffffffffffffffffffffffffffffff16610709565b3480156102c257600080fd5b506100db61071b565b3480156102d757600080fd5b50610196600480360360408110156102ee57600080fd5b5073ffffffffffffffffffffffffffffffffffffffff8135169060200135610793565b34801561031d57600080fd5b506101bf6004803603604081101561033457600080fd5b5073ffffffffffffffffffffffffffffffffffffffff813581169160200135166107a7565b33600081815260036020908152604091829020805434908101909155825190815291517fe1fffcc4923d04b559f4d29a8bfc6cda04eb5b0d3c460751c2402c5c5cc9109c9281900390910190a2565b6000805460408051602060026001851615610100027fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff0190941693909304601f8101849004840282018401909252818152929183018282801561044c5780601f106104215761010080835404028352916020019161044c565b820191906000526020600020905b81548152906001019060200180831161042f57829003601f168201915b505050505081565b33600081815260046020908152604080832073ffffffffffffffffffffffffffffffffffffffff8716808552908352818420869055815186815291519394909390927f8c5be1e5ebec7d5bd14f71427d1e84f3dd0314c0f7b2291e5b200ac8c7c3b925928290030190a350600192915050565b4790565b73ffffffffffffffffffffffffffffffffffffffff83166000908152600360205260408120548211156104fd57600080fd5b73ffffffffffffffffffffffffffffffffffffffff84163314801590610573575073ffffffffffffffffffffffffffffffffffffffff841660009081526004602090815260408083203384529091529020547fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff14155b156105ed5773ffffffffffffffffffffffffffffffffffffffff841660009081526004602090815260408083203384529091529020548211156105b557600080fd5b73ffffffffffffffffffffffffffffffffffffffff841660009081526004602090815260408083203384529091529020805483900390555b73ffffffffffffffffffffffffffffffffffffffff808516600081815260036020908152604080832080548890039055938716808352918490208054870190558351868152935191937fddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef929081900390910190a35060019392505050565b3360009081526003602052604090205481111561068757600080fd5b33600081815260036020526040808220805485900390555183156108fc0291849190818181858888f193505050501580156106c6573d6000803e3d6000fd5b5060408051828152905133917f7fcf532c15f0a6db0bd6d0e038bea71d30d808c7d98cb3bf7268a95bf5081b65919081900360200190a250565b60025460ff1681565b60036020526000908152604090205481565b60018054604080516020600284861615610100027fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff0190941693909304601f8101849004840282018401909252818152929183018282801561044c5780601f106104215761010080835404028352916020019161044c565b60006107a03384846104cb565b9392505050565b60046020908152600092835260408084209091529082529020548156fea265627a7a72315820e496abb80c5983b030f680d0bd88f66bf44e261bc3be070d612dd72f9f1f5e9a64736f6c63430005110032"
+   },
+   "eth_getBalance [\"0x4200000000000000000000000000000000000006\",\"latest\"]": {
+    "result": "0x3cf60dd1c50e81dd8383"
+   },
+   "eth_call [{\"data\":\"0x82ad56cb00000000000000000000000000000000000000000000000000000000000000200000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000004000000000000000000000000000000000000000000000000000000000000000e0000000000000000000000000420000000000000000000000000000000000000600000000000000000000000000000000000000000000000000000000000000010000000000000000000000000000000000000000000000000000000000000060000000000000000000000000000000000000000000000000000000000000000495d89b41000000000000000000000000000000000000000000000000000000000000000000000000000000004200000000000000000000000000000000000006000000000000000000000000000000000000000000000000000000000000000100000000000000000000000000000000000000000000000000000000000000600000000000000000000000000000000000000000000000000000000000000004313ce56700000000000000000000000000000000000000000000000000000000\",\"to\":\"0xca11bde05977b3631167028862be2a173976ca11\"},\"latest\"]": {
+    "result": "0x00000000000000000000000000000000000000000000000000000000000000200000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000004000000000000000000000000000000000000000000000000000000000000001000000000000000000000000000000000000000000000000000000000000000001000000000000000000000000000000000000000000000000000000000000004000000000000000000000000000000000000000000000000000000000000000600000000000000000000000000000000000000000000000000000000000000020000000000000000000000000000000000000000000000000000000000000000457455448000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001000000000000000000000000000000000000000000000000000000000000004000000000000000000000000000000000000000000000000000000000000000200000000000000000000000000000000000000000000000000000000000000012"
+   },
+   "eth_getTransactionCount [\"0x4200000000000000000000000000000000000006\",\"latest\"]": {
+    "result": "0x0"
+   },
+   "eth_getStorageAt [\"0x4200000000000000000000000000000000000006\",\"0xb53127684a568b3173ae13b9f8a6016e243e63b6e8ee1178d6a717850b5d6103\",\"latest\"]": {
+    "result": "0x0000000000000000000000000000000000000000000000000000000000000000"
+   },
+   "eth_getStorageAt [\"0x4200000000000000000000000000000000000006\",\"0x360894a13ba1a3210667c828492db98dca3e2076cc3735a920a3ca505d382bbc\",\"latest\"]": {
+    "result": "0x0000000000000000000000000000000000000000000000000000000000000000"
+   },
+   "eth_getStorageAt [\"0x4200000000000000000000000000000000000006\",\"0xa3f0ad74e5423aebfd80d3ef4346578335a9a72aeaee59ff6cb3582b35133d50\",\"latest\"]": {
+    "result": "0x0000000000000000000000000000000000000000000000000000000000000000"
+   },
+   "eth_getStorageAt [\"0x4200000000000000000000000000000000000006\",\"0x10d6a54a4754c8869d6886b5f5d7fbfa5b4522237ea5c60d11bc4e7a1ff9390b\",\"latest\"]": {
+    "result": "0x0000000000000000000000000000000000000000000000000000000000000000"
+   },
+   "eth_call [{\"data\":\"0xe75235b8\",\"to\":\"0x4200000000000000000000000000000000000006\"},\"latest\"]": {
+    "result": "0x"
+   },
+   "eth_call [{\"data\":\"0x95d89b41\",\"to\":\"0x4200000000000000000000000000000000000006\"},\"latest\"]": {
+    "result": "0x000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000045745544800000000000000000000000000000000000000000000000000000000"
+   },
+   "eth_call [{\"data\":\"0x01ffc9a7d9b67a2600000000000000000000000000000000000000000000000000000000\",\"to\":\"0x4200000000000000000000000000000000000006\"},\"latest\"]": {
+    "result": "0x"
+   },
+   "eth_call [{\"data\":\"0x01ffc9a780ac58cd00000000000000000000000000000000000000000000000000000000\",\"to\":\"0x4200000000000000000000000000000000000006\"},\"latest\"]": {
+    "result": "0x"
+   },
+   "eth_call [{\"data\":\"0x06fdde03\",\"to\":\"0x4200000000000000000000000000000000000006\"},\"latest\"]": {
+    "result": "0x0000000000000000000000000000000000000000000000000000000000000020000000000000000000000000000000000000000000000000000000000000000d5772617070656420457468657200000000000000000000000000000000000000"
+   },
+   "eth_call [{\"data\":\"0x313ce567\",\"to\":\"0x4200000000000000000000000000000000000006\"},\"latest\"]": {
+    "result": "0x0000000000000000000000000000000000000000000000000000000000000012"
+   },
+   "eth_call [{\"data\":\"0xa0e67e2b\",\"to\":\"0x4200000000000000000000000000000000000006\"},\"latest\"]": {
+    "result": "0x"
+   },
+   "eth_getStorageAt [\"0x4200000000000000000000000000000000000006\",\"0x7050c9e0f4ca769c69bd3a8ef740bc37934f8e2c036e5a723fd8ee048ed3f8c3\",\"latest\"]": {
+    "result": "0x0000000000000000000000000000000000000000000000000000000000000000"
+   }
+  },
+  "sim": {},
+  "http": {
+   "OFAC list": {
+    "result": {
+     "published": "10/14/2026",
+     "fetchedAt": "2026-10-15T01:52:34.444Z",
+     "source": "https://sanctionslistservice.ofac.treas.gov/api/publicationpreview/exports/sdn.xml",
+     "addresses": {
+      "0x252A8Bd2319d8A555b872990601221B3a2053Bce": {
+       "uid": 24003,
+       "name": "Behzad MESRI",
+       "programs": [
+        "CYBER2",
+        "HRIT-IR"
+       ],
+       "tags": [
+        "ETH"
+       ]
+      },
+      "0x1CAb8177ACe78b1B6B1c393371F4f2dCAE40CbEB": {
+       "uid": 24003,
+       "name": "Behzad MESRI",
+       "programs": [
+        "CYBER2",
+        "HRIT-IR"
+       ],
+       "tags": [
+        "ETH"
+       ]
+      },
+      "0x6Fac4D18c912343BF86fa7049364Dd4E424Ab9C0": {
+       "uid": 24003,
+       "name": "Behzad MESRI",
+       "programs": [
+        "CYBER2",
+        "HRIT-IR"
+       ],
+       "tags": [
+        "ETH"
+       ]
+      },
+      "0xA40cFBFc8534FFC84E20a7d8bBC3729B26a35F6f": {
+       "uid": 24003,
+       "name": "Behzad MESRI",
+       "programs": [
+        "CYBER2",
+        "HRIT-IR"
+       ],
+       "tags": [
+        "ETH"
+       ]
+      },
+      "0x7F03679B56d8772530EFA516b58Bb83d4829E881": {
+       "uid": 24003,
+       "name": "Behzad MESRI",
+       "programs": [
+        "CYBER2",
+        "HRIT-IR"
+       ],
+       "tags": [
+        "ETH"
+       ]
+      },
+      "0x8ac5381FCD9e7395D14e02986c344aADA84B4bC6": {
+       "uid": 24003,
+       "name": "Behzad MESRI",
+       "programs": [
+        "CYBER2",
+        "HRIT-IR"
+       ],
+       "tags": [
+        "ETH"
+       ]
+      },
+      "0x9697749A9e8D6C119D8EEb0d6268a1b99C40684c": {
+       "uid": 24003,
+       "name": "Behzad MESRI",
+       "programs": [
+        "CYBER2",
+        "HRIT-IR"
+       ],
+       "tags": [
+        "ETH"
+       ]
+      },
+      "0x9DD7fA4B4950154F7e75BdD8A77266B99b94Ec08": {
+       "uid": 24003,
+       "name": "Behzad MESRI",
+       "programs": [
+        "CYBER2",
+        "HRIT-IR"
+       ],
+       "tags": [
+        "ETH"
+       ]
+      },
+      "0xb5A69Da691670F62510793F79a9B36c7db1A7b7c": {
+       "uid": 24003,
+       "name": "Behzad MESRI",
+       "programs": [
+        "CYBER2",
+        "HRIT-IR"
+       ],
+       "tags": [
+        "ETH"
+       ]
+      },
+      "0x6B0736Fed0634e15E19CC57fBA19cd179c13AbCA": {
+       "uid": 24003,
+       "name": "Behzad MESRI",
+       "programs": [
+        "CYBER2",
+        "HRIT-IR"
+       ],
+       "tags": [
+        "ETH"
+       ]
+      },
+      "0xd81414ABc631C6CADAe1C6198b0c2b15a9B4fDe5": {
+       "uid": 24003,
+       "name": "Behzad MESRI",
+       "programs": [
+        "CYBER2",
+        "HRIT-IR"
+       ],
+       "tags": [
+        "ETH"
+       ]
+      },
+      "0xF45Ecc3a59C7911181C659cE9115854c6175Be91": {
+       "uid": 24003,
+       "name": "Behzad MESRI",
+       "programs": [
+        "CYBER2",
+        "HRIT-IR"
+       ],
+       "tags": [
+        "ETH"
+       ]
+      },
+      "0x098B716B8Aaf21512996dC57EB0615e2383E2f96": {
+       "uid": 27307,
+       "name": "LAZARUS GROUP",
+       "programs": [
+        "DPRK3"
+       ],
+       "tags": [
+        "ETH"
+       ]
+      },
+      "0xa0e1c89Ef1a489c9C7dE96311eD5Ce5D32c20E4B": {
+       "uid": 27307,
+       "name": "LAZARUS GROUP",
+       "programs": [
+        "DPRK3"
+       ],
+       "tags": [
+        "ETH"
+       ]
+      },
+      "0x3Cffd56B47B7b41c56258D9C7731ABaDc360E073": {
+       "uid": 27307,
+       "name": "LAZARUS GROUP",
+       "programs": [
+        "DPRK3"
+       ],
+       "tags": [
+        "ETH"
+       ]
+      },
+      "0x53b6936513e738f44FB50d2b9476730C0Ab3Bfc1": {
+       "uid": 27307,
+       "name": "LAZARUS GROUP",
+       "programs": [
+        "DPRK3"
+       ],
+       "tags": [
+        "ETH"
+       ]
+      },
+      "0x35fB6f6DB4fb05e6A4cE86f2C93691425626d4b1": {
+       "uid": 27307,
+       "name": "LAZARUS GROUP",
+       "programs": [
+        "DPRK3"
+       ],
+       "tags": [
+        "ETH"
+       ]
+      },
+      "0xF7B31119c2682c88d88D455dBb9d5932c65Cf1bE": {
+       "uid": 27307,
+       "name": "LAZARUS GROUP",
+       "programs": [
+        "DPRK3"
+       ],
+       "tags": [
+        "ETH"
+       ]
+      },
+      "0x3e37627dEAA754090fBFbb8bd226c1CE66D255e9": {
+       "uid": 27307,
+       "name": "LAZARUS GROUP",
+       "programs": [
+        "DPRK3"
+       ],
+       "tags": [
+        "ETH"
+       ]
+      },
+      "0x08723392Ed15743cc38513C4925f5e6be5c17243": {
+       "uid": 27307,
+       "name": "LAZARUS GROUP",
+       "programs": [
+        "DPRK3"
+       ],
+       "tags": [
+        "ETH"
+       ]
+      },
+      "0x7F367cC41522cE07553e823bf3be79A889DEbe1B": {
+       "uid": 29584,
+       "name": "Danil POTEKHIN",
+       "programs": [
+        "CYBER2"
+       ],
+       "tags": [
+        "ETH"
+       ]
+      },
+      "0xd882cFc20F52f2599D84b8e8D58C7FB62cfE344b": {
+       "uid": 29585,
+       "name": "Dmitrii KARASAVIDI",
+       "programs": [
+        "CYBER2"
+       ],
+       "tags": [
+        "ETH",
+        "ETC"
+       ]
+      },
+      "0x901bb9583b24D97e995513C6778dc6888AB6870e": {
+       "uid": 29702,
+       "name": "Artem Mikhaylovich LIFSHITS",
+       "programs": [
+        "ELECTION-EO13848",
+        "CYBER2"
+       ],
+       "tags": [
+        "ETH"
+       ]
+      },
+      "0xA7e5d5A720f06526557c513402f2e6B5fA20b008": {
+       "uid": 29702,
+       "name": "Artem Mikhaylovich LIFSHITS",
+       "programs": [
+        "ELECTION-EO13848",
+        "CYBER2"
+       ],
+       "tags": [
+        "ETH"
+       ]
+      },
+      "0x8576aCC5C05D6Ce88f4e49bf65BdF0C62F91353C": {
+       "uid": 29703,
+       "name": "Anton Nikolaeyvich ANDREYEV",
+       "programs": [
+        "CYBER2",
+        "ELECTION-EO13848"
+       ],
+       "tags": [
+        "ETH"
+       ]
+      },
+      "0x1da5821544e25c636c1417Ba96Ade4Cf6D2f9B5A": {
+       "uid": 30518,
+       "name": "SECONDEYE SOLUTION",
+       "programs": [
+        "CYBER2",
+        "ELECTION-EO13848"
+       ],
+       "tags": [
+        "ETH"
+       ]
+      },
+      "0x7Db418b5D567A4e0E8c59Ad71BE1FcE48f3E6107": {
+       "uid": 30518,
+       "name": "SECONDEYE SOLUTION",
+       "programs": [
+        "CYBER2",
+        "ELECTION-EO13848"
+       ],
+       "tags": [
+        "ETH"
+       ]
+      },
+      "0x72a5843cc08275C8171E582972Aa4fDa8C397B2A": {
+       "uid": 30518,
+       "name": "SECONDEYE SOLUTION",
+       "programs": [
+        "CYBER2",
+        "ELECTION-EO13848"
+       ],
+       "tags": [
+        "ETH"
+       ]
+      },
+      "0x7F19720A857F834887FC9A7bC0a0fBe7Fc7f8102": {
+       "uid": 30518,
+       "name": "SECONDEYE SOLUTION",
+       "programs": [
+        "CYBER2",
+        "ELECTION-EO13848"
+       ],
+       "tags": [
+        "ETH"
+       ]
+      },
+      "0x9F4cda013E354b8fC285BF4b9A60460cEe7f7Ea9": {
+       "uid": 31212,
+       "name": "SOUTHFRONT",
+       "programs": [
+        "CYBER2",
+        "ELECTION-EO13848",
+        "NPWMD"
+       ],
+       "tags": [
+        "ETH"
+       ]
+      },
+      "0x3CBdeD43EFdAf0FC77b9C55F6fC9988fCC9b757d": {
+       "uid": 31212,
+       "name": "SOUTHFRONT",
+       "programs": [
+        "CYBER2",
+        "ELECTION-EO13848",
+        "NPWMD"
+       ],
+       "tags": [
+        "ETH"
+       ]
+      },
+      "0x2f389cE8bD8ff92De3402FFCe4691d17fC4f6535": {
+       "uid": 33151,
+       "name": "SUEX OTC, S.R.O.",
+       "programs": [
+        "CYBER2"
+       ],
+       "tags": [
+        "USDT",
+        "ETH"
+       ]
+      },
+      "0x19Aa5Fe80D33a56D56c78e82eA5E50E5d80b4Dff": {
+       "uid": 33151,
+       "name": "SUEX OTC, S.R.O.",
+       "programs": [
+        "CYBER2"
+       ],
+       "tags": [
+        "USDT",
+        "ETH"
+       ]
+      },
+      "0xe7aa314c77F4233C18C6CC84384A9247c0cf367B": {
+       "uid": 33151,
+       "name": "SUEX OTC, S.R.O.",
+       "programs": [
+        "CYBER2"
+       ],
+       "tags": [
+        "ETH"
+       ]
+      },
+      "0x308eD4B7b49797e1A98D3818bFF6fe5385410370": {
+       "uid": 33151,
+       "name": "SUEX OTC, S.R.O.",
+       "programs": [
+        "CYBER2"
+       ],
+       "tags": [
+        "ETH"
+       ]
+      },
+      "0x67d40EE1A85bf4a4Bb7Ffae16De985e8427B6b45": {
+       "uid": 33854,
+       "name": "CHATEX",
+       "programs": [
+        "CYBER2"
+       ],
+       "tags": [
+        "ETH"
+       ]
+      },
+      "0x6F1cA141A28907F78Ebaa64fb83A9088b02A8352": {
+       "uid": 33854,
+       "name": "CHATEX",
+       "programs": [
+        "CYBER2"
+       ],
+       "tags": [
+        "ETH"
+       ]
+      },
+      "0x48549A34AE37b12F6a30566245176994e17C6b4A": {
+       "uid": 33854,
+       "name": "CHATEX",
+       "programs": [
+        "CYBER2"
+       ],
+       "tags": [
+        "ETH"
+       ]
+      },
+      "0x5512d943eD1f7c8a43F3435C85F7aB68b30121b0": {
+       "uid": 33854,
+       "name": "CHATEX",
+       "programs": [
+        "CYBER2"
+       ],
+       "tags": [
+        "ETH"
+       ]
+      },
+      "0xC455f7fd3e0e12afd51fba5c106909934D8A0e4a": {
+       "uid": 33854,
+       "name": "CHATEX",
+       "programs": [
+        "CYBER2"
+       ],
+       "tags": [
+        "ETH"
+       ]
+      },
+      "0xfEC8A60023265364D066a1212fDE3930F6Ae8da7": {
+       "uid": 33858,
+       "name": "Yevgeniy Igorevich POLYANIN",
+       "programs": [
+        "CYBER2"
+       ],
+       "tags": [
+        "USDT"
+       ]
+      },
+      "0x7FF9cFad3877F21d41Da833E2F775dB0569eE3D9": {
+       "uid": 36025,
+       "name": "GARANTEX EUROPE OU",
+       "programs": [
+        "CYBER4",
+        "RUSSIA-EO14024"
+       ],
+       "tags": [
+        "ETH"
+       ]
+      },
+      "0x8Dce2aAC0dE82bdCAf6b4373B79f94331b8e4995": {
+       "uid": 36025,
+       "name": "GARANTEX EUROPE OU",
+       "programs": [
+        "CYBER4",
+        "RUSSIA-EO14024"
+       ],
+       "tags": [
+        "ETH"
+       ]
+      },
+      "0xf4377edA661e04B6DDA78969796Ed31658D602D4": {
+       "uid": 36025,
+       "name": "GARANTEX EUROPE OU",
+       "programs": [
+        "CYBER4",
+        "RUSSIA-EO14024"
+       ],
+       "tags": [
+        "ETH"
+       ]
+      },
+      "0xb338962B92CD818D6aef0A32a9ECD01212a71f33": {
+       "uid": 36025,
+       "name": "GARANTEX EUROPE OU",
+       "programs": [
+        "CYBER4",
+        "RUSSIA-EO14024"
+       ],
+       "tags": [
+        "ETH"
+       ]
+      },
+      "0x57EC89A0C056163A0314e413320f9B3ABe761259": {
+       "uid": 36025,
+       "name": "GARANTEX EUROPE OU",
+       "programs": [
+        "CYBER4",
+        "RUSSIA-EO14024"
+       ],
+       "tags": [
+        "ETH"
+       ]
+      },
+      "0xD8500C631dC32FA18645B7436344a99E4825e10e": {
+       "uid": 36025,
+       "name": "GARANTEX EUROPE OU",
+       "programs": [
+        "CYBER4",
+        "RUSSIA-EO14024"
+       ],
+       "tags": [
+        "ETH"
+       ]
+      },
+      "0x7CEd75026204aC29C34bEA98905D4C949F27361e": {
+       "uid": 36025,
+       "name": "GARANTEX EUROPE OU",
+       "programs": [
+        "CYBER4",
+        "RUSSIA-EO14024"
+       ],
+       "tags": [
+        "ETH"
+       ]
+      },
+      "0xc2a3829F459B3Edd87791c74cD45402BA0a20Be3": {
+       "uid": 38665,
+       "name": "TASK FORCE RUSICH",
+       "programs": [
+        "RUSSIA-EO14024"
+       ],
+       "tags": [
+        "ETH"
+       ]
+      },
+      "0x3AD9dB589d201A710Ed237c829c7860Ba86510Fc": {
+       "uid": 38665,
+       "name": "TASK FORCE RUSICH",
+       "programs": [
+        "RUSSIA-EO14024"
+       ],
+       "tags": [
+        "ETH"
+       ]
+      },
+      "0x83E5bC4Ffa856BB84Bb88581f5Dd62A433A25e0D": {
+       "uid": 39585,
+       "name": "Alex Adrianus Martinus PEIJNENBURG",
+       "programs": [
+        "ILLICIT-DRUGS-EO14059"
+       ],
+       "tags": [
+        "ETH"
+       ]
+      },
+      "0x08b2eFdcdB8822EfE5ad0Eae55517cf5DC544251": {
+       "uid": 39585,
+       "name": "Alex Adrianus Martinus PEIJNENBURG",
+       "programs": [
+        "ILLICIT-DRUGS-EO14059"
+       ],
+       "tags": [
+        "ETH"
+       ]
+      },
+      "0x04DBA1194ee10112fE6C3207C0687DEf0e78baCf": {
+       "uid": 39585,
+       "name": "Alex Adrianus Martinus PEIJNENBURG",
+       "programs": [
+        "ILLICIT-DRUGS-EO14059"
+       ],
+       "tags": [
+        "ETH"
+       ]
+      },
+      "0x0Ee5067b06776A89CcC7dC8Ee369984AD7Db5e06": {
+       "uid": 39585,
+       "name": "Alex Adrianus Martinus PEIJNENBURG",
+       "programs": [
+        "ILLICIT-DRUGS-EO14059"
+       ],
+       "tags": [
+        "ETH"
+       ]
+      },
+      "0x502371699497d08D5339c870851898D6D72521Dd": {
+       "uid": 39585,
+       "name": "Alex Adrianus Martinus PEIJNENBURG",
+       "programs": [
+        "ILLICIT-DRUGS-EO14059"
+       ],
+       "tags": [
+        "ETH"
+       ]
+      },
+      "0x5A14E72060c11313E38738009254a90968F58f51": {
+       "uid": 39585,
+       "name": "Alex Adrianus Martinus PEIJNENBURG",
+       "programs": [
+        "ILLICIT-DRUGS-EO14059"
+       ],
+       "tags": [
+        "ETH"
+       ]
+      },
+      "0xEFE301d259F525cA1ba74A7977b80D5b060B3ccA": {
+       "uid": 39585,
+       "name": "Alex Adrianus Martinus PEIJNENBURG",
+       "programs": [
+        "ILLICIT-DRUGS-EO14059"
+       ],
+       "tags": [
+        "ETH"
+       ]
+      },
+      "0xD0975B32cEa532eaDDdFC9c60481976e39dB3472": {
+       "uid": 39593,
+       "name": "Matthew Simon GRIMM",
+       "programs": [
+        "ILLICIT-DRUGS-EO14059"
+       ],
+       "tags": [
+        "ETH"
+       ]
+      },
+      "0x1967D8Af5Bd86A497fb3DD7899A020e47560dAAF": {
+       "uid": 39593,
+       "name": "Matthew Simon GRIMM",
+       "programs": [
+        "ILLICIT-DRUGS-EO14059"
+       ],
+       "tags": [
+        "ETH"
+       ]
+      },
+      "0x39D908dac893CBCB53Cc86e0ECc369aA4DeF1A29": {
+       "uid": 40488,
+       "name": "Jonatan ZIMENKOV",
+       "programs": [
+        "RUSSIA-EO14024"
+       ],
+       "tags": [
+        "ETH"
+       ]
+      },
+      "0x4F47Bc496083C727c5fbe3CE9CDf2B0f6496270c": {
+       "uid": 42498,
+       "name": "Hyon Sop SIM",
+       "programs": [
+        "NPWMD"
+       ],
+       "tags": [
+        "ETH",
+        "ARB",
+        "BSC"
+       ]
+      },
+      "0xd04E33461FEA8302c5E1e13895b60cEe8AEfda7F": {
+       "uid": 42498,
+       "name": "Hyon Sop SIM",
+       "programs": [
+        "NPWMD"
+       ],
+       "tags": [
+        "ETH"
+       ]
+      },
+      "0x76EA76CA4Eb727f18956aB93445a94c5280412B9": {
+       "uid": 42498,
+       "name": "Hyon Sop SIM",
+       "programs": [
+        "NPWMD"
+       ],
+       "tags": [
+        "ETH"
+       ]
+      },
+      "0xFb3eFf152ea55D1BfA04Dbdd509A80fD7b72cdEB": {
+       "uid": 42498,
+       "name": "Hyon Sop SIM",
+       "programs": [
+        "NPWMD"
+       ],
+       "tags": [
+        "ETH"
+       ]
+      },
+      "0xFda1Ec4A6178d4916b001a065422D31EBE5F62FF": {
+       "uid": 42498,
+       "name": "Hyon Sop SIM",
+       "programs": [
+        "NPWMD"
+       ],
+       "tags": [
+        "ETH"
+       ]
+      },
+      "0x747AFB5c7A7fc34B547cD0FDEbf9b91759C5a52b": {
+       "uid": 42498,
+       "name": "Hyon Sop SIM",
+       "programs": [
+        "NPWMD"
+       ],
+       "tags": [
+        "ETH"
+       ]
+      },
+      "0x38735f03b30FbC022DdD06ABED01F0Ca823C6a94": {
+       "uid": 43085,
+       "name": "John Desmond HANAFIN",
+       "programs": [
+        "RUSSIA-EO14024"
+       ],
+       "tags": [
+        "USDT"
+       ]
+      },
+      "0xb6f5ec1A0a9cd1526536D3F0426c429529471F40": {
+       "uid": 43377,
+       "name": "Sang Man KIM",
+       "programs": [
+        "DPRK4"
+       ],
+       "tags": [
+        "USDT",
+        "USDC",
+        "ETH"
+       ]
+      },
+      "0x97B1043ABD9E6FC31681635166d430a458D14F9C": {
+       "uid": 43377,
+       "name": "Sang Man KIM",
+       "programs": [
+        "DPRK4"
+       ],
+       "tags": [
+        "ETH"
+       ]
+      },
+      "0xE1D865c3D669dCc8c57c8D023140CB204e672ee4": {
+       "uid": 43421,
+       "name": "Yunhe WANG",
+       "programs": [
+        "CYBER2"
+       ],
+       "tags": [
+        "ETH"
+       ]
+      },
+      "0x9C2Bc757B66F24D60F016B6237F8CdD414a879Fa": {
+       "uid": 44029,
+       "name": "Mario Alberto JIMENEZ CASTRO",
+       "programs": [
+        "ILLICIT-DRUGS-EO14059"
+       ],
+       "tags": [
+        "ETH"
+       ]
+      },
+      "0xdcbEfFBECcE100cCE9E4b153C4e15cB885643193": {
+       "uid": 44718,
+       "name": "Roman SEMENOV",
+       "programs": [
+        "DPRK3"
+       ],
+       "tags": [
+        "ETH"
+       ]
+      },
+      "0x5f48C2A71B2CC96e3F0CCae4E39318Ff0dc375b2": {
+       "uid": 44718,
+       "name": "Roman SEMENOV",
+       "programs": [
+        "DPRK3"
+       ],
+       "tags": [
+        "ETH"
+       ]
+      },
+      "0x5A7a51bFb49F190e5A6060a5bc6052Ac14a3b59f": {
+       "uid": 44718,
+       "name": "Roman SEMENOV",
+       "programs": [
+        "DPRK3"
+       ],
+       "tags": [
+        "ETH"
+       ]
+      },
+      "0xeD6e0A7e4Ac94D976eeBfB82ccf777A3c6baD921": {
+       "uid": 44718,
+       "name": "Roman SEMENOV",
+       "programs": [
+        "DPRK3"
+       ],
+       "tags": [
+        "ETH"
+       ]
+      },
+      "0x797d7Ae72EbddCDea2a346c1834E04d1F8dF102b": {
+       "uid": 44718,
+       "name": "Roman SEMENOV",
+       "programs": [
+        "DPRK3"
+       ],
+       "tags": [
+        "ETH"
+       ]
+      },
+      "0x931546D9e66836AbF687d2bc64B30407bAc8C568": {
+       "uid": 44718,
+       "name": "Roman SEMENOV",
+       "programs": [
+        "DPRK3"
+       ],
+       "tags": [
+        "ETH"
+       ]
+      },
+      "0x43fa21d92141BA9db43052492E0DeEE5aa5f0A93": {
+       "uid": 44718,
+       "name": "Roman SEMENOV",
+       "programs": [
+        "DPRK3"
+       ],
+       "tags": [
+        "ETH"
+       ]
+      },
+      "0x6Be0aE71e6c41f2f9D0D1A3B8d0f75E6f6A0b46e": {
+       "uid": 44718,
+       "name": "Roman SEMENOV",
+       "programs": [
+        "DPRK3"
+       ],
+       "tags": [
+        "ETH"
+       ]
+      },
+      "0x530A64c0Ce595026a4A556b703644228179E2d57": {
+       "uid": 45312,
+       "name": "Xingbiao SHEN",
+       "programs": [
+        "ILLICIT-DRUGS-EO14059"
+       ],
+       "tags": [
+        "ETH"
+       ]
+      },
+      "0x983a81ca6FB1e441266D2FbcB7D8E530AC2E05A2": {
+       "uid": 45314,
+       "name": "VALERIAN LABS, INC.",
+       "programs": [
+        "ILLICIT-DRUGS-EO14059"
+       ],
+       "tags": [
+        "ETH",
+        "USDT",
+        "USDC"
+       ]
+      },
+      "0x961C5Be54a2ffC17CF4Cb021d863c42daCd47Fc1": {
+       "uid": 45391,
+       "name": "Wei ZHANG",
+       "programs": [
+        "ILLICIT-DRUGS-EO14059"
+       ],
+       "tags": [
+        "ETH"
+       ]
+      },
+      "0xFAC583C0cF07Ea434052c49115a4682172aB6b4F": {
+       "uid": 45404,
+       "name": "Mingming WANG",
+       "programs": [
+        "ILLICIT-DRUGS-EO14059"
+       ],
+       "tags": [
+        "USDT"
+       ]
+      },
+      "0xE950DC316b836e4EeFb8308bf32Bf7C72a1358FF": {
+       "uid": 47635,
+       "name": "GAZA NOW",
+       "programs": [
+        "SDGT"
+       ],
+       "tags": [
+        "ETH"
+       ]
+      },
+      "0x21B8d56BDA776bbE68655A16895afd96F5534feD": {
+       "uid": 47635,
+       "name": "GAZA NOW",
+       "programs": [
+        "SDGT"
+       ],
+       "tags": [
+        "ETH"
+       ]
+      },
+      "0x175d44451403Edf28469dF03A9280c1197ADb92c": {
+       "uid": 47635,
+       "name": "GAZA NOW",
+       "programs": [
+        "SDGT"
+       ],
+       "tags": [
+        "USDT"
+       ]
+      },
+      "0xf3701F445b6BDaFeDbcA97D1e477357839e4120D": {
+       "uid": 47682,
+       "name": "Ivan Gennadievich KONDRATIEV",
+       "programs": [
+        "CYBER2"
+       ],
+       "tags": [
+        "ETH"
+       ]
+      },
+      "0x19F8f2B0915Daa12a3f5C9CF01dF9E24D53794F7": {
+       "uid": 48432,
+       "name": "OKO DESIGN BUREAU",
+       "programs": [
+        "RUSSIA-EO14024"
+       ],
+       "tags": [
+        "ETH"
+       ]
+      },
+      "0x0931cA4D13BB4ba75D9B7132AB690265D749a5E7": {
+       "uid": 50641,
+       "name": "CRYPTEX",
+       "programs": [
+        "CYBER2",
+        "RUSSIA-EO14024"
+       ],
+       "tags": [
+        "ETH"
+       ]
+      },
+      "0x1999EF52700c34De7EC2b68a28aAFB37db0C5ade": {
+       "uid": 52071,
+       "name": "Khadzhi Murat Dalgatovich MAGOMEDOV",
+       "programs": [
+        "RUSSIA-EO14024"
+       ],
+       "tags": [
+        "ETH"
+       ]
+      },
+      "0xd5ED34b52AC4ab84d8FA8A231a3218bbF01Ed510": {
+       "uid": 53953,
+       "name": "FUNNULL TECHNOLOGY INC",
+       "programs": [
+        "CYBER3"
+       ],
+       "tags": [
+        "ETH"
+       ]
+      },
+      "0x12de548F79a50D2bd05481C8515C1eF5183666a9": {
+       "uid": 55046,
+       "name": "OLD VECTOR LLC",
+       "programs": [
+        "CYBER4"
+       ],
+       "tags": [
+        "ETH"
+       ]
+      },
+      "0xDb2720ebAd55399117ddB4C4a4afd9a4CCAda8fE": {
+       "uid": 55484,
+       "name": "Alireza DERAKHSHAN",
+       "programs": [
+        "IFSR",
+        "SDGT"
+       ],
+       "tags": [
+        "ETH"
+       ]
+      },
+      "0xE3D35f68383732649669aA990832E017340DbcA5": {
+       "uid": 55502,
+       "name": "Arash Estaki ALIVAND",
+       "programs": [
+        "IFSR",
+        "SDGT"
+       ],
+       "tags": [
+        "ETH"
+       ]
+      },
+      "0x532B77B33A040587e9FD1800088225f99b8B0E8A": {
+       "uid": 55502,
+       "name": "Arash Estaki ALIVAND",
+       "programs": [
+        "IFSR",
+        "SDGT"
+       ],
+       "tags": [
+        "ETH"
+       ]
+      },
+      "0x5D5b5dAfecBF31BDb08bFd3eDad4f2694372d0ef": {
+       "uid": 56360,
+       "name": "Rolan SOKOLOVSKI",
+       "programs": [
+        "ILLICIT-DRUGS-EO14059"
+       ],
+       "tags": [
+        "ETH"
+       ]
+      },
+      "0xc103B7Dc095c904b92081EEF0C1640081ec01c10": {
+       "uid": 56360,
+       "name": "Rolan SOKOLOVSKI",
+       "programs": [
+        "ILLICIT-DRUGS-EO14059"
+       ],
+       "tags": [
+        "ETH"
+       ]
+      },
+      "0xE1E4C5e5Ed8F03Ae61b581e2dEf126025F2b9401": {
+       "uid": 56360,
+       "name": "Rolan SOKOLOVSKI",
+       "programs": [
+        "ILLICIT-DRUGS-EO14059"
+       ],
+       "tags": [
+        "ETH"
+       ]
+      },
+      "0xb637F84b66876ebf609C2A4208905F9ddAC9d075": {
+       "uid": 57034,
+       "name": "Song Guk YUN",
+       "programs": [
+        "DPRK4"
+       ],
+       "tags": [
+        "ETH"
+       ]
+      },
+      "0x95584C303FCd48AF5c6B9873015f2AD0ca84EaE3": {
+       "uid": 57034,
+       "name": "Song Guk YUN",
+       "programs": [
+        "DPRK4"
+       ],
+       "tags": [
+        "ETH"
+       ]
+      },
+      "0xcB74874f1e06Fcf80A306e06e5379A44B488bA2D": {
+       "uid": 57056,
+       "name": "AMNOKGANG TECHNOLOGY DEVELOPMENT COMPANY",
+       "programs": [
+        "DPRK4"
+       ],
+       "tags": [
+        "ETH"
+       ]
+      },
+      "0x0330070FD38Ec3bB94F58FA55D40368271E9e54A": {
+       "uid": 57056,
+       "name": "AMNOKGANG TECHNOLOGY DEVELOPMENT COMPANY",
+       "programs": [
+        "DPRK4"
+       ],
+       "tags": [
+        "ETH"
+       ]
+      },
+      "0x9Be599d7867f5E1a2D7Ec6dB9710dF2b98A15573": {
+       "uid": 57056,
+       "name": "AMNOKGANG TECHNOLOGY DEVELOPMENT COMPANY",
+       "programs": [
+        "DPRK4"
+       ],
+       "tags": [
+        "ETH"
+       ]
+      },
+      "0x4060cbf80734193F521a3Cc6fd4e985dF2825279": {
+       "uid": 57061,
+       "name": "Keyvan Fayyaz Gareh BLAGH",
+       "programs": [
+        "CYBER4"
+       ],
+       "tags": [
+        "ETH"
+       ]
+      },
+      "0x56de1527136F76A809E5B14Ded6103eeCD072ba7": {
+       "uid": 57061,
+       "name": "Keyvan Fayyaz Gareh BLAGH",
+       "programs": [
+        "CYBER4"
+       ],
+       "tags": [
+        "ETH"
+       ]
+      },
+      "0x8694eD130432be2CD3efFF2E4d9dc52351DC7423": {
+       "uid": 57061,
+       "name": "Keyvan Fayyaz Gareh BLAGH",
+       "programs": [
+        "CYBER4"
+       ],
+       "tags": [
+        "ETH"
+       ]
+      },
+      "0xbd3276f265b83b5e828c05f46CDe9d10A1521A24": {
+       "uid": 57061,
+       "name": "Keyvan Fayyaz Gareh BLAGH",
+       "programs": [
+        "CYBER4"
+       ],
+       "tags": [
+        "ETH"
+       ]
+      },
+      "0xF1c4C44d2dCbcfA704349e3B57628Dbd8404E597": {
+       "uid": 57061,
+       "name": "Keyvan Fayyaz Gareh BLAGH",
+       "programs": [
+        "CYBER4"
+       ],
+       "tags": [
+        "ETH"
+       ]
+      },
+      "0x1b8579cF6ab12Ea6B74Ac5fA41f3829a3Cb61E6e": {
+       "uid": 57064,
+       "name": "Mojtaba GHAL'EH-KUHI",
+       "programs": [
+        "CYBER4"
+       ],
+       "tags": [
+        "ETH"
+       ]
+      },
+      "0xeb507eFa9EE692a4C774ad1dE9f3cb26fc459DA3": {
+       "uid": 57065,
+       "name": "Arman KAHZADIAN",
+       "programs": [
+        "CYBER4"
+       ],
+       "tags": [
+        "ETH"
+       ]
+      },
+      "0xef85A6fAFA5942a964Dc618e94E230881D29cE2a": {
+       "uid": 57065,
+       "name": "Arman KAHZADIAN",
+       "programs": [
+        "CYBER4"
+       ],
+       "tags": [
+        "ETH"
+       ]
+      },
+      "0x038989cBB1710C72b9920Dc4Fa529158f463e72c": {
+       "uid": 57107,
+       "name": "Armando de Jesus OJEDA AVILES",
+       "programs": [
+        "ILLICIT-DRUGS-EO14059",
+        "SDGT"
+       ],
+       "tags": [
+        "ETH"
+       ]
+      },
+      "0x14779CEC0B117d5194c750C55Ea1f42086631964": {
+       "uid": 57107,
+       "name": "Armando de Jesus OJEDA AVILES",
+       "programs": [
+        "ILLICIT-DRUGS-EO14059",
+        "SDGT"
+       ],
+       "tags": [
+        "ETH"
+       ]
+      },
+      "0x32dA24Ca413F3E7B53145D4737e172C3bdF81e3e": {
+       "uid": 57107,
+       "name": "Armando de Jesus OJEDA AVILES",
+       "programs": [
+        "ILLICIT-DRUGS-EO14059",
+        "SDGT"
+       ],
+       "tags": [
+        "ETH"
+       ]
+      },
+      "0xF2235D55b2950a0B1317469d72d07Ae65b2e27CB": {
+       "uid": 57107,
+       "name": "Armando de Jesus OJEDA AVILES",
+       "programs": [
+        "ILLICIT-DRUGS-EO14059",
+        "SDGT"
+       ],
+       "tags": [
+        "ETH"
+       ]
+      },
+      "0x4F428c11Dc82388fa5136D636e613ad923Eb700B": {
+       "uid": 57107,
+       "name": "Armando de Jesus OJEDA AVILES",
+       "programs": [
+        "ILLICIT-DRUGS-EO14059",
+        "SDGT"
+       ],
+       "tags": [
+        "ETH"
+       ]
+      },
+      "0xaC4cC4B68ea24BbFAAC8fD127B67Ed445ACcCE22": {
+       "uid": 57118,
+       "name": "Rodrigo ALARCON PALOMARES",
+       "programs": [
+        "ILLICIT-DRUGS-EO14059"
+       ],
+       "tags": [
+        "ETH"
+       ]
+      },
+      "0x2711D73d559f62f4F855eE21F38378F528E07985": {
+       "uid": 57975,
+       "name": "FIRST VPN SERVICE",
+       "programs": [
+        "CYBER4"
+       ],
+       "tags": [
+        "ETH"
+       ]
+      },
+      "0x1d19B52b54E7Ef5ea1A4B40B616165E798Eac9F8": {
+       "uid": 57978,
+       "name": "Dmytro RASHEVSKYI",
+       "programs": [
+        "CYBER4"
+       ],
+       "tags": [
+        "ETH"
+       ]
+      },
+      "0x2C7DcD774b33e10367F7d6385479e04F97d179dc": {
+       "uid": 57978,
+       "name": "Dmytro RASHEVSKYI",
+       "programs": [
+        "CYBER4"
+       ],
+       "tags": [
+        "ETH"
+       ]
+      },
+      "0xBb69e01921b17cD22080968bcc96Ba6115Da6062": {
+       "uid": 58258,
+       "name": "CRYPTO HOME DMCC",
+       "programs": [
+        "SDGT"
+       ],
+       "tags": [
+        "ETH"
+       ]
+      },
+      "0x8d79c73dAae8630C88De372ba8f57592FA987607": {
+       "uid": 58284,
+       "name": "Siavash KAYVANPOUR",
+       "programs": [
+        "SDGT",
+        "IRGC"
+       ],
+       "tags": [
+        "ETH"
+       ]
+      },
+      "0xe05F529f5284D75624eBa386CB716928c3b54A2A": {
+       "uid": 58287,
+       "name": "SHPS SHELBIT",
+       "programs": [
+        "SDGT"
+       ],
+       "tags": [
+        "ETH"
+       ]
+      },
+      "0x6B69E2a7545C166417a80c61a77562052BFfa9c5": {
+       "uid": 58287,
+       "name": "SHPS SHELBIT",
+       "programs": [
+        "SDGT"
+       ],
+       "tags": [
+        "ETH"
+       ]
+      }
+     }
+    }
+   },
+   "https://sourcify.dev/server/v2/contract/8453/0x4200000000000000000000000000000000000006?fields=abi,proxyResolution,compilation": {
+    "result": {
+     "abi": [
+      {
+       "name": "Approval",
+       "type": "event",
+       "inputs": [
+        {
+         "name": "src",
+         "type": "address",
+         "indexed": true,
+         "internalType": "address"
+        },
+        {
+         "name": "guy",
+         "type": "address",
+         "indexed": true,
+         "internalType": "address"
+        },
+        {
+         "name": "wad",
+         "type": "uint256",
+         "indexed": false,
+         "internalType": "uint256"
+        }
+       ],
+       "anonymous": false
+      },
+      {
+       "name": "Deposit",
+       "type": "event",
+       "inputs": [
+        {
+         "name": "dst",
+         "type": "address",
+         "indexed": true,
+         "internalType": "address"
+        },
+        {
+         "name": "wad",
+         "type": "uint256",
+         "indexed": false,
+         "internalType": "uint256"
+        }
+       ],
+       "anonymous": false
+      },
+      {
+       "name": "Transfer",
+       "type": "event",
+       "inputs": [
+        {
+         "name": "src",
+         "type": "address",
+         "indexed": true,
+         "internalType": "address"
+        },
+        {
+         "name": "dst",
+         "type": "address",
+         "indexed": true,
+         "internalType": "address"
+        },
+        {
+         "name": "wad",
+         "type": "uint256",
+         "indexed": false,
+         "internalType": "uint256"
+        }
+       ],
+       "anonymous": false
+      },
+      {
+       "name": "Withdrawal",
+       "type": "event",
+       "inputs": [
+        {
+         "name": "src",
+         "type": "address",
+         "indexed": true,
+         "internalType": "address"
+        },
+        {
+         "name": "wad",
+         "type": "uint256",
+         "indexed": false,
+         "internalType": "uint256"
+        }
+       ],
+       "anonymous": false
+      },
+      {
+       "type": "fallback",
+       "payable": true,
+       "stateMutability": "payable"
+      },
+      {
+       "name": "allowance",
+       "type": "function",
+       "inputs": [
+        {
+         "name": "",
+         "type": "address",
+         "internalType": "address"
+        },
+        {
+         "name": "",
+         "type": "address",
+         "internalType": "address"
+        }
+       ],
+       "outputs": [
+        {
+         "name": "",
+         "type": "uint256",
+         "internalType": "uint256"
+        }
+       ],
+       "payable": false,
+       "constant": true,
+       "stateMutability": "view"
+      },
+      {
+       "name": "approve",
+       "type": "function",
+       "inputs": [
+        {
+         "name": "guy",
+         "type": "address",
+         "internalType": "address"
+        },
+        {
+         "name": "wad",
+         "type": "uint256",
+         "internalType": "uint256"
+        }
+       ],
+       "outputs": [
+        {
+         "name": "",
+         "type": "bool",
+         "internalType": "bool"
+        }
+       ],
+       "payable": false,
+       "constant": false,
+       "stateMutability": "nonpayable"
+      },
+      {
+       "name": "balanceOf",
+       "type": "function",
+       "inputs": [
+        {
+         "name": "",
+         "type": "address",
+         "internalType": "address"
+        }
+       ],
+       "outputs": [
+        {
+         "name": "",
+         "type": "uint256",
+         "internalType": "uint256"
+        }
+       ],
+       "payable": false,
+       "constant": true,
+       "stateMutability": "view"
+      },
+      {
+       "name": "decimals",
+       "type": "function",
+       "inputs": [],
+       "outputs": [
+        {
+         "name": "",
+         "type": "uint8",
+         "internalType": "uint8"
+        }
+       ],
+       "payable": false,
+       "constant": true,
+       "stateMutability": "view"
+      },
+      {
+       "name": "deposit",
+       "type": "function",
+       "inputs": [],
+       "outputs": [],
+       "payable": true,
+       "constant": false,
+       "stateMutability": "payable"
+      },
+      {
+       "name": "name",
+       "type": "function",
+       "inputs": [],
+       "outputs": [
+        {
+         "name": "",
+         "type": "string",
+         "internalType": "string"
+        }
+       ],
+       "payable": false,
+       "constant": true,
+       "stateMutability": "view"
+      },
+      {
+       "name": "symbol",
+       "type": "function",
+       "inputs": [],
+       "outputs": [
+        {
+         "name": "",
+         "type": "string",
+         "internalType": "string"
+        }
+       ],
+       "payable": false,
+       "constant": true,
+       "stateMutability": "view"
+      },
+      {
+       "name": "totalSupply",
+       "type": "function",
+       "inputs": [],
+       "outputs": [
+        {
+         "name": "",
+         "type": "uint256",
+         "internalType": "uint256"
+        }
+       ],
+       "payable": false,
+       "constant": true,
+       "stateMutability": "view"
+      },
+      {
+       "name": "transfer",
+       "type": "function",
+       "inputs": [
+        {
+         "name": "dst",
+         "type": "address",
+         "internalType": "address"
+        },
+        {
+         "name": "wad",
+         "type": "uint256",
+         "internalType": "uint256"
+        }
+       ],
+       "outputs": [
+        {
+         "name": "",
+         "type": "bool",
+         "internalType": "bool"
+        }
+       ],
+       "payable": false,
+       "constant": false,
+       "stateMutability": "nonpayable"
+      },
+      {
+       "name": "transferFrom",
+       "type": "function",
+       "inputs": [
+        {
+         "name": "src",
+         "type": "address",
+         "internalType": "address"
+        },
+        {
+         "name": "dst",
+         "type": "address",
+         "internalType": "address"
+        },
+        {
+         "name": "wad",
+         "type": "uint256",
+         "internalType": "uint256"
+        }
+       ],
+       "outputs": [
+        {
+         "name": "",
+         "type": "bool",
+         "internalType": "bool"
+        }
+       ],
+       "payable": false,
+       "constant": false,
+       "stateMutability": "nonpayable"
+      },
+      {
+       "name": "withdraw",
+       "type": "function",
+       "inputs": [
+        {
+         "name": "wad",
+         "type": "uint256",
+         "internalType": "uint256"
+        }
+       ],
+       "outputs": [],
+       "payable": false,
+       "constant": false,
+       "stateMutability": "nonpayable"
+      }
+     ],
+     "proxyResolution": {
+      "isProxy": false,
+      "proxyType": null,
+      "implementations": []
+     },
+     "compilation": {
+      "language": "Solidity",
+      "compiler": "solc",
+      "compilerVersion": "0.5.17+commit.d19bba13",
+      "compilerSettings": {
+       "libraries": {},
+       "optimizer": {
+        "runs": 10000,
+        "enabled": true
+       },
+       "evmVersion": "istanbul",
+       "remappings": []
+      },
+      "name": "WETH9",
+      "fullyQualifiedName": "WETH9.sol:WETH9"
+     },
+     "matchId": "37651",
+     "creationMatch": null,
+     "runtimeMatch": "match",
+     "verifiedAt": "2024-08-08T10:35:47Z",
+     "match": "match",
+     "chainId": "8453",
+     "address": "0x4200000000000000000000000000000000000006"
+    }
+   }
+  }
+ }
+}

@@ -1,0 +1,56 @@
+{
+ "tool": "find_token",
+ "case": "nothing",
+ "note": "A made-up ticker: nothing found, no answer.",
+ "args": {
+  "query": "QZXWVPLKJH"
+ },
+ "recordedAt": "2026-10-15T01:42:06.017Z",
+ "expect": {
+  "answer": null,
+  "confidence": "none"
+ },
+ "result": {
+  "query": "QZXWVPLKJH",
+  "answer": null,
+  "confidence": "none",
+  "candidates": [],
+  "warning": "No Base token called QZXWVPLKJH was found.",
+  "sources": [
+   "Base Pulse issuer list (checked on chain)",
+   "Uniswap default token list",
+   "CoinGecko Base token list",
+   "DexScreener search and token pairs",
+   "symbol() and name() on chain"
+  ]
+ },
+ "error": null,
+ "recording": {
+  "now": 1792028526017,
+  "etherscan": false,
+  "rpc": {
+   "eth_call [{\"data\":\"0x82ad56cb00000000000000000000000000000000000000000000000000000000000000200000000000000000000000000000000000000000000000000000000000000000\",\"to\":\"0xca11bde05977b3631167028862be2a173976ca11\"},\"latest\"]": {
+    "result": "0x00000000000000000000000000000000000000000000000000000000000000200000000000000000000000000000000000000000000000000000000000000000"
+   }
+  },
+  "sim": {},
+  "http": {
+   "https://api.dexscreener.com/latest/dex/search?q=QZXWVPLKJH": {
+    "result": {
+     "schemaVersion": "1.0.0",
+     "pairs": []
+    }
+   },
+   "https://tokens.coingecko.com/base/all.json": {
+    "result": {
+     "tokens": []
+    }
+   },
+   "https://tokens.uniswap.org": {
+    "result": {
+     "tokens": []
+    }
+   }
+  }
+ }
+}

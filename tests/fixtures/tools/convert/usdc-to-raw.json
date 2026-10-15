@@ -1,0 +1,39 @@
+{
+ "tool": "convert",
+ "case": "usdc-to-raw",
+ "note": "USDC has 6 decimals: 25.5 USDC is 25,500,000 raw units.",
+ "args": {
+  "token": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+  "amount": "25.5",
+  "network": "base"
+ },
+ "recordedAt": "2026-10-15T00:57:27.223Z",
+ "expect": {
+  "raw": "25500000",
+  "decimals": 6,
+  "symbol": "USDC"
+ },
+ "result": {
+  "token": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+  "symbol": "USDC",
+  "decimals": 6,
+  "amount": "25.5",
+  "raw": "25500000",
+  "source": "decimals() and symbol() on 0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913, base"
+ },
+ "error": null,
+ "recording": {
+  "now": 1792025847223,
+  "etherscan": false,
+  "rpc": {
+   "eth_call [{\"data\":\"0x313ce567\",\"to\":\"0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913\"},\"latest\"]": {
+    "result": "0x0000000000000000000000000000000000000000000000000000000000000006"
+   },
+   "eth_call [{\"data\":\"0x95d89b41\",\"to\":\"0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913\"},\"latest\"]": {
+    "result": "0x000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000045553444300000000000000000000000000000000000000000000000000000000"
+   }
+  },
+  "sim": {},
+  "http": {}
+ }
+}

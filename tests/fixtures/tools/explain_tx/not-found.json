@@ -1,0 +1,28 @@
+{
+ "tool": "explain_tx",
+ "case": "not-found",
+ "note": "A hash that does not exist: a 404, not a guess.",
+ "args": {
+  "hash": "0x1111111111111111111111111111111111111111111111111111111111111111"
+ },
+ "recordedAt": "2026-10-15T02:07:51.375Z",
+ "expect": {
+  "error.status": 404
+ },
+ "result": null,
+ "error": {
+  "status": 404,
+  "message": "No transaction with that hash on Base, or it hasn't been included yet."
+ },
+ "recording": {
+  "now": 1792030071375,
+  "etherscan": true,
+  "rpc": {
+   "eth_getTransactionReceipt [\"0x1111111111111111111111111111111111111111111111111111111111111111\"]": {
+    "result": null
+   }
+  },
+  "sim": {},
+  "http": {}
+ }
+}

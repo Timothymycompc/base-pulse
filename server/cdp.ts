@@ -9,7 +9,7 @@ const ED25519_PKCS8_PREFIX = Buffer.from("302e020100300506032b657004220420", "he
 
 type SigningKey = { key: crypto.KeyObject; alg: "EdDSA" | "ES256" };
 
-function signingKey(secret: string): SigningKey {
+export function signingKey(secret: string): SigningKey {
   if (secret.includes("BEGIN")) return { key: crypto.createPrivateKey(secret.replace(/\\n/g, "\n")), alg: "ES256" };
   const raw = Buffer.from(secret, "base64");
   if (raw.length !== 64 && raw.length !== 32) throw new Error("CDP_API_KEY_SECRET is neither a PEM EC key nor a base64 Ed25519 key");
@@ -44,4 +44,23 @@ export function cdpFacilitator(keyId = process.env.CDP_API_KEY_ID, secret = proc
       bazaar: auth("GET", "discovery/resources"),
     }),
   });
+}
+
+// Coinbase's SQL API over indexed Base data (https://docs.cdp.coinbase.com/data/sql-api). Used to find history the
+// node can't search quickly (approvals, transfers); anything that decides money is then re-read from the chain.
+export const CDP_SQL_URL = "https://api.cdp.coinbase.com/platform/v2/data/query/run";
+
+export function cdpSql(keyId = process.env.CDP_API_KEY_ID, secret = process.env.CDP_API_KEY_SECRET): ((sql: string) => Promise<Record<string, any>[]>) | undefined {
+  if (!keyId || !secret) return undefined;
+  const signer = signingKey(secret.trim());
+  return async (sql) => {
+    const res = await fetch(CDP_SQL_URL, {
+      method: "POST", signal: AbortSignal.timeout(20_000),
+      headers: { authorization: `Bearer ${cdpJwt(keyId.trim(), signer, "POST", CDP_SQL_URL)}`, "content-type": "application/json" },
+      body: JSON.stringify({ sql }),
+    });
+    const body: any = await res.json().catch(() => null);
+    if (!res.ok) throw new Error(`CDP SQL ${res.status}: ${String(body?.errorMessage ?? "no answer").split("\n")[0]}`);
+    return Array.isArray(body?.result) ? body.result : [];
+  };
 }

@@ -1,0 +1,33 @@
+{
+ "tool": "convert",
+ "case": "too-many-decimals",
+ "note": "Seven decimal places on a 6-decimal token must be refused, not rounded.",
+ "args": {
+  "token": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+  "amount": "1.0000001",
+  "network": "base"
+ },
+ "recordedAt": "2026-10-15T00:57:33.589Z",
+ "expect": {
+  "error.status": 422
+ },
+ "result": null,
+ "error": {
+  "status": 422,
+  "message": "USDC has 6 decimals, so 1.0000001 can't be sent exactly; it would have to be rounded."
+ },
+ "recording": {
+  "now": 1792025853589,
+  "etherscan": false,
+  "rpc": {
+   "eth_call [{\"data\":\"0x313ce567\",\"to\":\"0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913\"},\"latest\"]": {
+    "result": "0x0000000000000000000000000000000000000000000000000000000000000006"
+   },
+   "eth_call [{\"data\":\"0x95d89b41\",\"to\":\"0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913\"},\"latest\"]": {
+    "result": "0x000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000045553444300000000000000000000000000000000000000000000000000000000"
+   }
+  },
+  "sim": {},
+  "http": {}
+ }
+}

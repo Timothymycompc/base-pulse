@@ -1,0 +1,651 @@
+{
+ "tool": "whats_this",
+ "case": "delegated-wallet",
+ "note": "This wallet has an EIP-7702 delegation to Ambire's verified AmbireAccount7702 code (read on chain 2026-10-15).",
+ "args": {
+  "address": "0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045",
+  "network": "base"
+ },
+ "recordedAt": "2026-10-15T01:14:17.833Z",
+ "expect": {
+  "kind": "delegated_wallet",
+  "delegated_to": "0x5A7FC11397E9a8AD41BF10bf13F22B0a63f96f6d",
+  "source.verified": true
+ },
+ "result": {
+  "address": "0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045",
+  "eth": "3.12882180347273728",
+  "tx_count": 70,
+  "delegated_to": "0x5A7FC11397E9a8AD41BF10bf13F22B0a63f96f6d",
+  "proxy": null,
+  "token": null,
+  "nft": null,
+  "multisig": null,
+  "kind": "delegated_wallet",
+  "source": {
+   "verified": true,
+   "name": "AmbireAccount7702",
+   "from": "sourcify"
+  },
+  "what_it_is": "A wallet that has handed control to code with an EIP-7702 delegation: the code below decides what the wallet does.",
+  "warnings": [],
+  "sources": [
+   "Base RPC: eth_getCode, eth_getBalance, eth_getTransactionCount, EIP-1967 storage slots, and the contract's own answers",
+   "Sourcify"
+  ]
+ },
+ "error": null,
+ "recording": {
+  "now": 1792026857833,
+  "etherscan": true,
+  "rpc": {
+   "eth_getCode [\"0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045\",\"latest\"]": {
+    "result": "0xef01005a7fc11397e9a8ad41bf10bf13f22b0a63f96f6d"
+   },
+   "eth_getBalance [\"0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045\",\"latest\"]": {
+    "result": "0x2b6bceda617d5400"
+   },
+   "eth_getTransactionCount [\"0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045\",\"latest\"]": {
+    "result": "0x46"
+   }
+  },
+  "sim": {},
+  "http": {
+   "https://sourcify.dev/server/v2/contract/8453/0x5A7FC11397E9a8AD41BF10bf13F22B0a63f96f6d?fields=abi,proxyResolution,compilation": {
+    "result": {
+     "abi": [
+      {
+       "name": "LogErr",
+       "type": "event",
+       "inputs": [
+        {
+         "name": "to",
+         "type": "address",
+         "indexed": true,
+         "internalType": "address"
+        },
+        {
+         "name": "value",
+         "type": "uint256",
+         "indexed": false,
+         "internalType": "uint256"
+        },
+        {
+         "name": "data",
+         "type": "bytes",
+         "indexed": false,
+         "internalType": "bytes"
+        },
+        {
+         "name": "returnData",
+         "type": "bytes",
+         "indexed": false,
+         "internalType": "bytes"
+        }
+       ],
+       "anonymous": false
+      },
+      {
+       "name": "LogPrivilegeChanged",
+       "type": "event",
+       "inputs": [
+        {
+         "name": "addr",
+         "type": "address",
+         "indexed": true,
+         "internalType": "address"
+        },
+        {
+         "name": "priv",
+         "type": "bytes32",
+         "indexed": false,
+         "internalType": "bytes32"
+        }
+       ],
+       "anonymous": false
+      },
+      {
+       "type": "fallback",
+       "stateMutability": "payable"
+      },
+      {
+       "name": "execute",
+       "type": "function",
+       "inputs": [
+        {
+         "name": "calls",
+         "type": "tuple[]",
+         "components": [
+          {
+           "name": "to",
+           "type": "address",
+           "internalType": "address"
+          },
+          {
+           "name": "value",
+           "type": "uint256",
+           "internalType": "uint256"
+          },
+          {
+           "name": "data",
+           "type": "bytes",
+           "internalType": "bytes"
+          }
+         ],
+         "internalType": "struct Transaction[]"
+        },
+        {
+         "name": "signature",
+         "type": "bytes",
+         "internalType": "bytes"
+        }
+       ],
+       "outputs": [],
+       "stateMutability": "payable"
+      },
+      {
+       "name": "executeBySelf",
+       "type": "function",
+       "inputs": [
+        {
+         "name": "calls",
+         "type": "tuple[]",
+         "components": [
+          {
+           "name": "to",
+           "type": "address",
+           "internalType": "address"
+          },
+          {
+           "name": "value",
+           "type": "uint256",
+           "internalType": "uint256"
+          },
+          {
+           "name": "data",
+           "type": "bytes",
+           "internalType": "bytes"
+          }
+         ],
+         "internalType": "struct Transaction[]"
+        }
+       ],
+       "outputs": [],
+       "stateMutability": "payable"
+      },
+      {
+       "name": "executeBySelfSingle",
+       "type": "function",
+       "inputs": [
+        {
+         "name": "call",
+         "type": "tuple",
+         "components": [
+          {
+           "name": "to",
+           "type": "address",
+           "internalType": "address"
+          },
+          {
+           "name": "value",
+           "type": "uint256",
+           "internalType": "uint256"
+          },
+          {
+           "name": "data",
+           "type": "bytes",
+           "internalType": "bytes"
+          }
+         ],
+         "internalType": "struct Transaction"
+        }
+       ],
+       "outputs": [],
+       "stateMutability": "payable"
+      },
+      {
+       "name": "executeBySender",
+       "type": "function",
+       "inputs": [
+        {
+         "name": "calls",
+         "type": "tuple[]",
+         "components": [
+          {
+           "name": "to",
+           "type": "address",
+           "internalType": "address"
+          },
+          {
+           "name": "value",
+           "type": "uint256",
+           "internalType": "uint256"
+          },
+          {
+           "name": "data",
+           "type": "bytes",
+           "internalType": "bytes"
+          }
+         ],
+         "internalType": "struct Transaction[]"
+        }
+       ],
+       "outputs": [],
+       "stateMutability": "payable"
+      },
+      {
+       "name": "executeMultiple",
+       "type": "function",
+       "inputs": [
+        {
+         "name": "toExec",
+         "type": "tuple[]",
+         "components": [
+          {
+           "name": "calls",
+           "type": "tuple[]",
+           "components": [
+            {
+             "name": "to",
+             "type": "address",
+             "internalType": "address"
+            },
+            {
+             "name": "value",
+             "type": "uint256",
+             "internalType": "uint256"
+            },
+            {
+             "name": "data",
+             "type": "bytes",
+             "internalType": "bytes"
+            }
+           ],
+           "internalType": "struct Transaction[]"
+          },
+          {
+           "name": "signature",
+           "type": "bytes",
+           "internalType": "bytes"
+          }
+         ],
+         "internalType": "struct IAmbireAccount.ExecuteArgs[]"
+        }
+       ],
+       "outputs": [],
+       "stateMutability": "payable"
+      },
+      {
+       "name": "isValidSignature",
+       "type": "function",
+       "inputs": [
+        {
+         "name": "hash",
+         "type": "bytes32",
+         "internalType": "bytes32"
+        },
+        {
+         "name": "signature",
+         "type": "bytes",
+         "internalType": "bytes"
+        }
+       ],
+       "outputs": [
+        {
+         "name": "",
+         "type": "bytes4",
+         "internalType": "bytes4"
+        }
+       ],
+       "stateMutability": "view"
+      },
+      {
+       "name": "nonce",
+       "type": "function",
+       "inputs": [],
+       "outputs": [
+        {
+         "name": "",
+         "type": "uint256",
+         "internalType": "uint256"
+        }
+       ],
+       "stateMutability": "view"
+      },
+      {
+       "name": "onERC1155BatchReceived",
+       "type": "function",
+       "inputs": [
+        {
+         "name": "",
+         "type": "address",
+         "internalType": "address"
+        },
+        {
+         "name": "",
+         "type": "address",
+         "internalType": "address"
+        },
+        {
+         "name": "",
+         "type": "uint256[]",
+         "internalType": "uint256[]"
+        },
+        {
+         "name": "",
+         "type": "uint256[]",
+         "internalType": "uint256[]"
+        },
+        {
+         "name": "",
+         "type": "bytes",
+         "internalType": "bytes"
+        }
+       ],
+       "outputs": [
+        {
+         "name": "",
+         "type": "bytes4",
+         "internalType": "bytes4"
+        }
+       ],
+       "stateMutability": "pure"
+      },
+      {
+       "name": "onERC1155Received",
+       "type": "function",
+       "inputs": [
+        {
+         "name": "",
+         "type": "address",
+         "internalType": "address"
+        },
+        {
+         "name": "",
+         "type": "address",
+         "internalType": "address"
+        },
+        {
+         "name": "",
+         "type": "uint256",
+         "internalType": "uint256"
+        },
+        {
+         "name": "",
+         "type": "uint256",
+         "internalType": "uint256"
+        },
+        {
+         "name": "",
+         "type": "bytes",
+         "internalType": "bytes"
+        }
+       ],
+       "outputs": [
+        {
+         "name": "",
+         "type": "bytes4",
+         "internalType": "bytes4"
+        }
+       ],
+       "stateMutability": "pure"
+      },
+      {
+       "name": "onERC721Received",
+       "type": "function",
+       "inputs": [
+        {
+         "name": "",
+         "type": "address",
+         "internalType": "address"
+        },
+        {
+         "name": "",
+         "type": "address",
+         "internalType": "address"
+        },
+        {
+         "name": "",
+         "type": "uint256",
+         "internalType": "uint256"
+        },
+        {
+         "name": "",
+         "type": "bytes",
+         "internalType": "bytes"
+        }
+       ],
+       "outputs": [
+        {
+         "name": "",
+         "type": "bytes4",
+         "internalType": "bytes4"
+        }
+       ],
+       "stateMutability": "pure"
+      },
+      {
+       "name": "privileges",
+       "type": "function",
+       "inputs": [
+        {
+         "name": "key",
+         "type": "address",
+         "internalType": "address"
+        }
+       ],
+       "outputs": [
+        {
+         "name": "",
+         "type": "bytes32",
+         "internalType": "bytes32"
+        }
+       ],
+       "stateMutability": "view"
+      },
+      {
+       "name": "setAddrPrivilege",
+       "type": "function",
+       "inputs": [
+        {
+         "name": "addr",
+         "type": "address",
+         "internalType": "address"
+        },
+        {
+         "name": "priv",
+         "type": "bytes32",
+         "internalType": "bytes32"
+        }
+       ],
+       "outputs": [],
+       "stateMutability": "payable"
+      },
+      {
+       "name": "supportsInterface",
+       "type": "function",
+       "inputs": [
+        {
+         "name": "interfaceID",
+         "type": "bytes4",
+         "internalType": "bytes4"
+        }
+       ],
+       "outputs": [
+        {
+         "name": "",
+         "type": "bool",
+         "internalType": "bool"
+        }
+       ],
+       "stateMutability": "pure"
+      },
+      {
+       "name": "tryCatch",
+       "type": "function",
+       "inputs": [
+        {
+         "name": "to",
+         "type": "address",
+         "internalType": "address"
+        },
+        {
+         "name": "value",
+         "type": "uint256",
+         "internalType": "uint256"
+        },
+        {
+         "name": "data",
+         "type": "bytes",
+         "internalType": "bytes"
+        }
+       ],
+       "outputs": [],
+       "stateMutability": "payable"
+      },
+      {
+       "name": "tryCatchLimit",
+       "type": "function",
+       "inputs": [
+        {
+         "name": "to",
+         "type": "address",
+         "internalType": "address"
+        },
+        {
+         "name": "value",
+         "type": "uint256",
+         "internalType": "uint256"
+        },
+        {
+         "name": "data",
+         "type": "bytes",
+         "internalType": "bytes"
+        },
+        {
+         "name": "gasLimit",
+         "type": "uint256",
+         "internalType": "uint256"
+        }
+       ],
+       "outputs": [],
+       "stateMutability": "payable"
+      },
+      {
+       "name": "validateUserOp",
+       "type": "function",
+       "inputs": [
+        {
+         "name": "op",
+         "type": "tuple",
+         "components": [
+          {
+           "name": "sender",
+           "type": "address",
+           "internalType": "address"
+          },
+          {
+           "name": "nonce",
+           "type": "uint256",
+           "internalType": "uint256"
+          },
+          {
+           "name": "initCode",
+           "type": "bytes",
+           "internalType": "bytes"
+          },
+          {
+           "name": "callData",
+           "type": "bytes",
+           "internalType": "bytes"
+          },
+          {
+           "name": "accountGasLimits",
+           "type": "bytes32",
+           "internalType": "bytes32"
+          },
+          {
+           "name": "preVerificationGas",
+           "type": "uint256",
+           "internalType": "uint256"
+          },
+          {
+           "name": "gasFees",
+           "type": "bytes32",
+           "internalType": "bytes32"
+          },
+          {
+           "name": "paymasterAndData",
+           "type": "bytes",
+           "internalType": "bytes"
+          },
+          {
+           "name": "signature",
+           "type": "bytes",
+           "internalType": "bytes"
+          }
+         ],
+         "internalType": "struct PackedUserOperation"
+        },
+        {
+         "name": "userOpHash",
+         "type": "bytes32",
+         "internalType": "bytes32"
+        },
+        {
+         "name": "missingAccountFunds",
+         "type": "uint256",
+         "internalType": "uint256"
+        }
+       ],
+       "outputs": [
+        {
+         "name": "",
+         "type": "uint256",
+         "internalType": "uint256"
+        }
+       ],
+       "stateMutability": "payable"
+      },
+      {
+       "type": "receive",
+       "stateMutability": "payable"
+      }
+     ],
+     "proxyResolution": {
+      "isProxy": false,
+      "proxyType": null,
+      "implementations": []
+     },
+     "compilation": {
+      "language": "Solidity",
+      "compiler": "solc",
+      "compilerVersion": "0.8.19+commit.7dd6d404",
+      "compilerSettings": {
+       "viaIR": true,
+       "metadata": {
+        "bytecodeHash": "ipfs"
+       },
+       "libraries": {},
+       "optimizer": {
+        "runs": 1000,
+        "enabled": true
+       },
+       "evmVersion": "paris",
+       "remappings": []
+      },
+      "name": "AmbireAccount7702",
+      "fullyQualifiedName": "contracts/AmbireAccount7702.sol:AmbireAccount7702"
+     },
+     "matchId": "41021681",
+     "creationMatch": "exact_match",
+     "runtimeMatch": "exact_match",
+     "verifiedAt": "2026-07-10T21:26:54Z",
+     "match": "exact_match",
+     "chainId": "8453",
+     "address": "0x5A7FC11397E9a8AD41BF10bf13F22B0a63f96f6d"
+    }
+   }
+  }
+ }
+}

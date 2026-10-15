@@ -1,0 +1,93 @@
+{
+ "tool": "approvals",
+ "case": "history-gap",
+ "note": "Recorded while one quarter of history could not be fetched (connection dropped twice): with a gap the answer must be REVIEW, never CLEAR.",
+ "args": {
+  "wallet": "0x1111111111111111111111111111111111111111"
+ },
+ "recordedAt": "2026-10-15T01:35:03.055Z",
+ "expect": {
+  "verdict": "REVIEW",
+  "history.gaps": [
+   "2026-02-26 to 2026-05-28"
+  ]
+ },
+ "result": {
+  "wallet": "0x1111111111111111111111111111111111111111",
+  "verdict": "REVIEW",
+  "summary": "No risky live approvals among those checked, but history for 2026-02-26 to 2026-05-28 couldn't be searched.",
+  "live": [],
+  "found": 0,
+  "checked": 0,
+  "history": {
+   "from": "2023-06-01",
+   "to": "2026-10-15",
+   "gaps": [
+    "2026-02-26 to 2026-05-28"
+   ]
+  },
+  "block": 52619380,
+  "sources": [
+   "Coinbase SQL API (base.events) for approval history",
+   "Base RPC at block 52619380: allowance, Permit2 allowance, isApprovedForAll, balanceOf",
+   "Sourcify and Basescan for spender source"
+  ]
+ },
+ "error": null,
+ "recording": {
+  "now": 1792028103055,
+  "etherscan": true,
+  "rpc": {
+   "eth_blockNumber []": {
+    "result": "0x322e874"
+   }
+  },
+  "sim": {},
+  "http": {
+   "SQL SELECT address, event_signature, parameters['spender'] AS spender, parameters['operator'] AS operator, parameters['token'] AS token, max(block_number) AS last_block FROM base.events WHERE event_signature IN ('Approval(address,address,uint256)', 'ApprovalForAll(address,address,bool)', 'Approval(address,address,address,uint160,uint48)', 'Permit(address,address,address,uint160,uint48,uint48)') AND parameters['owner'] = '0x1111111111111111111111111111111111111111' AND block_timestamp >= '2023-08-31 00:00:00' AND block_timestamp < '2023-11-30 00:00:00' AND action = 'added' GROUP BY address, event_signature, spender, operator, token": {
+    "result": []
+   },
+   "SQL SELECT address, event_signature, parameters['spender'] AS spender, parameters['operator'] AS operator, parameters['token'] AS token, max(block_number) AS last_block FROM base.events WHERE event_signature IN ('Approval(address,address,uint256)', 'ApprovalForAll(address,address,bool)', 'Approval(address,address,address,uint160,uint48)', 'Permit(address,address,address,uint160,uint48,uint48)') AND parameters['owner'] = '0x1111111111111111111111111111111111111111' AND block_timestamp >= '2023-06-01 00:00:00' AND block_timestamp < '2023-08-31 00:00:00' AND action = 'added' GROUP BY address, event_signature, spender, operator, token": {
+    "result": []
+   },
+   "SQL SELECT address, event_signature, parameters['spender'] AS spender, parameters['operator'] AS operator, parameters['token'] AS token, max(block_number) AS last_block FROM base.events WHERE event_signature IN ('Approval(address,address,uint256)', 'ApprovalForAll(address,address,bool)', 'Approval(address,address,address,uint160,uint48)', 'Permit(address,address,address,uint160,uint48,uint48)') AND parameters['owner'] = '0x1111111111111111111111111111111111111111' AND block_timestamp >= '2023-11-30 00:00:00' AND block_timestamp < '2024-02-29 00:00:00' AND action = 'added' GROUP BY address, event_signature, spender, operator, token": {
+    "result": []
+   },
+   "SQL SELECT address, event_signature, parameters['spender'] AS spender, parameters['operator'] AS operator, parameters['token'] AS token, max(block_number) AS last_block FROM base.events WHERE event_signature IN ('Approval(address,address,uint256)', 'ApprovalForAll(address,address,bool)', 'Approval(address,address,address,uint160,uint48)', 'Permit(address,address,address,uint160,uint48,uint48)') AND parameters['owner'] = '0x1111111111111111111111111111111111111111' AND block_timestamp >= '2024-02-29 00:00:00' AND block_timestamp < '2024-05-30 00:00:00' AND action = 'added' GROUP BY address, event_signature, spender, operator, token": {
+    "result": []
+   },
+   "SQL SELECT address, event_signature, parameters['spender'] AS spender, parameters['operator'] AS operator, parameters['token'] AS token, max(block_number) AS last_block FROM base.events WHERE event_signature IN ('Approval(address,address,uint256)', 'ApprovalForAll(address,address,bool)', 'Approval(address,address,address,uint160,uint48)', 'Permit(address,address,address,uint160,uint48,uint48)') AND parameters['owner'] = '0x1111111111111111111111111111111111111111' AND block_timestamp >= '2025-02-27 00:00:00' AND block_timestamp < '2025-05-29 00:00:00' AND action = 'added' GROUP BY address, event_signature, spender, operator, token": {
+    "result": []
+   },
+   "SQL SELECT address, event_signature, parameters['spender'] AS spender, parameters['operator'] AS operator, parameters['token'] AS token, max(block_number) AS last_block FROM base.events WHERE event_signature IN ('Approval(address,address,uint256)', 'ApprovalForAll(address,address,bool)', 'Approval(address,address,address,uint160,uint48)', 'Permit(address,address,address,uint160,uint48,uint48)') AND parameters['owner'] = '0x1111111111111111111111111111111111111111' AND block_timestamp >= '2024-11-28 00:00:00' AND block_timestamp < '2025-02-27 00:00:00' AND action = 'added' GROUP BY address, event_signature, spender, operator, token": {
+    "result": []
+   },
+   "SQL SELECT address, event_signature, parameters['spender'] AS spender, parameters['operator'] AS operator, parameters['token'] AS token, max(block_number) AS last_block FROM base.events WHERE event_signature IN ('Approval(address,address,uint256)', 'ApprovalForAll(address,address,bool)', 'Approval(address,address,address,uint160,uint48)', 'Permit(address,address,address,uint160,uint48,uint48)') AND parameters['owner'] = '0x1111111111111111111111111111111111111111' AND block_timestamp >= '2024-08-29 00:00:00' AND block_timestamp < '2024-11-28 00:00:00' AND action = 'added' GROUP BY address, event_signature, spender, operator, token": {
+    "result": []
+   },
+   "SQL SELECT address, event_signature, parameters['spender'] AS spender, parameters['operator'] AS operator, parameters['token'] AS token, max(block_number) AS last_block FROM base.events WHERE event_signature IN ('Approval(address,address,uint256)', 'ApprovalForAll(address,address,bool)', 'Approval(address,address,address,uint160,uint48)', 'Permit(address,address,address,uint160,uint48,uint48)') AND parameters['owner'] = '0x1111111111111111111111111111111111111111' AND block_timestamp >= '2024-05-30 00:00:00' AND block_timestamp < '2024-08-29 00:00:00' AND action = 'added' GROUP BY address, event_signature, spender, operator, token": {
+    "result": []
+   },
+   "SQL SELECT address, event_signature, parameters['spender'] AS spender, parameters['operator'] AS operator, parameters['token'] AS token, max(block_number) AS last_block FROM base.events WHERE event_signature IN ('Approval(address,address,uint256)', 'ApprovalForAll(address,address,bool)', 'Approval(address,address,address,uint160,uint48)', 'Permit(address,address,address,uint160,uint48,uint48)') AND parameters['owner'] = '0x1111111111111111111111111111111111111111' AND block_timestamp >= '2026-02-26 00:00:00' AND block_timestamp < '2026-05-28 00:00:00' AND action = 'added' GROUP BY address, event_signature, spender, operator, token": {
+    "error": {
+     "message": "CDP SQL 429: Rate limit exceeded. Please try again in a few seconds."
+    }
+   },
+   "SQL SELECT address, event_signature, parameters['spender'] AS spender, parameters['operator'] AS operator, parameters['token'] AS token, max(block_number) AS last_block FROM base.events WHERE event_signature IN ('Approval(address,address,uint256)', 'ApprovalForAll(address,address,bool)', 'Approval(address,address,address,uint160,uint48)', 'Permit(address,address,address,uint160,uint48,uint48)') AND parameters['owner'] = '0x1111111111111111111111111111111111111111' AND block_timestamp >= '2025-08-28 00:00:00' AND block_timestamp < '2025-11-27 00:00:00' AND action = 'added' GROUP BY address, event_signature, spender, operator, token": {
+    "result": []
+   },
+   "SQL SELECT address, event_signature, parameters['spender'] AS spender, parameters['operator'] AS operator, parameters['token'] AS token, max(block_number) AS last_block FROM base.events WHERE event_signature IN ('Approval(address,address,uint256)', 'ApprovalForAll(address,address,bool)', 'Approval(address,address,address,uint160,uint48)', 'Permit(address,address,address,uint160,uint48,uint48)') AND parameters['owner'] = '0x1111111111111111111111111111111111111111' AND block_timestamp >= '2025-05-29 00:00:00' AND block_timestamp < '2025-08-28 00:00:00' AND action = 'added' GROUP BY address, event_signature, spender, operator, token": {
+    "result": []
+   },
+   "SQL SELECT address, event_signature, parameters['spender'] AS spender, parameters['operator'] AS operator, parameters['token'] AS token, max(block_number) AS last_block FROM base.events WHERE event_signature IN ('Approval(address,address,uint256)', 'ApprovalForAll(address,address,bool)', 'Approval(address,address,address,uint160,uint48)', 'Permit(address,address,address,uint160,uint48,uint48)') AND parameters['owner'] = '0x1111111111111111111111111111111111111111' AND block_timestamp >= '2025-11-27 00:00:00' AND block_timestamp < '2026-02-26 00:00:00' AND action = 'added' GROUP BY address, event_signature, spender, operator, token": {
+    "result": []
+   },
+   "SQL SELECT address, event_signature, parameters['spender'] AS spender, parameters['operator'] AS operator, parameters['token'] AS token, max(block_number) AS last_block FROM base.events WHERE event_signature IN ('Approval(address,address,uint256)', 'ApprovalForAll(address,address,bool)', 'Approval(address,address,address,uint160,uint48)', 'Permit(address,address,address,uint160,uint48,uint48)') AND parameters['owner'] = '0x1111111111111111111111111111111111111111' AND block_timestamp >= '2026-08-27 00:00:00' AND block_timestamp < '2026-10-15 01:35:03' AND action = 'added' GROUP BY address, event_signature, spender, operator, token": {
+    "result": []
+   },
+   "SQL SELECT address, event_signature, parameters['spender'] AS spender, parameters['operator'] AS operator, parameters['token'] AS token, max(block_number) AS last_block FROM base.events WHERE event_signature IN ('Approval(address,address,uint256)', 'ApprovalForAll(address,address,bool)', 'Approval(address,address,address,uint160,uint48)', 'Permit(address,address,address,uint160,uint48,uint48)') AND parameters['owner'] = '0x1111111111111111111111111111111111111111' AND block_timestamp >= '2026-05-28 00:00:00' AND block_timestamp < '2026-08-27 00:00:00' AND action = 'added' GROUP BY address, event_signature, spender, operator, token": {
+    "result": []
+   }
+  }
+ }
+}

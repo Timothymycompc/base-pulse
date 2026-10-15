@@ -18,6 +18,8 @@ import { FREE_CALLS_PER_TOOL, FREE_CALLS_RESET, FREE_CALLS_TEXT, priceOf, TOOL_P
 import { createX402, X402_NETWORK } from "./x402";
 import { ownerOverview } from "./owner";
 import { clientFor, simulationClients } from "./tools/chain";
+import { cdpSql } from "./cdp";
+import { sanctionsList, startOfacRefresh } from "./ofac";
 import { mcpDescription, priceText, toolDoc, ToolError, TOOLS, TOOLS_BY_NAME, type ToolContext, type ToolDef } from "./tools";
 
 // Where USDC payments go, on Base. Set before the first deploy; the server refuses to start without it.
@@ -79,7 +81,10 @@ async function startServer() {
 
   const noCache = (_req: any, res: any, next: any) => { res.setHeader("Cache-Control", "no-store"); next(); };
 
+  startOfacRefresh();
   const ctx: ToolContext = {
+    sql: cdpSql(),
+    sanctions: async () => sanctionsList(),
     client: clientFor,
     simulators: simulationClients,
     fetchJson: async (url, timeoutMs = 8000) => {

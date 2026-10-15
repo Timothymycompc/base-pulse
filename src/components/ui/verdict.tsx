@@ -4,8 +4,8 @@ import { CircleAlert, CircleCheck, CircleX, Info } from 'lucide-react';
 // The videos' result vocabulary: a verdict stamp over a list of checks, each marked pass, fail, warn or info.
 // Verdict colors are used for verdicts and nothing else.
 
-const PASS = new Set(['OK', 'SAFE', 'MATCH', 'SUCCESS', 'PASS']);
-const WARN = new Set(['REVIEW', 'CAUTION', 'WARN', 'PARTIAL']);
+const PASS = new Set(['OK', 'SAFE', 'MATCH', 'SUCCESS', 'PASS', 'CLEAR']);
+const WARN = new Set(['REVIEW', 'CAUTION', 'WARN', 'PARTIAL', 'NOT_LISTED']);
 export type Tone = 'pass' | 'warn' | 'block';
 export const verdictTone = (verdict: string): Tone => (PASS.has(verdict) ? 'pass' : WARN.has(verdict) ? 'warn' : 'block');
 

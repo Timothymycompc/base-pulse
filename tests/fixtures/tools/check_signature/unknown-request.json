@@ -1,0 +1,61 @@
+{
+ "tool": "check_signature",
+ "case": "unknown-request",
+ "note": "The EIP-712 example \"Mail\" message: not a permit or order, so CAUTION with an explanation, never SAFE.",
+ "args": {
+  "typed_data": {
+   "domain": {
+    "name": "Ether Mail",
+    "version": "1",
+    "chainId": 8453,
+    "verifyingContract": "0xCcCCccccCCCCcCCCCCCcCcCccCcCCCcCcccccccC"
+   },
+   "primaryType": "Mail",
+   "message": {
+    "from": {
+     "name": "Cow",
+     "wallet": "0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045"
+    },
+    "to": {
+     "name": "Bob",
+     "wallet": "0x1111111111111111111111111111111111111111"
+    },
+    "contents": "Hello, Bob!"
+   }
+  }
+ },
+ "recordedAt": "2026-10-15T02:24:58.056Z",
+ "expect": {
+  "verdict": "CAUTION",
+  "kind": "unknown"
+ },
+ "result": {
+  "kind": "unknown",
+  "verdict": "CAUTION",
+  "summary": "Check first: this is a \"Mail\" request for Ether Mail (0xCcCCccccCCCCcCCCCCCcCcCccCcCCCcCcccccccC), which isn't a permit or order this tool can read. Only sign it if you know exactly what that app does with it.",
+  "grants": [],
+  "order": null,
+  "checks": [
+   {
+    "name": "unknown_kind",
+    "result": "warn",
+    "detail": "This is a \"Mail\" request for Ether Mail (0xCcCCccccCCCCcCCCCCCcCcCccCcCCCcCcccccccC), which isn't a permit or order this tool can read. Only sign it if you know exactly what that app does with it."
+   }
+  ],
+  "chain_id": 8453,
+  "verifying_contract": "0xCcCCccccCCCCcCCCCCCcCcCccCcCCCcCcccccccC",
+  "sources": [
+   "The typed data itself",
+   "Base RPC for token names and the spender's code",
+   "Sourcify and Basescan for verified source"
+  ]
+ },
+ "error": null,
+ "recording": {
+  "now": 1792031098056,
+  "etherscan": true,
+  "rpc": {},
+  "sim": {},
+  "http": {}
+ }
+}

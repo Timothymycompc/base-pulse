@@ -1,0 +1,41 @@
+{
+ "tool": "balance",
+ "case": "known-wallet",
+ "note": "A well-known public wallet with ETH and USDC on Base; both read at one block.",
+ "args": {
+  "wallet": "0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045",
+  "network": "base"
+ },
+ "recordedAt": "2026-10-15T01:03:48.392Z",
+ "expect": {
+  "wallet": "0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045",
+  "network": "base"
+ },
+ "result": {
+  "wallet": "0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045",
+  "network": "base",
+  "block": 52618441,
+  "eth": "3.12882180347273728",
+  "eth_wei": "3128821803472737280",
+  "usdc": "44.783666",
+  "source": "Base RPC: eth_getBalance and USDC balanceOf at block 52618441"
+ },
+ "error": null,
+ "recording": {
+  "now": 1792026228392,
+  "etherscan": false,
+  "rpc": {
+   "eth_blockNumber []": {
+    "result": "0x322e4c9"
+   },
+   "eth_getBalance [\"0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045\",\"0x322e4c9\"]": {
+    "result": "0x2b6bceda617d5400"
+   },
+   "eth_call [{\"data\":\"0x70a08231000000000000000000000000d8da6bf26964af9d7eed9e03e53415d37aa96045\",\"to\":\"0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913\"},\"0x322e4c9\"]": {
+    "result": "0x0000000000000000000000000000000000000000000000000000000002ab5832"
+   }
+  },
+  "sim": {},
+  "http": {}
+ }
+}

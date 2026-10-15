@@ -1,0 +1,3858 @@
+{
+ "tool": "find_token",
+ "case": "name-search",
+ "note": "Searching by full name finds cbBTC, Coinbase's own token.",
+ "args": {
+  "query": "Coinbase Wrapped BTC"
+ },
+ "recordedAt": "2026-10-15T01:41:53.522Z",
+ "expect": {
+  "answer.address": "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf"
+ },
+ "result": {
+  "query": "COINBASE WRAPPED BTC",
+  "answer": {
+   "address": "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf",
+   "symbol": "cbBTC",
+   "name": "Coinbase Wrapped BTC",
+   "why": "On Uniswap's default list and CoinGecko's Base list."
+  },
+  "confidence": "listed",
+  "candidates": [
+   {
+    "address": "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf",
+    "symbol": "cbBTC",
+    "name": "Coinbase Wrapped BTC",
+    "lists": [
+     "uniswap",
+     "coingecko"
+    ],
+    "liquidity_usd": 102486380,
+    "pools": 30,
+    "oldest_pool_days": 763,
+    "copycat": false
+   }
+  ],
+  "warning": null,
+  "sources": [
+   "Base Pulse issuer list (checked on chain)",
+   "Uniswap default token list",
+   "CoinGecko Base token list",
+   "DexScreener search and token pairs",
+   "symbol() and name() on chain"
+  ]
+ },
+ "error": null,
+ "recording": {
+  "now": 1792028513522,
+  "etherscan": false,
+  "rpc": {
+   "eth_call [{\"data\":\"0x82ad56cb00000000000000000000000000000000000000000000000000000000000000200000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000004000000000000000000000000000000000000000000000000000000000000000e0000000000000000000000000cbb7c0000ab88b473b1f5afd9ef808440eed33bf00000000000000000000000000000000000000000000000000000000000000010000000000000000000000000000000000000000000000000000000000000060000000000000000000000000000000000000000000000000000000000000000495d89b4100000000000000000000000000000000000000000000000000000000000000000000000000000000cbb7c0000ab88b473b1f5afd9ef808440eed33bf00000000000000000000000000000000000000000000000000000000000000010000000000000000000000000000000000000000000000000000000000000060000000000000000000000000000000000000000000000000000000000000000406fdde0300000000000000000000000000000000000000000000000000000000\",\"to\":\"0xca11bde05977b3631167028862be2a173976ca11\"},\"latest\"]": {
+    "result": "0x000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000020000000000000000000000000000000000000000000000000000000000000040000000000000000000000000000000000000000000000000000000000000010000000000000000000000000000000000000000000000000000000000000000010000000000000000000000000000000000000000000000000000000000000040000000000000000000000000000000000000000000000000000000000000006000000000000000000000000000000000000000000000000000000000000000200000000000000000000000000000000000000000000000000000000000000005636242544300000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000010000000000000000000000000000000000000000000000000000000000000040000000000000000000000000000000000000000000000000000000000000006000000000000000000000000000000000000000000000000000000000000000200000000000000000000000000000000000000000000000000000000000000014436f696e62617365205772617070656420425443000000000000000000000000"
+   }
+  },
+  "sim": {},
+  "http": {
+   "https://tokens.coingecko.com/base/all.json": {
+    "result": {
+     "tokens": [
+      {
+       "chainId": 8453,
+       "address": "0xcbb7c0000ab88b473b1f5afd9ef808440eed33bf",
+       "name": "Coinbase Wrapped BTC",
+       "symbol": "CBBTC",
+       "decimals": 8,
+       "logoURI": "https://assets.coingecko.com/coins/images/40143/thumb/cbbtc.webp?1726136727"
+      }
+     ]
+    }
+   },
+   "https://tokens.uniswap.org": {
+    "result": {
+     "tokens": [
+      {
+       "chainId": 8453,
+       "name": "Coinbase Wrapped BTC",
+       "address": "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf",
+       "symbol": "cbBTC",
+       "decimals": 8,
+       "logoURI": "https://assets.coingecko.com/coins/images/40143/standard/cbbtc.webp"
+      }
+     ]
+    }
+   },
+   "https://api.dexscreener.com/latest/dex/search?q=COINBASE%20WRAPPED%20BTC": {
+    "result": {
+     "schemaVersion": "1.0.0",
+     "pairs": [
+      {
+       "chainId": "solana",
+       "dexId": "orca",
+       "url": "https://dexscreener.com/solana/hxa6skw5qa4o12fjvgtpxdq2ynz5zv1s7sb4ffomsylm",
+       "pairAddress": "HxA6SKW5qA4o12fjVgTpXdq2YnZ5Zv1s7SB4FFomsyLM",
+       "labels": [
+        "wp"
+       ],
+       "baseToken": {
+        "address": "cbbtcf3aa214zXHbiAZQwf4122FBYbraNdFqgw4iMij",
+        "name": "Coinbase Wrapped BTC",
+        "symbol": "cbBTC"
+       },
+       "quoteToken": {
+        "address": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+        "name": "USD Coin",
+        "symbol": "USDC"
+       },
+       "priceNative": "81775.3856",
+       "priceUsd": "81775.38",
+       "txns": {
+        "m5": {
+         "buys": 83,
+         "sells": 24
+        },
+        "h1": {
+         "buys": 626,
+         "sells": 615
+        },
+        "h6": {
+         "buys": 1965,
+         "sells": 1907
+        },
+        "h24": {
+         "buys": 9366,
+         "sells": 8740
+        }
+       },
+       "volume": {
+        "h24": 15370438.54,
+        "h6": 2428882.6,
+        "h1": 843062.61,
+        "m5": 62604.46
+       },
+       "priceChange": {
+        "m5": 0.11,
+        "h1": 0.35,
+        "h6": 0.1,
+        "h24": -1.87
+       },
+       "liquidity": {
+        "usd": 5187742.94,
+        "base": 32.3481,
+        "quote": 2542461
+       },
+       "fdv": 225727857,
+       "marketCap": 225727857,
+       "pairCreatedAt": 1731014840000
+      },
+      {
+       "chainId": "base",
+       "dexId": "aerodrome",
+       "url": "https://dexscreener.com/base/0x7c7420dd105e2779316423ba3e973f434315efa9",
+       "pairAddress": "0x7C7420DD105E2779316423Ba3E973f434315EFA9",
+       "baseToken": {
+        "address": "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf",
+        "name": "Coinbase Wrapped BTC",
+        "symbol": "cbBTC"
+       },
+       "quoteToken": {
+        "address": "0x4200000000000000000000000000000000000006",
+        "name": "Wrapped Ether",
+        "symbol": "WETH"
+       },
+       "priceNative": "33.7944",
+       "priceUsd": "81648.068",
+       "txns": {
+        "m5": {
+         "buys": 44,
+         "sells": 41
+        },
+        "h1": {
+         "buys": 807,
+         "sells": 677
+        },
+        "h6": {
+         "buys": 4379,
+         "sells": 4378
+        },
+        "h24": {
+         "buys": 15204,
+         "sells": 14298
+        }
+       },
+       "volume": {
+        "h24": 63716457.75,
+        "h6": 20097711.78,
+        "h1": 3513480.17,
+        "m5": 190964.87
+       },
+       "priceChange": {
+        "m5": -0.05,
+        "h1": 0.12,
+        "h6": 0.09,
+        "h24": -1.74
+       },
+       "liquidity": {
+        "usd": 2215150.3,
+        "base": 2.6326,
+        "quote": 827.8912
+       },
+       "fdv": 3895865546,
+       "marketCap": 3881980683,
+       "info": {
+        "imageUrl": "https://cdn.dexscreener.com/cms/images/07ce833f9dde758de45cb2476e630226f9b58418bb20e0f7ce3885c5d0d80b1b?width=800&height=800&quality=95&format=auto",
+        "header": "https://cdn.dexscreener.com/cms/images/f438ebce9f352a49dbc6ff80a98a03bca8267fec63b5eeaa407290ad6fc298cc?width=1500&height=500&quality=95&format=auto",
+        "openGraph": "https://cdn.dexscreener.com/token-images/og/base/0xcbb7c0000ab88b473b1f5afd9ef808440eed33bf?timestamp=1792028400000",
+        "websites": [],
+        "socials": []
+       }
+      },
+      {
+       "chainId": "solana",
+       "dexId": "meteora",
+       "url": "https://dexscreener.com/solana/hdhwhqcbrsh9xnwmntsti86ewj3ycoeiarodjgnydo1b",
+       "pairAddress": "HDhWhQCBrSh9xNWmNtsTi86eWj3yCoEiaRodjgNydo1b",
+       "labels": [
+        "DLMM"
+       ],
+       "baseToken": {
+        "address": "cbbtcf3aa214zXHbiAZQwf4122FBYbraNdFqgw4iMij",
+        "name": "Coinbase Wrapped BTC",
+        "symbol": "cbBTC"
+       },
+       "quoteToken": {
+        "address": "So11111111111111111111111111111111111111112",
+        "name": "Wrapped SOL",
+        "symbol": "SOL"
+       },
+       "priceNative": "782.1277",
+       "priceUsd": "81575.92",
+       "txns": {
+        "m5": {
+         "buys": 1,
+         "sells": 29
+        },
+        "h1": {
+         "buys": 176,
+         "sells": 194
+        },
+        "h6": {
+         "buys": 983,
+         "sells": 1052
+        },
+        "h24": {
+         "buys": 3758,
+         "sells": 4392
+        }
+       },
+       "volume": {
+        "h24": 3958113.68,
+        "h6": 890983.47,
+        "h1": 144071.43,
+        "m5": 10820.85
+       },
+       "priceChange": {
+        "m5": -0.3,
+        "h1": -0.21,
+        "h6": -0.23,
+        "h24": -1.9
+       },
+       "liquidity": {
+        "usd": 248120.43,
+        "base": 1.342,
+        "quote": 1329.229
+       },
+       "fdv": 225177273,
+       "marketCap": 225177273,
+       "pairCreatedAt": 1769763725000
+      },
+      {
+       "chainId": "base",
+       "dexId": "aerodrome",
+       "url": "https://dexscreener.com/base/0x160d7e9d948b16c163332a277b393c288408eb12",
+       "pairAddress": "0x160D7E9d948B16c163332a277b393c288408eb12",
+       "baseToken": {
+        "address": "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf",
+        "name": "Coinbase Wrapped BTC",
+        "symbol": "cbBTC"
+       },
+       "quoteToken": {
+        "address": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+        "name": "USD Coin",
+        "symbol": "USDC"
+       },
+       "priceNative": "81727.4887",
+       "priceUsd": "81727.48",
+       "txns": {
+        "m5": {
+         "buys": 40,
+         "sells": 42
+        },
+        "h1": {
+         "buys": 425,
+         "sells": 492
+        },
+        "h6": {
+         "buys": 2056,
+         "sells": 2251
+        },
+        "h24": {
+         "buys": 8026,
+         "sells": 9131
+        }
+       },
+       "volume": {
+        "h24": 46351981.66,
+        "h6": 10528197.36,
+        "h1": 2372105.88,
+        "m5": 181719.94
+       },
+       "priceChange": {
+        "m5": 0.07,
+        "h1": 0.26,
+        "h6": 0.07,
+        "h24": -1.82
+       },
+       "liquidity": {
+        "usd": 5912564.29,
+        "base": 41.7832,
+        "quote": 2497725
+       },
+       "fdv": 3899655095,
+       "marketCap": 3885756727,
+       "info": {
+        "imageUrl": "https://cdn.dexscreener.com/cms/images/07ce833f9dde758de45cb2476e630226f9b58418bb20e0f7ce3885c5d0d80b1b?width=800&height=800&quality=95&format=auto",
+        "header": "https://cdn.dexscreener.com/cms/images/f438ebce9f352a49dbc6ff80a98a03bca8267fec63b5eeaa407290ad6fc298cc?width=1500&height=500&quality=95&format=auto",
+        "openGraph": "https://cdn.dexscreener.com/token-images/og/base/0xcbb7c0000ab88b473b1f5afd9ef808440eed33bf?timestamp=1792028400000",
+        "websites": [],
+        "socials": []
+       }
+      },
+      {
+       "chainId": "base",
+       "dexId": "pancakeswap",
+       "url": "https://dexscreener.com/base/0xc211e1f853a898bd1302385ccde55f33a8c4b3f3",
+       "pairAddress": "0xC211e1f853A898Bd1302385CCdE55f33a8C4B3f3",
+       "baseToken": {
+        "address": "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf",
+        "name": "Coinbase Wrapped BTC",
+        "symbol": "cbBTC"
+       },
+       "quoteToken": {
+        "address": "0x4200000000000000000000000000000000000006",
+        "name": "Wrapped Ether",
+        "symbol": "WETH"
+       },
+       "priceNative": "33.7933",
+       "priceUsd": "81848.22",
+       "txns": {
+        "m5": {
+         "buys": 20,
+         "sells": 23
+        },
+        "h1": {
+         "buys": 480,
+         "sells": 463
+        },
+        "h6": {
+         "buys": 2900,
+         "sells": 2921
+        },
+        "h24": {
+         "buys": 9870,
+         "sells": 9607
+        }
+       },
+       "volume": {
+        "h24": 27293812.94,
+        "h6": 7426734.05,
+        "h1": 1180664.81,
+        "m5": 44804.27
+       },
+       "priceChange": {
+        "m5": 0.2,
+        "h1": 0.19,
+        "h6": 0.17,
+        "h24": -1.78
+       },
+       "liquidity": {
+        "usd": 5374402.03,
+        "base": 15.1358,
+        "quote": 1707.4836
+       },
+       "fdv": 3902708027,
+       "marketCap": 3891497231,
+       "pairCreatedAt": 1726209947000,
+       "info": {
+        "imageUrl": "https://cdn.dexscreener.com/cms/images/07ce833f9dde758de45cb2476e630226f9b58418bb20e0f7ce3885c5d0d80b1b?width=800&height=800&quality=95&format=auto",
+        "header": "https://cdn.dexscreener.com/cms/images/f438ebce9f352a49dbc6ff80a98a03bca8267fec63b5eeaa407290ad6fc298cc?width=1500&height=500&quality=95&format=auto",
+        "openGraph": "https://cdn.dexscreener.com/token-images/og/base/0xcbb7c0000ab88b473b1f5afd9ef808440eed33bf?timestamp=1792028400000",
+        "websites": [],
+        "socials": []
+       }
+      },
+      {
+       "chainId": "solana",
+       "dexId": "orca",
+       "url": "https://dexscreener.com/solana/ceazcxbnlpjwtxzt58qqmfmbtjy8pqlvursxtjygqpbn",
+       "pairAddress": "CeaZcxBNLpJWtxzt58qQmfMBtJY8pQLvursXTJYGQpbN",
+       "labels": [
+        "wp"
+       ],
+       "baseToken": {
+        "address": "cbbtcf3aa214zXHbiAZQwf4122FBYbraNdFqgw4iMij",
+        "name": "Coinbase Wrapped BTC",
+        "symbol": "cbBTC"
+       },
+       "quoteToken": {
+        "address": "So11111111111111111111111111111111111111112",
+        "name": "Wrapped SOL",
+        "symbol": "SOL"
+       },
+       "priceNative": "783.5802",
+       "priceUsd": "81829.28",
+       "txns": {
+        "m5": {
+         "buys": 0,
+         "sells": 0
+        },
+        "h1": {
+         "buys": 91,
+         "sells": 8
+        },
+        "h6": {
+         "buys": 332,
+         "sells": 385
+        },
+        "h24": {
+         "buys": 2058,
+         "sells": 2009
+        }
+       },
+       "volume": {
+        "h24": 6593180.39,
+        "h6": 1072416.63,
+        "h1": 127329.48,
+        "m5": 0
+       },
+       "priceChange": {
+        "h1": 0.37,
+        "h6": 0.3,
+        "h24": -1.47
+       },
+       "liquidity": {
+        "usd": 8947492.93,
+        "base": 29.004328,
+        "quote": 62952
+       },
+       "fdv": 225876637,
+       "marketCap": 225876637,
+       "pairCreatedAt": 1731003159000
+      },
+      {
+       "chainId": "solana",
+       "dexId": "meteora",
+       "url": "https://dexscreener.com/solana/7ubs3gccjhqy99aynkxjnjqnxjaokedfdv915xncb96r",
+       "pairAddress": "7ubS3GccjhQY99AYNKXjNJqnXjaokEdfdV915xnCb96r",
+       "labels": [
+        "DLMM"
+       ],
+       "baseToken": {
+        "address": "cbbtcf3aa214zXHbiAZQwf4122FBYbraNdFqgw4iMij",
+        "name": "Coinbase Wrapped BTC",
+        "symbol": "cbBTC"
+       },
+       "quoteToken": {
+        "address": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+        "name": "USD Coin",
+        "symbol": "USDC"
+       },
+       "priceNative": "81750.9015",
+       "priceUsd": "81750.90",
+       "txns": {
+        "m5": {
+         "buys": 13,
+         "sells": 6
+        },
+        "h1": {
+         "buys": 112,
+         "sells": 119
+        },
+        "h6": {
+         "buys": 325,
+         "sells": 346
+        },
+        "h24": {
+         "buys": 1278,
+         "sells": 1570
+        }
+       },
+       "volume": {
+        "h24": 3344907.5,
+        "h6": 700302.11,
+        "h1": 261919.49,
+        "m5": 20199.89
+       },
+       "priceChange": {
+        "m5": 0.08,
+        "h1": 0.28,
+        "h6": 0.08,
+        "h24": -1.74
+       },
+       "liquidity": {
+        "usd": 1323497.17,
+        "base": 9.03325,
+        "quote": 585020
+       },
+       "fdv": 225660273,
+       "marketCap": 225660273,
+       "pairCreatedAt": 1731019579000
+      },
+      {
+       "chainId": "base",
+       "dexId": "pancakeswap",
+       "url": "https://dexscreener.com/base/0xb94b22332abf5f89877a14cc88f2abc48c34b3df",
+       "pairAddress": "0xb94b22332ABf5f89877A14Cc88f2aBC48c34B3Df",
+       "baseToken": {
+        "address": "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf",
+        "name": "Coinbase Wrapped BTC",
+        "symbol": "cbBTC"
+       },
+       "quoteToken": {
+        "address": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+        "name": "USD Coin",
+        "symbol": "USDC"
+       },
+       "priceNative": "81722.04523",
+       "priceUsd": "81722.045",
+       "txns": {
+        "m5": {
+         "buys": 58,
+         "sells": 49
+        },
+        "h1": {
+         "buys": 769,
+         "sells": 847
+        },
+        "h6": {
+         "buys": 2773,
+         "sells": 2875
+        },
+        "h24": {
+         "buys": 11591,
+         "sells": 11687
+        }
+       },
+       "volume": {
+        "h24": 11416692.99,
+        "h6": 2389707.35,
+        "h1": 766100.73,
+        "m5": 47719.31
+       },
+       "priceChange": {
+        "m5": 0.07,
+        "h1": 0.26,
+        "h6": 0.06,
+        "h24": -1.85
+       },
+       "liquidity": {
+        "usd": 1778577.86,
+        "base": 12.5885,
+        "quote": 749818
+       },
+       "fdv": 3896691426,
+       "marketCap": 3885497913,
+       "pairCreatedAt": 1726210063000,
+       "info": {
+        "imageUrl": "https://cdn.dexscreener.com/cms/images/07ce833f9dde758de45cb2476e630226f9b58418bb20e0f7ce3885c5d0d80b1b?width=800&height=800&quality=95&format=auto",
+        "header": "https://cdn.dexscreener.com/cms/images/f438ebce9f352a49dbc6ff80a98a03bca8267fec63b5eeaa407290ad6fc298cc?width=1500&height=500&quality=95&format=auto",
+        "openGraph": "https://cdn.dexscreener.com/token-images/og/base/0xcbb7c0000ab88b473b1f5afd9ef808440eed33bf?timestamp=1792028400000",
+        "websites": [],
+        "socials": []
+       }
+      },
+      {
+       "chainId": "base",
+       "dexId": "aerodrome",
+       "url": "https://dexscreener.com/base/0x42d4a22cad0f5a49681a5715ce994af73a43b76b",
+       "pairAddress": "0x42d4a22CaD0F5a49681a5715cE994Af73A43B76b",
+       "baseToken": {
+        "address": "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf",
+        "name": "Coinbase Wrapped BTC",
+        "symbol": "cbBTC"
+       },
+       "quoteToken": {
+        "address": "0x4200000000000000000000000000000000000006",
+        "name": "Wrapped Ether",
+        "symbol": "WETH"
+       },
+       "priceNative": "33.7994",
+       "priceUsd": "81488.67",
+       "txns": {
+        "m5": {
+         "buys": 0,
+         "sells": 0
+        },
+        "h1": {
+         "buys": 166,
+         "sells": 44
+        },
+        "h6": {
+         "buys": 790,
+         "sells": 617
+        },
+        "h24": {
+         "buys": 2276,
+         "sells": 1972
+        }
+       },
+       "volume": {
+        "h24": 38923665.41,
+        "h6": 13096256.89,
+        "h1": 1888349.08,
+        "m5": 0
+       },
+       "priceChange": {
+        "h1": -0.03,
+        "h6": -0.11,
+        "h24": -1.96
+       },
+       "liquidity": {
+        "usd": 6998281.03,
+        "base": 11.7247,
+        "quote": 2506.4176
+       },
+       "fdv": 3888260213,
+       "marketCap": 3874402456,
+       "info": {
+        "imageUrl": "https://cdn.dexscreener.com/cms/images/07ce833f9dde758de45cb2476e630226f9b58418bb20e0f7ce3885c5d0d80b1b?width=800&height=800&quality=95&format=auto",
+        "header": "https://cdn.dexscreener.com/cms/images/f438ebce9f352a49dbc6ff80a98a03bca8267fec63b5eeaa407290ad6fc298cc?width=1500&height=500&quality=95&format=auto",
+        "openGraph": "https://cdn.dexscreener.com/token-images/og/base/0xcbb7c0000ab88b473b1f5afd9ef808440eed33bf?timestamp=1792028400000",
+        "websites": [],
+        "socials": []
+       }
+      },
+      {
+       "chainId": "arbitrum",
+       "dexId": "uniswap",
+       "url": "https://dexscreener.com/arbitrum/0x9b42809aaae8d088ee01fe637e948784730f0386",
+       "pairAddress": "0x9B42809aaaE8d088eE01FE637E948784730F0386",
+       "baseToken": {
+        "address": "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf",
+        "name": "Coinbase Wrapped BTC",
+        "symbol": "cbBTC"
+       },
+       "quoteToken": {
+        "address": "0x2f2a2543B76A4166549F7aaB2e75Bef0aefC5B0f",
+        "name": "Wrapped BTC",
+        "symbol": "WBTC"
+       },
+       "priceNative": "1.002299",
+       "priceUsd": "81683.38",
+       "txns": {
+        "m5": {
+         "buys": 3,
+         "sells": 0
+        },
+        "h1": {
+         "buys": 98,
+         "sells": 1
+        },
+        "h6": {
+         "buys": 265,
+         "sells": 63
+        },
+        "h24": {
+         "buys": 742,
+         "sells": 358
+        }
+       },
+       "volume": {
+        "h24": 2946012.46,
+        "h6": 1119004.3,
+        "h1": 187378.77,
+        "m5": 3199.18
+       },
+       "priceChange": {
+        "m5": -0.16,
+        "h1": -0.11,
+        "h6": -0.17,
+        "h24": -1.92
+       },
+       "liquidity": {
+        "usd": 1543207.39,
+        "base": 2.6618,
+        "quote": 16.268
+       },
+       "fdv": 5769748,
+       "marketCap": 5769748,
+       "pairCreatedAt": 1732183340000
+      },
+      {
+       "chainId": "base",
+       "dexId": "uniswap",
+       "url": "https://dexscreener.com/base/0x7aea2e8a3843516afa07293a10ac8e49906dabd1",
+       "pairAddress": "0x7AeA2E8A3843516afa07293a10Ac8E49906dabD1",
+       "labels": [
+        "v3"
+       ],
+       "baseToken": {
+        "address": "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf",
+        "name": "Coinbase Wrapped BTC",
+        "symbol": "cbBTC"
+       },
+       "quoteToken": {
+        "address": "0x4200000000000000000000000000000000000006",
+        "name": "Wrapped Ether",
+        "symbol": "WETH"
+       },
+       "priceNative": "33.7979",
+       "priceUsd": "81656.57",
+       "txns": {
+        "m5": {
+         "buys": 0,
+         "sells": 5
+        },
+        "h1": {
+         "buys": 203,
+         "sells": 92
+        },
+        "h6": {
+         "buys": 885,
+         "sells": 1036
+        },
+        "h24": {
+         "buys": 2981,
+         "sells": 3191
+        }
+       },
+       "volume": {
+        "h24": 26564678.8,
+        "h6": 6385772.3,
+        "h1": 1131922.32,
+        "m5": 92.3
+       },
+       "priceChange": {
+        "m5": 0.21,
+        "h1": 0.17,
+        "h6": -0.01,
+        "h24": -1.77
+       },
+       "liquidity": {
+        "usd": 17797010.7,
+        "base": 24.3247,
+        "quote": 6544.1252
+       },
+       "fdv": 3896271260,
+       "marketCap": 3882384952,
+       "pairCreatedAt": 1726241063000,
+       "info": {
+        "imageUrl": "https://cdn.dexscreener.com/cms/images/07ce833f9dde758de45cb2476e630226f9b58418bb20e0f7ce3885c5d0d80b1b?width=800&height=800&quality=95&format=auto",
+        "header": "https://cdn.dexscreener.com/cms/images/f438ebce9f352a49dbc6ff80a98a03bca8267fec63b5eeaa407290ad6fc298cc?width=1500&height=500&quality=95&format=auto",
+        "openGraph": "https://cdn.dexscreener.com/token-images/og/base/0xcbb7c0000ab88b473b1f5afd9ef808440eed33bf?timestamp=1792028400000",
+        "websites": [],
+        "socials": []
+       }
+      },
+      {
+       "chainId": "solana",
+       "dexId": "meteora",
+       "url": "https://dexscreener.com/solana/h2usrsawuuchkbdmsjgknfam7ocyd4zncm69orgyeckw",
+       "pairAddress": "H2USRSaWuUchkbdmSJgKNfAm7ocyD4ZnCm69oRGyecKw",
+       "labels": [
+        "DLMM"
+       ],
+       "baseToken": {
+        "address": "cbbtcf3aa214zXHbiAZQwf4122FBYbraNdFqgw4iMij",
+        "name": "Coinbase Wrapped BTC",
+        "symbol": "cbBTC"
+       },
+       "quoteToken": {
+        "address": "So11111111111111111111111111111111111111112",
+        "name": "Wrapped SOL",
+        "symbol": "SOL"
+       },
+       "priceNative": "783.4397",
+       "priceUsd": "81814.61",
+       "txns": {
+        "m5": {
+         "buys": 0,
+         "sells": 0
+        },
+        "h1": {
+         "buys": 26,
+         "sells": 2
+        },
+        "h6": {
+         "buys": 73,
+         "sells": 48
+        },
+        "h24": {
+         "buys": 300,
+         "sells": 419
+        }
+       },
+       "volume": {
+        "h24": 1283870.73,
+        "h6": 248820.84,
+        "h1": 41794.07,
+        "m5": 0
+       },
+       "priceChange": {
+        "h1": -0.13,
+        "h6": -0.29,
+        "h24": -1.83
+       },
+       "liquidity": {
+        "usd": 1691142.03,
+        "base": 8.1605,
+        "quote": 9800.7177
+       },
+       "fdv": 225836132,
+       "marketCap": 225836132,
+       "pairCreatedAt": 1757930287000
+      },
+      {
+       "chainId": "ton",
+       "dexId": "stonfi",
+       "url": "https://dexscreener.com/ton/eqd24w2n30zmhqeliyislkcbqdb6029fsuaqswjnyja9rbsn",
+       "pairAddress": "EQD24W2n30zMhqEliYiSlkCbQdB6029FSuaqsWjNyja9rBsN",
+       "baseToken": {
+        "address": "EQDhyPzbIjJT_WnY3gGprjSYUK9fiGMjWMezxO8MZiUdfb_B",
+        "name": "Coinbase Wrapped BTC",
+        "symbol": "cbBTC"
+       },
+       "quoteToken": {
+        "address": "EQCxE6mUtQJKFnGfaROTKOt1lZbDiiX1kCixRv7Nw2Id_sDs",
+        "name": "Tether USD",
+        "symbol": "USD₮"
+       },
+       "priceNative": "82594.8528",
+       "priceUsd": "82823.44",
+       "txns": {
+        "m5": {
+         "buys": 0,
+         "sells": 0
+        },
+        "h1": {
+         "buys": 0,
+         "sells": 0
+        },
+        "h6": {
+         "buys": 3,
+         "sells": 0
+        },
+        "h24": {
+         "buys": 18,
+         "sells": 17
+        }
+       },
+       "volume": {
+        "h24": 1230.28,
+        "h6": 78.52,
+        "h1": 0,
+        "m5": 0
+       },
+       "priceChange": {
+        "h6": 0.49,
+        "h24": -0.67
+       },
+       "liquidity": {
+        "usd": 108157.86,
+        "base": 0.6519,
+        "quote": 54010
+       },
+       "fdv": 335393,
+       "marketCap": 335393,
+       "pairCreatedAt": 1769786059000
+      },
+      {
+       "chainId": "base",
+       "dexId": "aerodrome",
+       "url": "https://dexscreener.com/base/0x4e962bb3889bf030368f56810a9c96b83cb3e778",
+       "pairAddress": "0x4e962BB3889Bf030368F56810A9c96B83CB3E778",
+       "baseToken": {
+        "address": "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf",
+        "name": "Coinbase Wrapped BTC",
+        "symbol": "cbBTC"
+       },
+       "quoteToken": {
+        "address": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+        "name": "USD Coin",
+        "symbol": "USDC"
+       },
+       "priceNative": "81727.9278",
+       "priceUsd": "81727.92",
+       "txns": {
+        "m5": {
+         "buys": 27,
+         "sells": 22
+        },
+        "h1": {
+         "buys": 241,
+         "sells": 233
+        },
+        "h6": {
+         "buys": 874,
+         "sells": 836
+        },
+        "h24": {
+         "buys": 3383,
+         "sells": 3736
+        }
+       },
+       "volume": {
+        "h24": 17094316.4,
+        "h6": 4119522.22,
+        "h1": 1150187.89,
+        "m5": 116416.67
+       },
+       "priceChange": {
+        "m5": 0.09,
+        "h1": 0.23,
+        "h6": 0.09,
+        "h24": -1.81
+       },
+       "liquidity": {
+        "usd": 6338454.77,
+        "base": 46.9138,
+        "quote": 2504286
+       },
+       "fdv": 3899676045,
+       "marketCap": 3885777602,
+       "info": {
+        "imageUrl": "https://cdn.dexscreener.com/cms/images/07ce833f9dde758de45cb2476e630226f9b58418bb20e0f7ce3885c5d0d80b1b?width=800&height=800&quality=95&format=auto",
+        "header": "https://cdn.dexscreener.com/cms/images/f438ebce9f352a49dbc6ff80a98a03bca8267fec63b5eeaa407290ad6fc298cc?width=1500&height=500&quality=95&format=auto",
+        "openGraph": "https://cdn.dexscreener.com/token-images/og/base/0xcbb7c0000ab88b473b1f5afd9ef808440eed33bf?timestamp=1792028400000",
+        "websites": [],
+        "socials": []
+       }
+      },
+      {
+       "chainId": "base",
+       "dexId": "uniswap",
+       "url": "https://dexscreener.com/base/0xfbb6eed8e7aa03b138556eedaf5d271a5e1e43ef",
+       "pairAddress": "0xfBB6Eed8e7aa03B138556eeDaF5D271A5E1e43ef",
+       "labels": [
+        "v3"
+       ],
+       "baseToken": {
+        "address": "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf",
+        "name": "Coinbase Wrapped BTC",
+        "symbol": "cbBTC"
+       },
+       "quoteToken": {
+        "address": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+        "name": "USD Coin",
+        "symbol": "USDC"
+       },
+       "priceNative": "81715.5246",
+       "priceUsd": "81715.52",
+       "txns": {
+        "m5": {
+         "buys": 34,
+         "sells": 16
+        },
+        "h1": {
+         "buys": 291,
+         "sells": 331
+        },
+        "h6": {
+         "buys": 924,
+         "sells": 981
+        },
+        "h24": {
+         "buys": 3876,
+         "sells": 4024
+        }
+       },
+       "volume": {
+        "h24": 12963806.81,
+        "h6": 2497602.16,
+        "h1": 946158.45,
+        "m5": 57046.36
+       },
+       "priceChange": {
+        "m5": 0.07,
+        "h1": 0.22,
+        "h6": 0.08,
+        "h24": -1.82
+       },
+       "liquidity": {
+        "usd": 9226515.13,
+        "base": 50.4031,
+        "quote": 5107795
+       },
+       "fdv": 3899084224,
+       "marketCap": 3885187890,
+       "pairCreatedAt": 1726315447000,
+       "info": {
+        "imageUrl": "https://cdn.dexscreener.com/cms/images/07ce833f9dde758de45cb2476e630226f9b58418bb20e0f7ce3885c5d0d80b1b?width=800&height=800&quality=95&format=auto",
+        "header": "https://cdn.dexscreener.com/cms/images/f438ebce9f352a49dbc6ff80a98a03bca8267fec63b5eeaa407290ad6fc298cc?width=1500&height=500&quality=95&format=auto",
+        "openGraph": "https://cdn.dexscreener.com/token-images/og/base/0xcbb7c0000ab88b473b1f5afd9ef808440eed33bf?timestamp=1792028400000",
+        "websites": [],
+        "socials": []
+       }
+      },
+      {
+       "chainId": "base",
+       "dexId": "aerodrome",
+       "url": "https://dexscreener.com/base/0x3e66e55e97ce60096f74b7c475e8249f2d31a9fb",
+       "pairAddress": "0x3e66e55e97ce60096f74b7C475e8249f2D31a9fb",
+       "baseToken": {
+        "address": "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf",
+        "name": "Coinbase Wrapped BTC",
+        "symbol": "cbBTC"
+       },
+       "quoteToken": {
+        "address": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+        "name": "USD Coin",
+        "symbol": "USDC"
+       },
+       "priceNative": "81726.9450",
+       "priceUsd": "81726.94",
+       "txns": {
+        "m5": {
+         "buys": 33,
+         "sells": 17
+        },
+        "h1": {
+         "buys": 286,
+         "sells": 311
+        },
+        "h6": {
+         "buys": 1012,
+         "sells": 1023
+        },
+        "h24": {
+         "buys": 4091,
+         "sells": 4341
+        }
+       },
+       "volume": {
+        "h24": 10375026.85,
+        "h6": 2066538.46,
+        "h1": 700023.24,
+        "m5": 50493.9
+       },
+       "priceChange": {
+        "m5": 0.08,
+        "h1": 0.24,
+        "h6": 0.08,
+        "h24": -1.82
+       },
+       "liquidity": {
+        "usd": 7987019.62,
+        "base": 38.9167,
+        "quote": 4806474
+       },
+       "fdv": 3899629152,
+       "marketCap": 3885730876,
+       "info": {
+        "imageUrl": "https://cdn.dexscreener.com/cms/images/07ce833f9dde758de45cb2476e630226f9b58418bb20e0f7ce3885c5d0d80b1b?width=800&height=800&quality=95&format=auto",
+        "header": "https://cdn.dexscreener.com/cms/images/f438ebce9f352a49dbc6ff80a98a03bca8267fec63b5eeaa407290ad6fc298cc?width=1500&height=500&quality=95&format=auto",
+        "openGraph": "https://cdn.dexscreener.com/token-images/og/base/0xcbb7c0000ab88b473b1f5afd9ef808440eed33bf?timestamp=1792028400000",
+        "websites": [],
+        "socials": []
+       }
+      },
+      {
+       "chainId": "arbitrum",
+       "dexId": "pancakeswap",
+       "url": "https://dexscreener.com/arbitrum/0x70db444986a997eb74e520f19d367e13d75ef97f",
+       "pairAddress": "0x70dB444986A997EB74e520f19D367e13d75Ef97f",
+       "baseToken": {
+        "address": "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf",
+        "name": "Coinbase Wrapped BTC",
+        "symbol": "cbBTC"
+       },
+       "quoteToken": {
+        "address": "0x2f2a2543B76A4166549F7aaB2e75Bef0aefC5B0f",
+        "name": "Wrapped BTC",
+        "symbol": "WBTC"
+       },
+       "priceNative": "1.002286",
+       "priceUsd": "82968.10",
+       "txns": {
+        "m5": {
+         "buys": 0,
+         "sells": 0
+        },
+        "h1": {
+         "buys": 37,
+         "sells": 0
+        },
+        "h6": {
+         "buys": 93,
+         "sells": 42
+        },
+        "h24": {
+         "buys": 212,
+         "sells": 132
+        }
+       },
+       "volume": {
+        "h24": 199264.36,
+        "h6": 94479.03,
+        "h1": 17024.47,
+        "m5": 0
+       },
+       "priceChange": {
+        "h1": 0.06,
+        "h6": -0.02,
+        "h24": -0.78
+       },
+       "liquidity": {
+        "usd": 84138.75,
+        "base": 0.2432,
+        "quote": 0.7726
+       },
+       "fdv": 5860496,
+       "marketCap": 5860496,
+       "pairCreatedAt": 1732075861000
+      },
+      {
+       "chainId": "base",
+       "dexId": "aerodrome",
+       "url": "https://dexscreener.com/base/0x9d14ff91ae2c6e3d1a760542248b6c7f206894b0",
+       "pairAddress": "0x9D14ff91AE2c6e3D1A760542248B6c7F206894b0",
+       "baseToken": {
+        "address": "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf",
+        "name": "Coinbase Wrapped BTC",
+        "symbol": "cbBTC"
+       },
+       "quoteToken": {
+        "address": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+        "name": "USD Coin",
+        "symbol": "USDC"
+       },
+       "priceNative": "81735.2475",
+       "priceUsd": "81735.24",
+       "txns": {
+        "m5": {
+         "buys": 28,
+         "sells": 18
+        },
+        "h1": {
+         "buys": 301,
+         "sells": 272
+        },
+        "h6": {
+         "buys": 1051,
+         "sells": 1093
+        },
+        "h24": {
+         "buys": 4151,
+         "sells": 4240
+        }
+       },
+       "volume": {
+        "h24": 1762175.4,
+        "h6": 455954.28,
+        "h1": 121611.91,
+        "m5": 6152.41
+       },
+       "priceChange": {
+        "m5": 0.08,
+        "h1": 0.27,
+        "h6": 0.06,
+        "h24": -1.8
+       },
+       "liquidity": {
+        "usd": 243468.06,
+        "base": 1.5907,
+        "quote": 113450
+       },
+       "fdv": 3900025310,
+       "marketCap": 3886125622,
+       "info": {
+        "imageUrl": "https://cdn.dexscreener.com/cms/images/07ce833f9dde758de45cb2476e630226f9b58418bb20e0f7ce3885c5d0d80b1b?width=800&height=800&quality=95&format=auto",
+        "header": "https://cdn.dexscreener.com/cms/images/f438ebce9f352a49dbc6ff80a98a03bca8267fec63b5eeaa407290ad6fc298cc?width=1500&height=500&quality=95&format=auto",
+        "openGraph": "https://cdn.dexscreener.com/token-images/og/base/0xcbb7c0000ab88b473b1f5afd9ef808440eed33bf?timestamp=1792028400000",
+        "websites": [],
+        "socials": []
+       }
+      },
+      {
+       "chainId": "base",
+       "dexId": "uniswap",
+       "url": "https://dexscreener.com/base/0x12d76c5c8ec8edffd3c143995b0aa43fe44a6d71eb9113796272909e54b8e078",
+       "pairAddress": "0x12d76c5c8ec8edffd3c143995b0aa43fe44a6d71eb9113796272909e54b8e078",
+       "labels": [
+        "v4"
+       ],
+       "baseToken": {
+        "address": "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf",
+        "name": "Coinbase Wrapped BTC",
+        "symbol": "cbBTC"
+       },
+       "quoteToken": {
+        "address": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+        "name": "USD Coin",
+        "symbol": "USDC"
+       },
+       "priceNative": "81711.4935",
+       "priceUsd": "81711.49",
+       "txns": {
+        "m5": {
+         "buys": 17,
+         "sells": 9
+        },
+        "h1": {
+         "buys": 213,
+         "sells": 214
+        },
+        "h6": {
+         "buys": 712,
+         "sells": 659
+        },
+        "h24": {
+         "buys": 2627,
+         "sells": 2634
+        }
+       },
+       "volume": {
+        "h24": 4462722.52,
+        "h6": 884536.64,
+        "h1": 350031.07,
+        "m5": 13906.21
+       },
+       "priceChange": {
+        "m5": 0.05,
+        "h1": 0.2,
+        "h6": 0.08,
+        "h24": -1.81
+       },
+       "liquidity": {
+        "usd": 3044896.31,
+        "base": 16.497,
+        "quote": 1696894
+       },
+       "fdv": 3898891878,
+       "marketCap": 3884996229,
+       "pairCreatedAt": 1738188351000,
+       "info": {
+        "imageUrl": "https://cdn.dexscreener.com/cms/images/07ce833f9dde758de45cb2476e630226f9b58418bb20e0f7ce3885c5d0d80b1b?width=800&height=800&quality=95&format=auto",
+        "header": "https://cdn.dexscreener.com/cms/images/f438ebce9f352a49dbc6ff80a98a03bca8267fec63b5eeaa407290ad6fc298cc?width=1500&height=500&quality=95&format=auto",
+        "openGraph": "https://cdn.dexscreener.com/token-images/og/base/0xcbb7c0000ab88b473b1f5afd9ef808440eed33bf?timestamp=1792028400000",
+        "websites": [],
+        "socials": []
+       }
+      },
+      {
+       "chainId": "solana",
+       "dexId": "meteora",
+       "url": "https://dexscreener.com/solana/gjfzhyveys4om12j73soxcptadzfab5eclshgmmvg4gy",
+       "pairAddress": "GJFZhYveyS4oM12j73SoXCptAdzfaB5eCLshgMMVg4Gy",
+       "labels": [
+        "DLMM"
+       ],
+       "baseToken": {
+        "address": "cbbtcf3aa214zXHbiAZQwf4122FBYbraNdFqgw4iMij",
+        "name": "Coinbase Wrapped BTC",
+        "symbol": "cbBTC"
+       },
+       "quoteToken": {
+        "address": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+        "name": "USD Coin",
+        "symbol": "USDC"
+       },
+       "priceNative": "81603.2200",
+       "priceUsd": "81603.22",
+       "txns": {
+        "m5": {
+         "buys": 0,
+         "sells": 0
+        },
+        "h1": {
+         "buys": 0,
+         "sells": 0
+        },
+        "h6": {
+         "buys": 5,
+         "sells": 9
+        },
+        "h24": {
+         "buys": 35,
+         "sells": 45
+        }
+       },
+       "volume": {
+        "h24": 11250.42,
+        "h6": 1889.7,
+        "h1": 0,
+        "m5": 0
+       },
+       "priceChange": {
+        "h6": 0.67,
+        "h24": -2.27
+       },
+       "liquidity": {
+        "usd": 65770.68,
+        "base": 0.4397,
+        "quote": 29882
+       },
+       "fdv": 225252622,
+       "marketCap": 225252622,
+       "pairCreatedAt": 1731001192000
+      },
+      {
+       "chainId": "base",
+       "dexId": "aerodrome",
+       "url": "https://dexscreener.com/base/0x22aee3699b6a0fed71490c103bd4e5f3309891d5",
+       "pairAddress": "0x22AEe3699b6A0fEd71490C103Bd4E5f3309891D5",
+       "baseToken": {
+        "address": "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf",
+        "name": "Coinbase Wrapped BTC",
+        "symbol": "cbBTC"
+       },
+       "quoteToken": {
+        "address": "0x4200000000000000000000000000000000000006",
+        "name": "Wrapped Ether",
+        "symbol": "WETH"
+       },
+       "priceNative": "33.7915",
+       "priceUsd": "81667.45",
+       "txns": {
+        "m5": {
+         "buys": 2,
+         "sells": 4
+        },
+        "h1": {
+         "buys": 140,
+         "sells": 130
+        },
+        "h6": {
+         "buys": 895,
+         "sells": 886
+        },
+        "h24": {
+         "buys": 2492,
+         "sells": 2512
+        }
+       },
+       "volume": {
+        "h24": 357865.09,
+        "h6": 132019.64,
+        "h1": 18122.32,
+        "m5": 372.51
+       },
+       "priceChange": {
+        "m5": -0.03,
+        "h1": 0.16,
+        "h6": 0.1,
+        "h24": -1.76
+       },
+       "liquidity": {
+        "usd": 83550.97,
+        "base": 0.3156,
+        "quote": 23.9037
+       },
+       "fdv": 3896790570,
+       "marketCap": 3882902411,
+       "info": {
+        "imageUrl": "https://cdn.dexscreener.com/cms/images/07ce833f9dde758de45cb2476e630226f9b58418bb20e0f7ce3885c5d0d80b1b?width=800&height=800&quality=95&format=auto",
+        "header": "https://cdn.dexscreener.com/cms/images/f438ebce9f352a49dbc6ff80a98a03bca8267fec63b5eeaa407290ad6fc298cc?width=1500&height=500&quality=95&format=auto",
+        "openGraph": "https://cdn.dexscreener.com/token-images/og/base/0xcbb7c0000ab88b473b1f5afd9ef808440eed33bf?timestamp=1792028400000",
+        "websites": [],
+        "socials": []
+       }
+      },
+      {
+       "chainId": "base",
+       "dexId": "uniswap",
+       "url": "https://dexscreener.com/base/0x2fbe93bf7177596c5d04675bdcef7bacaf98bd954dc26829fcda39f122239459",
+       "pairAddress": "0x2fbe93bf7177596c5d04675bdcef7bacaf98bd954dc26829fcda39f122239459",
+       "labels": [
+        "v4"
+       ],
+       "baseToken": {
+        "address": "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf",
+        "name": "Coinbase Wrapped BTC",
+        "symbol": "cbBTC"
+       },
+       "quoteToken": {
+        "address": "0x0000000000000000000000000000000000000000",
+        "name": "Ether",
+        "symbol": "ETH"
+       },
+       "priceNative": "33.7936",
+       "priceUsd": "81744.52",
+       "txns": {
+        "m5": {
+         "buys": 1,
+         "sells": 0
+        },
+        "h1": {
+         "buys": 122,
+         "sells": 36
+        },
+        "h6": {
+         "buys": 454,
+         "sells": 378
+        },
+        "h24": {
+         "buys": 1424,
+         "sells": 1379
+        }
+       },
+       "volume": {
+        "h24": 2167756.15,
+        "h6": 569662.49,
+        "h1": 89221.74,
+        "m5": 191.09
+       },
+       "priceChange": {
+        "m5": -0.08,
+        "h1": 0.12,
+        "h6": 0.09,
+        "h24": -1.99
+       },
+       "liquidity": {
+        "usd": 1902823.74,
+        "base": 1.2392,
+        "quote": 744.7607
+       },
+       "fdv": 3900468023,
+       "marketCap": 3886566758,
+       "pairCreatedAt": 1738402807000,
+       "info": {
+        "imageUrl": "https://cdn.dexscreener.com/cms/images/07ce833f9dde758de45cb2476e630226f9b58418bb20e0f7ce3885c5d0d80b1b?width=800&height=800&quality=95&format=auto",
+        "header": "https://cdn.dexscreener.com/cms/images/f438ebce9f352a49dbc6ff80a98a03bca8267fec63b5eeaa407290ad6fc298cc?width=1500&height=500&quality=95&format=auto",
+        "openGraph": "https://cdn.dexscreener.com/token-images/og/base/0xcbb7c0000ab88b473b1f5afd9ef808440eed33bf?timestamp=1792028400000",
+        "websites": [],
+        "socials": []
+       }
+      },
+      {
+       "chainId": "base",
+       "dexId": "hydrex",
+       "url": "https://dexscreener.com/base/0x3f9b863ef4b295d6ba370215bcca3785fcc44f44",
+       "pairAddress": "0x3f9b863EF4B295d6Ba370215bcCa3785FCC44f44",
+       "labels": [
+        "CLAMM"
+       ],
+       "baseToken": {
+        "address": "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf",
+        "name": "Coinbase Wrapped BTC",
+        "symbol": "cbBTC"
+       },
+       "quoteToken": {
+        "address": "0x4200000000000000000000000000000000000006",
+        "name": "Wrapped Ether",
+        "symbol": "WETH"
+       },
+       "priceNative": "33.7922",
+       "priceUsd": "81741.14",
+       "txns": {
+        "m5": {
+         "buys": 0,
+         "sells": 1
+        },
+        "h1": {
+         "buys": 44,
+         "sells": 24
+        },
+        "h6": {
+         "buys": 298,
+         "sells": 279
+        },
+        "h24": {
+         "buys": 1596,
+         "sells": 1645
+        }
+       },
+       "volume": {
+        "h24": 1076647.99,
+        "h6": 150565.45,
+        "h1": 3434.84,
+        "m5": 56.3
+       },
+       "priceChange": {
+        "m5": -0.13,
+        "h1": 0.07,
+        "h6": -0.07,
+        "h24": -1.89
+       },
+       "liquidity": {
+        "usd": 1135857.2,
+        "base": 10.3906,
+        "quote": 118.448
+       },
+       "fdv": 3646852986,
+       "marketCap": 3886405783,
+       "pairCreatedAt": 1750110557000,
+       "info": {
+        "imageUrl": "https://cdn.dexscreener.com/cms/images/07ce833f9dde758de45cb2476e630226f9b58418bb20e0f7ce3885c5d0d80b1b?width=800&height=800&quality=95&format=auto",
+        "header": "https://cdn.dexscreener.com/cms/images/f438ebce9f352a49dbc6ff80a98a03bca8267fec63b5eeaa407290ad6fc298cc?width=1500&height=500&quality=95&format=auto",
+        "openGraph": "https://cdn.dexscreener.com/token-images/og/base/0xcbb7c0000ab88b473b1f5afd9ef808440eed33bf?timestamp=1792028400000",
+        "websites": [],
+        "socials": []
+       }
+      },
+      {
+       "chainId": "base",
+       "dexId": "pancakeswap",
+       "url": "https://dexscreener.com/base/0x26e263efdc91f0d3279e2ec2bd58a7ca5c2fce62",
+       "pairAddress": "0x26e263efdc91f0d3279E2Ec2Bd58A7Ca5C2fCE62",
+       "baseToken": {
+        "address": "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf",
+        "name": "Coinbase Wrapped BTC",
+        "symbol": "cbBTC"
+       },
+       "quoteToken": {
+        "address": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+        "name": "USD Coin",
+        "symbol": "USDC"
+       },
+       "priceNative": "81715.8656",
+       "priceUsd": "81715.86",
+       "txns": {
+        "m5": {
+         "buys": 19,
+         "sells": 7
+        },
+        "h1": {
+         "buys": 165,
+         "sells": 170
+        },
+        "h6": {
+         "buys": 469,
+         "sells": 474
+        },
+        "h24": {
+         "buys": 1614,
+         "sells": 1675
+        }
+       },
+       "volume": {
+        "h24": 365018.28,
+        "h6": 106151.42,
+        "h1": 40377.77,
+        "m5": 2129.55
+       },
+       "priceChange": {
+        "m5": 0.06,
+        "h1": 0.22,
+        "h6": 0.08,
+        "h24": -1.83
+       },
+       "liquidity": {
+        "usd": 229795.75,
+        "base": 1.9265,
+        "quote": 72363
+       },
+       "fdv": 3896396767,
+       "marketCap": 3885204100,
+       "pairCreatedAt": 1726245317000,
+       "info": {
+        "imageUrl": "https://cdn.dexscreener.com/cms/images/07ce833f9dde758de45cb2476e630226f9b58418bb20e0f7ce3885c5d0d80b1b?width=800&height=800&quality=95&format=auto",
+        "header": "https://cdn.dexscreener.com/cms/images/f438ebce9f352a49dbc6ff80a98a03bca8267fec63b5eeaa407290ad6fc298cc?width=1500&height=500&quality=95&format=auto",
+        "openGraph": "https://cdn.dexscreener.com/token-images/og/base/0xcbb7c0000ab88b473b1f5afd9ef808440eed33bf?timestamp=1792028400000",
+        "websites": [],
+        "socials": []
+       }
+      },
+      {
+       "chainId": "base",
+       "dexId": "aerodrome",
+       "url": "https://dexscreener.com/base/0x70acdf2ad0bf2402c957154f944c19ef4e1cbae1",
+       "pairAddress": "0x70aCDF2Ad0bf2402C957154f944c19Ef4e1cbAE1",
+       "baseToken": {
+        "address": "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf",
+        "name": "Coinbase Wrapped BTC",
+        "symbol": "cbBTC"
+       },
+       "quoteToken": {
+        "address": "0x4200000000000000000000000000000000000006",
+        "name": "Wrapped Ether",
+        "symbol": "WETH"
+       },
+       "priceNative": "33.7577",
+       "priceUsd": "81553.027",
+       "txns": {
+        "m5": {
+         "buys": 0,
+         "sells": 0
+        },
+        "h1": {
+         "buys": 28,
+         "sells": 4
+        },
+        "h6": {
+         "buys": 200,
+         "sells": 102
+        },
+        "h24": {
+         "buys": 677,
+         "sells": 343
+        }
+       },
+       "volume": {
+        "h24": 2338753.71,
+        "h6": 800134.96,
+        "h1": 1387.27,
+        "m5": 0
+       },
+       "priceChange": {
+        "h1": -0.35,
+        "h6": -0.16,
+        "h24": -1.83
+       },
+       "liquidity": {
+        "usd": 14143022.66,
+        "base": 67.654,
+        "quote": 3570.4611
+       },
+       "fdv": 3891330600,
+       "marketCap": 3877461901,
+       "info": {
+        "imageUrl": "https://cdn.dexscreener.com/cms/images/07ce833f9dde758de45cb2476e630226f9b58418bb20e0f7ce3885c5d0d80b1b?width=800&height=800&quality=95&format=auto",
+        "header": "https://cdn.dexscreener.com/cms/images/f438ebce9f352a49dbc6ff80a98a03bca8267fec63b5eeaa407290ad6fc298cc?width=1500&height=500&quality=95&format=auto",
+        "openGraph": "https://cdn.dexscreener.com/token-images/og/base/0xcbb7c0000ab88b473b1f5afd9ef808440eed33bf?timestamp=1792028400000",
+        "websites": [],
+        "socials": []
+       }
+      },
+      {
+       "chainId": "base",
+       "dexId": "pancakeswap",
+       "url": "https://dexscreener.com/base/0xd974d59e30054cf1abeded0c9947b0d8baf90029",
+       "pairAddress": "0xd974D59e30054cf1aBedeD0C9947B0D8Baf90029",
+       "baseToken": {
+        "address": "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf",
+        "name": "Coinbase Wrapped BTC",
+        "symbol": "cbBTC"
+       },
+       "quoteToken": {
+        "address": "0x4200000000000000000000000000000000000006",
+        "name": "Wrapped Ether",
+        "symbol": "WETH"
+       },
+       "priceNative": "33.7993",
+       "priceUsd": "81871.051",
+       "txns": {
+        "m5": {
+         "buys": 0,
+         "sells": 2
+        },
+        "h1": {
+         "buys": 74,
+         "sells": 52
+        },
+        "h6": {
+         "buys": 299,
+         "sells": 364
+        },
+        "h24": {
+         "buys": 1026,
+         "sells": 1151
+        }
+       },
+       "volume": {
+        "h24": 743144.16,
+        "h6": 255824.83,
+        "h1": 52106.21,
+        "m5": 720.19
+       },
+       "priceChange": {
+        "m5": 0.22,
+        "h1": 0.26,
+        "h6": 0.23,
+        "h24": -1.83
+       },
+       "liquidity": {
+        "usd": 463509.6,
+        "base": 1.1661,
+        "quote": 151.9375
+       },
+       "fdv": 3903796388,
+       "marketCap": 3892582465,
+       "pairCreatedAt": 1737339501000,
+       "info": {
+        "imageUrl": "https://cdn.dexscreener.com/cms/images/07ce833f9dde758de45cb2476e630226f9b58418bb20e0f7ce3885c5d0d80b1b?width=800&height=800&quality=95&format=auto",
+        "header": "https://cdn.dexscreener.com/cms/images/f438ebce9f352a49dbc6ff80a98a03bca8267fec63b5eeaa407290ad6fc298cc?width=1500&height=500&quality=95&format=auto",
+        "openGraph": "https://cdn.dexscreener.com/token-images/og/base/0xcbb7c0000ab88b473b1f5afd9ef808440eed33bf?timestamp=1792028400000",
+        "websites": [],
+        "socials": []
+       }
+      },
+      {
+       "chainId": "base",
+       "dexId": "alien-base",
+       "url": "https://dexscreener.com/base/0x1d6cfee6eec4688dad33e6fbb2304a9efe8be3c8",
+       "pairAddress": "0x1D6CfEe6eeC4688DAD33E6FBB2304a9eFe8BE3C8",
+       "labels": [
+        "V3"
+       ],
+       "baseToken": {
+        "address": "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf",
+        "name": "Coinbase Wrapped BTC",
+        "symbol": "cbBTC"
+       },
+       "quoteToken": {
+        "address": "0x4200000000000000000000000000000000000006",
+        "name": "Wrapped Ether",
+        "symbol": "WETH"
+       },
+       "priceNative": "33.7935",
+       "priceUsd": "81645.80",
+       "txns": {
+        "m5": {
+         "buys": 3,
+         "sells": 4
+        },
+        "h1": {
+         "buys": 95,
+         "sells": 69
+        },
+        "h6": {
+         "buys": 555,
+         "sells": 499
+        },
+        "h24": {
+         "buys": 1818,
+         "sells": 1862
+        }
+       },
+       "volume": {
+        "h24": 160358.77,
+        "h6": 49724.71,
+        "h1": 6729.49,
+        "m5": 280.22
+       },
+       "priceChange": {
+        "m5": -0.06,
+        "h1": 0.13,
+        "h6": 0.07,
+        "h24": -1.76
+       },
+       "liquidity": {
+        "usd": 86691.36,
+        "base": 0.4526,
+        "quote": 20.5848
+       },
+       "fdv": 3895757376,
+       "marketCap": 3881872899,
+       "pairCreatedAt": 1756395617000,
+       "info": {
+        "imageUrl": "https://cdn.dexscreener.com/cms/images/07ce833f9dde758de45cb2476e630226f9b58418bb20e0f7ce3885c5d0d80b1b?width=800&height=800&quality=95&format=auto",
+        "header": "https://cdn.dexscreener.com/cms/images/f438ebce9f352a49dbc6ff80a98a03bca8267fec63b5eeaa407290ad6fc298cc?width=1500&height=500&quality=95&format=auto",
+        "openGraph": "https://cdn.dexscreener.com/token-images/og/base/0xcbb7c0000ab88b473b1f5afd9ef808440eed33bf?timestamp=1792028400000",
+        "websites": [],
+        "socials": []
+       }
+      },
+      {
+       "chainId": "base",
+       "dexId": "uniswap",
+       "url": "https://dexscreener.com/base/0x8c7080564b5a792a33ef2fd473fba6364d5495e5",
+       "pairAddress": "0x8c7080564B5A792A33Ef2FD473fbA6364d5495e5",
+       "labels": [
+        "v3"
+       ],
+       "baseToken": {
+        "address": "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf",
+        "name": "Coinbase Wrapped BTC",
+        "symbol": "cbBTC"
+       },
+       "quoteToken": {
+        "address": "0x4200000000000000000000000000000000000006",
+        "name": "Wrapped Ether",
+        "symbol": "WETH"
+       },
+       "priceNative": "33.7754",
+       "priceUsd": "81681.89",
+       "txns": {
+        "m5": {
+         "buys": 0,
+         "sells": 0
+        },
+        "h1": {
+         "buys": 1,
+         "sells": 0
+        },
+        "h6": {
+         "buys": 107,
+         "sells": 75
+        },
+        "h24": {
+         "buys": 422,
+         "sells": 253
+        }
+       },
+       "volume": {
+        "h24": 2300884.65,
+        "h6": 682869.19,
+        "h1": 0.08,
+        "m5": 0
+       },
+       "priceChange": {
+        "h1": -0.26,
+        "h6": 0.36,
+        "h24": -2.12
+       },
+       "liquidity": {
+        "usd": 10434818.11,
+        "base": 45.9129,
+        "quote": 2764.06522
+       },
+       "fdv": 3897479338,
+       "marketCap": 3883588725,
+       "pairCreatedAt": 1726084175000,
+       "info": {
+        "imageUrl": "https://cdn.dexscreener.com/cms/images/07ce833f9dde758de45cb2476e630226f9b58418bb20e0f7ce3885c5d0d80b1b?width=800&height=800&quality=95&format=auto",
+        "header": "https://cdn.dexscreener.com/cms/images/f438ebce9f352a49dbc6ff80a98a03bca8267fec63b5eeaa407290ad6fc298cc?width=1500&height=500&quality=95&format=auto",
+        "openGraph": "https://cdn.dexscreener.com/token-images/og/base/0xcbb7c0000ab88b473b1f5afd9ef808440eed33bf?timestamp=1792028400000",
+        "websites": [],
+        "socials": []
+       }
+      },
+      {
+       "chainId": "base",
+       "dexId": "uniswap",
+       "url": "https://dexscreener.com/base/0xf97db19953c4309b3af2ceb9cce172939e8868321a24656667d44cccb31c9ddc",
+       "pairAddress": "0xf97db19953c4309b3af2ceb9cce172939e8868321a24656667d44cccb31c9ddc",
+       "labels": [
+        "v4"
+       ],
+       "baseToken": {
+        "address": "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf",
+        "name": "Coinbase Wrapped BTC",
+        "symbol": "cbBTC"
+       },
+       "quoteToken": {
+        "address": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+        "name": "USD Coin",
+        "symbol": "USDC"
+       },
+       "priceNative": "81623.8893",
+       "priceUsd": "81623.88",
+       "txns": {
+        "m5": {
+         "buys": 3,
+         "sells": 0
+        },
+        "h1": {
+         "buys": 65,
+         "sells": 53
+        },
+        "h6": {
+         "buys": 141,
+         "sells": 112
+        },
+        "h24": {
+         "buys": 646,
+         "sells": 670
+        }
+       },
+       "volume": {
+        "h24": 401199.02,
+        "h6": 65486.75,
+        "h1": 34295.79,
+        "m5": 1267.32
+       },
+       "priceChange": {
+        "m5": 0.03,
+        "h1": 0.04,
+        "h6": -0.04,
+        "h24": -1.97
+       },
+       "liquidity": {
+        "usd": 1309302.51,
+        "base": 6.8761,
+        "quote": 748047
+       },
+       "fdv": 3894711814,
+       "marketCap": 3880831064,
+       "pairCreatedAt": 1744557523000,
+       "info": {
+        "imageUrl": "https://cdn.dexscreener.com/cms/images/07ce833f9dde758de45cb2476e630226f9b58418bb20e0f7ce3885c5d0d80b1b?width=800&height=800&quality=95&format=auto",
+        "header": "https://cdn.dexscreener.com/cms/images/f438ebce9f352a49dbc6ff80a98a03bca8267fec63b5eeaa407290ad6fc298cc?width=1500&height=500&quality=95&format=auto",
+        "openGraph": "https://cdn.dexscreener.com/token-images/og/base/0xcbb7c0000ab88b473b1f5afd9ef808440eed33bf?timestamp=1792028400000",
+        "websites": [],
+        "socials": []
+       }
+      },
+      {
+       "chainId": "base",
+       "dexId": "alien-base",
+       "url": "https://dexscreener.com/base/0x4ca59b56965385e14b3fd4d48cd1741dc21e7343",
+       "pairAddress": "0x4ca59b56965385e14B3fd4d48Cd1741dC21E7343",
+       "labels": [
+        "V3"
+       ],
+       "baseToken": {
+        "address": "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf",
+        "name": "Coinbase Wrapped BTC",
+        "symbol": "cbBTC"
+       },
+       "quoteToken": {
+        "address": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+        "name": "USD Coin",
+        "symbol": "USDC"
+       },
+       "priceNative": "81711.9488",
+       "priceUsd": "81711.94",
+       "txns": {
+        "m5": {
+         "buys": 2,
+         "sells": 6
+        },
+        "h1": {
+         "buys": 38,
+         "sells": 65
+        },
+        "h6": {
+         "buys": 112,
+         "sells": 152
+        },
+        "h24": {
+         "buys": 422,
+         "sells": 479
+        }
+       },
+       "volume": {
+        "h24": 9972.27,
+        "h6": 1603.46,
+        "h1": 594.21,
+        "m5": 34.76
+       },
+       "priceChange": {
+        "m5": 0.06,
+        "h1": 0.21,
+        "h6": 0.07,
+        "h24": -1.81
+       },
+       "liquidity": {
+        "usd": 100320.04,
+        "base": 0.3695,
+        "quote": 70123
+       },
+       "fdv": 3898913602,
+       "marketCap": 3885017877,
+       "pairCreatedAt": 1731432859000,
+       "info": {
+        "imageUrl": "https://cdn.dexscreener.com/cms/images/07ce833f9dde758de45cb2476e630226f9b58418bb20e0f7ce3885c5d0d80b1b?width=800&height=800&quality=95&format=auto",
+        "header": "https://cdn.dexscreener.com/cms/images/f438ebce9f352a49dbc6ff80a98a03bca8267fec63b5eeaa407290ad6fc298cc?width=1500&height=500&quality=95&format=auto",
+        "openGraph": "https://cdn.dexscreener.com/token-images/og/base/0xcbb7c0000ab88b473b1f5afd9ef808440eed33bf?timestamp=1792028400000",
+        "websites": [],
+        "socials": []
+       }
+      }
+     ]
+    }
+   },
+   "https://api.dexscreener.com/token-pairs/v1/base/0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf": {
+    "result": [
+     {
+      "chainId": "base",
+      "dexId": "aerodrome",
+      "url": "https://dexscreener.com/base/0x7c7420dd105e2779316423ba3e973f434315efa9",
+      "pairAddress": "0x7C7420DD105E2779316423Ba3E973f434315EFA9",
+      "baseToken": {
+       "address": "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf",
+       "name": "Coinbase Wrapped BTC",
+       "symbol": "cbBTC"
+      },
+      "quoteToken": {
+       "address": "0x4200000000000000000000000000000000000006",
+       "name": "Wrapped Ether",
+       "symbol": "WETH"
+      },
+      "priceNative": "33.7889",
+      "priceUsd": "81661.025",
+      "txns": {
+       "m5": {
+        "buys": 36,
+        "sells": 40
+       },
+       "h1": {
+        "buys": 799,
+        "sells": 676
+       },
+       "h6": {
+        "buys": 4371,
+        "sells": 4377
+       },
+       "h24": {
+        "buys": 15196,
+        "sells": 14297
+       }
+      },
+      "volume": {
+       "h24": 63685030.04,
+       "h6": 20066284.06,
+       "h1": 3482052.45,
+       "m5": 159537.16
+      },
+      "priceChange": {
+       "m5": -0.04,
+       "h1": 0.14,
+       "h6": 0.1,
+       "h24": -1.72
+      },
+      "liquidity": {
+       "usd": 2216263.37,
+       "base": 2.8705,
+       "quote": 820.03269
+      },
+      "fdv": 3896483776,
+      "marketCap": 3882596710,
+      "info": {
+       "imageUrl": "https://cdn.dexscreener.com/cms/images/07ce833f9dde758de45cb2476e630226f9b58418bb20e0f7ce3885c5d0d80b1b?width=800&height=800&quality=95&format=auto",
+       "header": "https://cdn.dexscreener.com/cms/images/f438ebce9f352a49dbc6ff80a98a03bca8267fec63b5eeaa407290ad6fc298cc?width=1500&height=500&quality=95&format=auto",
+       "openGraph": "https://cdn.dexscreener.com/token-images/og/base/0xcbb7c0000ab88b473b1f5afd9ef808440eed33bf?timestamp=1792028400000",
+       "websites": [],
+       "socials": []
+      }
+     },
+     {
+      "chainId": "base",
+      "dexId": "aerodrome",
+      "url": "https://dexscreener.com/base/0x160d7e9d948b16c163332a277b393c288408eb12",
+      "pairAddress": "0x160D7E9d948B16c163332a277b393c288408eb12",
+      "baseToken": {
+       "address": "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf",
+       "name": "Coinbase Wrapped BTC",
+       "symbol": "cbBTC"
+      },
+      "quoteToken": {
+       "address": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+       "name": "USD Coin",
+       "symbol": "USDC"
+      },
+      "priceNative": "81744.7127",
+      "priceUsd": "81744.71",
+      "txns": {
+       "m5": {
+        "buys": 40,
+        "sells": 37
+       },
+       "h1": {
+        "buys": 425,
+        "sells": 487
+       },
+       "h6": {
+        "buys": 2056,
+        "sells": 2246
+       },
+       "h24": {
+        "buys": 8026,
+        "sells": 9126
+       }
+      },
+      "volume": {
+       "h24": 46339552.81,
+       "h6": 10515768.52,
+       "h1": 2359677.04,
+       "m5": 169291.09
+      },
+      "priceChange": {
+       "m5": 0.09,
+       "h1": 0.28,
+       "h6": 0.09,
+       "h24": -1.8
+      },
+      "liquidity": {
+       "usd": 5868617.94,
+       "base": 41.3152,
+       "quote": 2491316
+      },
+      "fdv": 3900476941,
+      "marketCap": 3886575644,
+      "info": {
+       "imageUrl": "https://cdn.dexscreener.com/cms/images/07ce833f9dde758de45cb2476e630226f9b58418bb20e0f7ce3885c5d0d80b1b?width=800&height=800&quality=95&format=auto",
+       "header": "https://cdn.dexscreener.com/cms/images/f438ebce9f352a49dbc6ff80a98a03bca8267fec63b5eeaa407290ad6fc298cc?width=1500&height=500&quality=95&format=auto",
+       "openGraph": "https://cdn.dexscreener.com/token-images/og/base/0xcbb7c0000ab88b473b1f5afd9ef808440eed33bf?timestamp=1792028400000",
+       "websites": [],
+       "socials": []
+      }
+     },
+     {
+      "chainId": "base",
+      "dexId": "pancakeswap",
+      "url": "https://dexscreener.com/base/0xc211e1f853a898bd1302385ccde55f33a8c4b3f3",
+      "pairAddress": "0xC211e1f853A898Bd1302385CCdE55f33a8C4B3f3",
+      "baseToken": {
+       "address": "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf",
+       "name": "Coinbase Wrapped BTC",
+       "symbol": "cbBTC"
+      },
+      "quoteToken": {
+       "address": "0x4200000000000000000000000000000000000006",
+       "name": "Wrapped Ether",
+       "symbol": "WETH"
+      },
+      "priceNative": "33.7889",
+      "priceUsd": "81755.12",
+      "txns": {
+       "m5": {
+        "buys": 17,
+        "sells": 23
+       },
+       "h1": {
+        "buys": 477,
+        "sells": 463
+       },
+       "h6": {
+        "buys": 2897,
+        "sells": 2921
+       },
+       "h24": {
+        "buys": 9867,
+        "sells": 9607
+       }
+      },
+      "volume": {
+       "h24": 27290368.6,
+       "h6": 7423289.71,
+       "h1": 1177220.47,
+       "m5": 41359.93
+      },
+      "priceChange": {
+       "m5": 0.08,
+       "h1": 0.08,
+       "h6": 0.05,
+       "h24": -1.89
+      },
+      "liquidity": {
+       "usd": 5368826.52,
+       "base": 15.1358,
+       "quote": 1707.4836
+      },
+      "fdv": 3898268506,
+      "marketCap": 3887070462,
+      "pairCreatedAt": 1726209947000,
+      "info": {
+       "imageUrl": "https://cdn.dexscreener.com/cms/images/07ce833f9dde758de45cb2476e630226f9b58418bb20e0f7ce3885c5d0d80b1b?width=800&height=800&quality=95&format=auto",
+       "header": "https://cdn.dexscreener.com/cms/images/f438ebce9f352a49dbc6ff80a98a03bca8267fec63b5eeaa407290ad6fc298cc?width=1500&height=500&quality=95&format=auto",
+       "openGraph": "https://cdn.dexscreener.com/token-images/og/base/0xcbb7c0000ab88b473b1f5afd9ef808440eed33bf?timestamp=1792028400000",
+       "websites": [],
+       "socials": []
+      }
+     },
+     {
+      "chainId": "base",
+      "dexId": "pancakeswap",
+      "url": "https://dexscreener.com/base/0xb94b22332abf5f89877a14cc88f2abc48c34b3df",
+      "pairAddress": "0xb94b22332ABf5f89877A14Cc88f2aBC48c34B3Df",
+      "baseToken": {
+       "address": "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf",
+       "name": "Coinbase Wrapped BTC",
+       "symbol": "cbBTC"
+      },
+      "quoteToken": {
+       "address": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+       "name": "USD Coin",
+       "symbol": "USDC"
+      },
+      "priceNative": "81754.4189",
+      "priceUsd": "81754.41",
+      "txns": {
+       "m5": {
+        "buys": 58,
+        "sells": 39
+       },
+       "h1": {
+        "buys": 769,
+        "sells": 837
+       },
+       "h6": {
+        "buys": 2773,
+        "sells": 2865
+       },
+       "h24": {
+        "buys": 11591,
+        "sells": 11677
+       }
+      },
+      "volume": {
+       "h24": 11412574.52,
+       "h6": 2385588.88,
+       "h1": 761982.27,
+       "m5": 43600.85
+      },
+      "priceChange": {
+       "m5": 0.11,
+       "h1": 0.3,
+       "h6": 0.1,
+       "h24": -1.81
+      },
+      "liquidity": {
+       "usd": 1778985.39,
+       "base": 12.5885,
+       "quote": 749818
+      },
+      "fdv": 3898235076,
+      "marketCap": 3887037128,
+      "pairCreatedAt": 1726210063000,
+      "info": {
+       "imageUrl": "https://cdn.dexscreener.com/cms/images/07ce833f9dde758de45cb2476e630226f9b58418bb20e0f7ce3885c5d0d80b1b?width=800&height=800&quality=95&format=auto",
+       "header": "https://cdn.dexscreener.com/cms/images/f438ebce9f352a49dbc6ff80a98a03bca8267fec63b5eeaa407290ad6fc298cc?width=1500&height=500&quality=95&format=auto",
+       "openGraph": "https://cdn.dexscreener.com/token-images/og/base/0xcbb7c0000ab88b473b1f5afd9ef808440eed33bf?timestamp=1792028400000",
+       "websites": [],
+       "socials": []
+      }
+     },
+     {
+      "chainId": "base",
+      "dexId": "aerodrome",
+      "url": "https://dexscreener.com/base/0x42d4a22cad0f5a49681a5715ce994af73a43b76b",
+      "pairAddress": "0x42d4a22CaD0F5a49681a5715cE994Af73A43B76b",
+      "baseToken": {
+       "address": "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf",
+       "name": "Coinbase Wrapped BTC",
+       "symbol": "cbBTC"
+      },
+      "quoteToken": {
+       "address": "0x4200000000000000000000000000000000000006",
+       "name": "Wrapped Ether",
+       "symbol": "WETH"
+      },
+      "priceNative": "33.7994",
+      "priceUsd": "81488.67",
+      "txns": {
+       "m5": {
+        "buys": 0,
+        "sells": 0
+       },
+       "h1": {
+        "buys": 166,
+        "sells": 44
+       },
+       "h6": {
+        "buys": 790,
+        "sells": 617
+       },
+       "h24": {
+        "buys": 2276,
+        "sells": 1972
+       }
+      },
+      "volume": {
+       "h24": 38923665.41,
+       "h6": 13096256.89,
+       "h1": 1888349.08,
+       "m5": 0
+      },
+      "priceChange": {
+       "h1": -0.03,
+       "h6": -0.11,
+       "h24": -1.96
+      },
+      "liquidity": {
+       "usd": 6998281.03,
+       "base": 11.7247,
+       "quote": 2506.4176
+      },
+      "fdv": 3888260213,
+      "marketCap": 3874402456,
+      "info": {
+       "imageUrl": "https://cdn.dexscreener.com/cms/images/07ce833f9dde758de45cb2476e630226f9b58418bb20e0f7ce3885c5d0d80b1b?width=800&height=800&quality=95&format=auto",
+       "header": "https://cdn.dexscreener.com/cms/images/f438ebce9f352a49dbc6ff80a98a03bca8267fec63b5eeaa407290ad6fc298cc?width=1500&height=500&quality=95&format=auto",
+       "openGraph": "https://cdn.dexscreener.com/token-images/og/base/0xcbb7c0000ab88b473b1f5afd9ef808440eed33bf?timestamp=1792028400000",
+       "websites": [],
+       "socials": []
+      }
+     },
+     {
+      "chainId": "base",
+      "dexId": "uniswap",
+      "url": "https://dexscreener.com/base/0x7aea2e8a3843516afa07293a10ac8e49906dabd1",
+      "pairAddress": "0x7AeA2E8A3843516afa07293a10Ac8E49906dabD1",
+      "labels": [
+       "v3"
+      ],
+      "baseToken": {
+       "address": "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf",
+       "name": "Coinbase Wrapped BTC",
+       "symbol": "cbBTC"
+      },
+      "quoteToken": {
+       "address": "0x4200000000000000000000000000000000000006",
+       "name": "Wrapped Ether",
+       "symbol": "WETH"
+      },
+      "priceNative": "33.7979",
+      "priceUsd": "81682.97",
+      "txns": {
+       "m5": {
+        "buys": 0,
+        "sells": 4
+       },
+       "h1": {
+        "buys": 203,
+        "sells": 91
+       },
+       "h6": {
+        "buys": 885,
+        "sells": 1035
+       },
+       "h24": {
+        "buys": 2981,
+        "sells": 3190
+       }
+      },
+      "volume": {
+       "h24": 26564625.75,
+       "h6": 6385719.25,
+       "h1": 1131869.27,
+       "m5": 39.25
+      },
+      "priceChange": {
+       "m5": 0.24,
+       "h1": 0.21,
+       "h6": 0.02,
+       "h24": -1.73
+      },
+      "liquidity": {
+       "usd": 17802757.29,
+       "base": 24.3247,
+       "quote": 6544.1252
+      },
+      "fdv": 3897530941,
+      "marketCap": 3883640143,
+      "pairCreatedAt": 1726241063000,
+      "info": {
+       "imageUrl": "https://cdn.dexscreener.com/cms/images/07ce833f9dde758de45cb2476e630226f9b58418bb20e0f7ce3885c5d0d80b1b?width=800&height=800&quality=95&format=auto",
+       "header": "https://cdn.dexscreener.com/cms/images/f438ebce9f352a49dbc6ff80a98a03bca8267fec63b5eeaa407290ad6fc298cc?width=1500&height=500&quality=95&format=auto",
+       "openGraph": "https://cdn.dexscreener.com/token-images/og/base/0xcbb7c0000ab88b473b1f5afd9ef808440eed33bf?timestamp=1792028400000",
+       "websites": [],
+       "socials": []
+      }
+     },
+     {
+      "chainId": "base",
+      "dexId": "aerodrome",
+      "url": "https://dexscreener.com/base/0x4e962bb3889bf030368f56810a9c96b83cb3e778",
+      "pairAddress": "0x4e962BB3889Bf030368F56810A9c96B83CB3E778",
+      "baseToken": {
+       "address": "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf",
+       "name": "Coinbase Wrapped BTC",
+       "symbol": "cbBTC"
+      },
+      "quoteToken": {
+       "address": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+       "name": "USD Coin",
+       "symbol": "USDC"
+      },
+      "priceNative": "81727.9278",
+      "priceUsd": "81727.92",
+      "txns": {
+       "m5": {
+        "buys": 27,
+        "sells": 22
+       },
+       "h1": {
+        "buys": 241,
+        "sells": 233
+       },
+       "h6": {
+        "buys": 874,
+        "sells": 836
+       },
+       "h24": {
+        "buys": 3383,
+        "sells": 3736
+       }
+      },
+      "volume": {
+       "h24": 17094316.4,
+       "h6": 4119522.22,
+       "h1": 1150187.89,
+       "m5": 116416.67
+      },
+      "priceChange": {
+       "m5": 0.09,
+       "h1": 0.23,
+       "h6": 0.09,
+       "h24": -1.81
+      },
+      "liquidity": {
+       "usd": 6338452.4,
+       "base": 47.004584,
+       "quote": 2496865
+      },
+      "fdv": 3899676045,
+      "marketCap": 3885777602,
+      "info": {
+       "imageUrl": "https://cdn.dexscreener.com/cms/images/07ce833f9dde758de45cb2476e630226f9b58418bb20e0f7ce3885c5d0d80b1b?width=800&height=800&quality=95&format=auto",
+       "header": "https://cdn.dexscreener.com/cms/images/f438ebce9f352a49dbc6ff80a98a03bca8267fec63b5eeaa407290ad6fc298cc?width=1500&height=500&quality=95&format=auto",
+       "openGraph": "https://cdn.dexscreener.com/token-images/og/base/0xcbb7c0000ab88b473b1f5afd9ef808440eed33bf?timestamp=1792028400000",
+       "websites": [],
+       "socials": []
+      }
+     },
+     {
+      "chainId": "base",
+      "dexId": "uniswap",
+      "url": "https://dexscreener.com/base/0xfbb6eed8e7aa03b138556eedaf5d271a5e1e43ef",
+      "pairAddress": "0xfBB6Eed8e7aa03B138556eeDaF5D271A5E1e43ef",
+      "labels": [
+       "v3"
+      ],
+      "baseToken": {
+       "address": "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf",
+       "name": "Coinbase Wrapped BTC",
+       "symbol": "cbBTC"
+      },
+      "quoteToken": {
+       "address": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+       "name": "USD Coin",
+       "symbol": "USDC"
+      },
+      "priceNative": "81715.5246",
+      "priceUsd": "81715.52",
+      "txns": {
+       "m5": {
+        "buys": 34,
+        "sells": 16
+       },
+       "h1": {
+        "buys": 291,
+        "sells": 331
+       },
+       "h6": {
+        "buys": 924,
+        "sells": 981
+       },
+       "h24": {
+        "buys": 3876,
+        "sells": 4024
+       }
+      },
+      "volume": {
+       "h24": 12963806.81,
+       "h6": 2497602.16,
+       "h1": 946158.45,
+       "m5": 57046.36
+      },
+      "priceChange": {
+       "m5": 0.07,
+       "h1": 0.22,
+       "h6": 0.08,
+       "h24": -1.82
+      },
+      "liquidity": {
+       "usd": 9226514.15,
+       "base": 50.4288,
+       "quote": 5105694
+      },
+      "fdv": 3899084224,
+      "marketCap": 3885187890,
+      "pairCreatedAt": 1726315447000,
+      "info": {
+       "imageUrl": "https://cdn.dexscreener.com/cms/images/07ce833f9dde758de45cb2476e630226f9b58418bb20e0f7ce3885c5d0d80b1b?width=800&height=800&quality=95&format=auto",
+       "header": "https://cdn.dexscreener.com/cms/images/f438ebce9f352a49dbc6ff80a98a03bca8267fec63b5eeaa407290ad6fc298cc?width=1500&height=500&quality=95&format=auto",
+       "openGraph": "https://cdn.dexscreener.com/token-images/og/base/0xcbb7c0000ab88b473b1f5afd9ef808440eed33bf?timestamp=1792028400000",
+       "websites": [],
+       "socials": []
+      }
+     },
+     {
+      "chainId": "base",
+      "dexId": "aerodrome",
+      "url": "https://dexscreener.com/base/0x3e66e55e97ce60096f74b7c475e8249f2d31a9fb",
+      "pairAddress": "0x3e66e55e97ce60096f74b7C475e8249f2D31a9fb",
+      "baseToken": {
+       "address": "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf",
+       "name": "Coinbase Wrapped BTC",
+       "symbol": "cbBTC"
+      },
+      "quoteToken": {
+       "address": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+       "name": "USD Coin",
+       "symbol": "USDC"
+      },
+      "priceNative": "81726.9450",
+      "priceUsd": "81726.94",
+      "txns": {
+       "m5": {
+        "buys": 33,
+        "sells": 17
+       },
+       "h1": {
+        "buys": 286,
+        "sells": 311
+       },
+       "h6": {
+        "buys": 1012,
+        "sells": 1023
+       },
+       "h24": {
+        "buys": 4091,
+        "sells": 4341
+       }
+      },
+      "volume": {
+       "h24": 10375026.85,
+       "h6": 2066538.46,
+       "h1": 700023.24,
+       "m5": 50493.9
+      },
+      "priceChange": {
+       "m5": 0.08,
+       "h1": 0.24,
+       "h6": 0.08,
+       "h24": -1.82
+      },
+      "liquidity": {
+       "usd": 7962026.91,
+       "base": 38.7982,
+       "quote": 4791162
+      },
+      "fdv": 3899629152,
+      "marketCap": 3885730876,
+      "info": {
+       "imageUrl": "https://cdn.dexscreener.com/cms/images/07ce833f9dde758de45cb2476e630226f9b58418bb20e0f7ce3885c5d0d80b1b?width=800&height=800&quality=95&format=auto",
+       "header": "https://cdn.dexscreener.com/cms/images/f438ebce9f352a49dbc6ff80a98a03bca8267fec63b5eeaa407290ad6fc298cc?width=1500&height=500&quality=95&format=auto",
+       "openGraph": "https://cdn.dexscreener.com/token-images/og/base/0xcbb7c0000ab88b473b1f5afd9ef808440eed33bf?timestamp=1792028400000",
+       "websites": [],
+       "socials": []
+      }
+     },
+     {
+      "chainId": "base",
+      "dexId": "aerodrome",
+      "url": "https://dexscreener.com/base/0x9d14ff91ae2c6e3d1a760542248b6c7f206894b0",
+      "pairAddress": "0x9D14ff91AE2c6e3D1A760542248B6c7F206894b0",
+      "baseToken": {
+       "address": "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf",
+       "name": "Coinbase Wrapped BTC",
+       "symbol": "cbBTC"
+      },
+      "quoteToken": {
+       "address": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+       "name": "USD Coin",
+       "symbol": "USDC"
+      },
+      "priceNative": "81742.3053",
+      "priceUsd": "81742.30",
+      "txns": {
+       "m5": {
+        "buys": 28,
+        "sells": 16
+       },
+       "h1": {
+        "buys": 301,
+        "sells": 270
+       },
+       "h6": {
+        "buys": 1051,
+        "sells": 1091
+       },
+       "h24": {
+        "buys": 4151,
+        "sells": 4238
+       }
+      },
+      "volume": {
+       "h24": 1761916.6,
+       "h6": 455695.48,
+       "h1": 121353.11,
+       "m5": 5893.61
+      },
+      "priceChange": {
+       "m5": 0.09,
+       "h1": 0.28,
+       "h6": 0.07,
+       "h24": -1.8
+      },
+      "liquidity": {
+       "usd": 243362.88,
+       "base": 1.5904,
+       "quote": 113356
+      },
+      "fdv": 3900362073,
+      "marketCap": 3886461185,
+      "info": {
+       "imageUrl": "https://cdn.dexscreener.com/cms/images/07ce833f9dde758de45cb2476e630226f9b58418bb20e0f7ce3885c5d0d80b1b?width=800&height=800&quality=95&format=auto",
+       "header": "https://cdn.dexscreener.com/cms/images/f438ebce9f352a49dbc6ff80a98a03bca8267fec63b5eeaa407290ad6fc298cc?width=1500&height=500&quality=95&format=auto",
+       "openGraph": "https://cdn.dexscreener.com/token-images/og/base/0xcbb7c0000ab88b473b1f5afd9ef808440eed33bf?timestamp=1792028400000",
+       "websites": [],
+       "socials": []
+      }
+     },
+     {
+      "chainId": "base",
+      "dexId": "uniswap",
+      "url": "https://dexscreener.com/base/0x12d76c5c8ec8edffd3c143995b0aa43fe44a6d71eb9113796272909e54b8e078",
+      "pairAddress": "0x12d76c5c8ec8edffd3c143995b0aa43fe44a6d71eb9113796272909e54b8e078",
+      "labels": [
+       "v4"
+      ],
+      "baseToken": {
+       "address": "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf",
+       "name": "Coinbase Wrapped BTC",
+       "symbol": "cbBTC"
+      },
+      "quoteToken": {
+       "address": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+       "name": "USD Coin",
+       "symbol": "USDC"
+      },
+      "priceNative": "81699.7485",
+      "priceUsd": "81699.74",
+      "txns": {
+       "m5": {
+        "buys": 16,
+        "sells": 9
+       },
+       "h1": {
+        "buys": 212,
+        "sells": 214
+       },
+       "h6": {
+        "buys": 711,
+        "sells": 659
+       },
+       "h24": {
+        "buys": 2626,
+        "sells": 2634
+       }
+      },
+      "volume": {
+       "h24": 4460557.04,
+       "h6": 882371.17,
+       "h1": 347865.59,
+       "m5": 11740.73
+      },
+      "priceChange": {
+       "m5": 0.04,
+       "h1": 0.19,
+       "h6": 0.07,
+       "h24": -1.82
+      },
+      "liquidity": {
+       "usd": 3044702.39,
+       "base": 16.5235,
+       "quote": 1694730
+      },
+      "fdv": 3898331461,
+      "marketCap": 3884437810,
+      "pairCreatedAt": 1738188351000,
+      "info": {
+       "imageUrl": "https://cdn.dexscreener.com/cms/images/07ce833f9dde758de45cb2476e630226f9b58418bb20e0f7ce3885c5d0d80b1b?width=800&height=800&quality=95&format=auto",
+       "header": "https://cdn.dexscreener.com/cms/images/f438ebce9f352a49dbc6ff80a98a03bca8267fec63b5eeaa407290ad6fc298cc?width=1500&height=500&quality=95&format=auto",
+       "openGraph": "https://cdn.dexscreener.com/token-images/og/base/0xcbb7c0000ab88b473b1f5afd9ef808440eed33bf?timestamp=1792028400000",
+       "websites": [],
+       "socials": []
+      }
+     },
+     {
+      "chainId": "base",
+      "dexId": "aerodrome",
+      "url": "https://dexscreener.com/base/0x22aee3699b6a0fed71490c103bd4e5f3309891d5",
+      "pairAddress": "0x22AEe3699b6A0fEd71490C103Bd4E5f3309891D5",
+      "baseToken": {
+       "address": "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf",
+       "name": "Coinbase Wrapped BTC",
+       "symbol": "cbBTC"
+      },
+      "quoteToken": {
+       "address": "0x4200000000000000000000000000000000000006",
+       "name": "Wrapped Ether",
+       "symbol": "WETH"
+      },
+      "priceNative": "33.7915",
+      "priceUsd": "81667.45",
+      "txns": {
+       "m5": {
+        "buys": 2,
+        "sells": 4
+       },
+       "h1": {
+        "buys": 140,
+        "sells": 130
+       },
+       "h6": {
+        "buys": 895,
+        "sells": 886
+       },
+       "h24": {
+        "buys": 2492,
+        "sells": 2512
+       }
+      },
+      "volume": {
+       "h24": 357865.09,
+       "h6": 132019.64,
+       "h1": 18122.32,
+       "m5": 372.51
+      },
+      "priceChange": {
+       "m5": -0.03,
+       "h1": 0.16,
+       "h6": 0.1,
+       "h24": -1.76
+      },
+      "liquidity": {
+       "usd": 83550.97,
+       "base": 0.3156,
+       "quote": 23.9037
+      },
+      "fdv": 3896790570,
+      "marketCap": 3882902411,
+      "info": {
+       "imageUrl": "https://cdn.dexscreener.com/cms/images/07ce833f9dde758de45cb2476e630226f9b58418bb20e0f7ce3885c5d0d80b1b?width=800&height=800&quality=95&format=auto",
+       "header": "https://cdn.dexscreener.com/cms/images/f438ebce9f352a49dbc6ff80a98a03bca8267fec63b5eeaa407290ad6fc298cc?width=1500&height=500&quality=95&format=auto",
+       "openGraph": "https://cdn.dexscreener.com/token-images/og/base/0xcbb7c0000ab88b473b1f5afd9ef808440eed33bf?timestamp=1792028400000",
+       "websites": [],
+       "socials": []
+      }
+     },
+     {
+      "chainId": "base",
+      "dexId": "uniswap",
+      "url": "https://dexscreener.com/base/0x2fbe93bf7177596c5d04675bdcef7bacaf98bd954dc26829fcda39f122239459",
+      "pairAddress": "0x2fbe93bf7177596c5d04675bdcef7bacaf98bd954dc26829fcda39f122239459",
+      "labels": [
+       "v4"
+      ],
+      "baseToken": {
+       "address": "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf",
+       "name": "Coinbase Wrapped BTC",
+       "symbol": "cbBTC"
+      },
+      "quoteToken": {
+       "address": "0x0000000000000000000000000000000000000000",
+       "name": "Ether",
+       "symbol": "ETH"
+      },
+      "priceNative": "33.7936",
+      "priceUsd": "81744.52",
+      "txns": {
+       "m5": {
+        "buys": 1,
+        "sells": 0
+       },
+       "h1": {
+        "buys": 122,
+        "sells": 36
+       },
+       "h6": {
+        "buys": 454,
+        "sells": 378
+       },
+       "h24": {
+        "buys": 1424,
+        "sells": 1379
+       }
+      },
+      "volume": {
+       "h24": 2167756.15,
+       "h6": 569662.49,
+       "h1": 89221.74,
+       "m5": 191.09
+      },
+      "priceChange": {
+       "m5": -0.08,
+       "h1": 0.12,
+       "h6": 0.09,
+       "h24": -1.99
+      },
+      "liquidity": {
+       "usd": 1902823.74,
+       "base": 1.2392,
+       "quote": 744.7607
+      },
+      "fdv": 3900468023,
+      "marketCap": 3886566758,
+      "pairCreatedAt": 1738402807000,
+      "info": {
+       "imageUrl": "https://cdn.dexscreener.com/cms/images/07ce833f9dde758de45cb2476e630226f9b58418bb20e0f7ce3885c5d0d80b1b?width=800&height=800&quality=95&format=auto",
+       "header": "https://cdn.dexscreener.com/cms/images/f438ebce9f352a49dbc6ff80a98a03bca8267fec63b5eeaa407290ad6fc298cc?width=1500&height=500&quality=95&format=auto",
+       "openGraph": "https://cdn.dexscreener.com/token-images/og/base/0xcbb7c0000ab88b473b1f5afd9ef808440eed33bf?timestamp=1792028400000",
+       "websites": [],
+       "socials": []
+      }
+     },
+     {
+      "chainId": "base",
+      "dexId": "hydrex",
+      "url": "https://dexscreener.com/base/0x3f9b863ef4b295d6ba370215bcca3785fcc44f44",
+      "pairAddress": "0x3f9b863EF4B295d6Ba370215bcCa3785FCC44f44",
+      "labels": [
+       "CLAMM"
+      ],
+      "baseToken": {
+       "address": "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf",
+       "name": "Coinbase Wrapped BTC",
+       "symbol": "cbBTC"
+      },
+      "quoteToken": {
+       "address": "0x4200000000000000000000000000000000000006",
+       "name": "Wrapped Ether",
+       "symbol": "WETH"
+      },
+      "priceNative": "33.7922",
+      "priceUsd": "81741.14",
+      "txns": {
+       "m5": {
+        "buys": 0,
+        "sells": 1
+       },
+       "h1": {
+        "buys": 44,
+        "sells": 24
+       },
+       "h6": {
+        "buys": 298,
+        "sells": 279
+       },
+       "h24": {
+        "buys": 1596,
+        "sells": 1645
+       }
+      },
+      "volume": {
+       "h24": 1076647.99,
+       "h6": 150565.45,
+       "h1": 3434.84,
+       "m5": 56.3
+      },
+      "priceChange": {
+       "m5": -0.13,
+       "h1": 0.07,
+       "h6": -0.07,
+       "h24": -1.89
+      },
+      "liquidity": {
+       "usd": 1135857.2,
+       "base": 10.3906,
+       "quote": 118.448
+      },
+      "fdv": 3646852986,
+      "marketCap": 3886405783,
+      "pairCreatedAt": 1750110557000,
+      "info": {
+       "imageUrl": "https://cdn.dexscreener.com/cms/images/07ce833f9dde758de45cb2476e630226f9b58418bb20e0f7ce3885c5d0d80b1b?width=800&height=800&quality=95&format=auto",
+       "header": "https://cdn.dexscreener.com/cms/images/f438ebce9f352a49dbc6ff80a98a03bca8267fec63b5eeaa407290ad6fc298cc?width=1500&height=500&quality=95&format=auto",
+       "openGraph": "https://cdn.dexscreener.com/token-images/og/base/0xcbb7c0000ab88b473b1f5afd9ef808440eed33bf?timestamp=1792028400000",
+       "websites": [],
+       "socials": []
+      }
+     },
+     {
+      "chainId": "base",
+      "dexId": "pancakeswap",
+      "url": "https://dexscreener.com/base/0x26e263efdc91f0d3279e2ec2bd58a7ca5c2fce62",
+      "pairAddress": "0x26e263efdc91f0d3279E2Ec2Bd58A7Ca5C2fCE62",
+      "baseToken": {
+       "address": "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf",
+       "name": "Coinbase Wrapped BTC",
+       "symbol": "cbBTC"
+      },
+      "quoteToken": {
+       "address": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+       "name": "USD Coin",
+       "symbol": "USDC"
+      },
+      "priceNative": "81714.5142",
+      "priceUsd": "81714.51",
+      "txns": {
+       "m5": {
+        "buys": 18,
+        "sells": 7
+       },
+       "h1": {
+        "buys": 164,
+        "sells": 170
+       },
+       "h6": {
+        "buys": 468,
+        "sells": 474
+       },
+       "h24": {
+        "buys": 1613,
+        "sells": 1675
+       }
+      },
+      "volume": {
+       "h24": 364993.8,
+       "h6": 106126.94,
+       "h1": 40353.29,
+       "m5": 2105.07
+      },
+      "priceChange": {
+       "m5": 0.06,
+       "h1": 0.22,
+       "h6": 0.08,
+       "h24": -1.83
+      },
+      "liquidity": {
+       "usd": 229793.14,
+       "base": 1.9265,
+       "quote": 72363
+      },
+      "fdv": 3896332332,
+      "marketCap": 3885139850,
+      "pairCreatedAt": 1726245317000,
+      "info": {
+       "imageUrl": "https://cdn.dexscreener.com/cms/images/07ce833f9dde758de45cb2476e630226f9b58418bb20e0f7ce3885c5d0d80b1b?width=800&height=800&quality=95&format=auto",
+       "header": "https://cdn.dexscreener.com/cms/images/f438ebce9f352a49dbc6ff80a98a03bca8267fec63b5eeaa407290ad6fc298cc?width=1500&height=500&quality=95&format=auto",
+       "openGraph": "https://cdn.dexscreener.com/token-images/og/base/0xcbb7c0000ab88b473b1f5afd9ef808440eed33bf?timestamp=1792028400000",
+       "websites": [],
+       "socials": []
+      }
+     },
+     {
+      "chainId": "base",
+      "dexId": "aerodrome",
+      "url": "https://dexscreener.com/base/0x70acdf2ad0bf2402c957154f944c19ef4e1cbae1",
+      "pairAddress": "0x70aCDF2Ad0bf2402C957154f944c19Ef4e1cbAE1",
+      "baseToken": {
+       "address": "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf",
+       "name": "Coinbase Wrapped BTC",
+       "symbol": "cbBTC"
+      },
+      "quoteToken": {
+       "address": "0x4200000000000000000000000000000000000006",
+       "name": "Wrapped Ether",
+       "symbol": "WETH"
+      },
+      "priceNative": "33.7577",
+      "priceUsd": "81553.027",
+      "txns": {
+       "m5": {
+        "buys": 0,
+        "sells": 0
+       },
+       "h1": {
+        "buys": 28,
+        "sells": 4
+       },
+       "h6": {
+        "buys": 200,
+        "sells": 102
+       },
+       "h24": {
+        "buys": 677,
+        "sells": 343
+       }
+      },
+      "volume": {
+       "h24": 2338753.71,
+       "h6": 800134.96,
+       "h1": 1387.27,
+       "m5": 0
+      },
+      "priceChange": {
+       "h1": -0.35,
+       "h6": -0.16,
+       "h24": -1.83
+      },
+      "liquidity": {
+       "usd": 14143022.66,
+       "base": 67.654,
+       "quote": 3570.4611
+      },
+      "fdv": 3891330600,
+      "marketCap": 3877461901,
+      "info": {
+       "imageUrl": "https://cdn.dexscreener.com/cms/images/07ce833f9dde758de45cb2476e630226f9b58418bb20e0f7ce3885c5d0d80b1b?width=800&height=800&quality=95&format=auto",
+       "header": "https://cdn.dexscreener.com/cms/images/f438ebce9f352a49dbc6ff80a98a03bca8267fec63b5eeaa407290ad6fc298cc?width=1500&height=500&quality=95&format=auto",
+       "openGraph": "https://cdn.dexscreener.com/token-images/og/base/0xcbb7c0000ab88b473b1f5afd9ef808440eed33bf?timestamp=1792028400000",
+       "websites": [],
+       "socials": []
+      }
+     },
+     {
+      "chainId": "base",
+      "dexId": "pancakeswap",
+      "url": "https://dexscreener.com/base/0xd974d59e30054cf1abeded0c9947b0d8baf90029",
+      "pairAddress": "0xd974D59e30054cf1aBedeD0C9947B0D8Baf90029",
+      "baseToken": {
+       "address": "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf",
+       "name": "Coinbase Wrapped BTC",
+       "symbol": "cbBTC"
+      },
+      "quoteToken": {
+       "address": "0x4200000000000000000000000000000000000006",
+       "name": "Wrapped Ether",
+       "symbol": "WETH"
+      },
+      "priceNative": "33.7993",
+      "priceUsd": "81871.051",
+      "txns": {
+       "m5": {
+        "buys": 0,
+        "sells": 2
+       },
+       "h1": {
+        "buys": 74,
+        "sells": 52
+       },
+       "h6": {
+        "buys": 299,
+        "sells": 364
+       },
+       "h24": {
+        "buys": 1026,
+        "sells": 1151
+       }
+      },
+      "volume": {
+       "h24": 743144.16,
+       "h6": 255824.83,
+       "h1": 52106.21,
+       "m5": 720.19
+      },
+      "priceChange": {
+       "m5": 0.22,
+       "h1": 0.26,
+       "h6": 0.23,
+       "h24": -1.83
+      },
+      "liquidity": {
+       "usd": 463509.6,
+       "base": 1.1661,
+       "quote": 151.9375
+      },
+      "fdv": 3903796388,
+      "marketCap": 3892582465,
+      "pairCreatedAt": 1737339501000,
+      "info": {
+       "imageUrl": "https://cdn.dexscreener.com/cms/images/07ce833f9dde758de45cb2476e630226f9b58418bb20e0f7ce3885c5d0d80b1b?width=800&height=800&quality=95&format=auto",
+       "header": "https://cdn.dexscreener.com/cms/images/f438ebce9f352a49dbc6ff80a98a03bca8267fec63b5eeaa407290ad6fc298cc?width=1500&height=500&quality=95&format=auto",
+       "openGraph": "https://cdn.dexscreener.com/token-images/og/base/0xcbb7c0000ab88b473b1f5afd9ef808440eed33bf?timestamp=1792028400000",
+       "websites": [],
+       "socials": []
+      }
+     },
+     {
+      "chainId": "base",
+      "dexId": "alien-base",
+      "url": "https://dexscreener.com/base/0x1d6cfee6eec4688dad33e6fbb2304a9efe8be3c8",
+      "pairAddress": "0x1D6CfEe6eeC4688DAD33E6FBB2304a9eFe8BE3C8",
+      "labels": [
+       "V3"
+      ],
+      "baseToken": {
+       "address": "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf",
+       "name": "Coinbase Wrapped BTC",
+       "symbol": "cbBTC"
+      },
+      "quoteToken": {
+       "address": "0x4200000000000000000000000000000000000006",
+       "name": "Wrapped Ether",
+       "symbol": "WETH"
+      },
+      "priceNative": "33.7884",
+      "priceUsd": "81659.93",
+      "txns": {
+       "m5": {
+        "buys": 2,
+        "sells": 4
+       },
+       "h1": {
+        "buys": 94,
+        "sells": 69
+       },
+       "h6": {
+        "buys": 554,
+        "sells": 499
+       },
+       "h24": {
+        "buys": 1817,
+        "sells": 1862
+       }
+      },
+      "volume": {
+       "h24": 160307.2,
+       "h6": 49673.14,
+       "h1": 6677.93,
+       "m5": 228.65
+      },
+      "priceChange": {
+       "m5": -0.04,
+       "h1": 0.15,
+       "h6": 0.09,
+       "h24": -1.74
+      },
+      "liquidity": {
+       "usd": 86713.81,
+       "base": 0.4521,
+       "quote": 20.6016
+      },
+      "fdv": 3896431890,
+      "marketCap": 3882545009,
+      "pairCreatedAt": 1756395617000,
+      "info": {
+       "imageUrl": "https://cdn.dexscreener.com/cms/images/07ce833f9dde758de45cb2476e630226f9b58418bb20e0f7ce3885c5d0d80b1b?width=800&height=800&quality=95&format=auto",
+       "header": "https://cdn.dexscreener.com/cms/images/f438ebce9f352a49dbc6ff80a98a03bca8267fec63b5eeaa407290ad6fc298cc?width=1500&height=500&quality=95&format=auto",
+       "openGraph": "https://cdn.dexscreener.com/token-images/og/base/0xcbb7c0000ab88b473b1f5afd9ef808440eed33bf?timestamp=1792028400000",
+       "websites": [],
+       "socials": []
+      }
+     },
+     {
+      "chainId": "base",
+      "dexId": "uniswap",
+      "url": "https://dexscreener.com/base/0x8c7080564b5a792a33ef2fd473fba6364d5495e5",
+      "pairAddress": "0x8c7080564B5A792A33Ef2FD473fbA6364d5495e5",
+      "labels": [
+       "v3"
+      ],
+      "baseToken": {
+       "address": "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf",
+       "name": "Coinbase Wrapped BTC",
+       "symbol": "cbBTC"
+      },
+      "quoteToken": {
+       "address": "0x4200000000000000000000000000000000000006",
+       "name": "Wrapped Ether",
+       "symbol": "WETH"
+      },
+      "priceNative": "33.7754",
+      "priceUsd": "81681.89",
+      "txns": {
+       "m5": {
+        "buys": 0,
+        "sells": 0
+       },
+       "h1": {
+        "buys": 1,
+        "sells": 0
+       },
+       "h6": {
+        "buys": 107,
+        "sells": 75
+       },
+       "h24": {
+        "buys": 422,
+        "sells": 253
+       }
+      },
+      "volume": {
+       "h24": 2300884.65,
+       "h6": 682869.19,
+       "h1": 0.08,
+       "m5": 0
+      },
+      "priceChange": {
+       "h1": -0.26,
+       "h6": 0.36,
+       "h24": -2.12
+      },
+      "liquidity": {
+       "usd": 10434818.11,
+       "base": 45.9129,
+       "quote": 2764.06522
+      },
+      "fdv": 3897479338,
+      "marketCap": 3883588725,
+      "pairCreatedAt": 1726084175000,
+      "info": {
+       "imageUrl": "https://cdn.dexscreener.com/cms/images/07ce833f9dde758de45cb2476e630226f9b58418bb20e0f7ce3885c5d0d80b1b?width=800&height=800&quality=95&format=auto",
+       "header": "https://cdn.dexscreener.com/cms/images/f438ebce9f352a49dbc6ff80a98a03bca8267fec63b5eeaa407290ad6fc298cc?width=1500&height=500&quality=95&format=auto",
+       "openGraph": "https://cdn.dexscreener.com/token-images/og/base/0xcbb7c0000ab88b473b1f5afd9ef808440eed33bf?timestamp=1792028400000",
+       "websites": [],
+       "socials": []
+      }
+     },
+     {
+      "chainId": "base",
+      "dexId": "uniswap",
+      "url": "https://dexscreener.com/base/0xf97db19953c4309b3af2ceb9cce172939e8868321a24656667d44cccb31c9ddc",
+      "pairAddress": "0xf97db19953c4309b3af2ceb9cce172939e8868321a24656667d44cccb31c9ddc",
+      "labels": [
+       "v4"
+      ],
+      "baseToken": {
+       "address": "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf",
+       "name": "Coinbase Wrapped BTC",
+       "symbol": "cbBTC"
+      },
+      "quoteToken": {
+       "address": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+       "name": "USD Coin",
+       "symbol": "USDC"
+      },
+      "priceNative": "81623.8893",
+      "priceUsd": "81623.88",
+      "txns": {
+       "m5": {
+        "buys": 3,
+        "sells": 0
+       },
+       "h1": {
+        "buys": 65,
+        "sells": 53
+       },
+       "h6": {
+        "buys": 141,
+        "sells": 112
+       },
+       "h24": {
+        "buys": 646,
+        "sells": 670
+       }
+      },
+      "volume": {
+       "h24": 401199.02,
+       "h6": 65486.75,
+       "h1": 34295.79,
+       "m5": 1267.32
+      },
+      "priceChange": {
+       "m5": 0.03,
+       "h1": 0.04,
+       "h6": -0.04,
+       "h24": -1.97
+      },
+      "liquidity": {
+       "usd": 1309302.51,
+       "base": 6.8761,
+       "quote": 748047
+      },
+      "fdv": 3894711814,
+      "marketCap": 3880831064,
+      "pairCreatedAt": 1744557523000,
+      "info": {
+       "imageUrl": "https://cdn.dexscreener.com/cms/images/07ce833f9dde758de45cb2476e630226f9b58418bb20e0f7ce3885c5d0d80b1b?width=800&height=800&quality=95&format=auto",
+       "header": "https://cdn.dexscreener.com/cms/images/f438ebce9f352a49dbc6ff80a98a03bca8267fec63b5eeaa407290ad6fc298cc?width=1500&height=500&quality=95&format=auto",
+       "openGraph": "https://cdn.dexscreener.com/token-images/og/base/0xcbb7c0000ab88b473b1f5afd9ef808440eed33bf?timestamp=1792028400000",
+       "websites": [],
+       "socials": []
+      }
+     },
+     {
+      "chainId": "base",
+      "dexId": "alien-base",
+      "url": "https://dexscreener.com/base/0x4ca59b56965385e14b3fd4d48cd1741dc21e7343",
+      "pairAddress": "0x4ca59b56965385e14B3fd4d48Cd1741dC21E7343",
+      "labels": [
+       "V3"
+      ],
+      "baseToken": {
+       "address": "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf",
+       "name": "Coinbase Wrapped BTC",
+       "symbol": "cbBTC"
+      },
+      "quoteToken": {
+       "address": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+       "name": "USD Coin",
+       "symbol": "USDC"
+      },
+      "priceNative": "81711.9488",
+      "priceUsd": "81711.94",
+      "txns": {
+       "m5": {
+        "buys": 2,
+        "sells": 6
+       },
+       "h1": {
+        "buys": 38,
+        "sells": 65
+       },
+       "h6": {
+        "buys": 112,
+        "sells": 152
+       },
+       "h24": {
+        "buys": 422,
+        "sells": 479
+       }
+      },
+      "volume": {
+       "h24": 9972.27,
+       "h6": 1603.46,
+       "h1": 594.21,
+       "m5": 34.76
+      },
+      "priceChange": {
+       "m5": 0.06,
+       "h1": 0.21,
+       "h6": 0.07,
+       "h24": -1.81
+      },
+      "liquidity": {
+       "usd": 100320.04,
+       "base": 0.3695,
+       "quote": 70123
+      },
+      "fdv": 3898913602,
+      "marketCap": 3885017877,
+      "pairCreatedAt": 1731432859000,
+      "info": {
+       "imageUrl": "https://cdn.dexscreener.com/cms/images/07ce833f9dde758de45cb2476e630226f9b58418bb20e0f7ce3885c5d0d80b1b?width=800&height=800&quality=95&format=auto",
+       "header": "https://cdn.dexscreener.com/cms/images/f438ebce9f352a49dbc6ff80a98a03bca8267fec63b5eeaa407290ad6fc298cc?width=1500&height=500&quality=95&format=auto",
+       "openGraph": "https://cdn.dexscreener.com/token-images/og/base/0xcbb7c0000ab88b473b1f5afd9ef808440eed33bf?timestamp=1792028400000",
+       "websites": [],
+       "socials": []
+      }
+     },
+     {
+      "chainId": "base",
+      "dexId": "quickswap",
+      "url": "https://dexscreener.com/base/0xd800b7e8c0949dffbd59e3df9527a22e311c0e7b",
+      "pairAddress": "0xd800B7e8C0949dFFBD59E3DF9527a22E311C0e7b",
+      "labels": [
+       "v4"
+      ],
+      "baseToken": {
+       "address": "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf",
+       "name": "Coinbase Wrapped BTC",
+       "symbol": "cbBTC"
+      },
+      "quoteToken": {
+       "address": "0x4200000000000000000000000000000000000006",
+       "name": "Wrapped Ether",
+       "symbol": "WETH"
+      },
+      "priceNative": "33.8076",
+      "priceUsd": "81843.66",
+      "txns": {
+       "m5": {
+        "buys": 0,
+        "sells": 0
+       },
+       "h1": {
+        "buys": 44,
+        "sells": 23
+       },
+       "h6": {
+        "buys": 192,
+        "sells": 191
+       },
+       "h24": {
+        "buys": 623,
+        "sells": 592
+       }
+      },
+      "volume": {
+       "h24": 136979.6,
+       "h6": 41123.86,
+       "h1": 5983.43,
+       "m5": 0
+      },
+      "priceChange": {
+       "h1": 0.2,
+       "h6": 0.16,
+       "h24": -1.82
+      },
+      "liquidity": {
+       "usd": 276193.69,
+       "base": 1.6003,
+       "quote": 59.9846
+      },
+      "fdv": 1412762034,
+      "marketCap": 3891280445,
+      "pairCreatedAt": 1754665945000,
+      "info": {
+       "imageUrl": "https://cdn.dexscreener.com/cms/images/07ce833f9dde758de45cb2476e630226f9b58418bb20e0f7ce3885c5d0d80b1b?width=800&height=800&quality=95&format=auto",
+       "header": "https://cdn.dexscreener.com/cms/images/f438ebce9f352a49dbc6ff80a98a03bca8267fec63b5eeaa407290ad6fc298cc?width=1500&height=500&quality=95&format=auto",
+       "openGraph": "https://cdn.dexscreener.com/token-images/og/base/0xcbb7c0000ab88b473b1f5afd9ef808440eed33bf?timestamp=1792028400000",
+       "websites": [],
+       "socials": []
+      }
+     },
+     {
+      "chainId": "base",
+      "dexId": "uniswap",
+      "url": "https://dexscreener.com/base/0xec558e484cc9f2210714e345298fdc53b253c27d",
+      "pairAddress": "0xeC558e484cC9f2210714E345298fdc53B253c27D",
+      "labels": [
+       "v3"
+      ],
+      "baseToken": {
+       "address": "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf",
+       "name": "Coinbase Wrapped BTC",
+       "symbol": "cbBTC"
+      },
+      "quoteToken": {
+       "address": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+       "name": "USD Coin",
+       "symbol": "USDC"
+      },
+      "priceNative": "81585.7491",
+      "priceUsd": "81585.74",
+      "txns": {
+       "m5": {
+        "buys": 0,
+        "sells": 0
+       },
+       "h1": {
+        "buys": 7,
+        "sells": 2
+       },
+       "h6": {
+        "buys": 7,
+        "sells": 20
+       },
+       "h24": {
+        "buys": 207,
+        "sells": 390
+       }
+      },
+      "volume": {
+       "h24": 470400.3,
+       "h6": 20615.67,
+       "h1": 10397.99,
+       "m5": 0
+      },
+      "priceChange": {
+       "h6": -0.12,
+       "h24": -2.13
+      },
+      "liquidity": {
+       "usd": 2837379.58,
+       "base": 20.9999,
+       "quote": 1124081
+      },
+      "fdv": 3892891943,
+      "marketCap": 3879017678,
+      "pairCreatedAt": 1726084247000,
+      "info": {
+       "imageUrl": "https://cdn.dexscreener.com/cms/images/07ce833f9dde758de45cb2476e630226f9b58418bb20e0f7ce3885c5d0d80b1b?width=800&height=800&quality=95&format=auto",
+       "header": "https://cdn.dexscreener.com/cms/images/f438ebce9f352a49dbc6ff80a98a03bca8267fec63b5eeaa407290ad6fc298cc?width=1500&height=500&quality=95&format=auto",
+       "openGraph": "https://cdn.dexscreener.com/token-images/og/base/0xcbb7c0000ab88b473b1f5afd9ef808440eed33bf?timestamp=1792028400000",
+       "websites": [],
+       "socials": []
+      }
+     },
+     {
+      "chainId": "base",
+      "dexId": "aerodrome",
+      "url": "https://dexscreener.com/base/0xfcda5ab6bbc1fe5b8e1a185e86bb5f24b12e2278",
+      "pairAddress": "0xFCda5ab6BBC1fe5B8e1a185e86bb5f24b12e2278",
+      "baseToken": {
+       "address": "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf",
+       "name": "Coinbase Wrapped BTC",
+       "symbol": "cbBTC"
+      },
+      "quoteToken": {
+       "address": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+       "name": "USD Coin",
+       "symbol": "USDC"
+      },
+      "priceNative": "81634.4576",
+      "priceUsd": "81634.45",
+      "txns": {
+       "m5": {
+        "buys": 2,
+        "sells": 0
+       },
+       "h1": {
+        "buys": 35,
+        "sells": 32
+       },
+       "h6": {
+        "buys": 83,
+        "sells": 74
+       },
+       "h24": {
+        "buys": 397,
+        "sells": 443
+       }
+      },
+      "volume": {
+       "h24": 115857.18,
+       "h6": 21161.12,
+       "h1": 6710.68,
+       "m5": 184.62
+      },
+      "priceChange": {
+       "m5": 0.02,
+       "h1": 0.03,
+       "h6": -0.05,
+       "h24": -1.95
+      },
+      "liquidity": {
+       "usd": 136310.74,
+       "base": 1.08737,
+       "quote": 47543
+      },
+      "fdv": 3895216084,
+      "marketCap": 3881333537,
+      "info": {
+       "imageUrl": "https://cdn.dexscreener.com/cms/images/07ce833f9dde758de45cb2476e630226f9b58418bb20e0f7ce3885c5d0d80b1b?width=800&height=800&quality=95&format=auto",
+       "header": "https://cdn.dexscreener.com/cms/images/f438ebce9f352a49dbc6ff80a98a03bca8267fec63b5eeaa407290ad6fc298cc?width=1500&height=500&quality=95&format=auto",
+       "openGraph": "https://cdn.dexscreener.com/token-images/og/base/0xcbb7c0000ab88b473b1f5afd9ef808440eed33bf?timestamp=1792028400000",
+       "websites": [],
+       "socials": []
+      }
+     },
+     {
+      "chainId": "base",
+      "dexId": "quickswap",
+      "url": "https://dexscreener.com/base/0xacc2874ed22e811afdc47979c7b7985cced53b29",
+      "pairAddress": "0xaCc2874ed22e811afdc47979c7b7985cCEd53b29",
+      "labels": [
+       "v4"
+      ],
+      "baseToken": {
+       "address": "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf",
+       "name": "Coinbase Wrapped BTC",
+       "symbol": "cbBTC"
+      },
+      "quoteToken": {
+       "address": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+       "name": "USD Coin",
+       "symbol": "USDC"
+      },
+      "priceNative": "81748.1274",
+      "priceUsd": "81748.12",
+      "txns": {
+       "m5": {
+        "buys": 1,
+        "sells": 0
+       },
+       "h1": {
+        "buys": 43,
+        "sells": 39
+       },
+       "h6": {
+        "buys": 120,
+        "sells": 108
+       },
+       "h24": {
+        "buys": 592,
+        "sells": 645
+       }
+      },
+      "volume": {
+       "h24": 67409.36,
+       "h6": 10655.82,
+       "h1": 3807.91,
+       "m5": 50.57
+      },
+      "priceChange": {
+       "m5": 0.02,
+       "h1": 0.29,
+       "h6": 0.16,
+       "h24": -1.82
+      },
+      "liquidity": {
+       "usd": 114664.96,
+       "base": 0.7105,
+       "quote": 56577
+      },
+      "fdv": 1411112861,
+      "marketCap": 3886737998,
+      "pairCreatedAt": 1754665751000,
+      "info": {
+       "imageUrl": "https://cdn.dexscreener.com/cms/images/07ce833f9dde758de45cb2476e630226f9b58418bb20e0f7ce3885c5d0d80b1b?width=800&height=800&quality=95&format=auto",
+       "header": "https://cdn.dexscreener.com/cms/images/f438ebce9f352a49dbc6ff80a98a03bca8267fec63b5eeaa407290ad6fc298cc?width=1500&height=500&quality=95&format=auto",
+       "openGraph": "https://cdn.dexscreener.com/token-images/og/base/0xcbb7c0000ab88b473b1f5afd9ef808440eed33bf?timestamp=1792028400000",
+       "websites": [],
+       "socials": []
+      }
+     },
+     {
+      "chainId": "base",
+      "dexId": "aerodrome",
+      "url": "https://dexscreener.com/base/0xb909f567c5c2bb1a4271349708cc4637d7318b4a",
+      "pairAddress": "0xb909F567c5c2Bb1A4271349708CC4637D7318b4A",
+      "baseToken": {
+       "address": "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf",
+       "name": "Coinbase Wrapped BTC",
+       "symbol": "cbBTC"
+      },
+      "quoteToken": {
+       "address": "0x0b3e328455c4059EEb9e3f84b5543F74E24e7E1b",
+       "name": "Virtual Protocol",
+       "symbol": "VIRTUAL"
+      },
+      "priceNative": "121664.9291",
+      "priceUsd": "82064.21",
+      "txns": {
+       "m5": {
+        "buys": 0,
+        "sells": 0
+       },
+       "h1": {
+        "buys": 18,
+        "sells": 4
+       },
+       "h6": {
+        "buys": 41,
+        "sells": 28
+       },
+       "h24": {
+        "buys": 197,
+        "sells": 180
+       }
+      },
+      "volume": {
+       "h24": 23533.95,
+       "h6": 8991.93,
+       "h1": 679.52,
+       "m5": 0
+      },
+      "priceChange": {
+       "h1": 0.54,
+       "h6": 0.69,
+       "h24": -1.28
+      },
+      "liquidity": {
+       "usd": 581981.01,
+       "base": 3.5458,
+       "quote": 431410
+      },
+      "fdv": 3913327431,
+      "marketCap": 7772919349,
+      "pairCreatedAt": 1726191827000,
+      "info": {
+       "imageUrl": "https://cdn.dexscreener.com/cms/images/07ce833f9dde758de45cb2476e630226f9b58418bb20e0f7ce3885c5d0d80b1b?width=800&height=800&quality=95&format=auto",
+       "header": "https://cdn.dexscreener.com/cms/images/f438ebce9f352a49dbc6ff80a98a03bca8267fec63b5eeaa407290ad6fc298cc?width=1500&height=500&quality=95&format=auto",
+       "openGraph": "https://cdn.dexscreener.com/token-images/og/base/0xcbb7c0000ab88b473b1f5afd9ef808440eed33bf?timestamp=1792028400000",
+       "websites": [],
+       "socials": []
+      }
+     },
+     {
+      "chainId": "base",
+      "dexId": "pancakeswap",
+      "url": "https://dexscreener.com/base/0x5b3613ef9a535b48e82e2800acb77053dfec93b1",
+      "pairAddress": "0x5b3613ef9a535b48e82e2800aCb77053DFeC93b1",
+      "baseToken": {
+       "address": "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf",
+       "name": "Coinbase Wrapped BTC",
+       "symbol": "cbBTC"
+      },
+      "quoteToken": {
+       "address": "0x4200000000000000000000000000000000000006",
+       "name": "Wrapped Ether",
+       "symbol": "WETH"
+      },
+      "priceNative": "33.7568",
+      "priceUsd": "81664.48",
+      "txns": {
+       "m5": {
+        "buys": 0,
+        "sells": 0
+       },
+       "h1": {
+        "buys": 0,
+        "sells": 0
+       },
+       "h6": {
+        "buys": 35,
+        "sells": 27
+       },
+       "h24": {
+        "buys": 140,
+        "sells": 87
+       }
+      },
+      "volume": {
+       "h24": 25187.36,
+       "h6": 7305.98,
+       "h1": 0,
+       "m5": 0
+      },
+      "priceChange": {
+       "h6": 0.21,
+       "h24": -2.26
+      },
+      "liquidity": {
+       "usd": 105002.46,
+       "base": 0.6888,
+       "quote": 20.1488
+      },
+      "fdv": 3893946599,
+      "marketCap": 3882760970,
+      "pairCreatedAt": 1738227665000,
+      "info": {
+       "imageUrl": "https://cdn.dexscreener.com/cms/images/07ce833f9dde758de45cb2476e630226f9b58418bb20e0f7ce3885c5d0d80b1b?width=800&height=800&quality=95&format=auto",
+       "header": "https://cdn.dexscreener.com/cms/images/f438ebce9f352a49dbc6ff80a98a03bca8267fec63b5eeaa407290ad6fc298cc?width=1500&height=500&quality=95&format=auto",
+       "openGraph": "https://cdn.dexscreener.com/token-images/og/base/0xcbb7c0000ab88b473b1f5afd9ef808440eed33bf?timestamp=1792028400000",
+       "websites": [],
+       "socials": []
+      }
+     },
+     {
+      "chainId": "base",
+      "dexId": "uniswap",
+      "url": "https://dexscreener.com/base/0xe6195a1f1c8f5d0bcf0a880db26738a1df4f6863017700a8f6377a72d45366f2",
+      "pairAddress": "0xe6195a1f1c8f5d0bcf0a880db26738a1df4f6863017700a8f6377a72d45366f2",
+      "labels": [
+       "v4"
+      ],
+      "baseToken": {
+       "address": "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf",
+       "name": "Coinbase Wrapped BTC",
+       "symbol": "cbBTC"
+      },
+      "quoteToken": {
+       "address": "0x0000000000000000000000000000000000000000",
+       "name": "Ether",
+       "symbol": "ETH"
+      },
+      "priceNative": "33.7938",
+      "priceUsd": "81916.39",
+      "txns": {
+       "m5": {
+        "buys": 0,
+        "sells": 0
+       },
+       "h1": {
+        "buys": 0,
+        "sells": 0
+       },
+       "h6": {
+        "buys": 48,
+        "sells": 21
+       },
+       "h24": {
+        "buys": 147,
+        "sells": 67
+       }
+      },
+      "volume": {
+       "h24": 18285.21,
+       "h6": 5484.26,
+       "h1": 0,
+       "m5": 0
+      },
+      "priceChange": {
+       "h6": -0.45,
+       "h24": -1.64
+      },
+      "liquidity": {
+       "usd": 280660,
+       "base": 0.9567,
+       "quote": 83.451
+      },
+      "fdv": 3908668677,
+      "marketCap": 3894738185,
+      "pairCreatedAt": 1738343927000,
+      "info": {
+       "imageUrl": "https://cdn.dexscreener.com/cms/images/07ce833f9dde758de45cb2476e630226f9b58418bb20e0f7ce3885c5d0d80b1b?width=800&height=800&quality=95&format=auto",
+       "header": "https://cdn.dexscreener.com/cms/images/f438ebce9f352a49dbc6ff80a98a03bca8267fec63b5eeaa407290ad6fc298cc?width=1500&height=500&quality=95&format=auto",
+       "openGraph": "https://cdn.dexscreener.com/token-images/og/base/0xcbb7c0000ab88b473b1f5afd9ef808440eed33bf?timestamp=1792028400000",
+       "websites": [],
+       "socials": []
+      }
+     },
+     {
+      "chainId": "base",
+      "dexId": "aerodrome",
+      "url": "https://dexscreener.com/base/0x2578365b3dfa7ffe60108e181efb79feddec2319",
+      "pairAddress": "0x2578365B3dfA7FfE60108e181EFb79FeDdec2319",
+      "baseToken": {
+       "address": "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf",
+       "name": "Coinbase Wrapped BTC",
+       "symbol": "cbBTC"
+      },
+      "quoteToken": {
+       "address": "0x4200000000000000000000000000000000000006",
+       "name": "Wrapped Ether",
+       "symbol": "WETH"
+      },
+      "priceNative": "33.7828",
+      "priceUsd": "81555.61",
+      "txns": {
+       "m5": {
+        "buys": 0,
+        "sells": 0
+       },
+       "h1": {
+        "buys": 0,
+        "sells": 6
+       },
+       "h6": {
+        "buys": 29,
+        "sells": 26
+       },
+       "h24": {
+        "buys": 112,
+        "sells": 81
+       }
+      },
+      "volume": {
+       "h24": 8704.57,
+       "h6": 2412.94,
+       "h1": 0.99,
+       "m5": 0
+      },
+      "priceChange": {
+       "h1": -0.44,
+       "h6": 0.09,
+       "h24": -2.3
+      },
+      "liquidity": {
+       "usd": 1154590.93,
+       "base": 7.07854,
+       "quote": 239.1338
+      },
+      "fdv": 3889074274,
+      "marketCap": 7724746066,
+      "pairCreatedAt": 1726382449000,
+      "info": {
+       "imageUrl": "https://cdn.dexscreener.com/cms/images/07ce833f9dde758de45cb2476e630226f9b58418bb20e0f7ce3885c5d0d80b1b?width=800&height=800&quality=95&format=auto",
+       "header": "https://cdn.dexscreener.com/cms/images/f438ebce9f352a49dbc6ff80a98a03bca8267fec63b5eeaa407290ad6fc298cc?width=1500&height=500&quality=95&format=auto",
+       "openGraph": "https://cdn.dexscreener.com/token-images/og/base/0xcbb7c0000ab88b473b1f5afd9ef808440eed33bf?timestamp=1792028400000",
+       "websites": [],
+       "socials": []
+      }
+     },
+     {
+      "chainId": "base",
+      "dexId": "aerodrome",
+      "url": "https://dexscreener.com/base/0x9c38b55f9a9aba91bbcedeb12bf4428f47a6a0b8",
+      "pairAddress": "0x9c38b55f9A9Aba91BbCEDEb12bf4428f47A6a0B8",
+      "baseToken": {
+       "address": "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf",
+       "name": "Coinbase Wrapped BTC",
+       "symbol": "cbBTC"
+      },
+      "quoteToken": {
+       "address": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+       "name": "USD Coin",
+       "symbol": "USDC"
+      },
+      "priceNative": "81592.6928",
+      "priceUsd": "81592.69",
+      "txns": {
+       "m5": {
+        "buys": 0,
+        "sells": 0
+       },
+       "h1": {
+        "buys": 1,
+        "sells": 3
+       },
+       "h6": {
+        "buys": 3,
+        "sells": 19
+       },
+       "h24": {
+        "buys": 57,
+        "sells": 141
+       }
+      },
+      "volume": {
+       "h24": 4535.23,
+       "h6": 569.1,
+       "h1": 58.7,
+       "m5": 0
+      },
+      "priceChange": {
+       "h1": -0.01,
+       "h6": -0.34,
+       "h24": -2.14
+      },
+      "liquidity": {
+       "usd": 261094.18,
+       "base": 1.5999,
+       "quote": 130547
+      },
+      "fdv": 3890842355,
+      "marketCap": 7728257949,
+      "pairCreatedAt": 1726157739000,
+      "info": {
+       "imageUrl": "https://cdn.dexscreener.com/cms/images/07ce833f9dde758de45cb2476e630226f9b58418bb20e0f7ce3885c5d0d80b1b?width=800&height=800&quality=95&format=auto",
+       "header": "https://cdn.dexscreener.com/cms/images/f438ebce9f352a49dbc6ff80a98a03bca8267fec63b5eeaa407290ad6fc298cc?width=1500&height=500&quality=95&format=auto",
+       "openGraph": "https://cdn.dexscreener.com/token-images/og/base/0xcbb7c0000ab88b473b1f5afd9ef808440eed33bf?timestamp=1792028400000",
+       "websites": [],
+       "socials": []
+      }
+     }
+    ]
+   }
+  }
+ }
+}

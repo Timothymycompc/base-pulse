@@ -1,0 +1,38 @@
+{
+ "tool": "convert",
+ "case": "cbbtc-8-decimals",
+ "note": "cbBTC has 8 decimals, not 18: 0.001 cbBTC is 100,000 raw units.",
+ "args": {
+  "token": "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf",
+  "amount": "0.001",
+  "network": "base"
+ },
+ "recordedAt": "2026-10-15T00:57:55.178Z",
+ "expect": {
+  "raw": "100000",
+  "decimals": 8
+ },
+ "result": {
+  "token": "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf",
+  "symbol": "cbBTC",
+  "decimals": 8,
+  "amount": "0.001",
+  "raw": "100000",
+  "source": "decimals() and symbol() on 0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf, base"
+ },
+ "error": null,
+ "recording": {
+  "now": 1792025875178,
+  "etherscan": false,
+  "rpc": {
+   "eth_call [{\"data\":\"0x95d89b41\",\"to\":\"0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf\"},\"latest\"]": {
+    "result": "0x000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000056362425443000000000000000000000000000000000000000000000000000000"
+   },
+   "eth_call [{\"data\":\"0x313ce567\",\"to\":\"0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf\"},\"latest\"]": {
+    "result": "0x0000000000000000000000000000000000000000000000000000000000000008"
+   }
+  },
+  "sim": {},
+  "http": {}
+ }
+}

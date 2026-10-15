@@ -1,0 +1,38 @@
+{
+ "tool": "balance",
+ "case": "burn-address",
+ "note": "The burn address: holds tokens nobody can spend; balances read the same way as any wallet.",
+ "args": {
+  "wallet": "0x000000000000000000000000000000000000dEaD",
+  "network": "base"
+ },
+ "recordedAt": "2026-10-15T01:03:55.189Z",
+ "expect": {},
+ "result": {
+  "wallet": "0x000000000000000000000000000000000000dEaD",
+  "network": "base",
+  "block": 52618444,
+  "eth": "4.468982427072889173",
+  "eth_wei": "4468982427072889173",
+  "usdc": "25899.182388",
+  "source": "Base RPC: eth_getBalance and USDC balanceOf at block 52618444"
+ },
+ "error": null,
+ "recording": {
+  "now": 1792026235189,
+  "etherscan": false,
+  "rpc": {
+   "eth_blockNumber []": {
+    "result": "0x322e4cc"
+   },
+   "eth_getBalance [\"0x000000000000000000000000000000000000dEaD\",\"0x322e4cc\"]": {
+    "result": "0x3e0503d6f9248155"
+   },
+   "eth_call [{\"data\":\"0x70a08231000000000000000000000000000000000000000000000000000000000000dead\",\"to\":\"0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913\"},\"0x322e4cc\"]": {
+    "result": "0x0000000000000000000000000000000000000000000000000000000607b62934"
+   }
+  },
+  "sim": {},
+  "http": {}
+ }
+}

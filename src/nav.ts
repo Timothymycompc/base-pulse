@@ -47,8 +47,13 @@ export const DOCS_PATHS = new Set(['/docs/quickstart', '/docs/calls', '/status']
 // The checks an agent runs before money moves, in the order it runs them. Menus show only the ones that are built.
 export const SAFETY_CHECKS = [
   { name: 'token_safety', question: 'Is this token safe to buy or accept?', verdicts: ['SAFE', 'CAUTION', 'AVOID'] },
+  { name: 'recipient_check', question: 'Is this the right address to send to?', verdicts: ['SAFE', 'CAUTION', 'AVOID'] },
+  { name: 'sanctions_check', question: 'Is this address sanctioned?', verdicts: ['CLEAR', 'NOT_LISTED', 'DIRECT_EXPOSURE', 'SANCTIONED'] },
+  { name: 'x402_check', question: 'Is this x402 payment request safe to pay?', verdicts: ['SAFE', 'CAUTION', 'AVOID'] },
+  { name: 'check_signature', question: 'What does this signature let someone take?', verdicts: ['SAFE', 'CAUTION', 'AVOID'] },
   { name: 'tx_matches', question: 'Does it do exactly what was asked, and nothing else?', verdicts: ['MATCH', 'MISMATCH'] },
-  { name: 'check_tx', question: 'What will this transaction do to each wallet?', verdicts: ['OK', 'REVIEW', 'BLOCK'] },
+  { name: 'check_tx', question: 'What will this transaction do to each wallet?', verdicts: ['SAFE', 'CAUTION', 'AVOID'] },
+  { name: 'approvals', question: 'Who can move this wallet\'s tokens right now?', verdicts: ['CLEAR', 'REVIEW', 'DANGER'] },
 ];
 
 export const toolPath = (name: string) => `/docs/tools/${name}`;

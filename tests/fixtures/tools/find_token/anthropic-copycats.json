@@ -1,0 +1,1893 @@
+{
+ "tool": "find_token",
+ "case": "anthropic-copycats",
+ "note": "No real ANTHROPIC token exists on Base. On 2026-10-15 the only one found had $200k of liquidity; earlier, two others were in the token_safety sample. None may be named as real.",
+ "args": {
+  "query": "ANTHROPIC"
+ },
+ "recordedAt": "2026-10-15T01:43:00.479Z",
+ "expect": {
+  "answer": null,
+  "confidence": "unlisted"
+ },
+ "result": {
+  "query": "ANTHROPIC",
+  "answer": null,
+  "confidence": "unlisted",
+  "candidates": [
+   {
+    "address": "0xCe354d791EdF33c06c07f1E0E9560A983924d1A5",
+    "symbol": "ANTH",
+    "name": "Anthropic",
+    "lists": [],
+    "liquidity_usd": 200229,
+    "pools": 2,
+    "oldest_pool_days": 2,
+    "copycat": true
+   }
+  ],
+  "warning": "1 contract(s) call themselves ANTHROPIC, and no curated list includes any of them (the most liquid has $200,229). Liquidity can be bought, so none is named: get the address from the project itself.",
+  "sources": [
+   "Base Pulse issuer list (checked on chain)",
+   "Uniswap default token list",
+   "CoinGecko Base token list",
+   "DexScreener search and token pairs",
+   "symbol() and name() on chain"
+  ]
+ },
+ "error": null,
+ "recording": {
+  "now": 1792028580479,
+  "etherscan": false,
+  "rpc": {
+   "eth_call [{\"data\":\"0x82ad56cb00000000000000000000000000000000000000000000000000000000000000200000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000004000000000000000000000000000000000000000000000000000000000000000e0000000000000000000000000ce354d791edf33c06c07f1e0e9560a983924d1a500000000000000000000000000000000000000000000000000000000000000010000000000000000000000000000000000000000000000000000000000000060000000000000000000000000000000000000000000000000000000000000000495d89b4100000000000000000000000000000000000000000000000000000000000000000000000000000000ce354d791edf33c06c07f1e0e9560a983924d1a500000000000000000000000000000000000000000000000000000000000000010000000000000000000000000000000000000000000000000000000000000060000000000000000000000000000000000000000000000000000000000000000406fdde0300000000000000000000000000000000000000000000000000000000\",\"to\":\"0xca11bde05977b3631167028862be2a173976ca11\"},\"latest\"]": {
+    "result": "0x000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000020000000000000000000000000000000000000000000000000000000000000040000000000000000000000000000000000000000000000000000000000000010000000000000000000000000000000000000000000000000000000000000000010000000000000000000000000000000000000000000000000000000000000040000000000000000000000000000000000000000000000000000000000000006000000000000000000000000000000000000000000000000000000000000000200000000000000000000000000000000000000000000000000000000000000004414e54480000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000010000000000000000000000000000000000000000000000000000000000000040000000000000000000000000000000000000000000000000000000000000006000000000000000000000000000000000000000000000000000000000000000200000000000000000000000000000000000000000000000000000000000000009416e7468726f7069630000000000000000000000000000000000000000000000"
+   }
+  },
+  "sim": {},
+  "http": {
+   "https://api.dexscreener.com/latest/dex/search?q=ANTHROPIC": {
+    "result": {
+     "schemaVersion": "1.0.0",
+     "pairs": [
+      {
+       "chainId": "robinhood",
+       "dexId": "uniswap",
+       "url": "https://dexscreener.com/robinhood/0xa07989b26b114569d3b04cf276de3d5a1924bbad291a91d33f6f27f6f594809d",
+       "pairAddress": "0xa07989b26b114569d3b04cf276de3d5a1924bbad291a91d33f6f27f6f594809d",
+       "labels": [
+        "v4"
+       ],
+       "baseToken": {
+        "address": "0x4Bcc2c6d2497a2b0864D87Efac28d0D47A391E18",
+        "name": "Anthropic",
+        "symbol": "ANTH"
+       },
+       "quoteToken": {
+        "address": "0x1937caD42b17D43bB2b347ce16d5288887C46c33",
+        "name": "ANTHROPIC 1x Long",
+        "symbol": "ANTHROPICx1L"
+       },
+       "priceNative": "0.0001405",
+       "priceUsd": "0.0001302",
+       "txns": {
+        "m5": {
+         "buys": 0,
+         "sells": 0
+        },
+        "h1": {
+         "buys": 0,
+         "sells": 0
+        },
+        "h6": {
+         "buys": 2,
+         "sells": 2
+        },
+        "h24": {
+         "buys": 4,
+         "sells": 5
+        }
+       },
+       "volume": {
+        "h24": 619.62,
+        "h6": 118.91,
+        "h1": 0,
+        "m5": 0
+       },
+       "priceChange": {
+        "h6": -0.7,
+        "h24": -4.3
+       },
+       "liquidity": {
+        "usd": 110519.09,
+        "base": 753359516,
+        "quote": 13373
+       },
+       "fdv": 130248,
+       "marketCap": 130248,
+       "pairCreatedAt": 1789340406000,
+       "info": {
+        "imageUrl": "https://cdn.dexscreener.com/cms/images/6oSoHekrOxXOVIzO?width=800&height=800&quality=95&format=auto",
+        "header": "https://cdn.dexscreener.com/cms/images/akjtd4IyU2_ihyhQ?width=1500&height=500&quality=95&format=auto",
+        "openGraph": "https://cdn.dexscreener.com/token-images/og/robinhood/0x4bcc2c6d2497a2b0864d87efac28d0d47a391e18?timestamp=1792028400000",
+        "websites": [
+         {
+          "url": "https://www.anthonhood.com/",
+          "label": "Website"
+         }
+        ],
+        "socials": [
+         {
+          "url": "https://x.com/anth_ai/status/2108580825826463779?s=46",
+          "type": "twitter"
+         }
+        ]
+       }
+      },
+      {
+       "chainId": "robinhood",
+       "dexId": "uniswap",
+       "url": "https://dexscreener.com/robinhood/0xd8db7fb6ca8488147683cd2d7ae7c6b95c2912cbf781f0189772b5bb54f9b163",
+       "pairAddress": "0xd8db7fb6ca8488147683cd2d7ae7c6b95c2912cbf781f0189772b5bb54f9b163",
+       "labels": [
+        "v4"
+       ],
+       "baseToken": {
+        "address": "0x36E93e3F85472F206FAf96a2c2313355f9be1e18",
+        "name": "ANThropic",
+        "symbol": "ANT"
+       },
+       "quoteToken": {
+        "address": "0x1937caD42b17D43bB2b347ce16d5288887C46c33",
+        "name": "ANTHROPIC 1x Long",
+        "symbol": "ANTHROPICx1L"
+       },
+       "priceNative": "0.0001493",
+       "priceUsd": "0.0001431",
+       "txns": {
+        "m5": {
+         "buys": 0,
+         "sells": 0
+        },
+        "h1": {
+         "buys": 0,
+         "sells": 0
+        },
+        "h6": {
+         "buys": 0,
+         "sells": 0
+        },
+        "h24": {
+         "buys": 1,
+         "sells": 3
+        }
+       },
+       "volume": {
+        "h24": 471.38,
+        "h6": 0,
+        "h1": 0,
+        "m5": 0
+       },
+       "priceChange": {
+        "h24": -2.07
+       },
+       "liquidity": {
+        "usd": 120644.11,
+        "base": 748735890,
+        "quote": 14043
+       },
+       "fdv": 143147,
+       "marketCap": 143147,
+       "pairCreatedAt": 1789325582000,
+       "info": {
+        "imageUrl": "https://cdn.dexscreener.com/cms/images/SOJ1uJVk8HhTQdnW?width=800&height=800&quality=95&format=auto",
+        "header": "https://cdn.dexscreener.com/cms/images/Y8uCKlsXoeZpnxxG?width=1500&height=500&quality=95&format=auto",
+        "openGraph": "https://cdn.dexscreener.com/token-images/og/robinhood/0x36e93e3f85472f206faf96a2c2313355f9be1e18?timestamp=1792028400000",
+        "websites": [],
+        "socials": [
+         {
+          "url": "https://x.com/ANThropicONRBH",
+          "type": "twitter"
+         }
+        ]
+       }
+      },
+      {
+       "chainId": "robinhood",
+       "dexId": "uniswap",
+       "url": "https://dexscreener.com/robinhood/0x5a2a4e61c6282927fdfe3546b14902ce2fac6c9f",
+       "pairAddress": "0x5a2a4e61c6282927fdFE3546b14902Ce2faC6C9f",
+       "labels": [
+        "v3"
+       ],
+       "baseToken": {
+        "address": "0xeCb4dA87AE6975283B2784974b537e99c3Dd54BA",
+        "name": "Anthropic",
+        "symbol": "ANTH"
+       },
+       "quoteToken": {
+        "address": "0x0Bd7D308f8E1639FAb988df18A8011f41EAcAD73",
+        "name": "WETH",
+        "symbol": "WETH"
+       },
+       "priceNative": "0.000000006359",
+       "priceUsd": "0.00001551",
+       "txns": {
+        "m5": {
+         "buys": 0,
+         "sells": 0
+        },
+        "h1": {
+         "buys": 0,
+         "sells": 0
+        },
+        "h6": {
+         "buys": 0,
+         "sells": 0
+        },
+        "h24": {
+         "buys": 1,
+         "sells": 1
+        }
+       },
+       "volume": {
+        "h24": 191.1,
+        "h6": 0,
+        "h1": 0,
+        "m5": 0
+       },
+       "priceChange": {
+        "h24": 0.63
+       },
+       "liquidity": {
+        "usd": 11030.99,
+        "base": 462499102,
+        "quote": 1.581
+       },
+       "fdv": 15512,
+       "marketCap": 15512,
+       "pairCreatedAt": 1784238405000,
+       "info": {
+        "imageUrl": "https://cdn.dexscreener.com/cms/images/RJ73p3Kbds6v6zrw?width=800&height=800&quality=95&format=auto",
+        "header": "https://cdn.dexscreener.com/cms/images/z0zMGT2MElMf6Hbe?width=1500&height=500&quality=95&format=auto",
+        "openGraph": "https://cdn.dexscreener.com/token-images/og/robinhood/0xecb4da87ae6975283b2784974b537e99c3dd54ba?timestamp=1792028400000",
+        "websites": [],
+        "socials": [
+         {
+          "url": "https://x.com/anth_pons_token",
+          "type": "twitter"
+         },
+         {
+          "url": "https://t.me/anth_on_pons",
+          "type": "telegram"
+         },
+         {
+          "url": "https://discord.gg/sA2fYE9b",
+          "type": "discord"
+         }
+        ]
+       }
+      },
+      {
+       "chainId": "solana",
+       "dexId": "meteora",
+       "url": "https://dexscreener.com/solana/ezyszdex1lzdt7tssfv8xdpi49sdkc3mdfv2mvmeqltu",
+       "pairAddress": "EZyszDEx1LZDt7TsSFV8xdPi49sDKC3mdfv2MVMEQLtU",
+       "labels": [
+        "DLMM"
+       ],
+       "baseToken": {
+        "address": "Pren1FvFX6J3E4kXhJuCiAD5aDmGEb7qJRncwA8Lkhw",
+        "name": "Anthropic PreStocks",
+        "symbol": "ANTHROPIC"
+       },
+       "quoteToken": {
+        "address": "So11111111111111111111111111111111111111112",
+        "name": "Wrapped SOL",
+        "symbol": "SOL"
+       },
+       "priceNative": "8.9565",
+       "priceUsd": "935.32",
+       "txns": {
+        "m5": {
+         "buys": 0,
+         "sells": 0
+        },
+        "h1": {
+         "buys": 2,
+         "sells": 20
+        },
+        "h6": {
+         "buys": 26,
+         "sells": 570
+        },
+        "h24": {
+         "buys": 210,
+         "sells": 1851
+        }
+       },
+       "volume": {
+        "h24": 220344.5,
+        "h6": 46785.42,
+        "h1": 716.81,
+        "m5": 0
+       },
+       "priceChange": {
+        "h1": -7.29,
+        "h6": -7.83,
+        "h24": -9.49
+       },
+       "liquidity": {
+        "usd": 366281.02,
+        "base": 118.9215,
+        "quote": 2442.3075
+       },
+       "fdv": 7215093,
+       "marketCap": 7215093,
+       "pairCreatedAt": 1776380821000
+      },
+      {
+       "chainId": "solana",
+       "dexId": "pumpswap",
+       "url": "https://dexscreener.com/solana/bmjrgxumzdnbhpxfbkezf2poc4fyuryunkfkeqbqratr",
+       "pairAddress": "BMjrGXumZdNbHPxFBkezf2Poc4FYuRYunkFKeQbQRaTr",
+       "baseToken": {
+        "address": "Cg2KJtCDYZHGMo7MhoE25uy4i8wBnoZzZvsSNo2Kpump",
+        "name": "Anthropic",
+        "symbol": "ANTH"
+       },
+       "quoteToken": {
+        "address": "So11111111111111111111111111111111111111112",
+        "name": "Wrapped SOL",
+        "symbol": "SOL"
+       },
+       "priceNative": "0.000001396",
+       "priceUsd": "0.0001452",
+       "txns": {
+        "m5": {
+         "buys": 0,
+         "sells": 0
+        },
+        "h1": {
+         "buys": 0,
+         "sells": 0
+        },
+        "h6": {
+         "buys": 5,
+         "sells": 2
+        },
+        "h24": {
+         "buys": 23,
+         "sells": 15
+        }
+       },
+       "volume": {
+        "h24": 5638.37,
+        "h6": 1089.26,
+        "h1": 0,
+        "m5": 0
+       },
+       "priceChange": {
+        "h6": -4.8,
+        "h24": -4.49
+       },
+       "liquidity": {
+        "usd": 37093.17,
+        "base": 128114640,
+        "quote": 177.7369
+       },
+       "fdv": 145187,
+       "marketCap": 145187,
+       "pairCreatedAt": 1780168240000,
+       "info": {
+        "imageUrl": "https://cdn.dexscreener.com/cms/images/2uC9BSJ7epf8oOaD?width=800&height=800&quality=95&format=auto",
+        "header": "https://cdn.dexscreener.com/cms/images/1YBC8xFVe60RQAw3?width=1500&height=500&quality=95&format=auto",
+        "openGraph": "https://cdn.dexscreener.com/token-images/og/solana/Cg2KJtCDYZHGMo7MhoE25uy4i8wBnoZzZvsSNo2Kpump?timestamp=1792028400000",
+        "websites": [
+         {
+          "url": "https://www.anthropic.com/news/confidential-draft-s1-sec",
+          "label": "Website"
+         },
+         {
+          "url": "https://coincommunities.org/communities/Cg2KJtCDYZHGMo7MhoE25uy4i8wBnoZzZvsSNo2Kpump",
+          "label": ""
+         }
+        ],
+        "socials": [
+         {
+          "url": "https://x.com/ANTHonMeme",
+          "type": "twitter"
+         },
+         {
+          "url": "https://t.me/AnthropicPortal",
+          "type": "telegram"
+         }
+        ]
+       }
+      },
+      {
+       "chainId": "base",
+       "dexId": "uniswap",
+       "url": "https://dexscreener.com/base/0x38c333c928f09734f5301ab741f7f491f7217ce3b8dd68e517518fadf182a037",
+       "pairAddress": "0x38c333c928f09734f5301ab741f7f491f7217ce3b8dd68e517518fadf182a037",
+       "labels": [
+        "v4"
+       ],
+       "baseToken": {
+        "address": "0xCe354d791EdF33c06c07f1E0E9560A983924d1A5",
+        "name": "Anthropic",
+        "symbol": "ANTH"
+       },
+       "quoteToken": {
+        "address": "0x4200000000000000000000000000000000000006",
+        "name": "Wrapped Ether",
+        "symbol": "WETH"
+       },
+       "priceNative": "0.00000008335",
+       "priceUsd": "0.0002022",
+       "txns": {
+        "m5": {
+         "buys": 0,
+         "sells": 0
+        },
+        "h1": {
+         "buys": 0,
+         "sells": 0
+        },
+        "h6": {
+         "buys": 0,
+         "sells": 0
+        },
+        "h24": {
+         "buys": 5,
+         "sells": 2
+        }
+       },
+       "volume": {
+        "h24": 30.44,
+        "h6": 0,
+        "h1": 0,
+        "m5": 0
+       },
+       "priceChange": {
+        "h24": -1.96
+       },
+       "liquidity": {
+        "usd": 200228.51,
+        "base": 989404184,
+        "quote": 0.04784
+       },
+       "fdv": 202255,
+       "marketCap": 202255,
+       "pairCreatedAt": 1791832125000
+      },
+      {
+       "chainId": "bsc",
+       "dexId": "pancakeswap",
+       "url": "https://dexscreener.com/bsc/0xb73bf82392b1b9f91a934cd3220cfa3732d10d85",
+       "pairAddress": "0xB73Bf82392b1B9F91a934Cd3220CFa3732d10d85",
+       "labels": [
+        "v3"
+       ],
+       "baseToken": {
+        "address": "0x24B518b332543a4E1C3649d063daB199d103760a",
+        "name": "Anthropic",
+        "symbol": "oANTHROPIC"
+       },
+       "quoteToken": {
+        "address": "0x55d398326f99059fF775485246999027B3197955",
+        "name": "Tether USD",
+        "symbol": "USDT"
+       },
+       "priceNative": "1088.8338",
+       "priceUsd": "1088.83",
+       "txns": {
+        "m5": {
+         "buys": 0,
+         "sells": 0
+        },
+        "h1": {
+         "buys": 36,
+         "sells": 28
+        },
+        "h6": {
+         "buys": 148,
+         "sells": 121
+        },
+        "h24": {
+         "buys": 971,
+         "sells": 1188
+        }
+       },
+       "volume": {
+        "h24": 184323.08,
+        "h6": 18427.31,
+        "h1": 4117.56,
+        "m5": 0
+       },
+       "priceChange": {
+        "h1": 0.02,
+        "h6": 0.04,
+        "h24": -0.37
+       },
+       "liquidity": {
+        "usd": 106746.06,
+        "base": 41.007263,
+        "quote": 62095
+       },
+       "fdv": 550674,
+       "marketCap": 550674,
+       "pairCreatedAt": 1790089035000
+      },
+      {
+       "chainId": "solana",
+       "dexId": "meteora",
+       "url": "https://dexscreener.com/solana/9thgwvmjukiiotrvmzhey1mwpyvknsuswkbp8zfsuha2",
+       "pairAddress": "9thgWVMJUKiiotrVmzhEy1MWPyvkNsUSwKbp8ZFsuhA2",
+       "labels": [
+        "DLMM"
+       ],
+       "baseToken": {
+        "address": "Pren1FvFX6J3E4kXhJuCiAD5aDmGEb7qJRncwA8Lkhw",
+        "name": "Anthropic PreStocks",
+        "symbol": "ANTHROPIC"
+       },
+       "quoteToken": {
+        "address": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+        "name": "USD Coin",
+        "symbol": "USDC"
+       },
+       "priceNative": "1023.5656",
+       "priceUsd": "1023.56",
+       "txns": {
+        "m5": {
+         "buys": 1,
+         "sells": 0
+        },
+        "h1": {
+         "buys": 25,
+         "sells": 22
+        },
+        "h6": {
+         "buys": 209,
+         "sells": 260
+        },
+        "h24": {
+         "buys": 700,
+         "sells": 808
+        }
+       },
+       "volume": {
+        "h24": 126328.85,
+        "h6": 28160.82,
+        "h1": 2648.83,
+        "m5": 68.41
+       },
+       "priceChange": {
+        "m5": 1.27,
+        "h1": 1.09,
+        "h6": 0.64,
+        "h24": -3.02
+       },
+       "liquidity": {
+        "usd": 35117.5,
+        "base": 22.04958,
+        "quote": 12548
+       },
+       "fdv": 7895742,
+       "marketCap": 7895742,
+       "pairCreatedAt": 1776380821000
+      },
+      {
+       "chainId": "arc",
+       "dexId": "uniswap",
+       "url": "https://dexscreener.com/arc/0xea57aa82ed32e08164dc61585266613ad10bac06dd00995044715ab35405012e",
+       "pairAddress": "0xea57aa82ed32e08164dc61585266613ad10bac06dd00995044715ab35405012e",
+       "labels": [
+        "v4"
+       ],
+       "baseToken": {
+        "address": "0xbf933cC9b9505B6Fe0030583F97fa59445727777",
+        "name": "Anthropic PreStocks",
+        "symbol": "ANTHROPIC"
+       },
+       "quoteToken": {
+        "address": "0x0000000000000000000000000000000000000000",
+        "name": "USDC",
+        "symbol": "USDC"
+       },
+       "priceNative": "0.00002329",
+       "priceUsd": "0.00002329",
+       "txns": {
+        "m5": {
+         "buys": 0,
+         "sells": 0
+        },
+        "h1": {
+         "buys": 0,
+         "sells": 0
+        },
+        "h6": {
+         "buys": 0,
+         "sells": 0
+        },
+        "h24": {
+         "buys": 113,
+         "sells": 82
+        }
+       },
+       "volume": {
+        "h24": 19640.95,
+        "h6": 0,
+        "h1": 0,
+        "m5": 0
+       },
+       "priceChange": {
+        "h24": 231
+       },
+       "liquidity": {
+        "usd": 25479.08,
+        "base": 546764497,
+        "quote": 12739
+       },
+       "fdv": 23186,
+       "marketCap": 23186,
+       "pairCreatedAt": 1791953095000
+      },
+      {
+       "chainId": "solana",
+       "dexId": "raydium",
+       "url": "https://dexscreener.com/solana/bxtumpr47pp3xqtbmf9jfzu7djxxw6nx3tzt5z32rmnq",
+       "pairAddress": "BxtuMpr47pP3XQtbMf9jFzu7djXXW6nx3tZT5Z32rMNq",
+       "labels": [
+        "CLMM"
+       ],
+       "baseToken": {
+        "address": "Pren1FvFX6J3E4kXhJuCiAD5aDmGEb7qJRncwA8Lkhw",
+        "name": "Anthropic PreStocks",
+        "symbol": "ANTHROPIC"
+       },
+       "quoteToken": {
+        "address": "So11111111111111111111111111111111111111112",
+        "name": "Wrapped SOL",
+        "symbol": "SOL"
+       },
+       "priceNative": "9.8388",
+       "priceUsd": "1026.19",
+       "txns": {
+        "m5": {
+         "buys": 2,
+         "sells": 1
+        },
+        "h1": {
+         "buys": 3,
+         "sells": 15
+        },
+        "h6": {
+         "buys": 45,
+         "sells": 71
+        },
+        "h24": {
+         "buys": 256,
+         "sells": 277
+        }
+       },
+       "volume": {
+        "h24": 31057.82,
+        "h6": 7444.69,
+        "h1": 481.57,
+        "m5": 105.3
+       },
+       "priceChange": {
+        "m5": -0.08,
+        "h1": -0.18,
+        "h6": -0.4,
+        "h24": -3.06
+       },
+       "liquidity": {
+        "usd": 20109.77,
+        "base": 9.3586,
+        "quote": 100.7283
+       },
+       "fdv": 7916004,
+       "marketCap": 7916004,
+       "pairCreatedAt": 1788884088000
+      },
+      {
+       "chainId": "solana",
+       "dexId": "raydium",
+       "url": "https://dexscreener.com/solana/47msbowajnppt6jgsglk4hdctkqrrckt5ptfhpv7wbpt",
+       "pairAddress": "47MsbowAJnPPt6jgSGLK4hdCtKqRRcKT5pTFHPV7WBPt",
+       "labels": [
+        "CLMM"
+       ],
+       "baseToken": {
+        "address": "Pren1FvFX6J3E4kXhJuCiAD5aDmGEb7qJRncwA8Lkhw",
+        "name": "Anthropic PreStocks",
+        "symbol": "ANTHROPIC"
+       },
+       "quoteToken": {
+        "address": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+        "name": "USD Coin",
+        "symbol": "USDC"
+       },
+       "priceNative": "1022.2228",
+       "priceUsd": "1022.22",
+       "txns": {
+        "m5": {
+         "buys": 0,
+         "sells": 0
+        },
+        "h1": {
+         "buys": 0,
+         "sells": 7
+        },
+        "h6": {
+         "buys": 38,
+         "sells": 42
+        },
+        "h24": {
+         "buys": 161,
+         "sells": 232
+        }
+       },
+       "volume": {
+        "h24": 25816.78,
+        "h6": 3300.73,
+        "h1": 172.23,
+        "m5": 0
+       },
+       "priceChange": {
+        "h1": -0.24,
+        "h6": -0.55,
+        "h24": -3.32
+       },
+       "liquidity": {
+        "usd": 15420.75,
+        "base": 12.8816,
+        "quote": 2252.7857
+       },
+       "fdv": 7885384,
+       "marketCap": 7885384,
+       "pairCreatedAt": 1785982167000
+      },
+      {
+       "chainId": "solana",
+       "dexId": "pumpfun",
+       "url": "https://dexscreener.com/solana/ekkbicqgmey8i16rybbscxhcwmrqydvs9j6roxnrmtzp",
+       "pairAddress": "EkKBicqGmey8i16rYBBScxHcwmrqyDvS9J6roxnRmtzp",
+       "baseToken": {
+        "address": "3gUhqcUgBqAyr99X6gMm5v59AZ8smBiCbGiVbKBWENo7",
+        "name": "ANTHROPIC",
+        "symbol": "ANTH"
+       },
+       "quoteToken": {
+        "address": "So11111111111111111111111111111111111111112",
+        "name": "Wrapped SOL",
+        "symbol": "SOL"
+       },
+       "priceNative": "0.0000001758",
+       "priceUsd": "0.00001836",
+       "txns": {
+        "m5": {
+         "buys": 0,
+         "sells": 0
+        },
+        "h1": {
+         "buys": 0,
+         "sells": 0
+        },
+        "h6": {
+         "buys": 14,
+         "sells": 6
+        },
+        "h24": {
+         "buys": 24,
+         "sells": 29
+        }
+       },
+       "volume": {
+        "h24": 1885.18,
+        "h6": 985.83,
+        "h1": 0,
+        "m5": 0
+       },
+       "priceChange": {
+        "h6": 5.02,
+        "h24": 5.53
+       },
+       "fdv": 18360.79,
+       "marketCap": 18360.79,
+       "pairCreatedAt": 1788244125000
+      },
+      {
+       "chainId": "solana",
+       "dexId": "pumpfun",
+       "url": "https://dexscreener.com/solana/afshr97raudjhth5dnrbaczfj56km4upwt75sybwiacn",
+       "pairAddress": "AFSHR97RaUDJhtH5dnrBaCZfj56KM4upwT75SYBwiAcN",
+       "baseToken": {
+        "address": "7N4HXaQRbkinbqVmr3VsDBTXaFbEVSKYnJsnBDAUAkHF",
+        "name": "ANTHROPIC",
+        "symbol": "ANT"
+       },
+       "quoteToken": {
+        "address": "So11111111111111111111111111111111111111112",
+        "name": "Wrapped SOL",
+        "symbol": "SOL"
+       },
+       "priceNative": "0.00000002899",
+       "priceUsd": "0.000003023",
+       "txns": {
+        "m5": {
+         "buys": 90,
+         "sells": 74
+        },
+        "h1": {
+         "buys": 90,
+         "sells": 74
+        },
+        "h6": {
+         "buys": 90,
+         "sells": 74
+        },
+        "h24": {
+         "buys": 90,
+         "sells": 74
+        }
+       },
+       "volume": {
+        "h24": 8879.76,
+        "h6": 8879.76,
+        "h1": 8879.76,
+        "m5": 8879.76
+       },
+       "priceChange": {
+        "m5": -23.55,
+        "h1": -23.55,
+        "h6": -23.55,
+        "h24": -23.55
+       },
+       "fdv": 3023.7,
+       "marketCap": 3023.7,
+       "pairCreatedAt": 1792028385000
+      },
+      {
+       "chainId": "solana",
+       "dexId": "pumpfun",
+       "url": "https://dexscreener.com/solana/gakffp7zen2u1ypdg8zudmwnnmtfc4uafa61ngjaids",
+       "pairAddress": "GaKFfp7Zen2U1ypDg8zUDmWNNmTfc4uAfa61nGJAiDs",
+       "baseToken": {
+        "address": "hPUUsUWzh3GTdZ2W2zjtbnGqm2M1CLf9sHNrGxKpump",
+        "name": "Anthropic",
+        "symbol": "ANTP"
+       },
+       "quoteToken": {
+        "address": "So11111111111111111111111111111111111111112",
+        "name": "Wrapped SOL",
+        "symbol": "SOL"
+       },
+       "priceNative": "0.0000001138",
+       "priceUsd": "0.00001200",
+       "txns": {
+        "m5": {
+         "buys": 0,
+         "sells": 0
+        },
+        "h1": {
+         "buys": 0,
+         "sells": 0
+        },
+        "h6": {
+         "buys": 0,
+         "sells": 0
+        },
+        "h24": {
+         "buys": 16,
+         "sells": 37
+        }
+       },
+       "volume": {
+        "h24": 778.72,
+        "h6": 0,
+        "h1": 0,
+        "m5": 0
+       },
+       "priceChange": {
+        "h24": -2.64
+       },
+       "fdv": 12004.99,
+       "marketCap": 12004.99,
+       "pairCreatedAt": 1780374261000
+      },
+      {
+       "chainId": "solana",
+       "dexId": "pumpfun",
+       "url": "https://dexscreener.com/solana/6js9gtgvjp24ulf5wwl6qifpfjqfrzqmwh3b73va7mmn",
+       "pairAddress": "6js9gtgvjP24uLf5WWL6QiFPFjQFRzqMwh3b73vA7mMn",
+       "baseToken": {
+        "address": "4nZTnkvtRdvzGj5NqM5Uq1WA6iBGGnT2asMFW7gKpump",
+        "name": "Anthropic",
+        "symbol": "ANT"
+       },
+       "quoteToken": {
+        "address": "So11111111111111111111111111111111111111112",
+        "name": "Wrapped SOL",
+        "symbol": "SOL"
+       },
+       "priceNative": "0.00000008200",
+       "priceUsd": "0.000008540",
+       "txns": {
+        "m5": {
+         "buys": 0,
+         "sells": 0
+        },
+        "h1": {
+         "buys": 1,
+         "sells": 4
+        },
+        "h6": {
+         "buys": 28,
+         "sells": 14
+        },
+        "h24": {
+         "buys": 43,
+         "sells": 41
+        }
+       },
+       "volume": {
+        "h24": 3156.15,
+        "h6": 2290.47,
+        "h1": 173.33,
+        "m5": 0
+       },
+       "priceChange": {
+        "h1": -4.8,
+        "h6": 16.52,
+        "h24": 22.77
+       },
+       "fdv": 8540.19,
+       "marketCap": 8540.19,
+       "pairCreatedAt": 1788758652000
+      },
+      {
+       "chainId": "robinhood",
+       "dexId": "uniswap",
+       "url": "https://dexscreener.com/robinhood/0x3fb545ad2671e4190e31a266a01bb7fc7581540e8267da667d87b66d7e29c174",
+       "pairAddress": "0x3fb545ad2671e4190e31a266a01bb7fc7581540e8267da667d87b66d7e29c174",
+       "labels": [
+        "v4"
+       ],
+       "baseToken": {
+        "address": "0x61De52BB18970F1296a3829008b6ab7cCB773Da7",
+        "name": "Anthropic",
+        "symbol": "Anthropic"
+       },
+       "quoteToken": {
+        "address": "0x0Bd7D308f8E1639FAb988df18A8011f41EAcAD73",
+        "name": "WETH",
+        "symbol": "WETH"
+       },
+       "priceNative": "0.000000008894",
+       "priceUsd": "0.00002202",
+       "txns": {
+        "m5": {
+         "buys": 0,
+         "sells": 0
+        },
+        "h1": {
+         "buys": 0,
+         "sells": 0
+        },
+        "h6": {
+         "buys": 0,
+         "sells": 0
+        },
+        "h24": {
+         "buys": 41,
+         "sells": 22
+        }
+       },
+       "volume": {
+        "h24": 16718.28,
+        "h6": 0,
+        "h1": 0,
+        "m5": 0
+       },
+       "priceChange": {
+        "h24": 72.08
+       },
+       "liquidity": {
+        "usd": 20645.95,
+        "base": 749814988,
+        "quote": 1.6684
+       },
+       "fdv": 22025,
+       "marketCap": 22025,
+       "pairCreatedAt": 1791981777000
+      },
+      {
+       "chainId": "solana",
+       "dexId": "pumpfun",
+       "url": "https://dexscreener.com/solana/bjtcej4bhqr11v4ynamw1sl2dh9txgqypkkwkcxjy8pk",
+       "pairAddress": "BjtCej4bHQR11V4ynAmw1SL2Dh9TXGqyPkKWKCXJY8PK",
+       "baseToken": {
+        "address": "GLhvRvRpLG1hso3diAyTLA9AWWcVArqy2cJgBUVi4wq9",
+        "name": "Anthropic",
+        "symbol": "ANTP"
+       },
+       "quoteToken": {
+        "address": "So11111111111111111111111111111111111111112",
+        "name": "Wrapped SOL",
+        "symbol": "SOL"
+       },
+       "priceNative": "0.00000006976",
+       "priceUsd": "0.000007442",
+       "txns": {
+        "m5": {
+         "buys": 0,
+         "sells": 0
+        },
+        "h1": {
+         "buys": 0,
+         "sells": 0
+        },
+        "h6": {
+         "buys": 0,
+         "sells": 0
+        },
+        "h24": {
+         "buys": 4,
+         "sells": 1
+        }
+       },
+       "volume": {
+        "h24": 464.14,
+        "h6": 0,
+        "h1": 0,
+        "m5": 0
+       },
+       "priceChange": {
+        "h24": 5.03
+       },
+       "fdv": 7442.91,
+       "marketCap": 7442.91,
+       "pairCreatedAt": 1788315971000
+      },
+      {
+       "chainId": "solana",
+       "dexId": "pumpfun",
+       "url": "https://dexscreener.com/solana/bwvwmczxq2elefd3zumepu8wwvdhaabycqrpxxd68e26",
+       "pairAddress": "BWvwmCZXq2ELEfd3zUmEpu8WWVDhAABYcqRPxXD68E26",
+       "baseToken": {
+        "address": "8DTwe3V1bLVD9PxAjJdyBnCMihTASeDmyDECRNidpump",
+        "name": "ANTHROPIC",
+        "symbol": "ANT"
+       },
+       "quoteToken": {
+        "address": "So11111111111111111111111111111111111111112",
+        "name": "Wrapped SOL",
+        "symbol": "SOL"
+       },
+       "priceNative": "0.00000002795",
+       "priceUsd": "0.000002916",
+       "txns": {
+        "m5": {
+         "buys": 7,
+         "sells": 16
+        },
+        "h1": {
+         "buys": 7,
+         "sells": 16
+        },
+        "h6": {
+         "buys": 7,
+         "sells": 16
+        },
+        "h24": {
+         "buys": 7,
+         "sells": 16
+        }
+       },
+       "volume": {
+        "h24": 3502.77,
+        "h6": 3502.77,
+        "h1": 3502.77,
+        "m5": 3502.77
+       },
+       "priceChange": {
+        "m5": -30.27,
+        "h1": -30.27,
+        "h6": -30.27,
+        "h24": -30.27
+       },
+       "fdv": 2916.12,
+       "marketCap": 2916.12,
+       "pairCreatedAt": 1792028372000
+      },
+      {
+       "chainId": "solana",
+       "dexId": "pumpfun",
+       "url": "https://dexscreener.com/solana/2hpjlftke1xyas67jyjetvnujmd2kxqggeqavjn6sddr",
+       "pairAddress": "2HpJLFtKE1XyaS67jYJeTVNuJmd2kXqgGEqavJN6SDDr",
+       "baseToken": {
+        "address": "5orS9nsG3wyxSgThxMdrcQug5paySD3ppf1s1JksKuLH",
+        "name": "ANTHROPIC",
+        "symbol": "ANT"
+       },
+       "quoteToken": {
+        "address": "Xsc9qvGR1efVDFGLrVsmkzv3qi45LTBjeUKSPmx9qEh",
+        "name": "NVIDIA xStock",
+        "symbol": "NVDAx"
+       },
+       "priceNative": "0.00000001399",
+       "priceUsd": "0.000003065",
+       "txns": {
+        "m5": {
+         "buys": 0,
+         "sells": 1
+        },
+        "h1": {
+         "buys": 0,
+         "sells": 1
+        },
+        "h6": {
+         "buys": 0,
+         "sells": 1
+        },
+        "h24": {
+         "buys": 0,
+         "sells": 1
+        }
+       },
+       "volume": {
+        "h24": 3.68,
+        "h6": 3.68,
+        "h1": 3.68,
+        "m5": 3.68
+       },
+       "priceChange": {},
+       "fdv": 3065.87,
+       "marketCap": 3065.87,
+       "pairCreatedAt": 1792028386000
+      },
+      {
+       "chainId": "solana",
+       "dexId": "pumpfun",
+       "url": "https://dexscreener.com/solana/7witcxjygdl8hv1ufg1ebpweqy1b4scg8mlecu68g6m6",
+       "pairAddress": "7witCxJygDL8hv1ufg1eBpWEqy1B4Scg8mLEcu68g6m6",
+       "baseToken": {
+        "address": "7HRUebipTS8VUurKBBmb7i8bgfBvZS2nKNwkCZa6pump",
+        "name": "Anthropic PBC",
+        "symbol": "ANTHROPIC"
+       },
+       "quoteToken": {
+        "address": "So11111111111111111111111111111111111111112",
+        "name": "Wrapped SOL",
+        "symbol": "SOL"
+       },
+       "priceNative": "0.00000004330",
+       "priceUsd": "0.000004501",
+       "txns": {
+        "m5": {
+         "buys": 0,
+         "sells": 0
+        },
+        "h1": {
+         "buys": 0,
+         "sells": 0
+        },
+        "h6": {
+         "buys": 0,
+         "sells": 0
+        },
+        "h24": {
+         "buys": 0,
+         "sells": 1
+        }
+       },
+       "volume": {
+        "h24": 134.27,
+        "h6": 0,
+        "h1": 0,
+        "m5": 0
+       },
+       "priceChange": {},
+       "fdv": 4501.89,
+       "marketCap": 4501.89,
+       "pairCreatedAt": 1774619662000
+      },
+      {
+       "chainId": "solana",
+       "dexId": "pumpswap",
+       "url": "https://dexscreener.com/solana/a7b4hmoepgwbuptdp8drz9hf6jrnn7s3cveazyhum34c",
+       "pairAddress": "A7b4HmoEpgwbUPTdp8drz9hf6JRnn7S3cVEAzYHUM34c",
+       "baseToken": {
+        "address": "ZqW7c7va1dWY8TxcmgdSC7dn2ragnXGdw4xy2pLpump",
+        "name": "Anthropic",
+        "symbol": "Anthropic"
+       },
+       "quoteToken": {
+        "address": "So11111111111111111111111111111111111111112",
+        "name": "Wrapped SOL",
+        "symbol": "SOL"
+       },
+       "priceNative": "0.00000001903",
+       "priceUsd": "0.000001991",
+       "txns": {
+        "m5": {
+         "buys": 0,
+         "sells": 0
+        },
+        "h1": {
+         "buys": 1,
+         "sells": 0
+        },
+        "h6": {
+         "buys": 19824,
+         "sells": 9723
+        },
+        "h24": {
+         "buys": 35967,
+         "sells": 17588
+        }
+       },
+       "volume": {
+        "h24": 170483.62,
+        "h6": 120738.47,
+        "h1": 49.32,
+        "m5": 0
+       },
+       "priceChange": {
+        "h1": 5.07,
+        "h6": -99.8,
+        "h24": -95.41
+       },
+       "liquidity": {
+        "usd": 2026.96,
+        "base": 962131306,
+        "quote": 1.05569
+       },
+       "fdv": 1984,
+       "marketCap": 1984,
+       "pairCreatedAt": 1792004419000,
+       "info": {
+        "imageUrl": "https://cdn.dexscreener.com/cms/images/geLFV_fY-BuyI07E?width=800&height=800&quality=95&format=auto",
+        "header": "https://cdn.dexscreener.com/cms/images/rUYlajAq_OLOpMlR?width=1500&height=500&quality=95&format=auto",
+        "openGraph": "https://cdn.dexscreener.com/token-images/og/solana/ZqW7c7va1dWY8TxcmgdSC7dn2ragnXGdw4xy2pLpump?timestamp=1792028400000",
+        "websites": [],
+        "socials": [
+         {
+          "url": "https://x.com/nicole55st8",
+          "type": "twitter"
+         }
+        ]
+       }
+      },
+      {
+       "chainId": "solana",
+       "dexId": "bags",
+       "url": "https://dexscreener.com/solana/3b7wciyl3vjbifntmsfmlutok4pdv57bqaiykhhqwq5u",
+       "pairAddress": "3B7wciYL3vJBiFntMsfmLutok4pDV57BqaiYkHhqwq5U",
+       "baseToken": {
+        "address": "9kX4Uaos4cDvNLqjKUUKzB1CJzRa3nHj6ppyPrW2BAGS",
+        "name": "Anthropic IPO",
+        "symbol": "ANTHROPIC"
+       },
+       "quoteToken": {
+        "address": "So11111111111111111111111111111111111111112",
+        "name": "Wrapped SOL",
+        "symbol": "SOL"
+       },
+       "priceNative": "0.000003179",
+       "priceUsd": "0.0003316",
+       "txns": {
+        "m5": {
+         "buys": 0,
+         "sells": 0
+        },
+        "h1": {
+         "buys": 0,
+         "sells": 1
+        },
+        "h6": {
+         "buys": 1,
+         "sells": 1
+        },
+        "h24": {
+         "buys": 3,
+         "sells": 3
+        }
+       },
+       "volume": {
+        "h24": 0.62,
+        "h6": 0.2,
+        "h1": 0.1,
+        "m5": 0
+       },
+       "priceChange": {
+        "h1": 0.08,
+        "h6": -2.7,
+        "h24": -3.33
+       },
+       "fdv": 331692.57,
+       "marketCap": 331692.57,
+       "pairCreatedAt": 1781685913000
+      },
+      {
+       "chainId": "solana",
+       "dexId": "raydium",
+       "url": "https://dexscreener.com/solana/ews5d7md1dt3fctttb3x73nwvlehkgtkirzv7ysb2rru",
+       "pairAddress": "EwS5D7Md1dT3FcttTb3x73nwvLEhKGtKiRZv7YsB2rRU",
+       "labels": [
+        "CLMM"
+       ],
+       "baseToken": {
+        "address": "BSECup8M2q2ZHr7z7ReSBjxbpErP2xhBu73fWSKF5J86",
+        "name": "Anthropic",
+        "symbol": "ANTH"
+       },
+       "quoteToken": {
+        "address": "Pren1FvFX6J3E4kXhJuCiAD5aDmGEb7qJRncwA8Lkhw",
+        "name": "Anthropic PreStocks",
+        "symbol": "ANTHROPIC"
+       },
+       "priceNative": "0.00000007423",
+       "priceUsd": "0.00007463",
+       "txns": {
+        "m5": {
+         "buys": 0,
+         "sells": 0
+        },
+        "h1": {
+         "buys": 2,
+         "sells": 0
+        },
+        "h6": {
+         "buys": 2,
+         "sells": 6
+        },
+        "h24": {
+         "buys": 4,
+         "sells": 7
+        }
+       },
+       "volume": {
+        "h24": 840.75,
+        "h6": 623.13,
+        "h1": 1.9,
+        "m5": 0
+       },
+       "priceChange": {
+        "h1": 0.06,
+        "h6": -8.76,
+        "h24": -6.85
+       },
+       "liquidity": {
+        "usd": 35006.12,
+        "base": 272057899,
+        "quote": 14.6238
+       },
+       "fdv": 74632,
+       "marketCap": 74632,
+       "pairCreatedAt": 1786419522000
+      },
+      {
+       "chainId": "solana",
+       "dexId": "meteora",
+       "url": "https://dexscreener.com/solana/2zfskynysgxmldikd9bfph17fv7c9bdgkgyf8aemhmpq",
+       "pairAddress": "2ZFSKYNYsgxmLDiKd9bFPh17fV7c9bdGkGYF8AEMhmpq",
+       "labels": [
+        "DLMM"
+       ],
+       "baseToken": {
+        "address": "Pren1FvFX6J3E4kXhJuCiAD5aDmGEb7qJRncwA8Lkhw",
+        "name": "Anthropic PreStocks",
+        "symbol": "ANTHROPIC"
+       },
+       "quoteToken": {
+        "address": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+        "name": "USD Coin",
+        "symbol": "USDC"
+       },
+       "priceNative": "1011.9534",
+       "priceUsd": "1011.95",
+       "txns": {
+        "m5": {
+         "buys": 0,
+         "sells": 0
+        },
+        "h1": {
+         "buys": 0,
+         "sells": 4
+        },
+        "h6": {
+         "buys": 16,
+         "sells": 12
+        },
+        "h24": {
+         "buys": 33,
+         "sells": 43
+        }
+       },
+       "volume": {
+        "h24": 2394.19,
+        "h6": 639.97,
+        "h1": 70.43,
+        "m5": 0
+       },
+       "priceChange": {
+        "h6": -0.48,
+        "h24": -2.95
+       },
+       "liquidity": {
+        "usd": 8726.26,
+        "base": 3.5694,
+        "quote": 5114.1679
+       },
+       "fdv": 7806166,
+       "marketCap": 7806166,
+       "pairCreatedAt": 1781285135000
+      },
+      {
+       "chainId": "solana",
+       "dexId": "meteora",
+       "url": "https://dexscreener.com/solana/hhabc2wjguq6xyusa92diuuq8a9rxoxawbn38kqkhzst",
+       "pairAddress": "HhABC2WjgUq6xYUSA92diUuQ8A9rxoXaWbN38KQkhZSt",
+       "labels": [
+        "DLMM"
+       ],
+       "baseToken": {
+        "address": "Pren1FvFX6J3E4kXhJuCiAD5aDmGEb7qJRncwA8Lkhw",
+        "name": "Anthropic PreStocks",
+        "symbol": "ANTHROPIC"
+       },
+       "quoteToken": {
+        "address": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+        "name": "USD Coin",
+        "symbol": "USDC"
+       },
+       "priceNative": "1013.8387",
+       "priceUsd": "1013.83",
+       "txns": {
+        "m5": {
+         "buys": 0,
+         "sells": 0
+        },
+        "h1": {
+         "buys": 2,
+         "sells": 7
+        },
+        "h6": {
+         "buys": 9,
+         "sells": 17
+        },
+        "h24": {
+         "buys": 29,
+         "sells": 53
+        }
+       },
+       "volume": {
+        "h24": 37.23,
+        "h6": 12.88,
+        "h1": 4.08,
+        "m5": 0
+       },
+       "priceChange": {
+        "h6": -0.79,
+        "h24": -4.13
+       },
+       "liquidity": {
+        "usd": 7831.19,
+        "base": 1.8219,
+        "quote": 5984.002969
+       },
+       "fdv": 7820709,
+       "marketCap": 7820709,
+       "pairCreatedAt": 1772154577000
+      },
+      {
+       "chainId": "solana",
+       "dexId": "pumpswap",
+       "url": "https://dexscreener.com/solana/csxpxtny69r9nupusghziefis4rb1crcesbxqvhkkbux",
+       "pairAddress": "CsXPXTny69r9nUpusGHZieFiS4rB1CrCesbxqVhKkBUX",
+       "baseToken": {
+        "address": "js53ZBTqbVdrY3B1LpZKXwG84RmtkU16U1ka6X3pump",
+        "name": "Anthropic",
+        "symbol": "ANTH"
+       },
+       "quoteToken": {
+        "address": "So11111111111111111111111111111111111111112",
+        "name": "Wrapped SOL",
+        "symbol": "SOL"
+       },
+       "priceNative": "0.00005371",
+       "priceUsd": "0.005614",
+       "txns": {
+        "m5": {
+         "buys": 5,
+         "sells": 3
+        },
+        "h1": {
+         "buys": 57,
+         "sells": 39
+        },
+        "h6": {
+         "buys": 345,
+         "sells": 228
+        },
+        "h24": {
+         "buys": 1381,
+         "sells": 931
+        }
+       },
+       "volume": {
+        "h24": 66504.96,
+        "h6": 15673.47,
+        "h1": 2501.56,
+        "m5": 201.69
+       },
+       "priceChange": {
+        "m5": 0.32,
+        "h1": 1.24,
+        "h6": 3.3,
+        "h24": 11.55
+       },
+       "liquidity": {
+        "usd": 201716.77,
+        "base": 18142338,
+        "quote": 955.3679
+       },
+       "fdv": 5612378,
+       "marketCap": 5612378,
+       "pairCreatedAt": 1791898479000
+      },
+      {
+       "chainId": "solana",
+       "dexId": "meteora",
+       "url": "https://dexscreener.com/solana/hq7kdgdhkbtzvuwa4u69kxrjjcqzctkvpdc51nxjujen",
+       "pairAddress": "HQ7kdGdHKBTZVuwA4U69kXrjjCqzctkvpDC51nXjUJEn",
+       "labels": [
+        "DLMM"
+       ],
+       "baseToken": {
+        "address": "Pren1FvFX6J3E4kXhJuCiAD5aDmGEb7qJRncwA8Lkhw",
+        "name": "Anthropic PreStocks",
+        "symbol": "ANTHROPIC"
+       },
+       "quoteToken": {
+        "address": "So11111111111111111111111111111111111111112",
+        "name": "Wrapped SOL",
+        "symbol": "SOL"
+       },
+       "priceNative": "9.7446",
+       "priceUsd": "1016.94",
+       "txns": {
+        "m5": {
+         "buys": 0,
+         "sells": 0
+        },
+        "h1": {
+         "buys": 0,
+         "sells": 0
+        },
+        "h6": {
+         "buys": 24,
+         "sells": 37
+        },
+        "h24": {
+         "buys": 84,
+         "sells": 128
+        }
+       },
+       "volume": {
+        "h24": 163.97,
+        "h6": 44.96,
+        "h1": 0,
+        "m5": 0
+       },
+       "priceChange": {
+        "h6": -1,
+        "h24": -2.48
+       },
+       "liquidity": {
+        "usd": 299.8,
+        "base": 0.1344,
+        "quote": 1.5626
+       },
+       "fdv": 7844686,
+       "marketCap": 7844686,
+       "pairCreatedAt": 1772156423000
+      },
+      {
+       "chainId": "solana",
+       "dexId": "orca",
+       "url": "https://dexscreener.com/solana/dxurx1bkjbs2vus3o2fjkqsszueghzef7n6cvdssccby",
+       "pairAddress": "DxURx1BKJBs2vus3o2fjkqSSzueghzeF7n6cvdssCCbY",
+       "labels": [
+        "wp"
+       ],
+       "baseToken": {
+        "address": "Pren1FvFX6J3E4kXhJuCiAD5aDmGEb7qJRncwA8Lkhw",
+        "name": "Anthropic PreStocks",
+        "symbol": "ANTHROPIC"
+       },
+       "quoteToken": {
+        "address": "So11111111111111111111111111111111111111112",
+        "name": "Wrapped SOL",
+        "symbol": "SOL"
+       },
+       "priceNative": "9.8988",
+       "priceUsd": "1032.34",
+       "txns": {
+        "m5": {
+         "buys": 0,
+         "sells": 0
+        },
+        "h1": {
+         "buys": 0,
+         "sells": 0
+        },
+        "h6": {
+         "buys": 5,
+         "sells": 53
+        },
+        "h24": {
+         "buys": 25,
+         "sells": 72
+        }
+       },
+       "volume": {
+        "h24": 509.56,
+        "h6": 401.83,
+        "h1": 0,
+        "m5": 0
+       },
+       "priceChange": {
+        "h6": 1.59,
+        "h24": -1.04
+       },
+       "liquidity": {
+        "usd": 1415.51,
+        "base": 0.6974,
+        "quote": 6.6689
+       },
+       "fdv": 7963487,
+       "marketCap": 7963487,
+       "pairCreatedAt": 1786967341000
+      },
+      {
+       "chainId": "solana",
+       "dexId": "raydium",
+       "url": "https://dexscreener.com/solana/88cjrscs7tz5vpv8px3req6fztem8wpmptu3e4bx5hmv",
+       "pairAddress": "88CjRSCs7tz5vpv8pX3rEq6fZtEm8WPMPTu3e4Bx5hMv",
+       "labels": [
+        "CLMM"
+       ],
+       "baseToken": {
+        "address": "2JVLLQkjHbrGRVkULoQsGRyEbKW2SDcCJe6fWYwVxxKf",
+        "name": "Anthropic",
+        "symbol": "ANTP"
+       },
+       "quoteToken": {
+        "address": "Pren1FvFX6J3E4kXhJuCiAD5aDmGEb7qJRncwA8Lkhw",
+        "name": "Anthropic PreStocks",
+        "symbol": "ANTHROPIC"
+       },
+       "priceNative": "0.00000002438",
+       "priceUsd": "0.00002467",
+       "txns": {
+        "m5": {
+         "buys": 0,
+         "sells": 0
+        },
+        "h1": {
+         "buys": 0,
+         "sells": 0
+        },
+        "h6": {
+         "buys": 0,
+         "sells": 1
+        },
+        "h24": {
+         "buys": 0,
+         "sells": 2
+        }
+       },
+       "volume": {
+        "h24": 408.33,
+        "h6": 145.4,
+        "h1": 0,
+        "m5": 0
+       },
+       "priceChange": {
+        "h6": -4.68,
+        "h24": -4.68
+       },
+       "liquidity": {
+        "usd": 18122.77,
+        "base": 486131621,
+        "quote": 6.05774
+       },
+       "fdv": 24672,
+       "marketCap": 24672,
+       "pairCreatedAt": 1788284983000
+      },
+      {
+       "chainId": "solana",
+       "dexId": "raydium",
+       "url": "https://dexscreener.com/solana/chbr85wqqe9svrnp5vkurbvpt9edjwujevnccpzjzhgj",
+       "pairAddress": "CHBR85WQQE9SvrNp5VkurbvPt9eDjwUJEvnCCpZJZHGj",
+       "labels": [
+        "CLMM"
+       ],
+       "baseToken": {
+        "address": "Pren1FvFX6J3E4kXhJuCiAD5aDmGEb7qJRncwA8Lkhw",
+        "name": "Anthropic PreStocks",
+        "symbol": "ANTHROPIC"
+       },
+       "quoteToken": {
+        "address": "So11111111111111111111111111111111111111112",
+        "name": "Wrapped SOL",
+        "symbol": "SOL"
+       },
+       "priceNative": "9.6125",
+       "priceUsd": "1004.31",
+       "txns": {
+        "m5": {
+         "buys": 0,
+         "sells": 0
+        },
+        "h1": {
+         "buys": 0,
+         "sells": 0
+        },
+        "h6": {
+         "buys": 0,
+         "sells": 1
+        },
+        "h24": {
+         "buys": 3,
+         "sells": 1
+        }
+       },
+       "volume": {
+        "h24": 0.17,
+        "h6": 0.01,
+        "h1": 0,
+        "m5": 0
+       },
+       "priceChange": {
+        "h6": 0.57,
+        "h24": -1.81
+       },
+       "liquidity": {
+        "usd": 69.18,
+        "base": 0.03378,
+        "quote": 0.3374
+       },
+       "fdv": 7747256,
+       "marketCap": 7747256,
+       "pairCreatedAt": 1788752819000
+      }
+     ]
+    }
+   },
+   "https://tokens.coingecko.com/base/all.json": {
+    "result": {
+     "tokens": []
+    }
+   },
+   "https://tokens.uniswap.org": {
+    "result": {
+     "tokens": []
+    }
+   },
+   "https://api.dexscreener.com/token-pairs/v1/base/0xCe354d791EdF33c06c07f1E0E9560A983924d1A5": {
+    "result": [
+     {
+      "chainId": "base",
+      "dexId": "uniswap",
+      "url": "https://dexscreener.com/base/0x38c333c928f09734f5301ab741f7f491f7217ce3b8dd68e517518fadf182a037",
+      "pairAddress": "0x38c333c928f09734f5301ab741f7f491f7217ce3b8dd68e517518fadf182a037",
+      "labels": [
+       "v4"
+      ],
+      "baseToken": {
+       "address": "0xCe354d791EdF33c06c07f1E0E9560A983924d1A5",
+       "name": "Anthropic",
+       "symbol": "ANTH"
+      },
+      "quoteToken": {
+       "address": "0x4200000000000000000000000000000000000006",
+       "name": "Wrapped Ether",
+       "symbol": "WETH"
+      },
+      "priceNative": "0.00000008335",
+      "priceUsd": "0.0002022",
+      "txns": {
+       "m5": {
+        "buys": 0,
+        "sells": 0
+       },
+       "h1": {
+        "buys": 0,
+        "sells": 0
+       },
+       "h6": {
+        "buys": 0,
+        "sells": 0
+       },
+       "h24": {
+        "buys": 5,
+        "sells": 2
+       }
+      },
+      "volume": {
+       "h24": 30.44,
+       "h6": 0,
+       "h1": 0,
+       "m5": 0
+      },
+      "priceChange": {
+       "h24": -1.96
+      },
+      "liquidity": {
+       "usd": 200228.51,
+       "base": 989404184,
+       "quote": 0.04784
+      },
+      "fdv": 202255,
+      "marketCap": 202255,
+      "pairCreatedAt": 1791832125000
+     },
+     {
+      "chainId": "base",
+      "dexId": "uniswap",
+      "url": "https://dexscreener.com/base/0xfa2e366e3cfdaaed1f0a44b11e915cbd99d9f40e04edf75ee4c8c3bd7788954c",
+      "pairAddress": "0xfa2e366e3cfdaaed1f0a44b11e915cbd99d9f40e04edf75ee4c8c3bd7788954c",
+      "labels": [
+       "v4"
+      ],
+      "baseToken": {
+       "address": "0x4fc59c42653E052c7AB5C8381F839e2D70504131",
+       "name": "mmETH",
+       "symbol": "mmETH"
+      },
+      "quoteToken": {
+       "address": "0xCe354d791EdF33c06c07f1E0E9560A983924d1A5",
+       "name": "Anthropic",
+       "symbol": "ANTH"
+      },
+      "priceNative": "11972047.4256",
+      "txns": {
+       "m5": {
+        "buys": 0,
+        "sells": 0
+       },
+       "h1": {
+        "buys": 0,
+        "sells": 0
+       },
+       "h6": {
+        "buys": 0,
+        "sells": 0
+       },
+       "h24": {
+        "buys": 0,
+        "sells": 1
+       }
+      },
+      "volume": {
+       "h24": 0,
+       "h6": 0,
+       "h1": 0,
+       "m5": 0
+      },
+      "priceChange": {},
+      "pairCreatedAt": 1791832127000
+     }
+    ]
+   }
+  }
+ }
+}

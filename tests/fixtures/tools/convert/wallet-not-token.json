@@ -1,0 +1,30 @@
+{
+ "tool": "convert",
+ "case": "wallet-not-token",
+ "note": "A wallet address is not a token: refuse instead of assuming 18 decimals.",
+ "args": {
+  "token": "0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045",
+  "amount": "1",
+  "network": "base"
+ },
+ "recordedAt": "2026-10-15T00:57:44.402Z",
+ "expect": {
+  "error.status": 400
+ },
+ "result": null,
+ "error": {
+  "status": 400,
+  "message": "0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045 doesn't answer like an ERC-20 token on base (symbol and decimals)."
+ },
+ "recording": {
+  "now": 1792025864402,
+  "etherscan": false,
+  "rpc": {
+   "eth_call [{\"data\":\"0x95d89b41\",\"to\":\"0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045\"},\"latest\"]": {
+    "result": "0x"
+   }
+  },
+  "sim": {},
+  "http": {}
+ }
+}

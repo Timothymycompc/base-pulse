@@ -2,10 +2,18 @@
 import { z } from "zod";
 import { TOKEN_TOOLS } from "./tokens";
 import { WALLET_TOOLS } from "./wallet";
+import { REFERENCE_TOOLS } from "./reference";
+import { ADDRESS_TOOLS } from "./address";
+import { APPROVAL_TOOLS } from "./approvals";
+import { FIND_TOOLS } from "./find";
+import { SCREEN_TOOLS } from "./screen";
+import { TX_TOOLS } from "./tx";
+import { SIGNATURE_TOOLS } from "./signature";
+import { X402_TOOLS } from "./x402check";
 import type { ToolDef } from "./types";
 import { FREE_CALLS_TEXT, priceOf } from "../pricing";
 
-export const TOOLS: ToolDef[] = [...TOKEN_TOOLS, ...WALLET_TOOLS];
+export const TOOLS: ToolDef[] = [...TOKEN_TOOLS, ...WALLET_TOOLS, ...REFERENCE_TOOLS, ...ADDRESS_TOOLS, ...APPROVAL_TOOLS, ...FIND_TOOLS, ...SCREEN_TOOLS, ...TX_TOOLS, ...SIGNATURE_TOOLS, ...X402_TOOLS];
 export const TOOLS_BY_NAME = new Map(TOOLS.map((t) => [t.name, t] as [string, ToolDef]));
 
 export const priceText = (name: string) => {
