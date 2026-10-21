@@ -138,7 +138,7 @@ const recipientCheck: ToolDef = {
     { field: "checks[]", type: "array", is: "Each check: name (history, lookalike, planted, recipient_kind, sanctions), result, detail and source.", howWorkedOut: "History from Coinbase's SQL API (base.transfers): a past payment counts only when the sender signed it and it moved a non-zero amount. Look-alike: same first and last 4 hex characters as an address the sender has paid, but different. Planted: appears in the sender's history only through transfers it didn't sign or that moved nothing. Kind from the recipient's code (whats_this). Sanctions from OFAC's SDN list." },
     { field: "lookalike_of", type: "string | null", is: "The address the recipient imitates, when it is a look-alike.", howWorkedOut: "The paid address with the same first and last 4 characters." },
     { field: "times_paid_before", type: "number", is: "How many real transfers the sender has made to this exact address on Base.", howWorkedOut: "Signed, non-zero transfers in base.transfers." },
-    { field: "recipient", type: "object", is: "What the recipient is: kind, delegated_to, verified source.", howWorkedOut: "The same reads as whats_this." },
+    { field: "recipient", type: "object", is: "What the recipient is: kind (wallet, smart_wallet, multisig, token...), delegated_to, verified source.", howWorkedOut: "The same reads as whats_this." },
     { field: "sources", type: "string[]", is: "Where the facts came from.", howWorkedOut: "Names each source." },
   ],
   notes: ["A first payment to a new address is normal and isn't flagged by itself; the look-alike and planted checks are what catch poisoning.", "History covers token transfers on Base (base.transfers). A wallet with more than 5,000 distinct recipients is only partly checked, and the output says so."],
@@ -156,8 +156,9 @@ const recipientCheck: ToolDef = {
 
     if (d.kind === "token") add("recipient_kind", "fail", `The recipient is a token contract (${d.token?.symbol}). Tokens sent to a token's own contract are almost always lost.`, "eth_getCode and the contract's answers");
     else if (d.kind === "delegated_wallet" && d.source.verified !== true) add("recipient_kind", "warn", `The recipient is a wallet run by code at ${d.delegated_to} whose source ${d.source.verified === false ? "isn't verified" : "couldn't be checked"}.`, "EIP-7702 delegation in the recipient's code");
+    else if (d.kind === "smart_wallet" && d.source.verified === false) add("recipient_kind", "warn", "The recipient is a smart wallet running code whose source isn't verified.", "entryPoint() and verified source");
     else if (d.kind === "contract" || d.kind === "nft") add("recipient_kind", "warn", `The recipient is a contract${d.source.name ? ` (${d.source.name})` : ""}, not a wallet. Make sure it is meant to receive this token, or the funds may be stuck.`, "eth_getCode");
-    else add("recipient_kind", "pass", d.kind === "multisig" ? "The recipient is a Safe multisig wallet." : "The recipient is a wallet.", "eth_getCode");
+    else add("recipient_kind", "pass", d.kind === "multisig" ? "The recipient is a Safe multisig wallet." : d.kind === "smart_wallet" ? `The recipient is a smart wallet${d.source.name ? ` (${d.source.name})` : ""}.` : "The recipient is a wallet.", d.kind === "smart_wallet" ? "entryPoint() on chain" : "eth_getCode");
 
     const paidBefore = history?.paid.get(recipient);
     let lookalikeOf: string | null = null;

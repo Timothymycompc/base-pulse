@@ -6,19 +6,20 @@
   "address": "0x000000000000000000000000000000000000dEaD",
   "network": "base"
  },
- "recordedAt": "2026-10-15T01:17:08.619Z",
+ "recordedAt": "2026-10-15T22:45:46.817Z",
  "expect": {
   "kind": "wallet",
   "warnings": []
  },
  "result": {
   "address": "0x000000000000000000000000000000000000dEaD",
-  "eth": "4.468982427072889173",
+  "eth": "4.471329939420774634",
   "tx_count": 0,
   "delegated_to": null,
   "proxy": null,
   "token": null,
   "nft": null,
+  "entry_point": null,
   "multisig": null,
   "kind": "wallet",
   "source": {
@@ -35,17 +36,17 @@
  },
  "error": null,
  "recording": {
-  "now": 1792027028619,
+  "now": 1792104346817,
   "etherscan": true,
   "rpc": {
-   "eth_getBalance [\"0x000000000000000000000000000000000000dEaD\",\"latest\"]": {
-    "result": "0x3e0503d6f9248155"
-   },
    "eth_getCode [\"0x000000000000000000000000000000000000dEaD\",\"latest\"]": {
     "result": "0x"
    },
    "eth_getTransactionCount [\"0x000000000000000000000000000000000000dEaD\",\"latest\"]": {
     "result": "0x0"
+   },
+   "eth_getBalance [\"0x000000000000000000000000000000000000dEaD\",\"latest\"]": {
+    "result": "0x3e0d5ae3c8be80ea"
    }
   },
   "sim": {},

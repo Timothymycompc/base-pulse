@@ -5,6 +5,7 @@ import type { ToolContext, ToolDef } from "./types";
 import { ToolError } from "./types";
 import { addressInput, checksum, EXAMPLE_WALLET, UNISWAP } from "./chain";
 import { verifiedSource } from "./source";
+import { smartWalletEntryPoint } from "./address";
 
 // Base's first block was mined in June 2023; history is searched from here in quarters, because Coinbase's SQL API
 // refuses one query that scans more than ~93 GB, and a busy year of Base events is larger than that.
@@ -158,6 +159,7 @@ const approvals: ToolDef = {
       const code = await client.getCode({ address: spender as Hex, blockNumber: block });
       if (!code || code === "0x") return [spender, { is: "a wallet (no code)", risky: true }];
       if (code.toLowerCase().startsWith("0xef0100")) return [spender, { is: "a wallet run by delegated code (EIP-7702)", risky: true }];
+      if (await smartWalletEntryPoint(client, spender as Hex, block)) return [spender, { is: "a smart wallet (ERC-4337)", risky: true }];
       const source = await verifiedSource(ctx, spender);
       if (!source) return [spender, { is: "a contract (verification couldn't be checked)", risky: null }];
       return [spender, source.found ? { is: `verified contract ${source.name ?? ""}`.trim(), risky: false } : { is: "unverified contract", risky: true }];

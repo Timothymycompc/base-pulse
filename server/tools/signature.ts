@@ -23,7 +23,7 @@ const date = (seconds: bigint | null) => (seconds === null ? null : seconds >= 2
 async function who(ctx: ToolContext, address: string) {
   if (getAddress(address) === UNISWAP.universalRouter) return { is: "Uniswap Universal Router", risky: false as boolean | null };
   const d = await describe(ctx, "base", address);
-  if (d.kind === "wallet" || d.kind === "delegated_wallet") return { is: d.kind === "wallet" ? "a wallet (no code)" : "a wallet run by delegated code", risky: true as boolean | null };
+  if (d.kind === "wallet" || d.kind === "delegated_wallet" || d.kind === "smart_wallet") return { is: d.kind === "wallet" ? "a wallet (no code)" : d.kind === "smart_wallet" ? "a smart wallet" : "a wallet run by delegated code", risky: true as boolean | null };
   if (d.source.verified === false) return { is: `unverified ${d.kind}`, risky: true as boolean | null };
   return { is: `${d.source.verified ? "verified " : ""}${d.kind}${d.source.name ? ` ${d.source.name}` : ""}`, risky: d.source.verified === null ? null : false };
 }

@@ -139,7 +139,7 @@ async function whoIs(ctx: ToolContext, address: string) {
   const known: Record<string, string> = { [UNISWAP.permit2]: "Uniswap Permit2", [UNISWAP.universalRouter]: "Uniswap Universal Router", [UNISWAP.v2Router]: "Uniswap v2 router", [UNISWAP.v3Router]: "Uniswap SwapRouter02" };
   if (known[address]) return { address, is: known[address], kind: "contract", verified: true as boolean | null };
   const d = await describe(ctx, "base", address);
-  return { address, is: d.kind === "wallet" ? "a wallet" : d.kind === "delegated_wallet" ? "a wallet run by delegated code" : `${d.source.verified ? "verified" : d.source.verified === false ? "unverified" : "unchecked"} ${d.kind}${d.source.name ? ` ${d.source.name}` : ""}`, kind: d.kind, verified: d.source.verified };
+  return { address, is: d.kind === "wallet" ? "a wallet" : d.kind === "delegated_wallet" ? "a wallet run by delegated code" : d.kind === "smart_wallet" ? "a smart wallet" : `${d.source.verified ? "verified" : d.source.verified === false ? "unverified" : "unchecked"} ${d.kind}${d.source.name ? ` ${d.source.name}` : ""}`, kind: d.kind, verified: d.source.verified };
 }
 
 type Check = { name: string; result: "pass" | "info" | "warn" | "fail"; detail: string };
@@ -185,7 +185,7 @@ const checkTx: ToolDef = {
       return { kind: g.kind, token: g.token, symbol: meta.get(g.token)?.symbol ?? null, spender: g.spender, spender_is: who.is, what: grantText(g, meta), unlimited: g.kind === "nft_all" || (g.raw ?? 0n) >= UNLIMITED_FROM, who };
     }));
     for (const a of approvals) {
-      if (a.who.kind === "wallet" || a.who.kind === "delegated_wallet") add("approval_to_wallet", "fail", `It ${a.what}, and ${a.spender} is ${a.spender_is}. Phishing approvals go to wallets like this.`);
+      if (a.who.kind === "wallet" || a.who.kind === "delegated_wallet" || a.who.kind === "smart_wallet") add("approval_to_wallet", "fail", `It ${a.what}, and ${a.spender} is ${a.spender_is}. Phishing approvals go to wallets like this.`);
       else if (a.who.verified === false) add("approval_to_unverified", "fail", `It ${a.what}, and ${a.spender} is unverified code.`);
       else if (a.kind === "nft_all") add("approve_all", "warn", `It ${a.what} (${a.spender_is}). Only do this for a marketplace you trust.`);
       else if (a.unlimited) add("unlimited_approval", "warn", `It ${a.what} (${a.spender_is}), now and in the future.`);

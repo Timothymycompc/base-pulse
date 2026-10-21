@@ -21,11 +21,23 @@ const ZOS_SLOTS = {
 const DELEGATION_PREFIX = "0xef0100";
 // ERC-165 interface ids for NFTs. https://eips.ethereum.org/EIPS/eip-721, https://eips.ethereum.org/EIPS/eip-1155
 const ERC721 = "0x80ac58cd", ERC1155 = "0xd9b67a26";
+// ERC-4337 EntryPoints v0.6 to v0.9, the contracts every smart wallet (Coinbase Smart Wallet, Biconomy Nexus, Circle's
+// account...) runs through. Each one has code on Base, checked 2026-10-15. https://github.com/eth-infinitism/account-abstraction
+const ENTRY_POINTS = new Set(["0x5FF137D4b0FDCD49DcA30c7CF57E578a026d2789", "0x0000000071727De22E5E9d8BAf0edAc6f37da032", "0x4337084D9E255Ff0702461CF8895CE9E3b5Ff108", "0x433709009B8330FDa32311DF1C2AFA402eD8D009"]);
 const probeAbi = parseAbi([
+  "function entryPoint() view returns (address)",
+  "function getEntryPoint() view returns (address)",
   "function supportsInterface(bytes4) view returns (bool)",
   "function getThreshold() view returns (uint256)",
   "function getOwners() view returns (address[])",
 ]);
+
+// The official EntryPoint a smart wallet runs through, or null when the address isn't one.
+export async function smartWalletEntryPoint(client: ReturnType<ToolContext["client"]>, address: Hex, blockNumber?: bigint) {
+  const ask = (functionName: "entryPoint" | "getEntryPoint") => attempt(() => client.readContract({ address, abi: probeAbi, functionName, blockNumber } as any) as Promise<string>);
+  const answers = await Promise.all([ask("entryPoint"), ask("getEntryPoint")]);
+  return answers.map((a) => (a ? getAddress(a) : null)).find((a) => a && ENTRY_POINTS.has(a)) ?? null;
+}
 
 const slotAddress = (word: string | undefined) => (word && BigInt(word) ? getAddress(`0x${word.slice(-40)}`) : null);
 async function attempt<T>(run: () => Promise<T>): Promise<T | null> {
@@ -34,12 +46,13 @@ async function attempt<T>(run: () => Promise<T>): Promise<T | null> {
 
 export type Described = {
   address: string;
-  kind: "wallet" | "delegated_wallet" | "token" | "nft" | "multisig" | "contract";
+  kind: "wallet" | "delegated_wallet" | "smart_wallet" | "token" | "nft" | "multisig" | "contract";
   eth: string; tx_count: number;
   delegated_to: string | null;
   proxy: { implementation: string | null; admin: string | null; beacon: string | null } | null;
   token: { symbol: string; name: string; decimals: number } | null;
   nft: "erc721" | "erc1155" | null;
+  entry_point: string | null;
   multisig: { threshold: number; owners: string[] } | null;
   source: { verified: boolean | null; name: string | null; from: string };
 };
@@ -49,7 +62,7 @@ export async function describe(ctx: ToolContext, network: string, input: string)
   const client = ctx.client(network);
   const address = checksum(input) as Hex;
   const [code, wei, nonce] = await Promise.all([client.getCode({ address }), client.getBalance({ address }), client.getTransactionCount({ address })]);
-  const base = { address, eth: formatEther(wei), tx_count: nonce, delegated_to: null, proxy: null, token: null, nft: null, multisig: null };
+  const base = { address, eth: formatEther(wei), tx_count: nonce, delegated_to: null, proxy: null, token: null, nft: null, entry_point: null, multisig: null };
   const sourceOf = async (a: string) => {
     const s = network === "base" ? await verifiedSource(ctx, a) : null;
     return s ? { verified: s.found, name: s.name, from: s.from } : { verified: null, name: null, from: network === "base" ? "unreachable" : "not checked on this network" };
@@ -61,11 +74,11 @@ export async function describe(ctx: ToolContext, network: string, input: string)
   }
   const read = <T,>(functionName: string, args: unknown[] = [], abi: any = probeAbi) => attempt(() => client.readContract({ address, abi, functionName, args, authorizationList: undefined } as any) as Promise<T>);
   const slot = (s: Hex) => client.getStorageAt({ address, slot: s });
-  const [impl, admin, beacon, zosImpl, zosAdmin, symbol, name, decimals, is721, is1155, threshold, owners] = await Promise.all([
+  const [impl, admin, beacon, zosImpl, zosAdmin, symbol, name, decimals, is721, is1155, threshold, owners, ep, getEp] = await Promise.all([
     slot(SLOTS.implementation), slot(SLOTS.admin), slot(SLOTS.beacon), slot(ZOS_SLOTS.implementation), slot(ZOS_SLOTS.admin),
     read<string>("symbol", [], erc20Abi), read<string>("name", [], erc20Abi), read<number>("decimals", [], erc20Abi),
     read<boolean>("supportsInterface", [ERC721]), read<boolean>("supportsInterface", [ERC1155]),
-    read<bigint>("getThreshold"), read<string[]>("getOwners"),
+    read<bigint>("getThreshold"), read<string[]>("getOwners"), read<string>("entryPoint"), read<string>("getEntryPoint"),
   ]);
   const own = network === "base" ? await verifiedSource(ctx, address) : null;
   // Storage slots first; Sourcify's proxy detection covers other patterns (for example EIP-1167 clones and Safes).
@@ -75,18 +88,22 @@ export async function describe(ctx: ToolContext, network: string, input: string)
   const nft = is721 ? "erc721" : is1155 ? "erc1155" : null;
   const token = !nft && symbol !== null && decimals !== null ? { symbol, name: name ?? "", decimals: Number(decimals) } : null;
   const multisig = threshold !== null && owners ? { threshold: Number(threshold), owners: owners.map((o) => getAddress(o)) } : null;
-  const kind = multisig ? "multisig" : token ? "token" : nft ? "nft" : "contract";
+  // A smart wallet names an official EntryPoint as the only contract allowed to run its transactions. Circle's accounts
+  // answer getEntryPoint() and revert on entryPoint().
+  const entryPoint = [ep, getEp].map((a) => (a ? getAddress(a) : null)).find((a) => a && ENTRY_POINTS.has(a)) ?? null;
+  const kind = multisig ? "multisig" : entryPoint && !token && !nft ? "smart_wallet" : token ? "token" : nft ? "nft" : "contract";
   const source = proxy.implementation ? await sourceOf(proxy.implementation) : own ? { verified: own.found, name: own.name, from: own.from } : await sourceOf(address);
-  return { ...base, kind, proxy: isProxy ? proxy : null, token, nft, multisig, source };
+  return { ...base, kind, proxy: isProxy ? proxy : null, token, nft, entry_point: kind === "smart_wallet" ? entryPoint : null, multisig, source };
 }
 
 const KIND_TEXT: Record<Described["kind"], string> = {
   wallet: "A wallet (no code): a person or app holds its key.",
   delegated_wallet: "A wallet that has handed control to code with an EIP-7702 delegation: the code below decides what the wallet does.",
+  smart_wallet: "A smart contract wallet (ERC-4337, such as Coinbase Smart Wallet): its owner signs, and the code below carries the transaction out.",
   token: "A token contract.",
   nft: "An NFT collection contract.",
   multisig: "A multisig wallet (Safe): moving funds needs several owners to sign.",
-  contract: "A contract that isn't a token, NFT or multisig (for example a pool, router, vault or app).",
+  contract: "A contract that isn't a token, NFT, multisig or smart wallet (for example a pool, router, vault or app).",
 };
 
 const whatsThis: ToolDef = {
@@ -95,7 +112,7 @@ const whatsThis: ToolDef = {
   category: "reference",
   benefit: { kind: "money", text: "Tokens sent to a contract that can't handle them are lost for good, and a wallet delegated to unknown code can be emptied by that code. This tells you what an address really is before you send or trust." },
   useWhen: "Run on any address you're about to send to, approve, sign for or trust, when you don't already know what it is. Also answers \"is this a wallet or a contract?\" and \"is this contract verified?\"",
-  description: "Reads the address on Base: whether it has code, an EIP-7702 delegation (a wallet run by code), an upgradeable proxy (EIP-1967), and whether it answers as a token, an NFT collection or a Safe multisig. Adds its ETH balance, how many transactions it has sent and whether its source code is verified.",
+  description: "Reads the address on Base: whether it has code, an EIP-7702 delegation (a wallet run by code), an upgradeable proxy (EIP-1967), and whether it answers as a token, an NFT collection, a Safe multisig or a smart wallet (ERC-4337). Adds its ETH balance, how many transactions it has sent and whether its source code is verified.",
   inputs: { address: addressInput, network: networkInput },
   inputDocs: [
     { name: "address", type: "string", required: true, lookingFor: "Any address: 0x followed by 40 hex characters.", whereToGet: "The recipient, spender or contract you've been given." },
@@ -103,10 +120,11 @@ const whatsThis: ToolDef = {
   ],
   outputs: [
     { field: "address", type: "string", is: "The address, checksummed.", howWorkedOut: "The input." },
-    { field: "kind", type: '"wallet" | "delegated_wallet" | "token" | "nft" | "multisig" | "contract"', is: "What it is.", howWorkedOut: "No code: wallet. Code of 0xef0100 + address: delegated_wallet (EIP-7702). Otherwise a contract, called multisig if getThreshold() and getOwners() answer (Safe), nft if supportsInterface says ERC-721 or ERC-1155, token if symbol() and decimals() answer." },
+    { field: "kind", type: '"wallet" | "delegated_wallet" | "smart_wallet" | "token" | "nft" | "multisig" | "contract"', is: "What it is.", howWorkedOut: "No code: wallet. Code of 0xef0100 + address: delegated_wallet (EIP-7702). Otherwise a contract, called multisig if getThreshold() and getOwners() answer (Safe), smart_wallet if entryPoint() or getEntryPoint() returns an official ERC-4337 EntryPoint (v0.6 to v0.9), nft if supportsInterface says ERC-721 or ERC-1155, token if symbol() and decimals() answer." },
     { field: "what_it_is", type: "string", is: "kind in plain words.", howWorkedOut: "A fixed sentence per kind." },
     { field: "eth / tx_count", type: "string / number", is: "Its ETH balance, and how many transactions it has sent.", howWorkedOut: "eth_getBalance and eth_getTransactionCount. A contract's count is the number of contracts it has created." },
     { field: "delegated_to", type: "string | null", is: "For a delegated wallet, the code that controls it.", howWorkedOut: "The address after 0xef0100 in the wallet's code." },
+    { field: "entry_point", type: "string | null", is: "For a smart wallet, the ERC-4337 EntryPoint it runs through.", howWorkedOut: "Its entryPoint() or getEntryPoint() answer, kept only when it is an official EntryPoint." },
     { field: "proxy", type: "object | null", is: "For an upgradeable proxy: implementation (the code that runs), admin (who can replace it) and beacon.", howWorkedOut: "The EIP-1967 storage slots, then the older ZeppelinOS slots (USDC uses these), then Sourcify's proxy detection. null when it isn't a proxy." },
     { field: "token / nft / multisig", type: "object | string | null", is: "Token symbol, name and decimals; the NFT standard; the multisig's threshold and owners.", howWorkedOut: "The contract's own answers. Names prove nothing: anyone can call a token USDC." },
     { field: "source", type: "object", is: "verified (true, false or null for unknown), the contract name, and where it was checked. For a proxy or delegated wallet, this is the code it runs.", howWorkedOut: "Sourcify, then Basescan when a key is set." },
@@ -124,7 +142,8 @@ const whatsThis: ToolDef = {
     }
     // A Safe is a proxy too, but only its own owners, signing together, can change its code.
     if (d.proxy && d.kind !== "multisig") warnings.push(`Upgradeable: ${d.proxy.admin ? `the admin ${d.proxy.admin}` : "whoever controls upgrades"} can replace the code that runs, at any time.`);
-    if (d.kind !== "wallet" && d.kind !== "delegated_wallet" && d.source.verified === false) warnings.push("Its source code isn't verified, so nobody outside can read what it does.");
+    if (d.kind === "smart_wallet" && d.source.verified === false) warnings.push("This smart wallet runs code whose source isn't verified, so nobody outside can read what it does.");
+    else if (d.kind !== "wallet" && d.kind !== "delegated_wallet" && d.source.verified === false) warnings.push("Its source code isn't verified, so nobody outside can read what it does.");
     if (d.kind === "token") warnings.push("This is a token's own contract. Tokens sent to it are usually lost: send to a wallet instead.");
     return {
       ...d, what_it_is: KIND_TEXT[d.kind], warnings,

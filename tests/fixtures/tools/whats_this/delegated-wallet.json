@@ -6,7 +6,7 @@
   "address": "0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045",
   "network": "base"
  },
- "recordedAt": "2026-10-15T01:14:17.833Z",
+ "recordedAt": "2026-10-15T22:45:38.993Z",
  "expect": {
   "kind": "delegated_wallet",
   "delegated_to": "0x5A7FC11397E9a8AD41BF10bf13F22B0a63f96f6d",
@@ -20,6 +20,7 @@
   "proxy": null,
   "token": null,
   "nft": null,
+  "entry_point": null,
   "multisig": null,
   "kind": "delegated_wallet",
   "source": {
@@ -36,14 +37,14 @@
  },
  "error": null,
  "recording": {
-  "now": 1792026857833,
+  "now": 1792104338993,
   "etherscan": true,
   "rpc": {
-   "eth_getCode [\"0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045\",\"latest\"]": {
-    "result": "0xef01005a7fc11397e9a8ad41bf10bf13f22b0a63f96f6d"
-   },
    "eth_getBalance [\"0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045\",\"latest\"]": {
     "result": "0x2b6bceda617d5400"
+   },
+   "eth_getCode [\"0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045\",\"latest\"]": {
+    "result": "0xef01005a7fc11397e9a8ad41bf10bf13f22b0a63f96f6d"
    },
    "eth_getTransactionCount [\"0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045\",\"latest\"]": {
     "result": "0x46"
