@@ -2,9 +2,12 @@ import { Pool } from "pg";
 
 const isCloudSqlSocket = (process.env.DATABASE_URL || "").includes("/cloudsql/");
 
+// Capped on purpose: every project shares one Cloud SQL instance with max_connections 60, and pg's default of 10 per
+// instance let Pulse + Base + Trade Desk ask for ~450 at full scale (the 2026-11-15 outage). 3 per instance, short waits.
 export const pool = new Pool({
   connectionString: process.env.DATABASE_URL,
   ssl: isCloudSqlSocket ? undefined : { rejectUnauthorized: false },
+  max: 3, idleTimeoutMillis: 30_000, connectionTimeoutMillis: 5_000,
 });
 
 // A tool run: a tool call over HTTP or MCP. Other /mcp traffic is connections, tool listings and uptime pings.

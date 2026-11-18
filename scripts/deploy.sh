@@ -76,7 +76,7 @@ COMMIT=$(git rev-parse --short HEAD)
 if [ -z "$PREV" ]; then
   DEPLOY=(gcloud run deploy $SVC --source . --region $REGION --allow-unauthenticated --tag candidate --update-labels commit=$COMMIT --quiet
     --add-cloudsql-instances x300-506418:$REGION:$SQL_INSTANCE --set-env-vars GCP_PROJECT_ID=x300-506418
-    --set-secrets DATABASE_URL=BASE_PULSE_DATABASE_URL:latest --memory 512Mi --max-instances 20 --cpu-boost)
+    --set-secrets DATABASE_URL=BASE_PULSE_DATABASE_URL:latest --memory 512Mi --max-instances 4 --cpu-boost)
 else
   DEPLOY=(gcloud run deploy $SVC --source . --region $REGION --no-traffic --tag candidate --update-labels commit=$COMMIT --quiet)
 fi
