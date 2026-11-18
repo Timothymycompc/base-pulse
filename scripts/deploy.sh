@@ -99,19 +99,20 @@ TEST_URL=$(gcloud run services describe $SVC --region $REGION --format=json | py
 ok "New version $NEW is running at its test URL"
 
 # ---------- 5. Checks ----------
+# grep reads the whole answer (no -q): with pipefail, grep -q quitting early makes curl fail on long pages (llms.txt, 2026-11-18).
 check_all() {
   local B=$1 FAILS=0
   c() { if eval "$2" >/dev/null 2>&1; then ok "$1"; else fail "$1"; FAILS=$((FAILS+1)); fi; }
-  c "All tools live"         "curl -s -m 20 $B/api/debug/build | grep -q '\"tools\":$TOOL_COUNT'"
-  c "MCP lists tools"        "curl -s -m 20 -X POST $B/mcp -H 'content-type: application/json' -H 'accept: application/json, text/event-stream' -d '{\"jsonrpc\":\"2.0\",\"id\":1,\"method\":\"tools/list\"}' | grep -q balance"
-  c "A tool runs (free call)" "curl -s -m 30 -X POST $B/api/tools/balance -H 'content-type: application/json' -d '{\"wallet\":\"0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045\"}' | grep -q '\"eth_wei\"'"
-  c "Live examples load"     "curl -s -m 30 $B/api/tools/balance/example | grep -q '\"arguments\"'"
-  c "Tool docs"              "curl -s -m 20 $B/api/tools | grep -q '\"howWorkedOut\"'"
-  c "mcp.json lists x402"    "curl -s -m 20 $B/.well-known/mcp.json | grep -q '\"protocol\":\"x402\"'"
-  c "glama.json"             "curl -s -m 20 $B/.well-known/glama.json | grep -q maintainers"
-  c "llms.txt"               "curl -s -m 20 $B/llms.txt | grep -q balance"
-  c "Free-call status"       "curl -s -m 20 $B/api/trial/status | grep -q '\"freeCallsPerTool\":[0-9]'"
-  c "Web page loads"         "curl -s -m 20 $B/docs/tools/balance | grep -q '<div id=\"root\">'"
+  c "All tools live"         "curl -s -m 20 $B/api/debug/build | grep '\"tools\":$TOOL_COUNT'"
+  c "MCP lists tools"        "curl -s -m 20 -X POST $B/mcp -H 'content-type: application/json' -H 'accept: application/json, text/event-stream' -d '{\"jsonrpc\":\"2.0\",\"id\":1,\"method\":\"tools/list\"}' | grep balance"
+  c "A tool runs (free call)" "curl -s -m 30 -X POST $B/api/tools/balance -H 'content-type: application/json' -d '{\"wallet\":\"0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045\"}' | grep '\"eth_wei\"'"
+  c "Live examples load"     "curl -s -m 30 $B/api/tools/balance/example | grep '\"arguments\"'"
+  c "Tool docs"              "curl -s -m 20 $B/api/tools | grep '\"howWorkedOut\"'"
+  c "mcp.json lists x402"    "curl -s -m 20 $B/.well-known/mcp.json | grep '\"protocol\":\"x402\"'"
+  c "glama.json"             "curl -s -m 20 $B/.well-known/glama.json | grep maintainers"
+  c "llms.txt"               "curl -s -m 20 $B/llms.txt | grep balance"
+  c "Free-call status"       "curl -s -m 20 $B/api/trial/status | grep '\"freeCallsPerTool\":[0-9]'"
+  c "Web page loads"         "curl -s -m 20 $B/docs/tools/balance | grep '<div id=\"root\">'"
   return $FAILS
 }
 bold "5/6  Checking the new version before anyone sees it"
